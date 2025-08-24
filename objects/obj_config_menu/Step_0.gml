@@ -36,12 +36,14 @@ function draw_settings_page(){
 	    var btn1 = instance_create_depth(x - 200, y - 180, depth-1, obj_setting_toggle);
 	    btn1.config_key = "screen_shake";
 	    btn1.state = global.screen_shake;
+		btn1.tooltip_text = "炸弹造成的屏幕震动效果"
 	    array_push(setting_buttons, btn1);
     
 	    // 创建闪烁效果开关
 	    var btn2 = instance_create_depth(x - 200, y - 100, depth-1, obj_setting_toggle);
 	    btn2.config_key = "screen_flash";
 	    btn2.state = global.screen_flash;
+		btn2.tooltip_text = "冰桶、开水壶等造成的屏幕闪烁效果"
 	    array_push(setting_buttons, btn2);
 		
 		// 创建全屏开关
@@ -125,7 +127,7 @@ function draw_controls_page(){
     
 	    var btn2 = instance_create_depth(x + 200, y - 170, depth-1, obj_setting_toggle);
 	    btn2.config_key = "quick_placement";
-	    btn2.tooltip_text = "按下快捷键后直接将卡片放置在鼠标对应位置";
+	    btn2.tooltip_text = "按下快捷键后直接将卡片放置在鼠标对应位置\n该选项对铲子生效，开启该选项会自动关闭放置预览";
 	    ini_open("config.ini");
 	    btn2.state = ini_read_bool("settings", "quick_placement", false);
 	    ini_close();

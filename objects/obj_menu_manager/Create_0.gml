@@ -14,3 +14,4 @@ if not instance_exists(obj_menu_music_controller){
 if not instance_exists(obj_world_map_button){
 	instance_create_depth(1670,80,0,obj_world_map_button)
 }
+instance_create_depth(room_width-210,room_height,-1,obj_player_menu_bg)
