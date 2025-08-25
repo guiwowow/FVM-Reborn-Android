@@ -1,5 +1,6 @@
 image_xscale = 1.8
 image_yscale = 1.8
+player_menu = 0
 var btn1 = instance_create_depth(x-45,y-5,depth-1,obj_player_menu_btn)
 btn1.target_screen = "package"
 btn1.sprite_index = spr_package_btn
@@ -12,7 +13,7 @@ btn3.sprite_index = spr_cookbook_btn
 var btn4 = instance_create_depth(x+35,y-5,depth-1,obj_player_menu_btn)
 btn4.target_screen = "quit"
 btn4.sprite_index = spr_quit_btn
-var btn5 = instance_create_depth(x-720,y-10,depth-1,obj_player_menu_btn)
+var btn5 = instance_create_depth(x-305,y-10,depth-1,obj_player_menu_btn)
 btn5.target_screen = "info"
 btn5.sprite_index = spr_info_btn
 btn5.image_xscale = 0.8

@@ -1,11 +1,22 @@
-audio_play_sound(snd_button,0,0)
-if target_screen == "quit"{
-	if room == room_map{
-		room_goto(room_menu)
-	}
-	else{
-		if not instance_exists(obj_quit_confirm){
-			instance_create_depth(0,0,-20,obj_quit_confirm)
+
+if obj_player_info_ui.menu_type == 0{
+	audio_play_sound(snd_button,0,0)
+	if target_screen == "quit"{//退出按钮
+		if room == room_map{
+			room_goto(room_menu)
 		}
+		else{
+			if not instance_exists(obj_quit_confirm){
+				instance_create_depth(0,0,-20,obj_quit_confirm)
+				obj_player_info_ui.menu_type = 4
+				obj_world_map_button.world_map = 2
+			}
+		}
+	}
+	else if target_screen == "package"{
+		instance_create_depth(1380,room_height/2,-5,obj_package_bg)
+		instance_create_depth(530,room_height/2,-5,obj_package_bg)
+		obj_player_info_ui.menu_type = 4
+		obj_world_map_button.world_map = 2
 	}
 }
