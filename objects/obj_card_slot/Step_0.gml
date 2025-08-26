@@ -39,22 +39,8 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
     my = mouse_y;
     
     if (point_in_rectangle(mx, my, x-50, y-70, x+50, y+70)) {
-        // 选中当前卡槽
-        is_selected = true;
-        
-        // 如果有全局选中卡槽，取消其选中状态
-		var shovel_slot = instance_find(obj_shovel_slot, 0);
-        if (instance_exists(shovel_slot) && shovel_slot.is_selected) {
-            deselect_shovel();
-        }
-        if (global.selected_slot != noone && global.selected_slot != id) {
-            global.selected_slot.is_selected = false;
-            instance_destroy(global.selected_slot.selected_preview);
-            global.selected_slot.selected_preview = noone;
-        }
-        audio_play_sound(snd_card_lift,0,0)
-        // 设置全局选中卡槽为当前卡槽
-        global.selected_slot = id;
+		
+        select_slot()
         
         // 创建放置预览对象
         if (selected_preview == noone) {
@@ -70,53 +56,10 @@ var slot_key = global.keybind_map[? "卡槽" + string(slot_index)];
 if keyboard_check_pressed(slot_key) && is_ready{
         // 选中当前卡槽
 		if !is_selected{
-        is_selected = true;
-        
-        // 如果有全局选中卡槽，取消其选中状态
-		var shovel_slot = instance_find(obj_shovel_slot, 0);
-        if (instance_exists(shovel_slot) && shovel_slot.is_selected) {
-            deselect_shovel();
-        }
-        if (global.selected_slot != noone && global.selected_slot != id) {
-            global.selected_slot.is_selected = false;
-            instance_destroy(global.selected_slot.selected_preview);
-            global.selected_slot.selected_preview = noone;
-        }
-        audio_play_sound(snd_card_lift,0,0)
-        // 设置全局选中卡槽为当前卡槽
-        global.selected_slot = id;
+			select_slot()
         
 		if global.quick_placement{
-			// 检查是否在可种植区域
-        var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal"));
-        
-        if (can_plant && global.flame >= cost) {
-            // 创建植物实例
-			var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
-            var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
-			//new_plant.plant_type = plant_type;
-			// 计算深度值
-			var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
-			card_created(new_plant, grid_pos.col, grid_pos.row);
-			new_plant.depth = depth_value
-			instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
-            
-            // 扣除阳光
-            global.flame -= cost;
-            
-            // 重置冷却计时器
-            cooldown_timer = 0;
-            is_ready = false;
-            
-			audio_play_sound(snd_place1,0,0)
-            // 取消选择
-            is_selected = false;
-            if (selected_preview != noone && instance_exists(selected_preview)) {
-                instance_destroy(selected_preview);
-            }
-            selected_preview = noone;
-            global.selected_slot = noone;
-        }
+			try_place_once()
 		}
 		else{
         // 创建放置预览对象
@@ -186,9 +129,6 @@ if (is_selected) {
             }
             selected_preview = noone;
             global.selected_slot = noone;
-        } else {
-            // 不可种植区域或阳光不足 - 播放错误音效
-            //audio_play_sound(snd_error, 1, false);
         }
     }
 }

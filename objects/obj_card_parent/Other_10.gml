@@ -11,6 +11,7 @@ if (plant_data != undefined) {
     var upgrade_data = get_plant_upgrade(plant_id, current_level);
     if (upgrade_data != undefined) {
         hp = upgrade_data[? "hp"];
+		max_hp = hp
         cost = upgrade_data[? "cost"];
         atk = upgrade_data[? "atk"];
         range = upgrade_data[? "range"];

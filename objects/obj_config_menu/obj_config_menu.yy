@@ -12,7 +12,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Player Info",
-    "path":"folders/物体/Main Menu/Player Info.yy",
+    "path":"folders/物体/Menu/Player Info.yy",
   },
   "parentObjectId":null,
   "persistent":false,

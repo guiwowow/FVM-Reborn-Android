@@ -24,3 +24,9 @@ else if (config_key == "replace_placement"){
 else if (config_key == "quick_placement"){
 	global.quick_placement = state
 }
+else if (config_key == "card_hpbar"){
+	global.card_hpbar = state
+}
+else if (config_key == "enemy_hpbar"){
+	global.enemy_hpbar = state
+}

@@ -51,6 +51,18 @@ function draw_settings_page(){
 	    btn3.config_key = "fullscreen";
 	    btn3.state = global.fullscreen;
 	    array_push(setting_buttons, btn3);
+		
+		// 创建植物血条开关
+	    var btn4 = instance_create_depth(x - 200, y + 60, depth-1, obj_setting_toggle);
+	    btn4.config_key = "card_hpbar";
+	    btn4.state = global.card_hpbar;
+	    array_push(setting_buttons, btn4);
+		
+		// 创建敌人血条开关
+	    var btn5 = instance_create_depth(x - 200, y + 140, depth-1, obj_setting_toggle);
+	    btn5.config_key = "enemy_hpbar";
+	    btn5.state = global.enemy_hpbar;
+	    array_push(setting_buttons, btn5);
     
 	    // 标记当前设置页面
 	    current_settings = id;

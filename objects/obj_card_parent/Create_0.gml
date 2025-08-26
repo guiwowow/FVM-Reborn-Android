@@ -5,6 +5,7 @@ cost = 0
 description = ""
 cooldown = 0
 hp = 100
+max_hp = 100
 atk = 0
 range = 0
 attack_type = ATTACK_TYPE.PRODUCER

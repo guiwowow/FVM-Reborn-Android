@@ -10,8 +10,8 @@
   "name":"obj_readyroom_manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"Main Menu",
-    "path":"folders/物体/Main Menu.yy",
+    "name":"Menu",
+    "path":"folders/物体/Menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

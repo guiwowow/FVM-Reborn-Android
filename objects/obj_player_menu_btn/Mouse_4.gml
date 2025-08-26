@@ -15,7 +15,6 @@ if obj_player_info_ui.menu_type == 0{
 	}
 	else if target_screen == "package"{
 		instance_create_depth(1380,room_height/2,-5,obj_package_bg)
-		instance_create_depth(530,room_height/2,-5,obj_package_bg)
 		obj_player_info_ui.menu_type = 4
 		obj_world_map_button.world_map = 2
 	}

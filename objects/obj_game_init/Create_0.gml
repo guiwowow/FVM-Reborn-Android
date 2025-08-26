@@ -25,8 +25,10 @@ if (!file_exists("config.ini")) {
 	ini_write_bool("settings", "fullscreen", false);
 	ini_write_real("settings", "music_volume", 0.7);
 	ini_write_real("settings", "sound_volume", 0.7);
+	ini_write_bool("settings", "quick_placement", false);
 	ini_write_bool("settings", "replace_placement", false);
-	ini_write_bool("settings", "replace_placement", false);
+	ini_write_bool("settings", "card_hpbar", false);
+	ini_write_bool("settings", "enemy_hpbar", false);
 	ini_open("config.ini");
     for (var i = 0; i < array_length(global.keybind_config); i++) {
         var kb = global.keybind_config[i];
@@ -47,6 +49,8 @@ global.music_volume = ini_read_real("settings", "music_volume", 0.7);
 global.sound_volume = ini_read_real("settings", "sound_volume", 0.7);
 global.quick_placement = ini_read_bool("settings", "quick_placement", false);
 global.replace_placement = ini_read_bool("settings", "replace_placement", false);
+global.card_hpbar = ini_read_bool("settings", "card_hpbar", false);
+global.enemy_hpbar = ini_read_bool("settings", "enemy_hpbar", false);
 for (var i = 0; i < array_length(global.keybind_config); i++) {
 	    var kb = global.keybind_config[i];
 	    var key_val = ini_read_real("keybinds", kb.name, kb.default1);
