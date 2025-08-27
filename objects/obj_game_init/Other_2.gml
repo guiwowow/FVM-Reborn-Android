@@ -9,4 +9,6 @@ cards_init()
 global.player_name = "Player";
 global.player_sprite = noone;
 
+load_file()
+
 room_goto(room_menu)

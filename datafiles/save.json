@@ -1,0 +1,24 @@
+{
+    "version": 1.0,
+    "player": {
+        "gold": 0,
+        "level": 1,
+        "experience": 0
+    },
+    "unlocked_cards": [
+        {"id": "small_fire", "level": 1,"shape":0},
+        {"id": "xiao_long_bao", "level": 1,"shape":0}
+    ],
+    "completed_levels": [
+    ],
+    "inventory": [
+    ],
+    "unlocked_items": {
+        "max_card_level":1,
+        "max_skill_level":0,
+        "max_gem_level":0
+    },
+    "unlocked_weapons": [
+        {"id":"long_bao_gun"}
+    ]
+}
