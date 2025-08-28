@@ -13,7 +13,7 @@ if (plant_data != undefined) {
 	shape = card_save_data.shape
     
     // 应用基础属性
-    var upgrade_data = get_plant_upgrade(plant_id, current_level);
+    var upgrade_data = get_plant_upgrade(plant_id, shape,current_level);
     if (upgrade_data != undefined) {
         hp = upgrade_data[? "hp"];
 		max_hp = hp

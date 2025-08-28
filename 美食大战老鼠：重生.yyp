@@ -163,6 +163,7 @@
     {"id":{"name":"card_destroyed","path":"scripts/card_destroyed/card_destroyed.yy",},},
     {"id":{"name":"card_info","path":"scripts/card_info/card_info.yy",},},
     {"id":{"name":"card_registry","path":"scripts/card_registry/card_registry.yy",},},
+    {"id":{"name":"card_skill","path":"scripts/card_skill/card_skill.yy",},},
     {"id":{"name":"card_ungrade","path":"scripts/card_ungrade/card_ungrade.yy",},},
     {"id":{"name":"cards_init","path":"scripts/cards_init/cards_init.yy",},},
     {"id":{"name":"create_battle_slots","path":"scripts/create_battle_slots/create_battle_slots.yy",},},
