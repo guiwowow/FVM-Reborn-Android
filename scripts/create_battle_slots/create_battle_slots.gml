@@ -6,7 +6,9 @@ function create_battle_slots() {
     var x_spacing = 90;
     
     for(var i = 0; i < ds_list_size(global.selected_deck); i++) {
-        var card_data = global.selected_deck[| i];
+        var deck_entry = global.selected_deck[| i];
+        var card_data = deck_entry[? "data"];
+        
         var inst = instance_create_depth(
             start_x + i * x_spacing, 
             y_pos, 
@@ -14,11 +16,12 @@ function create_battle_slots() {
             obj_card_slot
         );
         
-        inst.cost = card_data[? CARD_DATA.cost];
-        inst.cooldown = card_data[? CARD_DATA.cooldown];
-        inst.card_obj = card_data[? CARD_DATA.obj];
-        inst.card_spr = card_data[? CARD_DATA.spr];
-        inst.description = card_data[? CARD_DATA.description];
-		inst.slot_index = i + 1
+        inst.cost = card_data[? "cost"];
+        inst.cooldown = card_data[? "cooldown"];
+        inst.card_obj = card_data[? "obj"]; 
+        inst.card_spr = card_data[? "sprite"];
+        inst.description = card_data[? "description"];
+        inst.slot_index = i + 1;
+        inst.shape = deck_entry[? "shape"]; // 存储形态信息
     }
 }

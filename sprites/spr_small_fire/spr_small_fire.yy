@@ -53,8 +53,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Flame Producer",
-    "path":"folders/精灵/Cards/Flame Producer.yy",
+    "name":"small_fire",
+    "path":"folders/精灵/Cards/Flame Producer/small_fire.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

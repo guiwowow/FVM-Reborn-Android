@@ -7,7 +7,7 @@ function load_custom_deck(deck_data) {
     
     // 添加新卡牌
     for(var i = 0; i < array_length(deck_data); i++) {
-        add_to_deck(deck_data[i]);
+        add_to_deck(deck_data[i],0);
     }
     
     // 重新创建卡槽（需在战斗房间调用）

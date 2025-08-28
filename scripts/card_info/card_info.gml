@@ -16,7 +16,7 @@ function get_card_info(card_id) {
             };
             
             // 尝试获取卡片的完整数据（从注册的卡牌数据中）
-            var card_data = deck_get_card_data(card_id);
+            var card_data = deck_get_card_data(card_id,0);
             if (card_data != noone) {
                 card_info1.obj = card_data[? CARD_DATA.obj];
                 card_info1.spr = card_data[? CARD_DATA.spr];
