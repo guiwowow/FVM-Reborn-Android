@@ -7,3 +7,6 @@ global.auto_collect = true
 global.auto_collect_delay = 60
 flame_natural_growth_cycle = 12*60
 flame_natural_growth_timer = 0
+
+var slot_length =0.5* ds_list_size(global.player_deck)
+//show_debug_message("slot_length:"+string(slot_length))

@@ -6,3 +6,8 @@ surface_reset_target();
 global.menu_screen = false
 instance_create_depth(1700,883,-2,obj_battlestart_button)
 readyroom_music = mus_readyroom
+
+ds_list_clear(global.selected_deck);
+add_to_deck("xiao_long_bao",0);
+add_to_deck("small_fire",0);
+//add_to_deck("toast_bread",0);

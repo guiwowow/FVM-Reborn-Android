@@ -5,9 +5,7 @@ surface_reset_target();
 
 instance_create_depth(0,0,0,obj_flame_manager)
 instance_create_depth(0,0,0,obj_battle_music_controller)
-ds_list_clear(global.selected_deck);
-add_to_deck("xiao_long_bao",0);
-add_to_deck("small_fire",0);
+
 
 instance_create_depth(1800,330,0,obj_normal_mouse)
 instance_create_depth(1800,460,0,obj_normal_mouse)

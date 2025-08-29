@@ -31,7 +31,10 @@ if package_button_select == 1 {
     
     for(var i = 0; i < ds_list_size(global.player_deck); i += 2) {
         var card_id = global.player_deck[| i];
-        var card_data = global.player_deck[| i+1];
+        var deck_entry = global.player_deck[| i+1];
+		var card_data_shapes = deck_entry[? "shapes"]
+		var card_data = {}
+		var card_shape = 0
         
         // 计算卡片位置
         var row = card_index div package_cols;
@@ -46,6 +49,8 @@ if package_button_select == 1 {
             for(var k = 0; k < array_length(global.save_data.unlocked_cards); k++) {
                 if (global.save_data.unlocked_cards[k].id == card_id) {
                     is_unlocked = true;
+					card_shape = global.save_data.unlocked_cards[k].shape
+					card_data = card_data_shapes[| card_shape]
                     break;
                 }
             }
@@ -54,18 +59,18 @@ if package_button_select == 1 {
             if (is_unlocked) {
                 // 已解锁的卡片正常绘制
 				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.29, 0.27, 0, c_white, 1);
-                draw_sprite_ext(card_data[? CARD_DATA.spr], 0, card_x, card_y+15, 0.8, 0.8, 0, c_white, 1);
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.8, 0.8, 0, c_white, 1);
 				draw_set_color(c_black);
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_bottom);
-				draw_text(card_x,card_y+45,card_data[? CARD_DATA.cost])
+				draw_text(card_x,card_y+45,card_data[? "cost"])
 				var level = global.save_data.unlocked_cards[card_index].level
 				if level > 0{
 					draw_sprite_ext(spr_star_slot, level - 1, card_x-30, card_y-40,1.4,1.4,0,c_white,1);
 				}
                 // 检查鼠标是否悬停在卡片上
-                var spr_width = sprite_get_width(card_data[? CARD_DATA.spr]) * 1.8;
-                var spr_height = sprite_get_height(card_data[? CARD_DATA.spr]) * 1.8;
+                var spr_width = sprite_get_width(card_data[? "sprite"]) * 1;
+                var spr_height = sprite_get_height(card_data[? "sprite"]) * 1;
                 
                 if (point_in_rectangle(mouse_x, mouse_y, 
                                       card_x - spr_width/2, card_y - spr_height/2,
@@ -74,7 +79,9 @@ if package_button_select == 1 {
                 }
             } else {
                 // 未解锁的卡片使用灰色滤镜
-                draw_sprite_ext(card_data[? CARD_DATA.spr], 0, card_x, card_y, 1.8, 1.8, 0, c_gray, 1);
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.29, 0.27, 0, c_gray, 1);
+				card_data = card_data_shapes[| card_shape]
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.8, 0.8, 0, c_gray, 1);
             }
             
             card_index++;

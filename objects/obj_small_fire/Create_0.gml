@@ -5,7 +5,9 @@ plant_id = "small_fire";
 // 设置对象类型和精灵
 obj_type = object_index;
 sprite_index = spr_small_fire;
-current_level = 1
+if shape == 1{
+	sprite_index = spr_small_fire_1
+}
 event_user(0)
 
 // ========== 特定属性默认值 ==========

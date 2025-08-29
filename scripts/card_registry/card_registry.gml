@@ -45,6 +45,8 @@ function register_plant(plant_id, shapes_array) {
         ds_map_add(base_upgrade, "range", shape_info.range);
         ds_map_add(base_upgrade, "cooldown", shape_info.cooldown);
         ds_map_add(base_upgrade, "cycle", shape_info.cycle);
+		if struct_exists(shape_info,"flame_produce"){
+			ds_map_add(base_upgrade,"flame_produce",shape_info.flame_produce)}
         
         ds_map_add(upgrades, "0", base_upgrade);
         
@@ -86,6 +88,8 @@ function add_plant_upgrade(plant_id, level, shapes_upgrade_array) {
             ds_map_add(upgrade_map, "range", upgrade_info.range);
             ds_map_add(upgrade_map, "cooldown", upgrade_info.cooldown);
             ds_map_add(upgrade_map, "cycle", upgrade_info.cycle);
+			if struct_exists(upgrade_info,"flame_produce"){
+			ds_map_add(upgrade_map,"flame_produce",upgrade_info.flame_produce)}
             
             // 添加自定义属性
             //var keys = ds_map_keys_to_array(upgrade_info);
