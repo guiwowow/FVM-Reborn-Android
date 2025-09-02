@@ -1,0 +1,328 @@
+{
+    "level_name": "曲奇岛",
+    "total_waves": 2,
+    "elite_wave": 0,
+    "boss_wave": 0,
+    "map_rows": 7,
+    "map_cols": 9,
+    "map": [
+        [
+            {
+                "type": "normal",
+                "plant": "small_fire"
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ],
+        [
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            },
+            {
+                "type": "normal",
+                "plant": ""
+            }
+        ]
+    ],
+    "waves": [
+        {
+            "wave_index": 1,
+            "subwaves": [
+                {
+                    "subwave_index": 1,
+                    "enemy_list": [
+                        {
+                            "type": "normal_mouse",
+                            "row": 1
+                        },
+                        {
+                            "type": "normal_mouse",
+                            "row": 2
+                        },
+                        {
+                            "type": "normal_mouse",
+                            "row": 3
+                        },
+                        {
+                            "type": "normal_mouse",
+                            "row": 4
+                        },
+                        {
+                            "type": "normal_mouse",
+                            "row": 5
+                        }
+                    ]
+                },
+                {
+                    "subwave_index": 2,
+                    "enemy_list": []
+                },
+                {
+                    "subwave_index": 3,
+                    "enemy_list": []
+                },
+                {
+                    "subwave_index": 4,
+                    "enemy_list": []
+                },
+                {
+                    "subwave_index": 5,
+                    "enemy_list": []
+                }
+            ]
+        },
+        {
+            "wave_index": 2,
+            "subwaves": []
+        }
+    ]
+}

@@ -2,7 +2,7 @@ image_xscale = 1.8
 image_yscale = 1.8
 image_speed = 0
 atk = 10 //每次攻击伤害
-atk_cycle = 1 * 60 //攻击间隔
+atk_cycle = 0.6 * 60 //攻击间隔
 move_speed = 0.32 //移动速度（像素/秒）
 hp = 100
 maxhp = 100
@@ -17,6 +17,7 @@ timer = 0
 attack_timer = 0
 target_plant = noone
 attack_range = 90
+immune_to_ash = false
 
 // 加载Shader
 shader_hit = hit_effect_2

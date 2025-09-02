@@ -137,6 +137,10 @@ if (image_alpha <= 0 && state == ENEMY_STATE.DEAD) {
     instance_destroy();
 }
 
+if flash_value > 0 {
+	flash_value -= 10
+}
+
 // 更新僵尸的网格位置和深度
 
 var base_depth = -10 - (zombie_grid.row * 45) - (zombie_grid.col * 5);

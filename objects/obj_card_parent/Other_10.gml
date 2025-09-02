@@ -33,7 +33,23 @@ if (plant_data != undefined) {
 
 if current_level >= 4{ //绑定星级贴图
 	var inst = instance_create_depth(x,y-5,depth-1,obj_stars)
-	inst.sprite_index = spr_star_4
+	var star_spr = -1
+	switch current_level{
+		case 4:star_spr = spr_star_4;break;
+		case 5:star_spr = spr_star_5;break;
+		case 6:star_spr = spr_star_6;break;
+		case 7:star_spr = spr_star_7;break;
+		case 8:star_spr = spr_star_8;break;
+		case 9:star_spr = spr_star_9;break;
+		case 10:star_spr = spr_star_10;break;
+		case 11:star_spr = spr_star_11;break;
+		case 12:star_spr = spr_star_12;break;
+		case 13:star_spr = spr_star_13;break;
+		case 14:star_spr = spr_star_14;break;
+		case 15:star_spr = spr_star_15;break;
+		case 16:star_spr = spr_star_16;break;
+	}
+	inst.sprite_index = star_spr
 	inst.parent_card = id
 	banding_star_obj = inst.id
 }

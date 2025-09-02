@@ -2,12 +2,15 @@
 cooldown = 7 * 60
 card_obj = obj_small_fire
 card_spr = spr_small_fire
+card_id = ""
 cost = 50
 night = false
 cooldown_timer = 30000
 description = "小火炉:生产火苗"
 slot_index = 0
-level = 1
+clevel = 0
+cshape = 0
+info_got = false
 
 is_ready = true           // 卡槽是否可用
 is_selected = false       // 卡槽是否被选中
@@ -20,6 +23,8 @@ preview_alpha = 0.5;      // 放置预览的透明度
 image_xscale = 0.33
 image_yscale = 0.33
 image_speed = 0
+
+
 
 //选择卡槽逻辑
 function select_slot(){

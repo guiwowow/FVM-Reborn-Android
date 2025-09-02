@@ -10,16 +10,19 @@ function load_file() {
             "player": {
                 "gold": 0,
                 "level": 1,
-                "experience": 0
+                "experience": 0,
+				"name":"Player"
             },
             "unlocked_cards": [
                 {"id": "small_fire", "level": 1, "shape": 0,"skill":0},
-                {"id": "xiao_long_bao", "level": 1, "shape": 0,"skill":0}
+                {"id": "xiao_long_bao", "level": 1, "shape": 0,"skill":0},
+				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0},
+				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0}
             ],
             "completed_levels": [],
             "inventory": [],
             "unlocked_items": {
-                "max_card_level": 1,
+                "max_card_level": 0,
                 "max_skill_level": 0,
                 "max_gem_level": 0
             },
@@ -57,4 +60,33 @@ function load_file() {
         show_debug_message("存档解析错误: " + string(e));
         return false;
     }
+}
+
+function reset_file(){
+	global.save_data = {
+            "version": 1.0,
+            "player": {
+                "gold": 0,
+                "level": 1,
+                "experience": 0,
+				"name":"Player"
+            },
+            "unlocked_cards": [
+                {"id": "small_fire", "level": 0, "shape": 0,"skill":0},
+                {"id": "xiao_long_bao", "level": 0, "shape": 0,"skill":0},
+				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0},
+				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0}
+            ],
+            "completed_levels": [],
+            "inventory": [],
+            "unlocked_items": {
+                "max_card_level": 0,
+                "max_skill_level": 0,
+                "max_gem_level": 0
+            },
+            "unlocked_weapons": [
+                {"id": "long_bao_gun"}
+            ]
+        };
+	save_file()
 }

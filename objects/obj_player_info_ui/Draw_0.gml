@@ -46,7 +46,7 @@ if (surface_exists(avatar_surface)) {
 //shader_reset();
 
 //draw_sprite(spr_player_character_icon,0,x+90,y+70)
-draw_sprite_ext(spr_player_levels,0,x + 140 , y + 38,1.3,1.3,0,c_white,1)
+draw_sprite_ext(spr_player_levels,global.save_data.player.level - 1,x + 140 , y + 38,1.3,1.3,0,c_white,1)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 draw_text(x+290,y+38,"色拉岛（陆）")

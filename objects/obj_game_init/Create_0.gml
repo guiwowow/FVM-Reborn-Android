@@ -64,3 +64,5 @@ window_set_fullscreen(global.fullscreen)
 // 设置初始静音状态
 global.music_volume_before_mute = global.music_volume > 0 ? global.music_volume : 0.7;
 global.sound_volume_before_mute = global.sound_volume > 0 ? global.sound_volume : 0.7;
+
+show_debug_message(working_directory)

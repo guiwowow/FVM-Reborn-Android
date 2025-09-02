@@ -21,7 +21,6 @@ if flash_value >0{
     //// 重置渲染状态
     //shader_reset();
     //gpu_set_blendmode(bm_normal);
-	flash_value -= 10
 }
 else{
 	image_blend = c_white

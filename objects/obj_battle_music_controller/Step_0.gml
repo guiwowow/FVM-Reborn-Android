@@ -7,6 +7,3 @@ if not audio_is_playing(battle_music) and not global.is_paused{
 if audio_is_playing(battle_music) and global.is_paused{
 	audio_pause_sound(battle_music)
 }
-if keyboard_check_pressed(ord("Q")){
-	event_user(0)
-}

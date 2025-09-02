@@ -9,8 +9,8 @@ draw_self()
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 draw_set_color(c_black);
-draw_set_font(font_pixel);
-draw_text_ext_transformed(x-12, y+46, string(cost),25,1800,1.2,1.2,0);
+draw_set_font(font_yuan);
+draw_text_ext_transformed(x-12, y+40, string(cost),25,1800,1,1,0);
 draw_sprite_ext(spr_flame, 0, x-24, y+43, 0.3, 0.3, 0, c_white, 1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -18,8 +18,8 @@ draw_set_valign(fa_top);
 draw_sprite_ext(card_spr, 0, x, y+18,0.9,0.9,0,c_white,1);
 //绘制星级
 
-if level > 0{
-	draw_sprite_ext(spr_star_slot, level - 1, x-35, y-45,1.6,1.6,0,c_white,1);
+if clevel > 0{
+	draw_sprite_ext(spr_star_slot, clevel - 1, x-35, y-45,1.6,1.6,0,c_white,1);
 }
 
 
@@ -86,4 +86,6 @@ if (cooldown_timer < cooldown) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
+
+
 

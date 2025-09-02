@@ -9,11 +9,11 @@ draw_self()
 draw_sprite_ext(spr_package_bg_2,0,530,room_height/2,1.8,1.8,0,c_white,1)
 
 // 绘制玩家金币数量
-draw_set_font(font_song2); // 假设有一个字体font_main
+draw_set_font(font_yuan); // 假设有一个字体font_main
 draw_set_color(c_yellow);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
-draw_text(x - 180, y + 410, string(global.save_data.player.gold));
+draw_text(x - 180, y + 406, string(global.save_data.player.gold));
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
@@ -63,7 +63,9 @@ if package_button_select == 1 {
 				draw_set_color(c_black);
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_bottom);
-				draw_text(card_x,card_y+45,card_data[? "cost"])
+				draw_set_font(font_pixel)
+				draw_text(card_x,card_y+40,card_data[? "cost"])
+				draw_set_font(font_yuan)
 				var level = global.save_data.unlocked_cards[card_index].level
 				if level > 0{
 					draw_sprite_ext(spr_star_slot, level - 1, card_x-30, card_y-40,1.4,1.4,0,c_white,1);

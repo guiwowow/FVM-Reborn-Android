@@ -134,3 +134,6 @@ if (is_selected) {
 }
 
 depth = -1 * slot_index
+if info_got == false{
+	event_user(0)
+}

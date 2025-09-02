@@ -23,7 +23,7 @@ if keyboard_check_pressed(ord("R")){
 		var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 		card_created(new_plant, grid_pos.col, grid_pos.row);
 		new_plant.depth = depth_value
-		new_plant.flame_produce = 9990
+		new_plant.flame_produce = 15000
 		instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 		audio_play_sound(snd_place1,0,0)
 	}
@@ -38,7 +38,8 @@ if keyboard_check_pressed(ord("A")){
 		var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 		card_created(new_plant, grid_pos.col, grid_pos.row);
 		new_plant.depth = depth_value
-		new_plant.atk = 12
+		new_plant.cycle = 10
+		//new_plant.atk = 12
 		instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 		audio_play_sound(snd_place1,0,0)
 	}

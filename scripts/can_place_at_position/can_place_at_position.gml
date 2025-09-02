@@ -48,14 +48,15 @@ function can_place_at_position(x, y, plant_type) {
             if (ds_list_size(plant_list) == 0) {
                 // 空地上
                 //return (global.grid_terrain[# col, row] == "grass");
+				return true
             } else {
                 // 检查是否有莲叶
-                for (var i = 0; i < ds_list_size(plant_list); i++) {
-                    var plant = ds_list_find_value(plant_list, i);
-                    if (plant.plant_type == "lilypad") {
-                        return true;
-                    }
-                }
+                //for (var i = 0; i < ds_list_size(plant_list); i++) {
+                //    var plant = ds_list_find_value(plant_list, i);
+                //    if (plant.plant_type == "lilypad") {
+                //        return true;
+                //    }
+                //}
                 return false;
             }
             

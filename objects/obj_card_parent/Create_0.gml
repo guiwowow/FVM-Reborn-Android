@@ -34,6 +34,7 @@ flash_speed = 6
 attack_anim = 0
 banding_star_obj = noone
 flash_value = 0
+idle_anim = 0
 
 // ========== 注册信息 ==========
 plant_id = ""  // 植物唯一标识符

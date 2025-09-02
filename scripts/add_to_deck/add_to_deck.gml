@@ -10,5 +10,9 @@ function add_to_deck(card_id, shape) {
         deck_entry[? "data"] = card_data;
         
         ds_list_add(global.selected_deck, deck_entry);
+		return true
     }
+	else{
+		return false
+	}
 }

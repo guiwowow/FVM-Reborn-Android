@@ -2,7 +2,9 @@ function Enum_Init(){
 	enum CARD_STATE{
 		IDLE,
 		ATTACK,
-		GROW
+		GROW,
+		JUMPING,
+		
 	}
 	enum CARD_DATA {
 	    obj,        // 卡牌对象

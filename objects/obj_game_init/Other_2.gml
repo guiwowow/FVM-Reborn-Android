@@ -11,5 +11,8 @@ global.player_name = "Player";
 global.player_sprite = noone;
 
 load_file()
+//unlock_card("toast_bread",9,0,0)
+//unlock_card("small_fire",9,1,0)
+global.player_name = global.save_data.player.name
 
 room_goto(room_menu)

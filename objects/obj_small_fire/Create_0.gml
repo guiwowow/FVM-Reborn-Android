@@ -5,14 +5,13 @@ plant_id = "small_fire";
 // 设置对象类型和精灵
 obj_type = object_index;
 sprite_index = spr_small_fire;
-if shape == 1{
-	sprite_index = spr_small_fire_1
-}
+
 event_user(0)
 
 // ========== 特定属性默认值 ==========
 flame_produce = 25;
-attack_anim = 17;
+attack_anim = 18;
+idle_anim = 11
 first_produce_delay = 60;
 plant_type = "normal"
 
