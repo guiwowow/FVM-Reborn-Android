@@ -5,6 +5,7 @@ package_cols = 8 //背包格子行列数
 package_rows = 9
 info_button_select = 1
 package_button_select = 1
+is_submenu_opened = false
 //创建背包栏位选择按钮
 var btn1 = instance_create_depth(x-300,y-455,depth-1,obj_packageselect_btn)
 btn1.type = "Package"

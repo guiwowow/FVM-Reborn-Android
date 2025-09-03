@@ -24,8 +24,8 @@ if (has_target) {
     target_y = nearest_enemy.y;
     // 移动到目标
     //move_towards_point(target_x, target_y, 20);
-	hspeed = (target_x-x)/20
-	vspeed = (target_y-45-y)/20
+	chspeed = (target_x-x)/20
+	cvspeed = (target_y-45-y)/20
     alarm[0] = 20; // 设置一个短暂延迟，让倭瓜有时间移动到目标位置
 } else {
     // 如果没有找到目标，立即执行攻击

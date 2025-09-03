@@ -12,3 +12,5 @@ attack_anim = 19;
 idle_anim = 8
 flash_speed = 6
 plant_type = "normal"
+chspeed = 0
+cvspeed = 0

@@ -29,6 +29,6 @@
 
 	// 摧毁自己
 	alarm[1] = 41
-	hspeed = 0
-	vspeed = 0
+	chspeed = 0
+	cvspeed = 0
 	

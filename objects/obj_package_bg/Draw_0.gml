@@ -14,10 +14,33 @@ draw_set_color(c_yellow);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
 draw_text(x - 180, y + 406, string(global.save_data.player.gold));
+
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
 draw_set_font(font_yuan)
+if info_button_select == 1{
+	//绘制武器栏位文字
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_white);
+	draw_text(x - 1220, y - 380, "主武器");
+	draw_text(x - 1220, y -120, "副武器");
+	draw_text(x - 1220, y + 140, "超级武器");
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_bottom);
+	draw_set_font(font_yuan)
+	//绘制武器栏位
+	for(var i = 0;i < 3; i++){
+		draw_sprite_ext(spr_package_weapon_bg,0,x-1180,y-320+260*i,2,2,0,c_white,1)
+		for(var j = 0; j < 3 ; j++){
+			draw_sprite_ext(spr_package_gem_bg,0,x-1180+200*j,y-220+260*i,1.8,1.8,0,c_white,1)
+		}
+	}
+	draw_sprite_ext(spr_long_bao_gun_icon,0,x-1180,y-320,1,1,0,c_white,1)
+	draw_sprite_ext(spr_attack_gem,0,x-1180,y-220,1.5,1.5,0,c_white,1)
+}
 if package_button_select == 1 {
     for(var i = 0 ; i < package_rows ; i++){
         for(var j = 0 ; j < package_cols ; j++){
@@ -116,6 +139,8 @@ else if package_button_select == 2 {
             draw_sprite_ext(spr_package_slot_bg,1,x-354+i*84,y - 368 + 88 * j,1.8,1.8,0,c_white,1)
         }
     }
+	draw_sprite_ext(spr_long_bao_gun_icon,0,x-354,y-368,1,1,0,c_white,1)
+	draw_sprite_ext(spr_star_gun_icon,0,x-354+84,y-368,1,1,0,c_white,1)
 }
 
 // 重置绘制设置

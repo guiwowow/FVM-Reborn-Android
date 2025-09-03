@@ -10,6 +10,7 @@ description = "小火炉:生产火苗"
 slot_index = 0
 clevel = 0
 cshape = 0
+cskill = 0
 info_got = false
 
 is_ready = true           // 卡槽是否可用
