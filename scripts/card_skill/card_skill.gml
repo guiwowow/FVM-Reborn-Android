@@ -103,8 +103,6 @@ function get_plant_data_with_skill(plant_id, shape, upgrade_level, skill_level) 
     //        }
     //    }
     //}
-    
-    return result_data;
 }
 
 // 创建技能数据

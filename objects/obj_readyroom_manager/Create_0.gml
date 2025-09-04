@@ -10,6 +10,6 @@ readyroom_music = mus_readyroom
 ds_list_clear(global.selected_deck);
 add_to_deck("xiao_long_bao",0);
 add_to_deck("small_fire",get_card_info_simple("small_fire").shape);
-add_to_deck("flour_sack",0);
+add_to_deck("flour_sack",get_card_info_simple("flour_sack").shape);
 add_to_deck("toast_bread",0)
 //add_to_deck("toast_bread",0);

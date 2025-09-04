@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_player_character",
+    "path":"sprites/spr_player_character/spr_player_character.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

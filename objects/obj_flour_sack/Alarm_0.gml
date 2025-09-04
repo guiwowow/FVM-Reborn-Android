@@ -4,6 +4,12 @@
 	var _x = x;
 	var _y = y;
 	var _range = 80;
+	if shape == 1{
+		_range = 200
+	}
+	else if shape == 2{
+		_range = 400
+	}
 
 	with (obj_normal_mouse) {
 	    if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.grid_row) {

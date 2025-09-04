@@ -97,7 +97,9 @@ switch(state) {
         if (attack_timer >= atk_cycle) {
             // 对目标植物造成伤害
             with (target_plant) {
-                hp -= other.atk;
+				if !invincible{
+					hp -= other.atk;
+				}
                 event_user(2)
                 // 播放受击效果
                 if (instance_exists(other)) {

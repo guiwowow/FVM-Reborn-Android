@@ -1,6 +1,6 @@
 function slots_init(){
 	register_card("xiao_long_bao", obj_xiao_long_bao, [
-	    {"shape":0, "sprite":spr_xiao_long_bao, "cost":100, "cooldown":7*60, "description":"小笼包：发射包子子弹"}
+	    {"shape":0, "sprite":spr_xiao_long_bao, "cost":100, "cooldown":7*60, "description":"小笼包：发射包子攻击敌人"}
 	]);
 	
 	register_card("small_fire", obj_small_fire, [
@@ -15,7 +15,7 @@ function slots_init(){
 	
 	register_card("flour_sack",obj_flour_sack,[
 	    {"shape":0, "sprite":spr_flour_sack, "cost":50, "cooldown":30*60, "description":"面粉袋：压死老鼠"},
-	    {"shape":1, "sprite":spr_flour_sack, "cost":75, "cooldown":30*60, "description":"影分身袋：压死老鼠"},
-		{"shape":2, "sprite":spr_flour_sack, "cost":100, "cooldown":30*60, "description":"乾坤分身袋：压死老鼠"}
+	    {"shape":1, "sprite":spr_flour_sack_1, "cost":75, "cooldown":30*60, "description":"影分身袋：压死老鼠"},
+		{"shape":2, "sprite":spr_flour_sack_2, "cost":100, "cooldown":30*60, "description":"乾坤分身袋：压死老鼠"}
 	])
 }

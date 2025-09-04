@@ -12,6 +12,7 @@ attack_type = ATTACK_TYPE.PRODUCER
 plant_type = ""
 shape = 0
 skill = 0
+invincible = false
 
 // ========== 生产相关 ==========
 state = CARD_STATE.IDLE

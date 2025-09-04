@@ -4,35 +4,8 @@ function load_file() {
 	var file_path = working_directory + "/saves/save.json"
     // 检查存档文件是否存在
     if (!file_exists(file_path)) {
-        // 如果存档不存在，创建默认存档数据
-        global.save_data = {
-            "version": 1.0,
-            "player": {
-                "gold": 0,
-                "level": 1,
-                "experience": 0,
-				"name":"Player"
-            },
-            "unlocked_cards": [
-                {"id": "small_fire", "level": 1, "shape": 0,"skill":0},
-                {"id": "xiao_long_bao", "level": 1, "shape": 0,"skill":0},
-				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0},
-				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0}
-            ],
-            "completed_levels": [],
-            "inventory": [],
-            "unlocked_items": {
-                "max_card_level": 0,
-                "max_skill_level": 0,
-                "max_gem_level": 0
-            },
-            "unlocked_weapons": [
-                {"id": "long_bao_gun"}
-            ]
-        };
-        
-        // 保存默认存档
-        save_file();
+        // 如果存档不存在，创建初始存档数据
+        reset_file()
         return true;
     }
     
@@ -63,13 +36,15 @@ function load_file() {
 }
 
 function reset_file(){
+	//重置到初始存档
 	global.save_data = {
             "version": 1.0,
             "player": {
                 "gold": 0,
                 "level": 1,
                 "experience": 0,
-				"name":"Player"
+				"name":"Player",
+				"total_time":0
             },
             "unlocked_cards": [
                 {"id": "small_fire", "level": 0, "shape": 0,"skill":0},
@@ -82,11 +57,29 @@ function reset_file(){
             "unlocked_items": {
                 "max_card_level": 0,
                 "max_skill_level": 0,
-                "max_gem_level": 0
+                "max_gem_level": 0,
+				"max_shape":[]
             },
             "unlocked_weapons": [
                 {"id": "long_bao_gun"}
-            ]
+            ],
+			"unlocked_gems":[
+				{"id":"attack_gem","level":0}
+			],
+			"equipped_items":{
+				"main_weapon":{
+					"id":"long_bao_gun",
+					"gems":[{"id":"attack_gem","level":0},{},{}]
+				},
+				"secondary_weapon":{
+					"id":"",
+					"gems":[{},{},{}]
+				},
+				"super_weapon":{
+					"id":"",
+					"gems":[]
+				}
+			}
         };
 	save_file()
 }

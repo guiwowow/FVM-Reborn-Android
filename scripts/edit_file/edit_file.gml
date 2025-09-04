@@ -20,7 +20,8 @@ function unlock_card(card_id, level, shape, skill) {
     var new_card = {
         id: card_id,
         level: level,
-        shape: shape
+        shape: shape,
+		skill: skill
     };
     
     array_push(global.save_data.unlocked_cards, new_card);

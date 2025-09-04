@@ -65,7 +65,7 @@ if package_button_select == 1 {
         
         if (row < package_rows) {
             var card_x = x - 354 + col * 84;
-            var card_y = y - 361 + row * 96;
+            var card_y = y - 359 + row * 96;
             
             // 检查卡片是否已解锁
             var is_unlocked = false;
@@ -81,21 +81,21 @@ if package_button_select == 1 {
             // 绘制卡片
             if (is_unlocked) {
                 // 已解锁的卡片正常绘制
-				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.29, 0.27, 0, c_white, 1);
-                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.8, 0.8, 0, c_white, 1);
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.25, 0.25, 0, c_white, 1);
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_white, 1);
 				draw_set_color(c_black);
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_bottom);
 				draw_set_font(font_pixel)
-				draw_text(card_x,card_y+40,card_data[? "cost"])
+				draw_text(card_x,card_y+37,card_data[? "cost"])
 				draw_set_font(font_yuan)
 				var level = global.save_data.unlocked_cards[card_index].level
 				if level > 0{
-					draw_sprite_ext(spr_star_slot, level - 1, card_x-30, card_y-40,1.4,1.4,0,c_white,1);
+					draw_sprite_ext(spr_star_slot, level - 1, card_x-25, card_y-35,1.4,1.4,0,c_white,1);
 				}
                 // 检查鼠标是否悬停在卡片上
-                var spr_width = sprite_get_width(card_data[? "sprite"]) * 1;
-                var spr_height = sprite_get_height(card_data[? "sprite"]) * 1;
+                var spr_width = 84;
+                var spr_height = 96;
                 
                 if (point_in_rectangle(mouse_x, mouse_y, 
                                       card_x - spr_width/2, card_y - spr_height/2,
@@ -106,7 +106,7 @@ if package_button_select == 1 {
                 // 未解锁的卡片使用灰色滤镜
 				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.29, 0.27, 0, c_gray, 1);
 				card_data = card_data_shapes[| card_shape]
-                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.8, 0.8, 0, c_gray, 1);
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_gray, 1);
             }
             
             card_index++;

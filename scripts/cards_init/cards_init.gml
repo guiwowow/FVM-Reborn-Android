@@ -2,7 +2,7 @@
 // 游戏初始化脚本
 function cards_init(){
 	{//注册植物
-		{// 注册小火炉及其升级
+		{//注册小火炉及其升级
 		// 注册small_fire
 		register_plant(
 		    "small_fire",
@@ -1502,7 +1502,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1800,
 		            "cycle": 0
 		        },
@@ -1513,7 +1513,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1800,
 		            "cycle": 0
 		        }
@@ -1542,7 +1542,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1740,
 		            "cycle": 0,
 		            "level": 1
@@ -1554,7 +1554,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1740,
 		            "cycle": 0,
 		            "level": 1
@@ -1586,7 +1586,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1680,
 		            "cycle": 0,
 		            "level": 2
@@ -1598,7 +1598,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1680,
 		            "cycle": 0,
 		            "level": 2
@@ -1630,7 +1630,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1620,
 		            "cycle": 0,
 		            "level": 3
@@ -1642,7 +1642,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1620,
 		            "cycle": 0,
 		            "level": 3
@@ -1674,7 +1674,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1560,
 		            "cycle": 0,
 		            "level": 4
@@ -1686,7 +1686,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1560,
 		            "cycle": 0,
 		            "level": 4
@@ -1718,7 +1718,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1500,
 		            "cycle": 0,
 		            "level": 5
@@ -1730,7 +1730,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1500,
 		            "cycle": 0,
 		            "level": 5
@@ -1762,7 +1762,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1440,
 		            "cycle": 0,
 		            "level": 6
@@ -1774,7 +1774,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1440,
 		            "cycle": 0,
 		            "level": 6
@@ -1806,7 +1806,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1320,
 		            "cycle": 0,
 		            "level": 7
@@ -1818,7 +1818,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1320,
 		            "cycle": 0,
 		            "level": 7
@@ -1850,7 +1850,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1200,
 		            "cycle": 0,
 		            "level": 8
@@ -1862,7 +1862,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1200,
 		            "cycle": 0,
 		            "level": 8
@@ -1894,7 +1894,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 1080,
 		            "cycle": 0,
 		            "level": 9
@@ -1906,7 +1906,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 1080,
 		            "cycle": 0,
 		            "level": 9
@@ -1938,7 +1938,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 960,
 		            "cycle": 0,
 		            "level": 10
@@ -1950,7 +1950,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 960,
 		            "cycle": 0,
 		            "level": 10
@@ -1982,7 +1982,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 840,
 		            "cycle": 0,
 		            "level": 11
@@ -1994,7 +1994,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 840,
 		            "cycle": 0,
 		            "level": 11
@@ -2026,7 +2026,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 720,
 		            "cycle": 0,
 		            "level": 12
@@ -2038,7 +2038,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 720,
 		            "cycle": 0,
 		            "level": 12
@@ -2070,7 +2070,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 600,
 		            "cycle": 0,
 		            "level": 13
@@ -2082,7 +2082,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 600,
 		            "cycle": 0,
 		            "level": 13
@@ -2114,7 +2114,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 540,
 		            "cycle": 0,
 		            "level": 14
@@ -2126,7 +2126,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 540,
 		            "cycle": 0,
 		            "level": 14
@@ -2158,7 +2158,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 420,
 		            "cycle": 0,
 		            "level": 15
@@ -2170,7 +2170,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 420,
 		            "cycle": 0,
 		            "level": 15
@@ -2202,7 +2202,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 75,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 2,
 		            "cooldown": 420,
 		            "cycle": 0,
 		            "level": 16
@@ -2214,7 +2214,7 @@ function cards_init(){
 		            "hp": 20000,
 		            "cost": 100,
 		            "atk": 900,
-		            "range": 1,
+		            "range": 3,
 		            "cooldown": 420,
 		            "cycle": 0,
 		            "level": 16
@@ -2226,5 +2226,6 @@ function cards_init(){
 
 
 	}	
+		
 	}
 }

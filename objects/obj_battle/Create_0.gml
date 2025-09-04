@@ -7,8 +7,8 @@ instance_create_depth(0,0,0,obj_flame_manager)
 instance_create_depth(0,0,0,obj_battle_music_controller)
 
 
-instance_create_depth(1800,330,0,obj_normal_mouse)
-instance_create_depth(1800,460,0,obj_normal_mouse)
+//instance_create_depth(1800,330,0,obj_normal_mouse)
+//instance_create_depth(1800,460,0,obj_normal_mouse)
 instance_create_depth(0,0,0,obj_battle_pause_manager)
 
 
