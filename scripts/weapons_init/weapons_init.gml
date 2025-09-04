@@ -1,8 +1,20 @@
 function weapons_init(){
+	{//注册所有武器
 	register_weapon("long_bao_gun",{"sprite":spr_long_bao_gun,
 									"icon":spr_long_bao_gun_icon,
-									"atk":20,
+									"atk":10,
 									"cycle":78,
-									"description":"笼包枪：发射包子攻击敌人"
+									"description":"笼包枪：发射包子攻击敌人",
+									"name":"笼包枪",
+									"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
 									})
+	register_weapon("star_gun",{"sprite":spr_star_gun_icon,
+									"icon":spr_star_gun_icon,
+									"atk":10,
+									"cycle":78,
+									"description":"星星枪：发射两发星星攻击敌人",
+									"name":"星星枪",
+									"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+									})
+	}
 }

@@ -140,3 +140,26 @@ function is_level_completed(level_id) {
 function get_completed_levels() {
     return global.save_data.completed_levels;
 }
+
+/// @function is_weapon_unlocked(weapon_id)
+/// @desc 检查武器是否已解锁
+/// @param {string} weapon_id 关卡ID
+function is_weapon_unlocked(weapon_id) {
+    for (var i = 0; i < array_length(global.save_data.unlocked_weapons); i++) {
+        if (global.save_data.unlocked_weapons[i].id == weapon_id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/// @function unlock_weapon(weapon_id)
+/// @desc 解锁新的武器
+/// @param {string} weapon_id 武器ID
+function unlock_weapon(weapon_id){
+	if not is_weapon_unlocked(weapon_id){
+		var index = array_length(global.save_data.unlocked_weapons)
+		global.save_data.unlocked_weapons[index] = {"id":weapon_id}
+		save_file()
+	}
+}

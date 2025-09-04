@@ -20,6 +20,10 @@ function register_weapon(weapon_id,data){
 /// @param {string} slot 武器槽位
 function equip_weapon(weapon_id,slot){
 	global.equipped_weapon[? slot].weapon_id = weapon_id
+	if slot == "main_weapon"{
+		global.save_data.equipped_items.main_weapon.id = weapon_id
+	}
+	save_file()
 }
 
 /// @function remove_weapon(slot)
@@ -27,6 +31,10 @@ function equip_weapon(weapon_id,slot){
 /// @param {string} slot 武器槽位
 function remove_weapon(slot){
 	global.equipped_weapon[? slot].weapon_id = ""
+	if slot == "main_weapon"{
+		global.save_data.equipped_items.main_weapon.id = ""
+	}
+	save_file()
 }
 
 /// @function equip_gem(gem_id,slot,level)
@@ -69,4 +77,37 @@ function remove_gem(slot,gem_index){
 	else{
 		return false
 	}
+}
+
+/// @function is_weapon_equipped(weapon_id)
+/// @desc 检查武器是否已装备
+/// @param {string} weapon_id 武器ID
+/// @return {bool} 是否已装备
+function is_weapon_equipped(weapon_id) {
+    return (global.save_data.equipped_items.main_weapon.id == weapon_id ||
+            global.save_data.equipped_items.secondary_weapon.id == weapon_id ||
+            global.save_data.equipped_items.super_weapon.id == weapon_id);
+}
+
+/// @function get_weapon_slot(weapon_id)
+/// @desc 获取武器所在的槽位
+/// @param {string} weapon_id 武器ID
+/// @return {string} 槽位名称，如果未装备则返回空字符串
+function get_weapon_slot(weapon_id) {
+    if (global.save_data.equipped_items.main_weapon.id == weapon_id) {
+        return "main_weapon";
+    } else if (global.save_data.equipped_items.secondary_weapon.id == weapon_id) {
+        return "secondary_weapon";
+    } else if (global.save_data.equipped_items.super_weapon.id == weapon_id) {
+        return "super_weapon";
+    }
+    return "";
+}
+
+/// @function get_weapon_info(weapon_id)
+/// @desc 获取武器信息
+/// @param {string} weapon_id 武器ID
+/// @return {struct} weapon_info 武器信息结构体
+function get_weapon_info(weapon_id) {
+    return global.weapon_pool[? weapon_id]
 }
