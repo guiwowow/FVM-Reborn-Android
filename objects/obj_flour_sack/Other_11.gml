@@ -7,7 +7,7 @@ var has_target = false;
 var nearest_enemy = noone;
 var nearest_dist = 1000; // 足够大的初始距离
 
-with (obj_normal_mouse) {
+with (obj_enemy_parent) {
     if (health > 0) {
         var dist = point_distance(x, y, other.x, other.y);
         if (grid_row == other.grid_row && grid_col >= other.grid_col-other.range && grid_col <= (other.grid_col + other.range)) {

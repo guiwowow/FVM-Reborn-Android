@@ -36,7 +36,7 @@
   ],
   "name":"spr_player_character",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Player",
     "path":"folders/精灵/Player.yy",
@@ -130,7 +130,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":64,
-    "yorigin":64,
+    "yorigin":128,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

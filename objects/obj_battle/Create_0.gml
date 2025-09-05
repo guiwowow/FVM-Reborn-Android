@@ -7,9 +7,10 @@ instance_create_depth(0,0,0,obj_flame_manager)
 instance_create_depth(0,0,0,obj_battle_music_controller)
 
 
-//instance_create_depth(1800,330,0,obj_normal_mouse)
-//instance_create_depth(1800,460,0,obj_normal_mouse)
+//instance_create_depth(1800,330,0,obj_enemy_parent)
+//instance_create_depth(1800,460,0,obj_enemy_parent)
 instance_create_depth(0,0,0,obj_battle_pause_manager)
+instance_create_depth(mouse_x,mouse_y,0,obj_player_character)
 
 
 global.selected_slot = noone;
@@ -23,6 +24,7 @@ global.grid_rows = 7
 
 //啃食音效
 chomp_sound_list = ds_list_create()
+battle_time = 0
 ds_list_add(chomp_sound_list,snd_chomp1)
 ds_list_add(chomp_sound_list,snd_chomp2)
 ds_list_add(chomp_sound_list,snd_chomp3)

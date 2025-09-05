@@ -7,7 +7,7 @@ if global.is_paused{
 event_inherited();
 //检测自身右方是否有敌人
 var has_enemy = false
-with(obj_normal_mouse){
+with(obj_enemy_parent){
 	if (grid_row == other.grid_row && grid_col >= other.grid_col-other.range && grid_col <= (other.grid_col + other.range) && health > 0){
 		has_enemy = true
 		break

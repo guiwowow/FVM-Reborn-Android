@@ -24,6 +24,6 @@ function create_battle_slots() {
         inst.slot_index = i + 1;
 		inst.card_id = deck_entry[? "card_id"];
         inst.shape = deck_entry[? "shape"]; // 存储形态信息
-		show_debug_message("植物卡槽已生成，id：" + inst.card_id)
+		//show_debug_message("植物卡槽已生成，id：" + inst.card_id)
     }
 }

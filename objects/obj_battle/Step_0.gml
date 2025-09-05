@@ -1,7 +1,7 @@
 if global.is_paused{
 	exit
 }
-
+battle_time ++
 // obj_controller STEP 事件
 if keyboard_check_pressed(ord("W")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)

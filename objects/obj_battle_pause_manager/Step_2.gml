@@ -8,7 +8,9 @@ if (keyboard_check_pressed(vk_space)) {
         }
         else if (global.is_paused && !global.show_menu) {
             // 取消暂停
-            global.is_paused = false;
+			if obj_battle.battle_time != 0{
+				global.is_paused = false;
+			}
         }
     //}
 }
@@ -32,4 +34,8 @@ if (keyboard_check_pressed(vk_escape)) {
             global.show_menu = false;
         }
     }
+}
+
+if obj_battle.battle_time == 1{
+	global.is_paused = true;
 }

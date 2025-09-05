@@ -11,7 +11,7 @@
 		_range = 400
 	}
 
-	with (obj_normal_mouse) {
+	with (obj_enemy_parent) {
 	    if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.grid_row) {
 	        if (immune_to_ash) {
 	            // 对免疫灰烬的敌人只造成伤害

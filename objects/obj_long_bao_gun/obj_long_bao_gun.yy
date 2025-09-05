@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_xiaolongbao_bullet",
+  "%Name":"obj_long_bao_gun",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":11,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_xiaolongbao_bullet",
+  "name":"obj_long_bao_gun",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bullet",
-    "path":"folders/物体/Bullet.yy",
+    "name":"Weapons",
+    "path":"folders/物体/Player/Weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_xiaolongbao_bullet",
-    "path":"sprites/spr_xiaolongbao_bullet/spr_xiaolongbao_bullet.yy",
+    "name":"spr_long_bao_gun",
+    "path":"sprites/spr_long_bao_gun/spr_long_bao_gun.yy",
   },
   "spriteMaskId":null,
   "visible":true,
