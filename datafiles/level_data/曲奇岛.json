@@ -5,6 +5,8 @@
     "boss_wave": 0,
     "map_rows": 7,
     "map_cols": 9,
+    "starting_flame":50,
+    "first_wave_delay":20,
     "map": [
         [
             {
@@ -282,23 +284,28 @@
                     "enemy_list": [
                         {
                             "type": "normal_mouse",
-                            "row": 1
+                            "row": 1,
+                            "prosperity": 0
                         },
                         {
                             "type": "normal_mouse",
-                            "row": 2
+                            "row": 2,
+                            "prosperity": 0
                         },
                         {
                             "type": "normal_mouse",
-                            "row": 3
+                            "row": 3,
+                            "prosperity": 0
                         },
                         {
                             "type": "normal_mouse",
-                            "row": 4
+                            "row": 4,
+                            "prosperity": 0
                         },
                         {
                             "type": "normal_mouse",
-                            "row": 5
+                            "row": 5,
+                            "prosperity": 0
                         }
                     ]
                 },

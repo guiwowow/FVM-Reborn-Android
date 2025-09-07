@@ -14,5 +14,5 @@ attack_anim = 7;
 idle_anim = 11
 flash_speed = 5
 plant_type = "normal"
-
+is_slowdown = false
 

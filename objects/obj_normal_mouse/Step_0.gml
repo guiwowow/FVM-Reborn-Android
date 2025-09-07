@@ -117,6 +117,7 @@ switch(state) {
     }
     
     case ENEMY_STATE.DEAD: {
+		is_slowdown = false
         // 死亡动画
         if image_index >= death_anim + move_anim * 2 + attack_anim * 2 - 1 {
             image_alpha -= 0.08;
@@ -141,6 +142,16 @@ if (image_alpha <= 0 && state == ENEMY_STATE.DEAD) {
 
 if flash_value > 0 {
 	flash_value -= 10
+}
+if is_slowdown{
+	flash_speed = 12
+	move_speed = 0.16
+	atk_cycle = 72
+}
+else{
+	flash_speed = 6
+	move_speed = 0.32
+	atk_cycle = 36
 }
 
 // 更新僵尸的网格位置和深度

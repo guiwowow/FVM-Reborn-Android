@@ -14,6 +14,7 @@ shape = 0
 skill = 0
 invincible = false
 can_shovel_remove = true
+is_slowdown = false
 
 // ========== 生产相关 ==========
 state = CARD_STATE.IDLE

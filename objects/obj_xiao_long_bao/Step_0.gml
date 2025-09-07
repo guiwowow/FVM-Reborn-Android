@@ -2,7 +2,10 @@ if global.is_paused{
 	exit
 }
 event_inherited(); 
-
+var current_flash_speed = flash_speed
+if is_slowdown{
+	current_flash_speed *= 2
+}
 //检测自身右方是否有敌人
 var has_enemy = false
 with(obj_enemy_parent){
@@ -13,7 +16,7 @@ with(obj_enemy_parent){
 }
 //攻击逻辑
 if (has_enemy) {
-    if (attack_timer <= cycle - attack_anim * flash_speed) {
+    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
         attack_timer++;
     } else if (attack_timer <= cycle) {
         attack_timer++;

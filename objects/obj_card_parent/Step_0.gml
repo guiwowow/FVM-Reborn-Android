@@ -3,7 +3,18 @@ if global.is_paused{
 	exit
 }
 // 动画计时器
-if timer < flash_speed - 1 {
+var current_flash_speed = flash_speed
+if is_slowdown{
+	current_flash_speed *= 2
+}
+var upgrade_data = get_plant_data_with_skill(plant_id, shape,current_level,skill);
+    if is_slowdown {
+        cycle = upgrade_data[? "cycle"] * 2;    
+    }
+	else{
+		cycle = upgrade_data[? "cycle"]
+	}
+if timer < current_flash_speed - 1 {
     timer++;
 } else {
     switch (state) {

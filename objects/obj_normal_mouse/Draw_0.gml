@@ -22,6 +22,10 @@ if flash_value >0{
     //shader_reset();
     //gpu_set_blendmode(bm_normal);
 }
+else if is_slowdown{
+	image_blend = merge_color(c_white,c_blue,0.5)
+	draw_self()
+}
 else{
 	image_blend = c_white
 	draw_self()

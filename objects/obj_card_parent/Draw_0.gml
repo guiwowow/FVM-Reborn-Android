@@ -8,10 +8,13 @@ if flash_value >0{
 	shader_reset();
 	
 }
+else if is_slowdown{
+	image_blend = merge_color(c_white,c_blue,0.5)
+	draw_self()
+}
 else{
 	image_blend = c_white
 	draw_self()
-	
 }
 if instance_exists(banding_star_obj){
 	banding_star_obj.depth = depth -1

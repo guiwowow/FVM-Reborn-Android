@@ -2,11 +2,15 @@
 if global.is_paused{
 	exit
 }
+var current_flash_speed = flash_speed
+if is_slowdown{
+	current_flash_speed *= 2
+}
 var flash_offset = 0
 if hp <= 0.67 * max_hp flash_offset = 12
 if hp <= 0.33 * max_hp flash_offset = 24
 // 动画计时器
-if timer < flash_speed - 1 {
+if timer < current_flash_speed - 1 {
     timer++;
 } else {
     switch (state) {

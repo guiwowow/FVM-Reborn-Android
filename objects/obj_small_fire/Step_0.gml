@@ -3,11 +3,14 @@ if global.is_paused{
 }
 event_inherited();
 // 生产逻辑
-
+var current_flash_speed = flash_speed
+if is_slowdown{
+	current_flash_speed *= 2
+}
 if (first_produce == 0) {
     if (attack_timer <= first_produce_delay) {
         attack_timer++;
-    } else if (attack_timer <= first_produce_delay + attack_anim * flash_speed) {
+    } else if (attack_timer <= first_produce_delay + attack_anim * current_flash_speed) {
         attack_timer++;
         state = CARD_STATE.ATTACK;
     } else {
@@ -19,7 +22,7 @@ if (first_produce == 0) {
         first_produce = 1;
     }
 } else {
-    if (attack_timer <= cycle - attack_anim * flash_speed) {
+    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
         attack_timer++;
     } else if (attack_timer <= cycle) {
         attack_timer++;

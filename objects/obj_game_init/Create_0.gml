@@ -14,7 +14,21 @@ global.keybind_config = [
     {"name": "卡槽4", "default1": ord("4"), "tooltip": ""},
     {"name": "卡槽5", "default1": ord("5"), "tooltip": ""},
     {"name": "卡槽6", "default1": ord("6"), "tooltip": ""},
-    // 可以继续添加更多...
+    {"name": "卡槽7", "default1": ord("7"), "tooltip": ""},
+    {"name": "卡槽8", "default1": ord("8"), "tooltip": ""},
+    {"name": "卡槽9", "default1": ord("9"), "tooltip": ""},
+    {"name": "卡槽10", "default1": ord("0"), "tooltip": ""},
+    {"name": "卡槽11", "default1": ord("Q"), "tooltip": ""},
+    {"name": "卡槽12", "default1": ord("W"), "tooltip": ""},
+	{"name": "卡槽13", "default1": ord("E"), "tooltip": ""},
+    {"name": "卡槽14", "default1": ord("R"), "tooltip": ""},
+    {"name": "卡槽15", "default1": ord("T"), "tooltip": ""},
+    {"name": "卡槽16", "default1": ord("Y"), "tooltip": ""},
+    {"name": "卡槽17", "default1": ord("A"), "tooltip": ""},
+    {"name": "卡槽18", "default1": ord("S"), "tooltip": ""},
+	{"name": "卡槽19", "default1": ord("D"), "tooltip": ""},
+    {"name": "卡槽20", "default1": ord("F"), "tooltip": ""},
+    {"name": "卡槽21", "default1": ord("G"), "tooltip": ""}
 ];
 //window_set_caption("FVM:ReBorn")
 // 初始化全局设置（如果不存在配置文件）
