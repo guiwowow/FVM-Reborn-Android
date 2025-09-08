@@ -17,5 +17,16 @@ var btn3 = instance_create_depth(x-610,y-455,depth-1,obj_info_island_select_btn)
 btn3.button_index = 3
 btn3.sprite_index = spr_info_island_select_btn_3
 
+instance_create_depth(x+320,y-320,depth-1,obj_info_island_edit_btn)
+
 hover_card_index = -1; // 当前悬停的卡片索引
 hover_weapon_index = -1
+select_card_index = -1
+
+view_card_level = 0
+view_card_shape = 0
+view_card_skill = 0
+
+info_surface = -1
+surface_width = 900
+surface_height = 950

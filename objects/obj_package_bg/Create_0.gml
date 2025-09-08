@@ -26,3 +26,4 @@ btn4.sprite_index = spr_packageselect_btn_4
 
 hover_card_index = -1; // 当前悬停的卡片索引
 hover_weapon_index = -1
+view_max_shapes = 0

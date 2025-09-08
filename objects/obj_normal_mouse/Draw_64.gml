@@ -4,7 +4,7 @@ if global.is_paused{
 if (global.enemy_hpbar && hp > 0) {
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
-	draw_set_font(font_yuan)
+	draw_set_font(font_hei)
 	draw_set_color(c_purple)
 	draw_text(x,y,"HP:"+string(hp)+"/"+string(maxhp))
     // 血条位置（在植物上方）

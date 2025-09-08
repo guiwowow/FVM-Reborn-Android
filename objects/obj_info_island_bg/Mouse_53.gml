@@ -8,21 +8,9 @@
 //		}
 //	}
 //}
-//// 鼠标按下事件
-//if (package_button_select == 2) {
-//    // 武器背包标签页
-//    if (hover_weapon_index != -1) {
-//		audio_play_sound(snd_button,0,0)
-//        var weapon_id = global.save_data.unlocked_weapons[hover_weapon_index].id;
-//        var is_equipped = is_weapon_equipped(weapon_id);
-        
-//        if (is_equipped) {
-//            // 如果已装备，则卸下
-//            var slot = get_weapon_slot(weapon_id);
-//            remove_weapon(slot);
-//        } else {
-//            // 如果未装备，则装备到主武器槽
-//            equip_weapon(weapon_id, "main_weapon");
-//        }
-//    }
-//}
+
+if hover_card_index != -1{
+	audio_play_sound(snd_button,0,0)
+	select_card_index = hover_card_index
+	//view_card_shape = 0
+}

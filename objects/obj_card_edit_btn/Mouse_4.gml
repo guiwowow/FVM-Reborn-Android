@@ -5,7 +5,7 @@ if btn_type == "plus"{
 		max_value = global.save_data.unlocked_items.max_card_level
 	}
 	else if target_info == "shape"{
-		max_value = 2
+		max_value = obj_package_bg.view_max_shapes
 	}
 	else if target_info == "skill"{
 		max_value = global.save_data.unlocked_items.max_skill_level
@@ -23,7 +23,7 @@ else if btn_type == "max"{
 		obj_card_edit_menu.target_current_info[? target_info] = global.save_data.unlocked_items.max_card_level
 	}
 	else if target_info == "shape"{
-		obj_card_edit_menu.target_current_info[? target_info] = 2
+		obj_card_edit_menu.target_current_info[? target_info] = obj_package_bg.view_max_shapes
 	}
 	else if target_info == "skill"{
 		obj_card_edit_menu.target_current_info[? target_info] = global.save_data.unlocked_items.max_skill_level

@@ -5,6 +5,8 @@ skill_registry_init();
 skill_init()
 weapon_registry_init()
 weapons_init()
+info_island_register_init()
+info_island_init()
 
 // 全局植物注册表
 global.plant_registry = ds_map_create();

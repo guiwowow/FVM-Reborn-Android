@@ -61,6 +61,7 @@ if package_button_select == 1 {
 		var card_data_shapes = deck_entry[? "shapes"]
 		var card_data = {}
 		var card_shape = 0
+		//view_max_shapes = ds_list_size(card_data_shapes)-1
         
         // 计算卡片位置
         var row = card_index div package_cols;
@@ -121,19 +122,21 @@ if package_button_select == 1 {
         // 获取鼠标位置
         var tooltip_x = mouse_x + 15;
         var tooltip_y = mouse_y + 15;
+		
+		var tooltip_text = "左键点击调节卡片\n右键点击查看情报"
         
         // 绘制提示背景
         draw_set_color(c_black);
         draw_set_alpha(0.7);
         draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
-                      tooltip_x + 200, tooltip_y + 55, false);
+                      tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
         
         // 绘制提示文本
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
         draw_set_alpha(1);
         draw_set_color(c_white);
-        draw_text(tooltip_x, tooltip_y, "左键点击调节卡片\n右键点击查看情报");
+        draw_text(tooltip_x, tooltip_y, tooltip_text);
     }
 }
 else if package_button_select == 2 {

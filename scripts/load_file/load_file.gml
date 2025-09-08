@@ -47,9 +47,10 @@ function reset_file(){
 				"total_time":0
             },
             "unlocked_cards": [
+				
                 {"id": "small_fire", "level": 0, "shape": 0,"skill":0},
-                {"id": "xiao_long_bao", "level": 0, "shape": 0,"skill":0},
 				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0},
+				{"id": "xiao_long_bao", "level": 0, "shape": 0,"skill":0},
 				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0}
             ],
             "completed_levels": [],
