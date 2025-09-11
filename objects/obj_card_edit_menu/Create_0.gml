@@ -16,6 +16,9 @@ btn1.btn_text = "确定"
 var btn2 = instance_create_depth(x+180,y+160,depth-1,obj_card_edit_select_btn)
 btn2.btn_type = "cancel"
 btn2.btn_text = "取消"
+var btn7 = instance_create_depth(x,y+160,depth-1,obj_card_edit_select_btn)
+btn7.btn_type = "apply"
+btn7.btn_text = "应用全部"
 var target_list = ["level","shape","skill"]
 
 for(var i = 0 ; i< 3 ; i++){

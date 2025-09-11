@@ -15,5 +15,16 @@ if btn_type == "confirm"{
 	
 	save_file()
 }
+else if btn_type == "apply"{
+	var length = array_length(global.save_data.unlocked_cards)
+	var info_index = 0
+	for (var i = 0;i < length;i++){
+		global.save_data.unlocked_cards[i].level = obj_card_edit_menu.target_current_info[? "level"]
+		global.save_data.unlocked_cards[i].skill = obj_card_edit_menu.target_current_info[? "skill"]
+	}
+	
+	
+	save_file()
+}
 obj_package_bg.is_submenu_opened = false
 instance_destroy(obj_card_edit_menu)

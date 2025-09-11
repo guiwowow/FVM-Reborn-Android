@@ -1,0 +1,3 @@
+function goods_registry(){
+
+}

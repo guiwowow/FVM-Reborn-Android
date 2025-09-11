@@ -30,7 +30,7 @@ var is_hovered = point_in_rectangle(mx, my, x-42, y-55, x+42, y+50);
 if (is_hovered) {
     hover_alpha = min(hover_alpha + 0.1, 1);
 } else {
-    hover_alpha = max(hover_alpha - 0.1, 0);
+    hover_alpha = 0
 }
 
 // 检测鼠标点击（选中卡槽）

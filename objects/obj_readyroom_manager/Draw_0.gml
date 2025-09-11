@@ -1,0 +1,237 @@
+draw_set_color(c_white)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_font(font_yuan)
+draw_text(190,45,global.map_name)
+draw_set_color(c_black)
+draw_text(565,53,"色拉岛（陆）")
+{//绘制可选择的防御卡
+	surface_set_target(slot_surface)
+for(var i = 0 ; i < slot_rows ; i++){
+        for(var j = 0 ; j < slot_cols ; j++){
+            draw_sprite_ext(spr_package_slot_bg,0,x+803+i*84,y + 375 + 96 * j,1.8,1.8,0,c_white,1)
+        }
+    }
+    
+    // 绘制所有已注册的植物卡片
+    var card_index = 0;
+    hover_card_index = -1; // 重置悬停卡片索引
+    
+    for(var i = 0; i < ds_list_size(global.player_deck); i += 2) {
+        var card_id = global.player_deck[| i];
+        var deck_entry = global.player_deck[| i+1];
+		var card_data_shapes = deck_entry[? "shapes"]
+		var card_data = {}
+		var card_shape = 0
+		//view_max_shapes = ds_list_size(card_data_shapes)-1
+        
+        // 计算卡片位置
+        var row = card_index div slot_cols;
+        var col = card_index mod slot_cols;
+        
+        if (row < slot_rows) {
+            var card_x = x + 803 + col * 84;
+            var card_y = y + 375 + row * 96;
+            
+            // 检查卡片是否已解锁
+            var is_unlocked = false;
+			var is_selected = false
+            for(var k = 0; k < array_length(global.save_data.unlocked_cards); k++) {
+                if (global.save_data.unlocked_cards[k].id == card_id) {
+                    is_unlocked = true;
+					card_shape = global.save_data.unlocked_cards[k].shape
+					card_data = card_data_shapes[| card_shape]
+                    break;
+                }
+            }
+			for(var s = 0;s<ds_list_size(global.selected_deck);s++){
+				if global.selected_deck[| s][? "card_id"] == card_id{
+					is_unlocked = false
+					is_selected = true
+					break
+				}
+			}
+            
+            // 绘制卡片
+            if (is_unlocked) {
+                // 已解锁的卡片正常绘制
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.25, 0.25, 0, c_white, 1);
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_white, 1);
+				draw_set_color(c_black);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_bottom);
+				draw_set_font(font_pixel)
+				draw_text(card_x,card_y+37,card_data[? "cost"])
+				draw_set_font(font_yuan)
+				var length = array_length(global.save_data.unlocked_cards)
+				var info_index = 0
+				for (var j = 0;j < length;j++){
+					if global.save_data.unlocked_cards[j].id == card_id{
+						info_index = j
+						break
+					}
+				}
+				var level = global.save_data.unlocked_cards[info_index].level
+				if level > 0{
+					draw_sprite_ext(spr_star_slot, level - 1, card_x-25, card_y-35,1.4,1.4,0,c_white,1);
+				}
+                // 检查鼠标是否悬停在卡片上
+                var spr_width = 84;
+                var spr_height = 96;
+                
+                if (point_in_rectangle(mouse_x, mouse_y, 
+                                      card_x - spr_width/2, card_y - spr_height/2,
+                                      card_x + spr_width/2, card_y + spr_height/2)) {
+                    hover_card_index = card_index;
+                }
+            } else if (is_selected){
+                // 未解锁的卡片使用灰色滤镜
+				draw_set_color(c_black);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_bottom);
+				draw_set_font(font_pixel)
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.25, 0.25, 0, c_gray, 1);
+				card_data = card_data_shapes[| card_shape]
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_gray, 1);
+				var info_index = 0
+				var length = array_length(global.save_data.unlocked_cards)
+				for (var j = 0;j < length;j++){
+					if global.save_data.unlocked_cards[j].id == card_id{
+						info_index = j
+						break
+					}
+				}
+				var level = global.save_data.unlocked_cards[info_index].level
+				if level > 0{
+					draw_sprite_ext(spr_star_slot, level - 1, card_x-25, card_y-35,1.4,1.4,0,c_gray,1);
+				}
+				draw_text(card_x,card_y+37,card_data[? "cost"])
+            }
+            
+            card_index++;
+        }
+    }
+	surface_reset_target()
+}
+draw_surface(slot_surface,x-25,y)
+{// 绘制悬停提示
+    if (hover_card_index != -1) {
+		var card_id = global.player_deck[| hover_card_index*2];
+        var deck_entry = global.player_deck[| hover_card_index*2+1];
+		var card_data_shapes = deck_entry[? "shapes"]
+		var card_data = {}
+		var card_shape = 0
+		var tooltip_text = "点击选中"
+		//view_max_shapes = ds_list_size(card_data_shapes)-1
+           
+            
+            for(var k = 0; k < array_length(global.save_data.unlocked_cards); k++) {
+                if (global.save_data.unlocked_cards[k].id == card_id) {
+					card_shape = global.save_data.unlocked_cards[k].shape
+					card_data = card_data_shapes[| card_shape]
+					tooltip_text = card_data[? "description"]
+                    break;
+                }
+            }
+        // 获取鼠标位置
+        var tooltip_x = mouse_x + 15;
+        var tooltip_y = mouse_y + 15;
+		
+		
+        draw_set_font(font_yuan)
+        // 绘制提示背景
+        draw_set_color(c_black);
+        draw_set_alpha(0.7);
+        draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
+                      tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
+        
+        // 绘制提示文本
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+		
+        draw_text(tooltip_x, tooltip_y, tooltip_text);
+    }
+}	
+{//绘制已选择的卡组
+draw_sprite_ext(spr_ready_room_slot,0,x+1271,y+129,1.84,1.84,0,c_white,1)
+for(var i = 0;i<11;i++){
+	draw_sprite_ext(spr_package_slot_bg,0,x+805+i*86,y + 130,1.8,1.8,0,c_white,1)
+	if i+deck_first_slot_index < global.save_data.unlocked_items.max_slot{
+		draw_sprite_ext(spr_ready_room_slot_number,i+deck_first_slot_index,x+805+i*86,y + 130,1.8,1.8,0,c_white,1)
+	}
+	else{
+		draw_sprite_ext(spr_ready_room_slot_lock,0,x+805+i*86,y + 130,1.8,1.8,0,c_white,1)
+	}
+	
+}
+hover_slot_index = -1
+for(var i = deck_first_slot_index; i < deck_first_slot_index+10;i++){
+	if i < ds_list_size(global.selected_deck){
+	var card_id = global.selected_deck[| i][? "card_id"]
+	var card_shape = global.selected_deck[| i][? "shape"]
+	var card_data = global.selected_deck[| i][? "data"]
+	var card_spr = card_data[? "sprite"]
+	var card_cost = card_data[? "cost"]
+	
+	var card_x = x + 805 + (i - deck_first_slot_index) * 86;
+    var card_y = y + 132
+	
+	// 已解锁的卡片正常绘制
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.25, 0.25, 0, c_white, 1);
+                draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_white, 1);
+				draw_set_color(c_black);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_bottom);
+				draw_set_font(font_pixel)
+				draw_text(card_x,card_y+37,card_data[? "cost"])
+				draw_set_font(font_yuan)
+				var length = array_length(global.save_data.unlocked_cards)
+				var info_index = 0
+				for (var j = 0;j < length;j++){
+					if global.save_data.unlocked_cards[j].id == card_id{
+						info_index = j
+						break
+					}
+				}
+				var level = global.save_data.unlocked_cards[info_index].level
+				if level > 0{
+					draw_sprite_ext(spr_star_slot, level - 1, card_x-25, card_y-35,1.4,1.4,0,c_white,1);
+				}
+                // 检查鼠标是否悬停在卡片上
+                var spr_width = 84;
+                var spr_height = 96;
+                
+                if (point_in_rectangle(mouse_x, mouse_y, 
+                                      card_x - spr_width/2, card_y - spr_height/2,
+                                      card_x + spr_width/2, card_y + spr_height/2)) {
+                    hover_slot_index = i;
+                }
+	}
+	
+}
+}
+{//绘制装备的武器
+	//绘制武器栏位文字
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_white);
+	draw_text(x+88 , y + 103, "装备配置");
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_bottom);
+	draw_set_font(font_yuan)
+	//绘制武器栏位
+	for(var i = 0;i < 3; i++){
+		draw_sprite_ext(spr_package_weapon_bg,0,x+120,y+160+100*i,2,2,0,c_white,1)
+		for(var j = 0; j < 3 ; j++){
+			draw_sprite_ext(spr_package_gem_bg,0,x+240+120*j,y+160+100*i,1.7,1.7,0,c_white,1)
+		}
+	}
+	if global.save_data.equipped_items.main_weapon.id != ""{
+		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.main_weapon.id).icon
+		draw_sprite_ext(main_weapon_icon,0,x+120,y+160,1,1,0,c_white,1)
+	}
+	draw_sprite_ext(spr_attack_gem,0,x+240,y+160,1.4,1.4,0,c_white,1)
+}

@@ -3,7 +3,7 @@ if global.is_paused{
 	exit
 }
 if (hover_alpha > 0) {
-    draw_set_alpha(hover_alpha);
+    //draw_set_alpha(hover_alpha);
    
     draw_set_color(c_black)
     draw_set_font(font_pixel);
@@ -24,13 +24,19 @@ if (hover_alpha > 0) {
 		box_height += text_height 
 		display_description = description + "\n正在冷却中" 
 	}
-    var box_x = x - 50;
+	var box_x = 0
+	if slot_index <= 14{
+		box_x = x - 50;
+	}
+	else{
+		box_x = x - 120;
+	}
     var box_y = y + 60;
     draw_set_color(make_color_rgb(50, 50, 80));
-    draw_roundrect(box_x, box_y, box_x + box_width, box_y + box_height,  true);
+    draw_rectangle(box_x, box_y, box_x + box_width, box_y + box_height,  true);
     
-    draw_set_color(c_yellow);
-    draw_roundrect(box_x, box_y, box_x + box_width, box_y + box_height,  false);
+    draw_set_color(merge_color(c_yellow,c_white,0.3));
+    draw_rectangle(box_x, box_y, box_x + box_width, box_y + box_height,  false);
     
     draw_set_color(c_black);
     draw_text(box_x + 10, box_y + 7, display_description);

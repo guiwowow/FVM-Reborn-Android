@@ -59,6 +59,7 @@ function reset_file(){
                 "max_card_level": 0,
                 "max_skill_level": 0,
                 "max_gem_level": 0,
+				"max_slot":6,
 				"max_shape":[]
             },
             "unlocked_weapons": [
@@ -80,7 +81,15 @@ function reset_file(){
 					"id":"",
 					"gems":[]
 				}
-			}
+			},
+			"saved_decks":[
+				{"name":"卡组1","card_id":[]},
+				{"name":"卡组2","card_id":[]},
+				{"name":"卡组3","card_id":[]},
+				{"name":"卡组4","card_id":[]},
+				{"name":"卡组5","card_id":[]},
+				{"name":"卡组6","card_id":[]} 
+			]
         };
 	save_file()
 }

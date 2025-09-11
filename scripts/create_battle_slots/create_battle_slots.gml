@@ -4,17 +4,28 @@ function create_battle_slots() {
     var start_x = 535;
     var y_pos = 90;
     var x_spacing = 90;
+	var y_spacing = 118;
     
     for(var i = 0; i < ds_list_size(global.selected_deck); i++) {
         var deck_entry = global.selected_deck[| i];
         var card_data = deck_entry[? "data"];
-        
-        var inst = instance_create_depth(
+        var inst = noone
+		if i <= 14{
+			inst = instance_create_depth(
             start_x + i * x_spacing, 
             y_pos, 
             -5, 
             obj_card_slot
         );
+		}
+		else{
+			inst = instance_create_depth(
+            start_x + 14 * x_spacing, 
+            y_pos+(i-14)*y_spacing, 
+            -5, 
+            obj_card_slot
+        )
+		}
         
         inst.cost = card_data[? "cost"];
         inst.cooldown = card_data[? "cooldown"];
