@@ -7,6 +7,8 @@ shop_screen_select = 1
 current_page = 1
 current_max_page = 10
 
+goods_list = ds_list_create()
+
 instance_create_depth(x+800,y-430,depth-1,obj_closeshop_btn)
 
 //创建商店栏位选择按钮
@@ -24,3 +26,55 @@ var prev_btn = instance_create_depth(x+285,y+435,depth-1,obj_shop_page_btn)
 prev_btn.btn_type = "prev"
 var next_btn = instance_create_depth(x+485,y+435,depth-1,obj_shop_page_btn)
 next_btn.btn_type = "next"
+
+shop_list_recharge()
+
+//刷新商品列表的函数
+function shop_list_recharge(){
+	ds_list_clear(goods_list)
+	
+	var map_array = []
+
+	ds_map_keys_to_array(global.goods_map,map_array)
+
+	var goods_array_size = array_length(map_array)
+
+	for(var i = 0; i < goods_array_size;i++){
+		//获取卡片类型商品
+		if shop_button_select == 1{
+			if global.goods_map[? map_array[i]].type == "card"{
+				//将商品id添加到商品列表中
+				//var card_data = deck_get_card_data(global.goods_map[? map_array[i]].unlock_item_id,0)
+				ds_list_add(goods_list,map_array[i])
+			}
+		}
+	}
+	//按类型创建购买按钮
+	instance_destroy(obj_shop_buy_btn)
+	for(var i = 0 ; i< 4; i++){
+		for(var j = 0; j < 4; j++){
+			//绘制卡片类型商品
+			if shop_button_select == 1{
+				if ds_list_find_value(goods_list,i*4+j+(current_page-1)*16) != undefined{
+					// 检查卡片是否已解锁
+		            var is_unlocked = false;
+		            for(var k = 0; k < array_length(global.save_data.unlocked_cards); k++) {
+		                if (global.save_data.unlocked_cards[k].id == global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id) {
+		                    is_unlocked = true;
+		                    break;
+		                }
+		            }
+					//根据商品id获取卡片信息
+					var inst = instance_create_depth(x-618+411*i+77, y-190+165*j+60,depth-1,obj_shop_buy_btn)
+					inst.target_item = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id
+					inst.cost = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].cost
+					inst.goods_name = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].display_name
+					inst.btn_type = "card"
+					if is_unlocked{
+						inst.is_disabled = true
+					}
+				}
+			}
+		}
+	}
+}
