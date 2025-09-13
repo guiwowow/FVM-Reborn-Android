@@ -9,6 +9,7 @@ info_island_register_init()
 info_island_init()
 goods_registry_init()
 shop_init()
+randomise()
 
 // 全局植物注册表
 global.plant_registry = ds_map_create();

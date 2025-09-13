@@ -9,5 +9,5 @@ draw_set_valign(fa_middle)
 draw_text(x,y-108,goods_name)
 if not is_disabled{
 	draw_set_color(c_yellow)
+	draw_text(x,y-62,string(cost)+"G")
 }
-draw_text(x,y-62,string(cost)+"G")
