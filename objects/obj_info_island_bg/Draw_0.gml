@@ -70,7 +70,7 @@ if info_button_select == 1 {
 		var card_shape = 0
         
         // 计算卡片位置
-        var row = card_index div info_rows;
+        var row = card_index div info_cols;
         var col = card_index mod info_cols;
         
         if (row < info_rows) {
@@ -108,7 +108,7 @@ if info_button_select == 1 {
         // 获取鼠标位置
         var tooltip_x = mouse_x + 15;
         var tooltip_y = mouse_y + 15;
-		var row = hover_card_index div info_rows;
+		var row = hover_card_index div info_cols;
         var col = hover_card_index mod info_cols;
         
         if (row < info_rows) {

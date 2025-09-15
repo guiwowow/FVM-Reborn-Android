@@ -2226,6 +2226,1840 @@ function cards_init(){
 
 
 	}	
-		
+		{//注册双层小笼包
+			// 注册double_long_bao
+		register_plant(
+		    "double_long_bao",
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 10,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78
+		        }
+		    ]
+		);
+
+// 添加double_long_bao升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 12,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 1, upgrade1);
+
+// 添加double_long_bao升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 14,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 2, upgrade2);
+
+// 添加double_long_bao升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 16,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 3, upgrade3);
+
+// 添加double_long_bao升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 18,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 4, upgrade4);
+
+// 添加double_long_bao升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 20,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 5, upgrade5);
+
+// 添加double_long_bao升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 22,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 6, upgrade6);
+
+// 添加double_long_bao升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 26,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 7, upgrade7);
+
+// 添加double_long_bao升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 32,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 8, upgrade8);
+
+// 添加double_long_bao升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 40,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 9, upgrade9);
+
+// 添加double_long_bao升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 55,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 10, upgrade10);
+
+// 添加double_long_bao升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 11, upgrade11);
+
+// 添加double_long_bao升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 85,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 12, upgrade12);
+
+// 添加double_long_bao升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 13, upgrade13);
+
+// 添加double_long_bao升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 115,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 14, upgrade14);
+
+// 添加double_long_bao升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 130,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 15, upgrade15);
+
+// 添加double_long_bao升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双层小笼包",
+		            "shape": 0,
+		            "description": "双层小笼包：发射两发包子攻击敌人",
+		            "hp": 50,
+		            "cost": 200,
+		            "atk": 145,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_long_bao", 16, upgrade16);
+
+
+		}
+		{//注册老鼠夹子
+			// 注册mouse_clip
+		register_plant(
+		    "mouse_clip",
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 900
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 900
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 900
+		        }
+		    ]
+		);
+
+// 添加mouse_clip升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 840,
+		            "level": 1
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 840,
+		            "level": 1
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 840,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 1, upgrade1);
+
+// 添加mouse_clip升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 780,
+		            "level": 2
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 780,
+		            "level": 2
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 780,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 2, upgrade2);
+
+// 添加mouse_clip升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 720,
+		            "level": 3
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 720,
+		            "level": 3
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 720,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 3, upgrade3);
+
+// 添加mouse_clip升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 660,
+		            "level": 4
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 660,
+		            "level": 4
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 660,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 4, upgrade4);
+
+// 添加mouse_clip升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 600,
+		            "level": 5
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 600,
+		            "level": 5
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 600,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 5, upgrade5);
+
+// 添加mouse_clip升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 540,
+		            "level": 6
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 540,
+		            "level": 6
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 540,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 6, upgrade6);
+
+// 添加mouse_clip升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 480,
+		            "level": 7
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 480,
+		            "level": 7
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 480,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 7, upgrade7);
+
+// 添加mouse_clip升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 420,
+		            "level": 8
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 420,
+		            "level": 8
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 420,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 8, upgrade8);
+
+// 添加mouse_clip升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 360,
+		            "level": 9
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 360,
+		            "level": 9
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 360,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 9, upgrade9);
+
+// 添加mouse_clip升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 300,
+		            "level": 10
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 300,
+		            "level": 10
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 300,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 10, upgrade10);
+
+// 添加mouse_clip升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 240,
+		            "level": 11
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 240,
+		            "level": 11
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 240,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 11, upgrade11);
+
+// 添加mouse_clip升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 180,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 12, upgrade12);
+
+// 添加mouse_clip升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 120,
+		            "level": 13
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 120,
+		            "level": 13
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 120,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 13, upgrade13);
+
+// 添加mouse_clip升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 14
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 14
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 14, upgrade14);
+
+// 添加mouse_clip升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 15
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 15
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 60,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 15, upgrade15);
+
+// 添加mouse_clip升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "老鼠夹子",
+		            "shape": 0,
+		            "description": "老鼠夹子：准备完成后，会在地面敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 30,
+		            "level": 16
+		        },
+		        {
+		            "name": "多用老鼠夹子",
+		            "shape": 1,
+		            "description": "多用老鼠夹子：准备完成后，会在敌人接触时爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 0,
+		            "cooldown": 1800,
+		            "cycle": 30,
+		            "level": 16
+		        },
+		        {
+		            "name": "黑猫鼠夹",
+		            "shape": 2,
+		            "description": "黑猫鼠夹：准备完成后，会在敌人接触时产生3*4爆炸",
+		            "hp": 50,
+		            "cost": 25,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1800,
+		            "cycle": 30,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("mouse_clip", 16, upgrade16);
+
+
+		}
+		{//注册可乐炸弹
+			// 注册coke_bomb
+		register_plant(
+		    "coke_bomb",
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 11
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 11
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 11
+		        }
+		    ]
+		);
+
+// 添加coke_bomb升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2880,
+		            "cycle": 11,
+		            "level": 1
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2880,
+		            "cycle": 11,
+		            "level": 1
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2880,
+		            "cycle": 11,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 1, upgrade1);
+
+// 添加coke_bomb升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2760,
+		            "cycle": 11,
+		            "level": 2
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2760,
+		            "cycle": 11,
+		            "level": 2
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2760,
+		            "cycle": 11,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 2, upgrade2);
+
+// 添加coke_bomb升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2640,
+		            "cycle": 11,
+		            "level": 3
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2640,
+		            "cycle": 11,
+		            "level": 3
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2640,
+		            "cycle": 11,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 3, upgrade3);
+
+// 添加coke_bomb升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2520,
+		            "cycle": 11,
+		            "level": 4
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2520,
+		            "cycle": 11,
+		            "level": 4
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2520,
+		            "cycle": 11,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 4, upgrade4);
+
+// 添加coke_bomb升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2400,
+		            "cycle": 11,
+		            "level": 5
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2400,
+		            "cycle": 11,
+		            "level": 5
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2400,
+		            "cycle": 11,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 5, upgrade5);
+
+// 添加coke_bomb升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2280,
+		            "cycle": 11,
+		            "level": 6
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2280,
+		            "cycle": 11,
+		            "level": 6
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2280,
+		            "cycle": 11,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 6, upgrade6);
+
+// 添加coke_bomb升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2100,
+		            "cycle": 11,
+		            "level": 7
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2100,
+		            "cycle": 11,
+		            "level": 7
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 2100,
+		            "cycle": 11,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 7, upgrade7);
+
+// 添加coke_bomb升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1920,
+		            "cycle": 11,
+		            "level": 8
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1920,
+		            "cycle": 11,
+		            "level": 8
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1920,
+		            "cycle": 11,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 8, upgrade8);
+
+// 添加coke_bomb升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1740,
+		            "cycle": 11,
+		            "level": 9
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1740,
+		            "cycle": 11,
+		            "level": 9
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1740,
+		            "cycle": 11,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 9, upgrade9);
+
+// 添加coke_bomb升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1560,
+		            "cycle": 11,
+		            "level": 10
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1560,
+		            "cycle": 11,
+		            "level": 10
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1560,
+		            "cycle": 11,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 10, upgrade10);
+
+// 添加coke_bomb升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1380,
+		            "cycle": 11,
+		            "level": 11
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1380,
+		            "cycle": 11,
+		            "level": 11
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1380,
+		            "cycle": 11,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 11, upgrade11);
+
+// 添加coke_bomb升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1200,
+		            "cycle": 11,
+		            "level": 12
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1200,
+		            "cycle": 11,
+		            "level": 12
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1200,
+		            "cycle": 11,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 12, upgrade12);
+
+// 添加coke_bomb升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1020,
+		            "cycle": 11,
+		            "level": 13
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1020,
+		            "cycle": 11,
+		            "level": 13
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 1020,
+		            "cycle": 11,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 13, upgrade13);
+
+// 添加coke_bomb升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 840,
+		            "cycle": 11,
+		            "level": 14
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 840,
+		            "cycle": 11,
+		            "level": 14
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 840,
+		            "cycle": 11,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 14, upgrade14);
+
+// 添加coke_bomb升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 660,
+		            "cycle": 11,
+		            "level": 15
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 660,
+		            "cycle": 11,
+		            "level": 15
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 660,
+		            "cycle": 11,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 15, upgrade15);
+
+// 添加coke_bomb升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "可乐炸弹",
+		            "shape": 0,
+		            "description": "可乐炸弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 420,
+		            "cycle": 11,
+		            "level": 16
+		        },
+		        {
+		            "name": "云爆可乐弹",
+		            "shape": 1,
+		            "description": "云爆可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 175,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 420,
+		            "cycle": 11,
+		            "level": 16
+		        },
+		        {
+		            "name": "燃烧可乐弹",
+		            "shape": 2,
+		            "description": "燃烧可乐弹：3*4范围爆炸",
+		            "hp": 20000,
+		            "cost": 225,
+		            "atk": 900,
+		            "range": 1,
+		            "cooldown": 420,
+		            "cycle": 11,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("coke_bomb", 16, upgrade16);
+
+
+		}
 	}
 }

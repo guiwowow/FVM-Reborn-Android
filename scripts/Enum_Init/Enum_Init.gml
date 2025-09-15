@@ -3,7 +3,7 @@ function Enum_Init(){
 		IDLE,
 		ATTACK,
 		GROW,
-		JUMPING,
+		READY,
 		
 	}
 	enum CARD_DATA {

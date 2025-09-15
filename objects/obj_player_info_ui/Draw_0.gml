@@ -16,15 +16,17 @@ if (surface_exists(avatar_surface)) {
     // 清除为完全透明
     draw_clear_alpha(c_black, 0);
     
-    // 绘制圆形遮罩
-    draw_set_color(c_white);
-    draw_circle(mask_size/2, mask_size/2, mask_size/2, false);
-    
-    // 设置混合模式：只在alpha>0的地方绘制
-    gpu_set_blendmode_ext(bm_zero, bm_src_alpha);
-    
     // 绘制头像
     draw_sprite(spr_player_character_icon, 0, x-40, y+40);
+    
+    // 设置混合模式为擦除模式
+    gpu_set_blendmode(bm_subtract);
+    
+    // 绘制圆形遮罩的反向部分（擦除圆形外的部分）
+    draw_set_color(c_white);
+    draw_rectangle(0, 0, mask_size, mask_size, false);
+    draw_set_color(c_black);
+    draw_circle(mask_size/2, mask_size/2, mask_size/2, false);
     
     // 重置混合模式
     gpu_set_blendmode(bm_normal);
@@ -46,6 +48,7 @@ if (surface_exists(avatar_surface)) {
 //shader_reset();
 
 //draw_sprite(spr_player_character_icon,0,x+90,y+70)
+draw_set_color(c_white)
 draw_sprite_ext(spr_player_levels,global.save_data.player.level - 1,x + 140 , y + 38,1.3,1.3,0,c_white,1)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)

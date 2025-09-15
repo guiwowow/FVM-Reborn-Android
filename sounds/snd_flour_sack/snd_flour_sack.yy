@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_flour_sack",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"sound",
+    "path":"audiogroups/sound",
   },
   "bitDepth":1,
   "bitRate":128,

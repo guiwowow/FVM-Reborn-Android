@@ -20,10 +20,13 @@ global.player_sprite = noone;
 
 load_file()
 //reset_file()
-unlock_card("toast_bread",9,0,3)
-unlock_card("small_fire",9,1,3)
-unlock_card("xiao_long_bao",9,0,3)
-unlock_card("flour_sack",9,0,3)
+unlock_card("toast_bread",12,0,7)
+unlock_card("small_fire",12,2,7)
+unlock_card("xiao_long_bao",12,0,7)
+unlock_card("flour_sack",12,2,7)
+unlock_card("double_long_bao",12,0,7)
+unlock_card("mouse_clip",12,2,7)
+unlock_card("coke_bomb",12,2,7)
 //unlock_weapon("long_bao_gun")
 //unlock_weapon("star_gun")
 global.player_name = global.save_data.player.name

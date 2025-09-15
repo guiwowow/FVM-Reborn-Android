@@ -15,7 +15,8 @@
 	    if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.grid_row) {
 	        if (immune_to_ash) {
 	            // 对免疫灰烬的敌人只造成伤害
-	            health -= other.atk;
+	            hp -= other.atk;
+				event_user(0)
 	            // 受伤效果
 	            //effect_create_above(effect_smoke, x, y, 1, c_gray);
 	        } else {
