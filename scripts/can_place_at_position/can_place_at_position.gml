@@ -21,17 +21,36 @@ function can_place_at_position(x, y, plant_type) {
     switch (plant_type) {
         case "lilypad":
             // 莲叶花盆只能种在水上且该网格必须为空
-            return (global.grid_terrain[# col, row] == "water") && (ds_list_size(plant_list) == 0);
+            if (ds_list_size(plant_list) == 0) {
+                // 空地上
+                //return (global.grid_terrain[# col, row] == "grass");
+				return true
+            } else {
+                // 检查是否有同类
+                for (var i = 0; i < ds_list_size(plant_list); i++) {
+                    var plant = ds_list_find_value(plant_list, i);
+                    if (plant.plant_type == "lilypad") {
+                        return false;
+                    }
+                }
+                return true;
+            }
             
         case "coffee":
-            // 咖啡豆只能种在普通植物上
-            for (var i = 0; i < ds_list_size(plant_list); i++) {
-                var plant = ds_list_find_value(plant_list, i);
-                if (plant.plant_type == "normal") {
-                    return true;
+            if (ds_list_size(plant_list) == 0) {
+                // 空地上
+                //return (global.grid_terrain[# col, row] == "grass");
+				return true
+            } else {
+                // 检查是否有同类
+                for (var i = 0; i < ds_list_size(plant_list); i++) {
+                    var plant = ds_list_find_value(plant_list, i);
+                    if (plant.plant_type == "coffee") {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return false;
             
         case "shield":
             // 护罩植物只能种在普通植物或莲叶上
@@ -50,14 +69,14 @@ function can_place_at_position(x, y, plant_type) {
                 //return (global.grid_terrain[# col, row] == "grass");
 				return true
             } else {
-                // 检查是否有莲叶
-                //for (var i = 0; i < ds_list_size(plant_list); i++) {
-                //    var plant = ds_list_find_value(plant_list, i);
-                //    if (plant.plant_type == "lilypad") {
-                //        return true;
-                //    }
-                //}
-                return false;
+                // 检查是否有同类
+                for (var i = 0; i < ds_list_size(plant_list); i++) {
+                    var plant = ds_list_find_value(plant_list, i);
+                    if (plant.plant_type == "normal") {
+                        return false;
+                    }
+                }
+                return true;
             }
             
         default:

@@ -43,7 +43,7 @@ function draw_settings_page(){
 	    var btn2 = instance_create_depth(x - 200, y - 100, depth-1, obj_setting_toggle);
 	    btn2.config_key = "screen_flash";
 	    btn2.state = global.screen_flash;
-		btn2.tooltip_text = "冰桶、开水壶等造成的屏幕闪烁效果"
+		btn2.tooltip_text = "冰桶、开水壶等造成的屏幕闪烁效果\n如果您对游戏画面感到不适，请关闭该选项，并及时就医。"
 	    array_push(setting_buttons, btn2);
 		
 		// 创建全屏开关

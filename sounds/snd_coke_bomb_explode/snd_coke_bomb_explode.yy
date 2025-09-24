@@ -2,14 +2,14 @@
   "$GMSound":"",
   "%Name":"snd_coke_bomb_explode",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"sound",
+    "path":"audiogroups/sound",
   },
   "bitDepth":1,
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.9069388,
+  "duration":2.847347,
   "name":"snd_coke_bomb_explode",
   "parent":{
     "name":"Sound Effect",

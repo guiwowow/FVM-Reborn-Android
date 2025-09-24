@@ -2,6 +2,13 @@
 if global.is_paused{
 	exit
 }
+if ice_timer > 0{
+	ice_timer--
+	is_slowdown = true
+}
+else{
+	is_slowdown = false
+}
 // 动画计时器
 var current_flash_speed = flash_speed
 if is_slowdown{

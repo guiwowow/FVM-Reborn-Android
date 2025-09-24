@@ -59,7 +59,7 @@ function reset_file(){
                 "max_card_level": 0,
                 "max_skill_level": 0,
                 "max_gem_level": 0,
-				"max_slot":6,
+				"max_slot":21,
 				"max_shape":[]
             },
             "unlocked_weapons": [

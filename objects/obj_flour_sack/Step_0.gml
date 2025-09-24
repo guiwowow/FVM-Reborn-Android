@@ -23,6 +23,9 @@ if (has_enemy) {
 	else{
 		delay = 65
 	}
+	if attack_timer == 0{
+		audio_play_sound(snd_flour_sack_find,0,0)
+	}
 	if attack_timer <=delay{
 		attack_timer ++
 		if instance_exists(banding_star_obj){

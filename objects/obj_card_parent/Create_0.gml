@@ -10,6 +10,7 @@ atk = 0
 range = 0
 attack_type = ATTACK_TYPE.PRODUCER
 plant_type = ""
+feature_type = "normal"
 shape = 0
 skill = 0
 invincible = false
@@ -38,6 +39,7 @@ attack_anim = 0
 banding_star_obj = noone
 flash_value = 0
 idle_anim = 0
+ice_timer = 0
 
 // ========== 注册信息 ==========
 plant_id = ""  // 植物唯一标识符

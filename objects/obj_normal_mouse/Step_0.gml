@@ -1,6 +1,28 @@
 // 修改后的僵尸Step事件
-
 if global.is_paused{
+	exit
+}
+if ice_timer > 0{
+	ice_timer--
+	is_slowdown = true
+}
+else{
+	is_slowdown = false
+}
+if frozen_timer > 0{
+	frozen_timer--
+	is_frozen = true
+}
+else{
+	is_frozen = false
+}
+if flash_value > 0 {
+	flash_value -= 10
+}
+if hp <= 0{
+	frozen_timer = 0
+}
+if is_frozen{
 	exit
 }
 
@@ -42,7 +64,7 @@ switch(state) {
 			is_in_front = (dx < 0 && dx > -other.attack_range);
 				
             // 检查是否在攻击范围内
-            if (is_in_front && zombie_grid.row == grid_row) {
+            if (is_in_front && zombie_grid.row == grid_row && feature_type!="dwarf") {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
                     var target_type = ds_list_find_value(global.shovel_order, i);
@@ -117,7 +139,8 @@ switch(state) {
     }
     
     case ENEMY_STATE.DEAD: {
-		is_slowdown = false
+		ice_timer = 0
+		frozen_timer = 0
         // 死亡动画
         if image_index >= death_anim + move_anim * 2 + attack_anim * 2 - 1 {
             image_alpha -= 0.08;
@@ -140,9 +163,7 @@ if (image_alpha <= 0 && state == ENEMY_STATE.DEAD) {
     instance_destroy();
 }
 
-if flash_value > 0 {
-	flash_value -= 10
-}
+
 if is_slowdown{
 	flash_speed = 12
 	move_speed = 0.16

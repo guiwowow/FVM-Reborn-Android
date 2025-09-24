@@ -18,6 +18,11 @@ attack_timer = 0
 target_plant = noone
 attack_range = 90
 immune_to_ash = false
+ice_timer = 0
+is_slowdown = false
+frozen_timer = 0
+is_frozen = false
+ice_sprite = spr_mouse_frozen
 
 // 加载Shader
 shader_hit = hit_effect_2

@@ -3,16 +3,12 @@ if global.is_paused{
 }
 battle_time ++
 // obj_controller STEP 事件
-if keyboard_check_pressed(ord("W")){
+if keyboard_check_pressed(ord("M")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
 	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_normal_mouse)
-	inst.is_slowdown = true
-}
-
-if keyboard_check_pressed(ord("E")){
-	if global.screen_shake{
-		Camera_Shock(5,20)
-	}
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
 }
 
 if keyboard_check_pressed(ord("R")){
@@ -25,7 +21,7 @@ if keyboard_check_pressed(ord("R")){
 		card_created(new_plant, grid_pos.col, grid_pos.row);
 		new_plant.depth = depth_value
 		new_plant.flame_produce = 15000
-		new_plant.is_slowdown = true
+		new_plant.ice_timer = 600
 		instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 		audio_play_sound(snd_place1,0,0)
 	}
@@ -40,8 +36,7 @@ if keyboard_check_pressed(ord("A")){
 		var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 		card_created(new_plant, grid_pos.col, grid_pos.row);
 		new_plant.depth = depth_value
-		new_plant.is_slowdown = true
-		new_plant.atk = 20
+		new_plant.ice_timer = 600
 		instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 		audio_play_sound(snd_place1,0,0)
 	}

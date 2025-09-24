@@ -8,9 +8,10 @@
 //		}
 //	}
 //}
-
+if not is_submenu_opened{
 if hover_card_index != -1{
 	audio_play_sound(snd_button,0,0)
 	select_card_index = hover_card_index
 	//view_card_shape = 0
+}
 }

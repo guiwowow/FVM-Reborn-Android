@@ -26,8 +26,8 @@ for(var i = 0 ; i < slot_rows ; i++){
 		//view_max_shapes = ds_list_size(card_data_shapes)-1
         
         // 计算卡片位置
-        var row = card_index div slot_cols;
-        var col = card_index mod slot_cols;
+        var row = card_index div slot_rows;
+        var col = card_index mod slot_rows;
         
         if (row < slot_rows) {
             var card_x = x + 803 + col * 84;
@@ -134,16 +134,16 @@ draw_surface(slot_surface,x-25,y)
                 }
             }
         // 获取鼠标位置
-        var tooltip_x = mouse_x + 15;
-        var tooltip_y = mouse_y + 15;
+        var tooltip_x = mouse_x - 15;
+        var tooltip_y = mouse_y - 25;
 		
 		
         draw_set_font(font_yuan)
         // 绘制提示背景
         draw_set_color(c_black);
         draw_set_alpha(0.7);
-        draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
-                      tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
+        draw_rectangle(tooltip_x + 5, tooltip_y - 5, 
+                      tooltip_x - string_width(tooltip_text)-5, tooltip_y + string_height(tooltip_text)+5, false);
         
         // 绘制提示文本
 		draw_set_halign(fa_left);
@@ -151,7 +151,7 @@ draw_surface(slot_surface,x-25,y)
         draw_set_alpha(1);
         draw_set_color(c_white);
 		
-        draw_text(tooltip_x, tooltip_y, tooltip_text);
+        draw_text(tooltip_x- string_width(tooltip_text), tooltip_y, tooltip_text);
     }
 }	
 {//绘制已选择的卡组
@@ -167,7 +167,7 @@ for(var i = 0;i<11;i++){
 	
 }
 hover_slot_index = -1
-for(var i = deck_first_slot_index; i < deck_first_slot_index+10;i++){
+for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 	if i < ds_list_size(global.selected_deck){
 	var card_id = global.selected_deck[| i][? "card_id"]
 	var card_shape = global.selected_deck[| i][? "shape"]

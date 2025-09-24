@@ -64,8 +64,8 @@ if package_button_select == 1 {
 		//view_max_shapes = ds_list_size(card_data_shapes)-1
         
         // 计算卡片位置
-        var row = card_index div package_cols;
-        var col = card_index mod package_cols;
+        var row = card_index div package_rows;
+        var col = card_index mod package_rows;
         
         if (row < package_rows) {
             var card_x = x - 354 + col * 84;
@@ -116,7 +116,7 @@ if package_button_select == 1 {
                 }
             } else {
                 // 未解锁的卡片使用灰色滤镜
-				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.29, 0.27, 0, c_gray, 1);
+				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.25, 0.25, 0, c_gray, 1);
 				card_data = card_data_shapes[| card_shape]
                 draw_sprite_ext(card_data[? "sprite"], 0, card_x, card_y+15, 0.7, 0.7, 0, c_gray, 1);
             }

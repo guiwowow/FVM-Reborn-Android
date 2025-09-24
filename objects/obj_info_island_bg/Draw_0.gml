@@ -18,31 +18,7 @@ draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
 draw_set_font(font_yuan)
-//if info_button_select == 1{
-//	//绘制武器栏位文字
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_middle);
-//	draw_set_color(c_white);
-//	draw_text(x - 1220, y - 380, "主武器");
-//	draw_text(x - 1220, y -120, "副武器");
-//	draw_text(x - 1220, y + 140, "超级武器");
-//	draw_set_color(c_white);
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_bottom);
-//	draw_set_font(font_yuan)
-//	//绘制武器栏位
-//	for(var i = 0;i < 3; i++){
-//		draw_sprite_ext(spr_package_weapon_bg,0,x-1180,y-320+260*i,2,2,0,c_white,1)
-//		for(var j = 0; j < 3 ; j++){
-//			draw_sprite_ext(spr_package_gem_bg,0,x-1180+200*j,y-220+260*i,1.8,1.8,0,c_white,1)
-//		}
-//	}
-//	if global.save_data.equipped_items.main_weapon.id != ""{
-//		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.main_weapon.id).icon
-//		draw_sprite_ext(main_weapon_icon,0,x-1180,y-320,1,1,0,c_white,1)
-//	}
-//	draw_sprite_ext(spr_attack_gem,0,x-1180,y-220,1.5,1.5,0,c_white,1)
-//}
+
 if info_button_select == 1 {
 	if surface_exists(info_surface){
 		surface_set_target(info_surface)

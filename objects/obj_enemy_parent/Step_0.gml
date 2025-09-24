@@ -1,0 +1,185 @@
+// 修改后的僵尸Step事件
+if global.is_paused{
+	exit
+}
+if ice_timer > 0{
+	ice_timer--
+	is_slowdown = true
+}
+else{
+	is_slowdown = false
+}
+if frozen_timer > 0{
+	frozen_timer--
+	is_frozen = true
+}
+else{
+	is_frozen = false
+}
+if flash_value > 0 {
+	flash_value -= 10
+}
+if hp <= 0{
+	frozen_timer = 0
+}
+if is_frozen{
+	exit
+}
+
+var zombie_grid = get_grid_position_from_world(x, y);
+
+timer++;
+
+// 状态处理前，先检查目标植物是否存在
+if (instance_exists(target_plant) && target_plant.hp <= 0) {
+    target_plant = noone;  // 目标已被消灭
+}
+
+// 状态机
+switch(state) {
+    case ENEMY_STATE.IDLE: {
+        // 空闲状态不执行操作
+        break;
+    }
+    
+    case ENEMY_STATE.NORMAL: {
+        // 移动和动画逻辑
+        x -= move_speed;
+        
+        if (hp/maxhp > hurt_rate) {
+            image_index = floor(timer / flash_speed) mod move_anim;
+        } else {
+            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
+        }
+        
+        // 检测前方植物
+        var plant_in_range = noone;
+        
+		
+        // 使用碰撞检测查找攻击范围内的植物
+        with (obj_card_parent) {
+			var dx = x - other.x;
+			var dy = y - other.y;
+			var is_in_front = false
+			is_in_front = (dx < 0 && dx > -other.attack_range);
+				
+            // 检查是否在攻击范围内
+            if (is_in_front && zombie_grid.row == grid_row) {
+                // 按铲除顺序优先选择
+                for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
+                    var target_type = ds_list_find_value(global.shovel_order, i);
+                    
+                    if (plant_type == target_type) {
+                        plant_in_range = id;
+                        break;
+                    }
+                }
+                
+                if (plant_in_range != noone) break;
+            }
+        }
+        
+        // 如果找到目标植物，进入攻击状态
+        if (plant_in_range != noone) {
+            state = ENEMY_STATE.ATTACK;
+            target_plant = plant_in_range;
+            attack_timer = 0;  // 重置攻击计时器
+            timer = 0;         // 重置动画计时器
+        }
+        break;
+    }
+    
+    case ENEMY_STATE.ATTACK: {
+        // 攻击动画
+        if (hp/maxhp > hurt_rate) {
+            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2);
+        } else {
+            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2 + attack_anim);
+        }
+        
+        // 检查目标是否有效
+        if (!instance_exists(target_plant)) {
+            // 目标已不存在，返回移动状态
+            state = ENEMY_STATE.NORMAL;
+            timer = 0;
+            break;
+        }
+        
+        // 检查目标是否仍在攻击范围内
+		var dx = target_plant.x - x
+        if ((dx > 0 || dx < -attack_range) || zombie_grid.row != target_plant.grid_row) {
+            state = ENEMY_STATE.NORMAL;
+            target_plant = noone;
+            timer = 0;
+            break;
+        }
+        
+        // 攻击处理
+        attack_timer++;
+        if (attack_timer >= atk_cycle) {
+            // 对目标植物造成伤害
+            with (target_plant) {
+				if !invincible{
+					hp -= other.atk;
+				}
+                event_user(2)
+                // 播放受击效果
+                if (instance_exists(other)) {
+                    //instance_create_depth(x, y, depth - 1, obj_plant_hit);
+                }
+            }
+			
+            //播放音效
+			var a = irandom_range(0,2)
+			audio_play_sound(ds_list_find_value(obj_battle.chomp_sound_list,a),0,0)
+            // 重置攻击计时器
+            attack_timer = 0;
+        }
+        break;
+    }
+    
+    case ENEMY_STATE.DEAD: {
+		ice_timer = 0
+		frozen_timer = 0
+        // 死亡动画
+        if image_index >= death_anim + move_anim * 2 + attack_anim * 2 - 1 {
+            image_alpha -= 0.08;
+        } else {
+            image_index = (floor(timer / flash_speed) mod death_anim) + move_anim * 2 + attack_anim * 2;
+        }
+        break;
+    }
+}
+
+// 死亡处理
+if (hp <= 0 && state != ENEMY_STATE.DEAD) {
+    timer = 0;
+    state = ENEMY_STATE.DEAD;
+    target_plant = noone;  // 清除攻击目标
+}
+
+// 透明度处理
+if (image_alpha <= 0 && state == ENEMY_STATE.DEAD) {
+    instance_destroy();
+}
+
+
+if is_slowdown{
+	flash_speed = 12
+	move_speed = 0.16
+	atk_cycle = 72
+}
+else{
+	flash_speed = 6
+	move_speed = 0.32
+	atk_cycle = 36
+}
+
+// 更新僵尸的网格位置和深度
+
+var base_depth = -10 - (zombie_grid.row * 45) - (zombie_grid.col * 5);
+depth = base_depth - 4.5; // 僵尸比植物稍微靠后一点（在护罩外侧和咖啡豆之间）
+
+// 保持网格位置更新
+grid_col = zombie_grid.col;
+grid_row = zombie_grid.row;

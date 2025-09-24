@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_salad_pilt_splash",
+  "audioGroupId":{
+    "name":"sound",
+    "path":"audiogroups/sound",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.5239002,
+  "name":"snd_salad_pilt_splash",
+  "parent":{
+    "name":"Sound Effect",
+    "path":"folders/声音/Sound Effect.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_salad_pilt_splash.wav",
+  "type":0,
+  "volume":1.0,
+}

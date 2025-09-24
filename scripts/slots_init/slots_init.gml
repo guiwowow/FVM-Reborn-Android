@@ -1,6 +1,6 @@
 function slots_init(){
 	register_card("xiao_long_bao", obj_xiao_long_bao, [
-	    {"shape":0, "sprite":spr_xiao_long_bao, "cost":100, "cooldown":7*60, "description":"小笼包：发射包子攻击敌人"}
+	    {"shape":0, "sprite":spr_xiao_long_bao, "cost":100, "cooldown":7*60, "description":"小笼包：发射包子"}
 	]);
 	
 	register_card("small_fire", obj_small_fire, [
@@ -20,7 +20,7 @@ function slots_init(){
 	])
 	
 	register_card("double_long_bao",obj_double_long_bao,[
-	    {"shape":0, "sprite":spr_double_long_bao, "cost":200, "cooldown":7*60, "description":"双层小笼包：发射两发包子攻击敌人"}
+	    {"shape":0, "sprite":spr_double_long_bao, "cost":200, "cooldown":7*60, "description":"双层小笼包：发射两发包子"}
 	])
 	
 	register_card("mouse_clip",obj_mouse_clip,[
@@ -32,5 +32,61 @@ function slots_init(){
 	    {"shape":0, "sprite":spr_coke_bomb, "cost":150, "cooldown":50*60, "description":"可乐炸弹：3*4范围爆炸"},
 	    {"shape":1, "sprite":spr_coke_bomb_1, "cost":175, "cooldown":50*60, "description":"云爆可乐弹：3*4范围爆炸"},
 		{"shape":2, "sprite":spr_coke_bomb_2, "cost":225, "cooldown":50*60, "description":"燃烧可乐弹：3*4范围爆炸，留下一片火焰"}
+	])
+	register_card("wooden_plate",obj_wooden_plate,[
+	    {"shape":0, "sprite":spr_wooden_plate, "cost":25, "cooldown":7*60, "description":"木盘子：在水上承载卡片"},
+	    {"shape":1, "sprite":spr_wooden_plate_1, "cost":0, "cooldown":7*60, "description":"友情木盘子：在水上承载卡片"},
+		{"shape":2, "sprite":spr_wooden_plate_2, "cost":0, "cooldown":7*60, "description":"坚韧木盘子：一次放置三个，在水上承载卡片"}
+	])
+	register_card("ice_long_bao", obj_ice_long_bao, [
+	    {"shape":0, "sprite":spr_ice_long_bao, "cost":175, "cooldown":7*60, "description":"冰冻小笼包：发射减速冰包子"}
+	]);
+	register_card("goblet_lamp", obj_goblet_lamp, [
+	    {"shape":0, "sprite":spr_goblet_lamp, "cost":25, "cooldown":7*60, "description":"酒杯灯：先生产少量火苗，一段时间后正常"},
+	    {"shape":1, "sprite":spr_goblet_lamp_1, "cost":15, "cooldown":7*60, "description":"节能灯：先生产少量火苗，一段时间后正常"},
+		{"shape":2, "sprite":spr_goblet_lamp_2, "cost":15, "cooldown":7*60, "description":"高效节能灯：先生产少量火苗，一段时间后正常"}
+	]);
+	register_card("coffee_cup", obj_coffee_cup, [
+	    {"shape":0, "sprite":spr_coffee_cup, "cost":0, "cooldown":7*60, "description":"咖啡杯：攻击三格内敌人，白天睡觉"},
+	    {"shape":1, "sprite":spr_coffee_cup_1, "cost":0, "cooldown":7*60, "description":"花纹咖啡杯：攻击三格内敌人"},
+		{"shape":2, "sprite":spr_coffee_cup_2, "cost":0, "cooldown":7*60, "description":"骨瓷咖啡杯：攻击一行敌人"}
+	]);
+	register_card("salad_pult", obj_salad_pult, [
+	    {"shape":0, "sprite":spr_salad_pult, "cost":100, "cooldown":7*60, "description":"色拉投手：投掷可弹射的番茄"},
+	    {"shape":1, "sprite":spr_salad_pult_1, "cost":100, "cooldown":7*60, "description":"果蔬色拉投手：投掷可弹射的番茄"},
+		{"shape":2, "sprite":spr_salad_pult_2, "cost":100, "cooldown":7*60, "description":"凯撒色拉投手：投掷两颗可弹射的番茄"}
+	]);
+	register_card("coffee_pot", obj_coffee_pot, [
+	    {"shape":0, "sprite":spr_coffee_pot, "cost":75, "cooldown":7*60, "description":"咖啡喷壶：穿透攻击四格内敌人，白天睡觉"},
+	    {"shape":1, "sprite":spr_coffee_pot_1, "cost":75, "cooldown":7*60, "description":"香醇咖啡喷壶：穿透攻击四格内敌人"},
+		{"shape":2, "sprite":spr_coffee_pot_icon_2, "cost":75, "cooldown":7*60, "description":"红温咖啡喷壶：穿透攻击一行敌人"}
+	]);
+	register_card("chocolate_bread",obj_chocolate_bread,[
+		{"shape":0,"sprite":spr_chocolate_bread,"cost":125,"cooldown":30*60,"description":"巧克力面包：阻挡敌人翻越"},
+		{"shape":1,"sprite":spr_chocolate_bread_icon_1,"cost":125,"cooldown":30*60,"description":"德芙面包：阻挡敌人翻越"}
+	])
+	register_card("water_tea_cup",obj_water_tea_cup,[
+		{"shape":0,"sprite":spr_water_tea_cup,"cost":0,"cooldown":7*60,"description":"水上茶杯：在水上攻击三格内敌人，白天睡觉"}
+	])
+	register_card("ice_bucket_bomb",obj_ice_bucket_bomb,[
+	    {"shape":0, "sprite":spr_ice_bucket_bomb, "cost":75, "cooldown":50*60, "description":"冰桶炸弹：冰冻并伤害全屏敌人，白天睡觉"},
+	    {"shape":1, "sprite":spr_ice_bucket_bomb_1, "cost":75, "cooldown":50*60, "description":"酸橙冰桶炸弹：冰冻并伤害全屏敌人，白天睡觉"},
+		{"shape":2, "sprite":spr_ice_bucket_bomb_2, "cost":75, "cooldown":50*60, "description":"杂果冰桶炸弹：冰冻并伤害全屏敌人，3*4范围冰爆，白天睡觉"}
+	])
+	register_card("stinky_tofu_pult", obj_stinky_tofu_pult, [
+	    {"shape":0, "sprite":spr_stinky_tofu_pult, "cost":150, "cooldown":7*60, "description":"臭豆腐投手：投掷能产生毒雾的豆腐"},
+	    {"shape":1, "sprite":spr_stinky_tofu_pult_1, "cost":150, "cooldown":7*60, "description":"什锦臭豆腐投手：投掷能产生毒雾的豆腐"},
+		{"shape":2, "sprite":spr_stinky_tofu_pult_2, "cost":150, "cooldown":7*60, "description":"铁板臭豆腐投手：投掷两块能产生毒雾的豆腐"}
+	]);
+	register_card("cat_box",obj_cat_box,[
+	    {"shape":0, "sprite":spr_cat_box_1, "cost":100, "cooldown":7*60, "description":"猫猫盒：将老鼠惊吓至相邻行"}
+	])
+	register_card("kettle_bomb",obj_kettle_bomb,[
+	    {"shape":0, "sprite":spr_kettle_bomb, "cost":275, "cooldown":50*60, "description":"开水壶炸弹：5*5范围爆炸，白天睡觉"},
+	    {"shape":1, "sprite":spr_kettle_bomb_1, "cost":300, "cooldown":50*60, "description":"汽油壶炸弹：5*5范围爆炸，白天睡觉"},
+		{"shape":2, "sprite":spr_kettle_bomb_2, "cost":350, "cooldown":50*60, "description":"汽油干冰弹：5*5范围爆炸和减速"}
+	])
+	register_card("fishbone",obj_fishbone,[
+	    {"shape":0, "sprite":spr_fishbone, "cost":100, "cooldown":7*60, "description":"鱼刺：攻击踩上它的老鼠，卡坏车辆"}
 	])
 }

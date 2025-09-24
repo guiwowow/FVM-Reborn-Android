@@ -30,3 +30,7 @@ else{
 	image_blend = c_white
 	draw_self()
 }
+
+if is_frozen{
+	draw_sprite_ext(ice_sprite,0,x,y+50,1.8,1.8,0,c_white,1)
+}
