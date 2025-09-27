@@ -11,8 +11,8 @@
   "name":"obj_coffeepot_bullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bullet",
-    "path":"folders/物体/Bullet.yy",
+    "name":"normal",
+    "path":"folders/物体/Bullet/normal.yy",
   },
   "parentObjectId":null,
   "persistent":false,

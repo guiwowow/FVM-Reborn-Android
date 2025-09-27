@@ -35,14 +35,14 @@ for(var i = 0 ; i< 4; i++){
 			if ds_list_find_value(goods_list,i*4+j+(current_page-1)*16) != undefined{
 				//根据商品id获取卡片信息
 				var card_data = deck_get_card_data(global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id,0)
-				draw_sprite_ext(spr_slot, 0, x-618+411*i-122,y-190+165*j, 0.33, 0.33, 0, c_white, 1);
-				draw_sprite_ext(card_data[? "sprite"],0,x-618+411*i-122,y-190+165*j+25,1,1,0,c_white,1)
+				draw_sprite_ext(spr_slot, 0, x-618+411*j-122,y-190+165*i, 0.33, 0.33, 0, c_white, 1);
+				draw_sprite_ext(card_data[? "sprite"],0,x-618+411*j-122,y-190+165*i+25,1,1,0,c_white,1)
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_middle);
 				draw_set_color(c_black);
 				draw_set_font(font_yuan);
-				draw_text_ext_transformed(x-618+411*i-122-12, y-190+165*j+40, string(card_data[? "cost"]),25,1800,1,1,0);
-				draw_sprite_ext(spr_flame, 0, x-618+411*i-122-24, y-190+165*j+43, 0.3, 0.3, 0, c_white, 1);
+				draw_text_ext_transformed(x-618+411*j-122-12, y-190+165*i+40, string(card_data[? "cost"]),25,1800,1,1,0);
+				draw_sprite_ext(spr_flame, 0, x-618+411*j-122-24, y-190+165*i+43, 0.3, 0.3, 0, c_white, 1);
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_top);
 				// 检查卡片是否已解锁
@@ -57,9 +57,9 @@ for(var i = 0 ; i< 4; i++){
 					
 					draw_set_color(c_black)
 					draw_set_alpha(0.5)
-					draw_rectangle(x-618+411*i-205,y-190+165*j-82,x-618+411*i+205,y-190+165*j+82,false)
+					draw_rectangle(x-618+411*j-205,y-190+165*i-82,x-618+411*j+205,y-190+165*i+82,false)
 					draw_set_alpha(1)
-					draw_sprite_ext(spr_sold_out, 0, x-618+411*i,y-190+165*j, 1.8, 1.8, 0, c_white, 1);
+					draw_sprite_ext(spr_sold_out, 0, x-618+411*j,y-190+165*i, 1.8, 1.8, 0, c_white, 1);
 				}
 			}
 		}

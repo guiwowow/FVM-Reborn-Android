@@ -34,8 +34,8 @@
   "nineSlice":null,
   "origin":3,
   "parent":{
-    "name":"Bullet",
-    "path":"folders/精灵/Bullet.yy",
+    "name":"normal",
+    "path":"folders/精灵/Bullet/normal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

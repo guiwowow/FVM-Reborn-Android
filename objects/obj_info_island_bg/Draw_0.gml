@@ -22,13 +22,14 @@ draw_set_font(font_yuan)
 if info_button_select == 1 {
 	if surface_exists(info_surface){
 		surface_set_target(info_surface)
+		draw_clear_alpha(c_black,0)
     for(var i = 0 ; i < info_rows ; i++){
         for(var j = 0 ; j < info_cols ; j++){
-			if i + j * info_cols == select_card_index{
-				draw_sprite_ext(spr_info_island_info_bg,1,x-1154+i*128*1.5,y - 261 + 142*1.5 * j,1.5,1.5,0,c_white,1)
+			if j + i * info_cols == select_card_index{
+				draw_sprite_ext(spr_info_island_info_bg,1,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
 			}
 			else{
-				draw_sprite_ext(spr_info_island_info_bg,0,x-1154+i*128*1.5,y - 261 + 142*1.5 * j,1.5,1.5,0,c_white,1)
+				draw_sprite_ext(spr_info_island_info_bg,0,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
 			}
         }
     }
@@ -51,7 +52,7 @@ if info_button_select == 1 {
         
         if (row < info_rows) {
             var card_x = x - 1154 + col * 128*1.5;
-            var card_y = y - 261 + row * 142*1.5;
+            var card_y = y - 435 + row * 142*1.5-y_offset;
             
             // 绘制卡片
 				draw_sprite_ext(spr_slot, 0, card_x, card_y-3, 0.30, 0.30, 0, c_white, 1);
@@ -65,12 +66,16 @@ if info_button_select == 1 {
                 // 检查鼠标是否悬停在卡片上
                 var spr_width = 128*1.5;
                 var spr_height = 142*1.5;
-                
                 if (point_in_rectangle(mouse_x, mouse_y, 
-                                      card_x - spr_width/2, card_y - spr_height/2,
-                                      card_x + spr_width/2, card_y + spr_height/2)) {
+                                      card_x - spr_width/2, card_y + 45,
+                                      card_x + spr_width/2, card_y + 45+spr_height)) 
+				&& mouse_y >= y - 375 && mouse_y <= y - 375 + surface_height {
                     hover_card_index = card_index;
                 }
+				if card_index == hover_card_index{
+					draw_set_alpha(1)
+					draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+				}
                         
             card_index++;
         }
@@ -78,19 +83,19 @@ if info_button_select == 1 {
 	
 	surface_reset_target()
 	}
-	draw_surface(info_surface,x-1380,y-540)
+	draw_surface(info_surface,x-1380,y-368)
     // 绘制悬停提示
     if (hover_card_index != -1) {
         // 获取鼠标位置
         var tooltip_x = mouse_x + 15;
-        var tooltip_y = mouse_y + 15;
+        var tooltip_y = mouse_y - 15;
 		var row = hover_card_index div info_cols;
         var col = hover_card_index mod info_cols;
         
         if (row < info_rows) {
             var card_x = x - 1154 + col * 128*1.5;
-            var card_y = y - 261 + row * 142*1.5;
-			draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+            var card_y = y - 265 + row * 142*1.5-y_offset;
+			//draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
 		}
 		
         

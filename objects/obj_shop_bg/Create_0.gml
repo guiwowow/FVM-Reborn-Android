@@ -65,7 +65,7 @@ function shop_list_recharge(){
 		                }
 		            }
 					//根据商品id获取卡片信息
-					var inst = instance_create_depth(x-618+411*i+77, y-190+165*j+60,depth-1,obj_shop_buy_btn)
+					var inst = instance_create_depth(x-618+411*j+77, y-190+165*i+60,depth-1,obj_shop_buy_btn)
 					inst.target_item = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id
 					inst.cost = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].cost
 					inst.goods_name = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].display_name

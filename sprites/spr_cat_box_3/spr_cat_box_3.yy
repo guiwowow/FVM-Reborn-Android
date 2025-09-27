@@ -60,8 +60,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Assistant",
-    "path":"folders/精灵/Cards/Assistant.yy",
+    "name":"cat_box",
+    "path":"folders/精灵/Cards/Assistant/cat_box.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

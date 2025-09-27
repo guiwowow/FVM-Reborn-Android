@@ -19,4 +19,11 @@ function skill_init(){
 	register_card_skill("cat_box","cooldown",[7*60,6.5*60,6*60,5.5*60,5*60,4.5*60,4*60,3.5*60,3*60])
 	register_card_skill("kettle_bomb","atk",[900,950,1000,1050,1100,1150,1200,1250,1300])
 	register_card_skill("fishbone","cycle",[1.3*60,1.25*60,1.2*60,1.15*60,1.1*60,1.05*60,1*60,0.95*60,0.9*60])
+	register_card_skill("triple_wine_rack","cycle",[1.3*60,1.25*60,1.2*60,1.15*60,1.1*60,1.05*60,1*60,0.9*60,0.8*60])
+	register_card_skill("brazier","hp",[50,55,60,65,70,75,80,85,90])
+	register_card_skill("large_fire","flame_produce",[25,27,29,31,34,37,40,44,48])
+	register_card_skill("iron_fishbone","cycle",[1.3*60,1.25*60,1.2*60,1.15*60,1.1*60,1.05*60,1*60,0.95*60,0.9*60])
+	register_card_skill("gatlin_long_bao","cooldown",[50*60,47*60,44*60,41*60,37*60,33*60,29*60,24*60,19*60])
+	register_card_skill("rotating_coffee_pot","cooldown",[50*60,47*60,44*60,41*60,37*60,33*60,29*60,24*60,19*60])
+	register_card_skill("takoyaki","cooldown",[50*60,47*60,44*60,41*60,37*60,33*60,29*60,24*60,19*60])
 }

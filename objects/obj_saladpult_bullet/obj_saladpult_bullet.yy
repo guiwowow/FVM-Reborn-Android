@@ -11,8 +11,8 @@
   "name":"obj_saladpult_bullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bullet",
-    "path":"folders/物体/Bullet.yy",
+    "name":"throw",
+    "path":"folders/物体/Bullet/throw.yy",
   },
   "parentObjectId":null,
   "persistent":false,

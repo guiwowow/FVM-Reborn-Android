@@ -29,4 +29,6 @@ view_card_skill = 0
 
 info_surface = -1
 surface_width = 900
-surface_height = 950
+surface_height = 780
+
+y_offset = 0

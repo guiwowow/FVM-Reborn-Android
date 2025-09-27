@@ -89,4 +89,39 @@ function slots_init(){
 	register_card("fishbone",obj_fishbone,[
 	    {"shape":0, "sprite":spr_fishbone, "cost":100, "cooldown":7*60, "description":"鱼刺：攻击踩上它的老鼠，卡坏车辆"}
 	])
+	register_card("triple_wine_rack",obj_triple_wine_rack,[
+	    {"shape":0, "sprite":spr_triple_wine_rack, "cost":325, "cooldown":7*60, "description":"三线酒架：向前方三行发射3发葡萄酒弹"},
+	    {"shape":1, "sprite":spr_triple_wine_rack_1, "cost":325, "cooldown":7*60, "description":"强力三线酒架：向前方三行发射4发葡萄酒弹"},
+		{"shape":2, "sprite":spr_triple_wine_rack_2, "cost":325, "cooldown":7*60, "description":"终结者酒架：向前方三行发射6发葡萄酒弹"}
+	])
+	register_card("brazier",obj_brazier,[
+	    {"shape":0, "sprite":spr_brazier, "cost":175, "cooldown":7*60, "description":"火盆：点燃子弹"},
+	    {"shape":1, "sprite":spr_brazier_1, "cost":175, "cooldown":7*60, "description":"电子烤盘：点燃子弹"},
+		{"shape":2, "sprite":spr_brazier_2, "cost":175, "cooldown":7*60, "description":"岩烧烤盘：点燃子弹"}
+	])
+	register_card("large_fire",obj_large_fire,[
+	    {"shape":0, "sprite":spr_large_fire, "cost":150, "cooldown":50*60, "description":"大火炉：一次生产两朵火苗"},
+	    {"shape":1, "sprite":spr_large_fire_1, "cost":150, "cooldown":50*60, "description":"高能火炉：一次生产三朵火苗"},
+		{"shape":2, "sprite":spr_large_fire_2, "cost":150, "cooldown":50*60, "description":"超能燃气炉：一次生产三朵火苗"}
+	])
+	register_card("iron_fishbone",obj_iron_fishbone,[
+	    {"shape":0, "sprite":spr_iron_fishbone, "cost":125, "cooldown":50*60, "description":"钢鱼刺：攻击踩上它的老鼠，卡坏四次车辆"},
+	    {"shape":1, "sprite":spr_iron_fishbone_1, "cost":125, "cooldown":50*60, "description":"无座钢鱼刺：攻击踩上它的老鼠，卡坏四次车辆"},
+		{"shape":2, "sprite":spr_iron_fishbone_2, "cost":125, "cooldown":50*60, "description":"海贼王鱼刺：攻击并减速踩上它的老鼠，卡坏四次车辆"}
+	])
+	register_card("gatlin_long_bao",obj_gatlin_long_bao,[
+	    {"shape":0, "sprite":spr_gatlin_long_bao, "cost":250, "cooldown":50*60, "description":"机枪小笼包：发射四发包子"},
+	    {"shape":1, "sprite":spr_gatlin_long_bao_1, "cost":250, "cooldown":50*60, "description":"竹筒机枪小笼包：发射四发包子"},
+		{"shape":2, "sprite":spr_gatlin_long_bao_2, "cost":250, "cooldown":50*60, "description":"格林机枪笼包：发射六发包子"}
+	])
+	register_card("rotating_coffee_pot", obj_rotating_coffee_pot, [
+	    {"shape":0, "sprite":spr_rotating_coffee_pot, "cost":150, "cooldown":50*60, "description":"旋转咖啡喷壶：3*3范围穿透攻击，白天睡觉"},
+	    {"shape":1, "sprite":spr_rotating_coffee_pot_1, "cost":150, "cooldown":50*60, "description":"节能旋转咖啡壶：3*3范围穿透攻击，白天睡觉"},
+		{"shape":2, "sprite":spr_rotating_coffee_pot_2, "cost":150, "cooldown":50*60, "description":"原子咖啡壶：5*5范围穿透攻击"}
+	]);
+	register_card("takoyaki", obj_takoyaki, [
+	    {"shape":0, "sprite":spr_takoyaki, "cost":225, "cooldown":50*60, "description":"章鱼烧：甩出两发追踪飞镖"},
+	    {"shape":1, "sprite":spr_takoyaki_1, "cost":225, "cooldown":50*60, "description":"两栖章鱼烧：甩出两发追踪飞镖"},
+		{"shape":2, "sprite":spr_takoyaki_2, "cost":225, "cooldown":50*60, "description":"火影章鱼烧：甩出四发追踪飞镖"}
+	]);
 }

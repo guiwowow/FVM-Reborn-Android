@@ -10,7 +10,7 @@ if is_slowdown{
 var has_enemy = false
 if shape < 2{	
 	with obj_enemy_parent{
-		if place_meeting(x,y,other){
+		if place_meeting(x,y,other)  && grid_row == other.grid_row{
 			has_enemy = true
 		}
 	}

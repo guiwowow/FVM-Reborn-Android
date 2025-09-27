@@ -11993,5 +11993,5282 @@ function cards_init(){
 
 
 		}
+		{//注册三线酒架
+			// 注册triple_wine_rack
+		register_plant(
+		    "triple_wine_rack",
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78
+		        }
+		    ]
+		);
+
+// 添加triple_wine_rack升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 1, upgrade1);
+
+// 添加triple_wine_rack升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 2, upgrade2);
+
+// 添加triple_wine_rack升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 3, upgrade3);
+
+// 添加triple_wine_rack升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 4, upgrade4);
+
+// 添加triple_wine_rack升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 5, upgrade5);
+
+// 添加triple_wine_rack升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 6, upgrade6);
+
+// 添加triple_wine_rack升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 7, upgrade7);
+
+// 添加triple_wine_rack升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 8, upgrade8);
+
+// 添加triple_wine_rack升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 9, upgrade9);
+
+// 添加triple_wine_rack升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 10, upgrade10);
+
+// 添加triple_wine_rack升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 11, upgrade11);
+
+// 添加triple_wine_rack升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 12, upgrade12);
+
+// 添加triple_wine_rack升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 13, upgrade13);
+
+// 添加triple_wine_rack升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 14, upgrade14);
+
+// 添加triple_wine_rack升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 15, upgrade15);
+
+// 添加triple_wine_rack升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "三线酒架",
+		            "shape": 0,
+		            "description": "三线酒架：向前方三行发射3发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "强力三线酒架",
+		            "shape": 1,
+		            "description": "强力三线酒架：向前方三行发射4发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "终结者酒架",
+		            "shape": 2,
+		            "description": "终结者酒架：向前方三行发射6发葡萄酒弹",
+		            "hp": 50,
+		            "cost": 325,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("triple_wine_rack", 16, upgrade16);
+
+
+		}
+		{//注册火盆
+			// 注册brazier
+		register_plant(
+		    "brazier",
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.400,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0
+		        }
+		    ]
+		);
+
+// 添加brazier升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.100,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 1
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.100,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 1
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.520,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 1, upgrade1);
+
+// 添加brazier升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 2
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 2
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.640,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 2, upgrade2);
+
+// 添加brazier升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.300,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 3
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.300,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 3
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.760,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 3, upgrade3);
+
+// 添加brazier升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.400,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 4
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.400,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 4
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.880,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 4, upgrade4);
+
+// 添加brazier升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.500,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 5
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.500,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 5
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 5, upgrade5);
+
+// 添加brazier升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.600,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 6
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.600,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 6
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.120,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 6, upgrade6);
+
+// 添加brazier升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.650,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 7
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.650,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 7
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.180,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 7, upgrade7);
+
+// 添加brazier升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.700,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 8
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.700,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 8
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.240,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 8, upgrade8);
+
+// 添加brazier升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 2.800,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 9
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 2.800,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 9
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.360,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 9, upgrade9);
+
+// 添加brazier升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 3.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 10
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 10
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.600,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 10, upgrade10);
+
+// 添加brazier升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 3.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 11
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 11
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.840,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 11, upgrade11);
+
+// 添加brazier升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 3.400,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 12
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.400,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 12
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.080,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 12, upgrade12);
+
+// 添加brazier升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 3.600,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 13
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.600,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 13
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.320,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 13, upgrade13);
+
+// 添加brazier升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 3.800,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 14
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 3.800,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 14
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.560,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 14, upgrade14);
+
+// 添加brazier升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 4.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 15
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.000,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 15
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.800,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 15, upgrade15);
+
+// 添加brazier升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "火盆",
+		            "shape": 0,
+		            "description": "火盆：点燃子弹",
+		            "hp": 50,
+		            "cost": 175,
+		            "atk": 4.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        },
+		        {
+		            "name": "电子烤盘",
+		            "shape": 1,
+		            "description": "电子烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 4.200,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        },
+		        {
+		            "name": "岩烧烤盘",
+		            "shape": 2,
+		            "description": "岩烧烤盘：点燃子弹",
+		            "hp": 250,
+		            "cost": 175,
+		            "atk": 5.040,
+		            "range": 0,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("brazier", 16, upgrade16);
+
+
+		}
+		{//注册大火炉
+			// 注册large_fire
+		register_plant(
+		    "large_fire",
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1500
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1500
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1500
+		        }
+		    ]
+		);
+
+// 添加large_fire升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1440,
+		            "level": 1,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1440,
+		            "level": 1,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1440,
+		            "level": 1,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 1, upgrade1);
+
+// 添加large_fire升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1380,
+		            "level": 2,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1380,
+		            "level": 2,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1380,
+		            "level": 2,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 2, upgrade2);
+
+// 添加large_fire升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1320,
+		            "level": 3,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1320,
+		            "level": 3,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1320,
+		            "level": 3,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 3, upgrade3);
+
+// 添加large_fire升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1260,
+		            "level": 4,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1260,
+		            "level": 4,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1260,
+		            "level": 4,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 4, upgrade4);
+
+// 添加large_fire升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1200,
+		            "level": 5,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1200,
+		            "level": 5,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1200,
+		            "level": 5,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 5, upgrade5);
+
+// 添加large_fire升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1140,
+		            "level": 6,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1140,
+		            "level": 6,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1140,
+		            "level": 6,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 6, upgrade6);
+
+// 添加large_fire升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1080,
+		            "level": 7,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1080,
+		            "level": 7,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1080,
+		            "level": 7,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 7, upgrade7);
+
+// 添加large_fire升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1020,
+		            "level": 8,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1020,
+		            "level": 8,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 1020,
+		            "level": 8,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 8, upgrade8);
+
+// 添加large_fire升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 960,
+		            "level": 9,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 960,
+		            "level": 9,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 960,
+		            "level": 9,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 9, upgrade9);
+
+// 添加large_fire升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 900,
+		            "level": 10,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 900,
+		            "level": 10,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 900,
+		            "level": 10,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 10, upgrade10);
+
+// 添加large_fire升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 840,
+		            "level": 11,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 840,
+		            "level": 11,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 840,
+		            "level": 11,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 11, upgrade11);
+
+// 添加large_fire升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 780,
+		            "level": 12,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 780,
+		            "level": 12,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 780,
+		            "level": 12,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 12, upgrade12);
+
+// 添加large_fire升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 720,
+		            "level": 13,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 720,
+		            "level": 13,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 720,
+		            "level": 13,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 13, upgrade13);
+
+// 添加large_fire升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 660,
+		            "level": 14,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 660,
+		            "level": 14,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 660,
+		            "level": 14,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 14, upgrade14);
+
+// 添加large_fire升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 600,
+		            "level": 15,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 600,
+		            "level": 15,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 600,
+		            "level": 15,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 15, upgrade15);
+
+// 添加large_fire升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "大火炉",
+		            "shape": 0,
+		            "description": "大火炉：一次生产两朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 540,
+		            "level": 16,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "高能火炉",
+		            "shape": 1,
+		            "description": "高能火炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 540,
+		            "level": 16,
+		            "flame_produce": 25
+		        },
+		        {
+		            "name": "超能燃气炉",
+		            "shape": 2,
+		            "description": "超能燃气炉：一次生产三朵火苗",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 0,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 540,
+		            "level": 16,
+		            "flame_produce": 25
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("large_fire", 16, upgrade16);
+
+
+		}
+		{//注册钢鱼刺
+			// 注册iron_fishbone
+		register_plant(
+		    "iron_fishbone",
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78
+		        }
+		    ]
+		);
+
+// 添加iron_fishbone升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 24,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 24,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 24,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 1, upgrade1);
+
+// 添加iron_fishbone升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 28,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 28,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 28,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 2, upgrade2);
+
+// 添加iron_fishbone升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 3, upgrade3);
+
+// 添加iron_fishbone升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 36,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 36,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 36,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 4, upgrade4);
+
+// 添加iron_fishbone升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 5, upgrade5);
+
+// 添加iron_fishbone升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 44,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 44,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 44,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 6, upgrade6);
+
+// 添加iron_fishbone升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 52,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 52,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 52,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 7, upgrade7);
+
+// 添加iron_fishbone升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 64,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 64,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 64,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 8, upgrade8);
+
+// 添加iron_fishbone升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 80,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 80,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 80,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 9, upgrade9);
+
+// 添加iron_fishbone升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 110,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 110,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 110,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 10, upgrade10);
+
+// 添加iron_fishbone升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 140,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 140,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 140,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 11, upgrade11);
+
+// 添加iron_fishbone升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 170,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 170,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 170,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 12, upgrade12);
+
+// 添加iron_fishbone升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 200,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 200,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 200,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 13, upgrade13);
+
+// 添加iron_fishbone升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 230,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 230,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 230,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 14, upgrade14);
+
+// 添加iron_fishbone升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 260,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 260,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 260,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 15, upgrade15);
+
+// 添加iron_fishbone升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "钢鱼刺",
+		            "shape": 0,
+		            "description": "钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 290,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "无座钢鱼刺",
+		            "shape": 1,
+		            "description": "无座钢鱼刺：伤害接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 290,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "海贼王鱼刺",
+		            "shape": 2,
+		            "description": "海贼王鱼刺：伤害并减速接触到的敌人，卡坏3个车辆",
+		            "hp": 3600,
+		            "cost": 125,
+		            "atk": 290,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 78,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("iron_fishbone", 16, upgrade16);
+
+
+		}
+		{//注册机枪小笼包
+			// 注册gatlin_long_bao
+		register_plant(
+		    "gatlin_long_bao",
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 10,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60
+		        }
+		    ]
+		);
+
+// 添加gatlin_long_bao升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 1
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 1
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 12,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 1, upgrade1);
+
+// 添加gatlin_long_bao升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 2
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 2
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 14,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 2, upgrade2);
+
+// 添加gatlin_long_bao升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 3
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 3
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 16,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 3, upgrade3);
+
+// 添加gatlin_long_bao升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 4
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 4
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 18,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 4, upgrade4);
+
+// 添加gatlin_long_bao升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 5
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 5
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 20,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 5, upgrade5);
+
+// 添加gatlin_long_bao升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 6
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 6
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 22,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 6, upgrade6);
+
+// 添加gatlin_long_bao升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 7
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 7
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 26,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 7, upgrade7);
+
+// 添加gatlin_long_bao升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 8
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 8
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 32,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 8, upgrade8);
+
+// 添加gatlin_long_bao升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 9
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 9
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 40,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 9, upgrade9);
+
+// 添加gatlin_long_bao升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 10
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 10
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 55,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 10, upgrade10);
+
+// 添加gatlin_long_bao升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 11
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 11
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 11, upgrade11);
+
+// 添加gatlin_long_bao升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 12
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 12
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 85,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 12, upgrade12);
+
+// 添加gatlin_long_bao升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 13
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 13
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 13, upgrade13);
+
+// 添加gatlin_long_bao升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 14
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 14
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 115,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 14, upgrade14);
+
+// 添加gatlin_long_bao升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 15
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 15
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 130,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 15, upgrade15);
+
+// 添加gatlin_long_bao升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "机枪小笼包",
+		            "shape": 0,
+		            "description": "机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 16
+		        },
+		        {
+		            "name": "竹筒机枪小笼包",
+		            "shape": 1,
+		            "description": "竹筒机枪小笼包：发射四发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 16
+		        },
+		        {
+		            "name": "格林机枪笼包",
+		            "shape": 2,
+		            "description": "格林机枪笼包：发射六发包子",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 145,
+		            "range": 10,
+		            "cooldown": 3000,
+		            "cycle": 60,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("gatlin_long_bao", 16, upgrade16);
+
+
+		}
+		{//注册旋转咖啡喷壶
+			// 注册rotating_coffee_pot
+		register_plant(
+		    "rotating_coffee_pot",
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 20,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 20,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 40,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90
+		        }
+		    ]
+		);
+
+// 添加rotating_coffee_pot升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 24,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 1
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 24,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 1
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 48,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 1, upgrade1);
+
+// 添加rotating_coffee_pot升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 28,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 2
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 28,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 2
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 56,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 2, upgrade2);
+
+// 添加rotating_coffee_pot升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 32,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 3
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 32,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 3
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 64,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 3, upgrade3);
+
+// 添加rotating_coffee_pot升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 36,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 4
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 36,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 4
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 72,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 4, upgrade4);
+
+// 添加rotating_coffee_pot升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 40,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 5
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 40,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 5
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 80,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 5, upgrade5);
+
+// 添加rotating_coffee_pot升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 44,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 6
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 44,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 6
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 88,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 6, upgrade6);
+
+// 添加rotating_coffee_pot升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 52,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 7
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 52,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 7
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 104,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 7, upgrade7);
+
+// 添加rotating_coffee_pot升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 64,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 8
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 64,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 8
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 128,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 8, upgrade8);
+
+// 添加rotating_coffee_pot升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 80,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 9
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 80,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 9
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 160,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 9, upgrade9);
+
+// 添加rotating_coffee_pot升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 110,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 10
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 110,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 10
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 220,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 10, upgrade10);
+
+// 添加rotating_coffee_pot升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 140,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 11
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 140,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 11
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 280,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 11, upgrade11);
+
+// 添加rotating_coffee_pot升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 170,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 12
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 170,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 12
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 340,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 12, upgrade12);
+
+// 添加rotating_coffee_pot升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 200,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 13
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 200,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 13
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 400,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 13, upgrade13);
+
+// 添加rotating_coffee_pot升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 230,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 14
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 230,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 14
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 460,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 14, upgrade14);
+
+// 添加rotating_coffee_pot升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 260,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 15
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 260,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 15
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 520,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 15, upgrade15);
+
+// 添加rotating_coffee_pot升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "旋转咖啡喷壶",
+		            "shape": 0,
+		            "description": "旋转咖啡喷壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 290,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 16
+		        },
+		        {
+		            "name": "节能旋转咖啡壶",
+		            "shape": 1,
+		            "description": "节能旋转咖啡壶：3*3范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 290,
+		            "range": 1,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 16
+		        },
+		        {
+		            "name": "原子咖啡壶",
+		            "shape": 2,
+		            "description": "原子咖啡壶：5*5范围穿透攻击",
+		            "hp": 50,
+		            "cost": 150,
+		            "atk": 580,
+		            "range": 2,
+		            "cooldown": 3000,
+		            "cycle": 90,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("rotating_coffee_pot", 16, upgrade16);
+
+
+		}
+		{//注册章鱼烧
+			// 注册takoyaki
+		register_plant(
+		    "takoyaki",
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 10,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 10,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 10,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180
+		        }
+		    ]
+		);
+
+// 添加takoyaki升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 12,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 1
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 12,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 1
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 12,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 1, upgrade1);
+
+// 添加takoyaki升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 14,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 2
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 14,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 2
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 14,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 2, upgrade2);
+
+// 添加takoyaki升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 16,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 3
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 16,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 3
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 16,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 3, upgrade3);
+
+// 添加takoyaki升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 18,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 4
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 18,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 4
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 18,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 4, upgrade4);
+
+// 添加takoyaki升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 5
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 5
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 20,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 5, upgrade5);
+
+// 添加takoyaki升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 22,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 6
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 22,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 6
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 22,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 6, upgrade6);
+
+// 添加takoyaki升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 26,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 7
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 26,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 7
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 26,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 7, upgrade7);
+
+// 添加takoyaki升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 8
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 8
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 32,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 8, upgrade8);
+
+// 添加takoyaki升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 9
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 9
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 40,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 9, upgrade9);
+
+// 添加takoyaki升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 55,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 10
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 55,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 10
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 55,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 10, upgrade10);
+
+// 添加takoyaki升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 70,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 11
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 70,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 11
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 70,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 11, upgrade11);
+
+// 添加takoyaki升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 85,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 85,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 85,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 12, upgrade12);
+
+// 添加takoyaki升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 100,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 13
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 100,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 13
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 100,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 13, upgrade13);
+
+// 添加takoyaki升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 115,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 14
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 115,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 14
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 115,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 14, upgrade14);
+
+// 添加takoyaki升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 130,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 15
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 130,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 15
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 130,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 15, upgrade15);
+
+// 添加takoyaki升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "章鱼烧",
+		            "shape": 0,
+		            "description": "章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 145,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 16
+		        },
+		        {
+		            "name": "两栖章鱼烧",
+		            "shape": 1,
+		            "description": "两栖章鱼烧：甩出两发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 145,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 16
+		        },
+		        {
+		            "name": "火影章鱼烧",
+		            "shape": 2,
+		            "description": "火影章鱼烧：甩出四发追踪飞镖",
+		            "hp": 50,
+		            "cost": 225,
+		            "atk": 145,
+		            "range": 0,
+		            "cooldown": 3000,
+		            "cycle": 180,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("takoyaki", 16, upgrade16);
+
+
+		}
 	}
 }

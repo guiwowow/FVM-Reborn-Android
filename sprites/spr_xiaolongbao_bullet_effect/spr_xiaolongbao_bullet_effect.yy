@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Bullet",
-    "path":"folders/精灵/Bullet.yy",
+    "name":"bullet effect",
+    "path":"folders/精灵/Bullet/bullet effect.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

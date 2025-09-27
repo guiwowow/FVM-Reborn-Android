@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Bullet",
-    "path":"folders/精灵/Bullet.yy",
+    "name":"throw",
+    "path":"folders/精灵/Bullet/throw.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

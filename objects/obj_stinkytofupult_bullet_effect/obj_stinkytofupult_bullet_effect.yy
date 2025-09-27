@@ -11,8 +11,8 @@
   "name":"obj_stinkytofupult_bullet_effect",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bullet",
-    "path":"folders/物体/Bullet.yy",
+    "name":"bullet effect",
+    "path":"folders/物体/Bullet/bullet effect.yy",
   },
   "parentObjectId":null,
   "persistent":false,
