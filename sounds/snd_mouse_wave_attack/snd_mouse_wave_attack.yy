@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_mouse_wave_attack",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.2277551,
+  "name":"snd_mouse_wave_attack",
+  "parent":{
+    "name":"Sound Effect",
+    "path":"folders/声音/Sound Effect.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_mouse_wave_attack.mp3",
+  "type":0,
+  "volume":1.0,
+}

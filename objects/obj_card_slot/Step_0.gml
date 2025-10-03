@@ -1,4 +1,5 @@
 //step事件
+depth = -2000
 if global.is_paused{
 	exit
 }

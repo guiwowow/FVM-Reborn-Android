@@ -1,11 +1,12 @@
+event_inherited()
 image_xscale = 1.8
 image_yscale = 1.8
 image_speed = 0
 atk = 10 //每次攻击伤害
 atk_cycle = 0.6 * 60 //攻击间隔
 move_speed = 0.32 //移动速度（像素/秒）
-hp = 2000
-maxhp = 2000
+hp = 100
+maxhp = 100
 hurt_rate = 0.5 //切换至受伤状态所需生命值比例
 state = ENEMY_STATE.NORMAL //状态
 flash_speed = 6

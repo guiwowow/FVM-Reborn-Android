@@ -1,0 +1,1 @@
+draw_sprite(global.level_data.level_sprite,0,0,0)

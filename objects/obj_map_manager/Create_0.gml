@@ -3,7 +3,18 @@ surface_set_target(application_surface);
 draw_clear_alpha(c_black, 0); // 用透明黑色清除surface，alpha值0表示完全透明
 surface_reset_target();
 instance_create_depth(100,0,-2,obj_player_info_ui)
-instance_create_depth(1365,455,-2,obj_levelselect_button)
+current_map_id = global.map_id
+var map_button_array = struct_get(ds_map_find_value(global.maps_map,current_map_id),"levels_data")
+var button_array_length = array_length(map_button_array)
+for(var i = 0 ; i <button_array_length ; i++){
+	var button_struct = map_button_array[i]
+	var inst = instance_create_depth(button_struct.button_x,button_struct.button_y,-2,obj_levelselect_button)
+	inst.image_index = button_struct.button_index
+	inst.target_level_id = button_struct.id
+	inst.target_level_file = button_struct.level_file
+	inst.level_index = i
+}
+
 instance_create_depth(room_width-210,room_height,-1,obj_player_menu_bg)
 
 

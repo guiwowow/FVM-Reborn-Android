@@ -1,6 +1,11 @@
 global.level = 1
 global.menu_screen = true
 global.map_name = "美味岛"
+global.map_id = "delicious_town"
+global.level_id = ""
+global.level_file = ""
+global.level_name = "曲奇岛"
+global.level_data = {}
 Music_Init()
 gpu_set_tex_filter(true)
 // 初始化全局键位映射

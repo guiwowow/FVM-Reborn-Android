@@ -1,4 +1,4 @@
-global.flame = 500
+global.flame = global.level_file.starting_flame
 // 放置植物成功后调用
 //global.selected_slot.cooldown_timer = 0;
 //global.selected_slot.is_selected = false;

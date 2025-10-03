@@ -9,6 +9,8 @@ info_island_register_init()
 info_island_init()
 goods_registry_init()
 shop_init()
+maps_init()
+enemy_init()
 randomise()
 
 // 全局植物注册表

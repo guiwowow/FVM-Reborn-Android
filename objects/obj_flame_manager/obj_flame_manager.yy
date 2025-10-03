@@ -32,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_flame_indicator",
+    "path":"sprites/spr_flame_indicator/spr_flame_indicator.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

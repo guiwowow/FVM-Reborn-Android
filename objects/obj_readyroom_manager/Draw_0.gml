@@ -4,7 +4,7 @@ draw_set_valign(fa_middle)
 draw_set_font(font_yuan)
 draw_text(190,45,global.map_name)
 draw_set_color(c_black)
-draw_text(565,53,"色拉岛（陆）")
+draw_text(565,53,global.level_file.level_name)
 {//绘制可选择的防御卡
 	surface_set_target(slot_surface)
 for(var i = 0 ; i < slot_rows ; i++){

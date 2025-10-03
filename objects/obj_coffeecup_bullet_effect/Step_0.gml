@@ -3,6 +3,6 @@ if global.is_paused{
 }
 timer ++
 image_index = floor(timer/3) - 1
-if timer > 15{
+if timer > 18{
 	instance_destroy()
 }

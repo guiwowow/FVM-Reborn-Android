@@ -41,3 +41,66 @@ if keyboard_check_pressed(ord("A")){
 		audio_play_sound(snd_place1,0,0)
 	}
 }
+
+if battle_time >=( global.level_file.first_wave_delay * 60 )&& level_stage == "ready"{
+	current_total_hp = 0
+	wave_timer = wave_max_time
+	level_stage = "pre"
+	audio_play_sound(snd_mouse_wave_attack,0,0)
+	current_subwave += 1
+	var subwave_enemy = global.level_file.waves[current_wave].subwaves
+	enemy_list = subwave_enemy[current_subwave].enemy_list
+	for(var i = 0; i < array_length(enemy_list);i++){
+		if enemy_list[i].type != ""{
+			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
+			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
+			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
+			var grid_pos = get_grid_position_from_world(new_x,new_y)
+			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);
+			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
+		}
+	}
+}
+var current_total_subwaves = array_length(global.level_file.waves[current_wave].subwaves)
+if wave_timer <= 0 && level_stage == "pre"{
+	wave_timer = wave_max_time
+	current_total_hp = 0
+	for(var i = 0; i < array_length(enemy_list);i++){
+		if enemy_list[i].type != ""{
+			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
+			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
+			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
+			var grid_pos = get_grid_position_from_world(new_x,new_y)
+			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);
+			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
+		}
+	}
+	if current_subwave < current_total_subwaves{
+		current_subwave+=1
+	}
+	else if current_wave == total_wave-1{
+		//current_wave += 1
+		//current_subwave = 0
+	}
+	else if current_wave < total_wave{
+		current_wave += 1
+		current_subwave = 0
+		audio_play_sound(snd_mouse_wave_attack,0,0)
+		instance_create_depth(room_width/2,room_height/2,-300,obj_huge_wave_text)
+	}
+}
+
+
+if keyboard_check_pressed(ord("Q")){
+	if current_subwave < current_total_subwaves{
+		current_subwave+=1
+	}
+	else if current_wave == total_wave-1{
+		//current_wave += 1
+		//current_subwave = 0
+	}
+	else if current_wave < total_wave{
+		current_wave += 1
+		current_subwave = 0
+	}
+}
