@@ -22,6 +22,18 @@ if flash_value > 0 {
 if hp <= 0{
 	frozen_timer = 0
 }
+var current_atk_cycle = 0
+var current_move_speed = 0
+if is_slowdown{
+	flash_speed = 12
+	current_move_speed = move_speed / 2
+	current_atk_cycle = atk_cycle*2
+}
+else{
+	flash_speed = 6
+	current_move_speed = move_speed
+	current_atk_cycle = atk_cycle
+}
 if is_frozen{
 	exit
 }
@@ -44,13 +56,22 @@ switch(state) {
     
     case ENEMY_STATE.NORMAL: {
         // 移动和动画逻辑
-        x -= move_speed;
+        x -= current_move_speed;
         
-        if (hp/maxhp > hurt_rate) {
-            image_index = floor(timer / flash_speed) mod move_anim;
-        } else {
-            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
-        }
+		if helmet_hp > 0 && hp > maxhp - helmet_hp{
+			if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+	            image_index = floor(timer / flash_speed) mod move_anim;
+	        } else {
+	            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
+	        }
+		}
+		else{
+	        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+	            image_index = floor(timer / flash_speed) mod move_anim;
+	        } else {
+	            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
+	        }
+		}
         
         // 检测前方植物
         var plant_in_range = noone;
@@ -116,7 +137,7 @@ switch(state) {
         
         // 攻击处理
         attack_timer++;
-        if (attack_timer >= atk_cycle) {
+        if (attack_timer >= current_atk_cycle) {
             // 对目标植物造成伤害
             with (target_plant) {
 				if !invincible{
@@ -164,16 +185,7 @@ if (image_alpha <= 0 && state == ENEMY_STATE.DEAD) {
 }
 
 
-if is_slowdown{
-	flash_speed = 12
-	move_speed = 0.16
-	atk_cycle = 72
-}
-else{
-	flash_speed = 6
-	move_speed = 0.32
-	atk_cycle = 36
-}
+
 
 // 更新僵尸的网格位置和深度
 
@@ -183,3 +195,10 @@ depth = base_depth - 4.5; // 僵尸比植物稍微靠后一点（在护罩外侧
 // 保持网格位置更新
 grid_col = zombie_grid.col;
 grid_row = zombie_grid.row;
+
+if x < global.grid_offset_x-150 && hp > 0 && not place_meeting(x,y,obj_cat){
+	global.is_paused = true
+	global.game_over = true
+	instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+	audio_play_sound(snd_lose,0,0)
+}

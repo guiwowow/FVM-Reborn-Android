@@ -183,3 +183,9 @@ depth = base_depth - 4.5; // 僵尸比植物稍微靠后一点（在护罩外侧
 // 保持网格位置更新
 grid_col = zombie_grid.col;
 grid_row = zombie_grid.row;
+if x < global.grid_offset_x-150 && hp > 0 && not place_meeting(x,y,obj_cat){
+	global.is_paused = true
+	global.game_over = true
+	instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+	audio_play_sound(snd_lose,0,0)
+}

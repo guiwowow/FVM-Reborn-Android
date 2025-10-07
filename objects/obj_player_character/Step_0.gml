@@ -30,8 +30,10 @@ if is_placed{
 //depth = depth_value - depth_group * 100;
 
 if hp <= 0{
-	room_goto(room_map)
-	global.menu_screen = true
+	global.is_paused = true
+	global.game_over = true
+	instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+	audio_play_sound(snd_lose,0,0)
 }
 
 if flash_value >0{

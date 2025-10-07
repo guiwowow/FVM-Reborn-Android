@@ -6,8 +6,14 @@ draw_sprite_ext(spr_level_wave_text,0,x-340,y-40,1.8,1.8,0,c_white,1)
 
 
 
-if obj_battle.current_wave >= elite_wave {
+if obj_battle.current_wave >= elite_wave && not instance_exists(obj_enemy_parent){
 	level_stage = "elite"
+	if obj_battle_music_controller.battle_music != mus_delicious_island_daytime_elite{
+		with obj_battle_music_controller{
+			new_battle_music = mus_delicious_island_daytime_elite
+			event_user(0)
+		}
+	}
 }
 var level_progress = 0
 var current_total_subwaves = array_length(global.level_file.waves[obj_battle.current_wave].subwaves)

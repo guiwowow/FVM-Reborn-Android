@@ -61,8 +61,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Enemy",
-    "path":"folders/精灵/Enemy.yy",
+    "name":"delicious_island",
+    "path":"folders/精灵/Enemy/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

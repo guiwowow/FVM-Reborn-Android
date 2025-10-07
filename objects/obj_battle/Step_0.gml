@@ -5,7 +5,21 @@ battle_time ++
 // obj_controller STEP 事件
 if keyboard_check_pressed(ord("M")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_normal_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_football_fan_mouse)
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
+}
+if keyboard_check_pressed(ord("N")){
+	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_iron_pan_mouse)
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
+}
+if keyboard_check_pressed(ord("L")){
+	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_skateboard_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -69,6 +83,9 @@ if wave_timer <= 0 && level_stage == "pre"{
 		if enemy_list[i].type != ""{
 			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
 			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
+			if enemy_list[i].row <= 0{
+				enemy_list[i].row = irandom_range(1,global.grid_rows)
+			}
 			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
 			var grid_pos = get_grid_position_from_world(new_x,new_y)
 			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);
@@ -79,8 +96,11 @@ if wave_timer <= 0 && level_stage == "pre"{
 		current_subwave+=1
 	}
 	else if current_wave == total_wave-1{
-		//current_wave += 1
-		//current_subwave = 0
+		global.is_paused = true
+		global.game_over = true
+		var inst = instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+		inst.sprite_index = spr_win
+		audio_play_sound(snd_win,0,0)
 	}
 	else if current_wave < total_wave{
 		current_wave += 1
@@ -96,8 +116,11 @@ if keyboard_check_pressed(ord("Q")){
 		current_subwave+=1
 	}
 	else if current_wave == total_wave-1{
-		//current_wave += 1
-		//current_subwave = 0
+		global.is_paused = true
+		global.game_over = true
+		var inst = instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+		inst.sprite_index = spr_win
+		audio_play_sound(snd_win,0,0)
 	}
 	else if current_wave < total_wave{
 		current_wave += 1

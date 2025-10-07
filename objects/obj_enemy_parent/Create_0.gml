@@ -24,7 +24,9 @@ frozen_timer = 0
 is_frozen = false
 ice_sprite = spr_mouse_frozen
 helmet_hp = 0
+helmet_max_hp = 0
 shield_hp = 0
+shield_max_hp = 0
 
 // 加载Shader
 shader_hit = hit_effect_2

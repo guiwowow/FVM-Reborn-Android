@@ -9,6 +9,7 @@ instance_create_depth(0,0,0,obj_flame_manager)
 var mus_inst = instance_create_depth(0,0,0,obj_battle_music_controller)
 mus_inst.battle_music = global.level_data.pre_music
 
+global.game_over = false
 
 //instance_create_depth(1800,330,0,obj_enemy_parent)
 //instance_create_depth(1800,460,0,obj_enemy_parent)
@@ -26,6 +27,7 @@ global.grid_cell_size_y = 116
 global.grid_offset_y = 242
 global.grid_cols = global.level_file.map_cols
 global.grid_rows = global.level_file.map_rows
+
 
 //啃食音效
 chomp_sound_list = ds_list_create()
@@ -72,6 +74,11 @@ for(var i = 0 ; i < global.grid_rows ; i++){
 			new_plant.depth = depth_value
 		}
 	}
+	var new_x = global.grid_offset_x -1 * global.grid_cell_size_x
+	var new_y = global.grid_offset_y + i * global.grid_cell_size_y
+	var grid_pos = get_grid_position_from_world(new_x,new_y)
+	var cat_inst = instance_create_depth(grid_pos.x, grid_pos.y, 0,obj_cat);
+	cat_inst.row = i
 }
 
 //关卡波次

@@ -8,6 +8,10 @@ if (keyboard_check_pressed(vk_space)) {
         }
         else if (global.is_paused && !global.show_menu) {
             // 取消暂停
+			if global.game_over{
+				room_goto(room_map)
+				global.menu_screen = true
+			}
 			if obj_battle.battle_time != 0{
 				global.is_paused = false;
 			}

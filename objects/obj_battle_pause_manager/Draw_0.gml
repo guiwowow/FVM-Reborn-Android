@@ -32,11 +32,15 @@ if (global.is_paused)
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
 		draw_set_color(c_white)
-		if obj_battle.battle_time != 1{
+		if obj_battle.battle_time == 1{
+			draw_sprite_ext(spr_place_player_tip,0,room_width / 2, room_height / 2,1.8,1.8,0,c_white,1)
+		}
+		else if not global.game_over{
+			
 			draw_text(room_width / 2, room_height / 2, "暂停中");
 		}
 		else{
-			draw_sprite_ext(spr_place_player_tip,0,room_width / 2, room_height / 2,1.8,1.8,0,c_white,1)
+			draw_text(room_width / 2, room_height / 2 + 150, "按空格键继续……");
 		}
     }
 }

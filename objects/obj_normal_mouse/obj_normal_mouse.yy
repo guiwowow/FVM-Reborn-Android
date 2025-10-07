@@ -10,8 +10,8 @@
   "name":"obj_normal_mouse",
   "overriddenProperties":[],
   "parent":{
-    "name":"Enemy",
-    "path":"folders/物体/Enemy.yy",
+    "name":"delicious_island",
+    "path":"folders/物体/Enemy/delicious_island.yy",
   },
   "parentObjectId":{
     "name":"obj_enemy_parent",
