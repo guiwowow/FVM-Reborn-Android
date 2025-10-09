@@ -1,4 +1,5 @@
 if on_click {
+	pressed = true
     audio_play_sound(snd_button, 0, 0);
     room_goto(room_ready);
 }
@@ -29,3 +30,5 @@ if (!buffer_exists(_buffer)) {
 var map_button_array = struct_get(ds_map_find_value(global.maps_map,global.map_id),"levels_data")
 global.level_data = map_button_array[level_index]
 show_debug_message(global.level_data)
+
+

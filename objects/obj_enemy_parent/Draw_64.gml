@@ -25,4 +25,15 @@ if (global.enemy_hpbar && hp > 0) {
     draw_set_color(c_purple);
 	
     draw_rectangle(bar_x-bar_width/2, bar_y, bar_x-bar_width/2 + bar_width * hp_ratio, bar_y + bar_height, false);
+	
+	if shield_hp > 0 && shield_max_hp != 0{
+		 // 计算护盾比例
+	    var shield_ratio = shield_hp / shield_max_hp;
+	    shield_ratio = clamp(shield_ratio, 0, 1);
+    
+	    // 绘制护盾条主体（绿色）
+	    draw_set_color(c_aqua);
+	
+	    draw_rectangle(bar_x-bar_width/2, bar_y, bar_x-bar_width/2 + bar_width * shield_ratio, bar_y + bar_height, false);
+	}
 }

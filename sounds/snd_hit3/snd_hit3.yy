@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_hit3",
+  "audioGroupId":{
+    "name":"sound",
+    "path":"audiogroups/sound",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.44408163,
+  "name":"snd_hit3",
+  "parent":{
+    "name":"Sound Effect",
+    "path":"folders/声音/Sound Effect.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_hit3.mp3",
+  "type":0,
+  "volume":1.0,
+}

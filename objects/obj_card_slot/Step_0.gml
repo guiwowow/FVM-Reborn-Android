@@ -1,5 +1,4 @@
 //step事件
-depth = -2000
 if global.is_paused{
 	exit
 }
@@ -134,7 +133,7 @@ if (is_selected) {
     }
 }
 
-depth = -1 * slot_index
+depth = -1 * slot_index - 1000
 if info_got == false{
 	event_user(0)
 }

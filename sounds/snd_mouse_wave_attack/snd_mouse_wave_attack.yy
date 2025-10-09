@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_mouse_wave_attack",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"sound",
+    "path":"audiogroups/sound",
   },
   "bitDepth":1,
   "bitRate":128,

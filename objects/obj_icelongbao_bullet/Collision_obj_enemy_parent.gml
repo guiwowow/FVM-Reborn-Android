@@ -1,15 +1,18 @@
-var damage_amount = damage 
-if (other.state == ENEMY_STATE.NORMAL or other.state == ENEMY_STATE.ATTACK)and row == other.grid_row{
+
+if other.hp > 0 and row == other.grid_row{
 	with(other){
 		if other.burnt == 2{
 				audio_play_sound(snd_fire_hit,0,0)
 			}
 			else{
-				audio_play_sound(snd_hit1,0,0)
+				audio_play_sound(hit_sound,0,0)
 			}
-		hp -= damage_amount
-		if ice_timer <= 600 && other.burnt == 0{
-			ice_timer = 600
+		damage_amount = other.damage
+		damage_type = other.damage_type
+		if shield_hp <= 0{
+			if ice_timer <= 600 && other.burnt == 0{
+				ice_timer = 600
+			}
 		}
 		event_user(0)
 	

@@ -23,6 +23,7 @@ function Enum_Init(){
 		NORMAL,
 		HURT,
 		HURTATTACK,
-		DEAD
+		DEAD,
+		ACTING
 	}
 }

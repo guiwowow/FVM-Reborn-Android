@@ -1,5 +1,6 @@
+draw_self()
 if flash_value >0{
-	draw_self()
+	
 	shader_set(shader_hit);
 	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,flash_color,flash_value/200);
 	shader_reset();
@@ -22,13 +23,13 @@ if flash_value >0{
     //shader_reset();
     //gpu_set_blendmode(bm_normal);
 }
-else if is_slowdown{
+if is_slowdown{
 	image_blend = merge_color(c_white,c_blue,0.5)
-	draw_self()
+	//draw_self()
 }
 else{
 	image_blend = c_white
-	draw_self()
+	//draw_self()
 }
 
 if is_frozen{

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_skateboard_mouse",
-    "path":"sprites/spr_skateboard_mouse/spr_skateboard_mouse.yy",
+    "name":"spr_skateboard_mouse_skate",
+    "path":"sprites/spr_skateboard_mouse_skate/spr_skateboard_mouse_skate.yy",
   },
   "spriteMaskId":null,
   "visible":true,

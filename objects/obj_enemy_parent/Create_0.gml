@@ -37,3 +37,8 @@ flash_color = #FFFFFF
 
 grid_col = 0
 grid_row = 0
+
+damage_amount = 0
+damage_type = ""
+
+hit_sound = snd_hit1

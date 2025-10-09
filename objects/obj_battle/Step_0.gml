@@ -5,7 +5,7 @@ battle_time ++
 // obj_controller STEP 事件
 if keyboard_check_pressed(ord("M")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_football_fan_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_kangaroo)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -19,7 +19,28 @@ if keyboard_check_pressed(ord("N")){
 }
 if keyboard_check_pressed(ord("L")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_skateboard_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_ninja_mouse)
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
+}
+if keyboard_check_pressed(ord("K")){
+	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_landlady_mouse)
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
+}
+if keyboard_check_pressed(ord("B")){
+	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_repairman_mouse)
+	inst.grid_row = grid_pos.row
+	inst.grid_col = grid_pos.col
+	inst.frozen_timer = 0000
+}
+if keyboard_check_pressed(ord("J")){
+	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_machine_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000

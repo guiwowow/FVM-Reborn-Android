@@ -5,7 +5,9 @@
 	var _x = x;
 	var _y = y;
 	var _range = 350
-
+	
+	audio_stop_sound(snd_kettle_bomb_explode)
+	
 	with (obj_enemy_parent) {
 		
 			if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row >= other.grid_row-2&&grid_row <= other.grid_row+2) {

@@ -5,7 +5,7 @@ surface_reset_target();
 
 depth = 5
 
-instance_create_depth(0,0,0,obj_flame_manager)
+instance_create_depth(0,0,-900,obj_flame_manager)
 var mus_inst = instance_create_depth(0,0,0,obj_battle_music_controller)
 mus_inst.battle_music = global.level_data.pre_music
 

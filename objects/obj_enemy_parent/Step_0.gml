@@ -57,20 +57,55 @@ switch(state) {
     case ENEMY_STATE.NORMAL: {
         // 移动和动画逻辑
         x -= current_move_speed;
-        
-		if helmet_hp > 0 && hp > maxhp - helmet_hp{
-			if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
-	            image_index = floor(timer / flash_speed) mod move_anim;
-	        } else {
-	            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
-	        }
+        if shield_max_hp > 0 && shield_hp > 0{
+			if shield_hp > hurt_rate * shield_max_hp{
+				if helmet_hp > 0 && hp > maxhp - helmet_hp{
+					if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod move_anim;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim*2;
+			        }
+				}
+				else{
+			        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod move_anim;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim*2;
+			        }
+				}
+			}
+			else{
+				if helmet_hp > 0 && hp > maxhp - helmet_hp{
+					if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod move_anim + move_anim;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim*3;
+			        }
+				}
+				else{
+			        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod move_anim + move_anim;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim*3;
+			        }
+				}
+			}
 		}
 		else{
-	        if (hp/(maxhp - helmet_hp) > hurt_rate) {
-	            image_index = floor(timer / flash_speed) mod move_anim;
-	        } else {
-	            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
-	        }
+			if helmet_hp > 0 && hp > maxhp - helmet_hp{
+				if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+		            image_index = floor(timer / flash_speed) mod move_anim;
+		        } else {
+		            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
+		        }
+			}
+			else{
+		        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+		            image_index = floor(timer / flash_speed) mod move_anim;
+		        } else {
+		            image_index = (floor(timer / flash_speed) mod move_anim) + move_anim;
+		        }
+			}
 		}
         
         // 检测前方植物
@@ -85,7 +120,7 @@ switch(state) {
 			is_in_front = (dx < 0 && dx > -other.attack_range);
 				
             // 检查是否在攻击范围内
-            if (is_in_front && zombie_grid.row == grid_row) {
+            if (is_in_front && zombie_grid.row == grid_row && feature_type!="dwarf") {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
                     var target_type = ds_list_find_value(global.shovel_order, i);
@@ -110,13 +145,62 @@ switch(state) {
         break;
     }
     
+	case ENEMY_STATE.ACTING:{
+		break;
+	}
+	
     case ENEMY_STATE.ATTACK: {
+		if shield_max_hp > 0 && shield_hp > 0{
+			if shield_hp > hurt_rate * shield_max_hp{
+				if helmet_hp > 0 && hp > maxhp - helmet_hp{
+					if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod attack_anim + move_anim * 4;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod attack_anim) + attack_anim*2 + move_anim * 4;
+			        }
+				}
+				else{
+			        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod attack_anim + move_anim * 4;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod attack_anim) + attack_anim*2 + move_anim * 4;
+			        }
+				}
+			}
+			else{
+				if helmet_hp > 0 && hp > maxhp - helmet_hp{
+					if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod attack_anim + attack_anim + move_anim * 4;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod attack_anim) + attack_anim*3 + move_anim * 4;
+			        }
+				}
+				else{
+			        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+			            image_index = floor(timer / flash_speed) mod attack_anim + attack_anim + move_anim * 4;
+			        } else {
+			            image_index = (floor(timer / flash_speed) mod attack_anim) + attack_anim*3 + move_anim * 4;
+			        }
+				}
+			}
+		}
+		else{
+			if helmet_hp > 0 && hp > maxhp - helmet_hp{
+				if ((hp + helmet_hp - maxhp)/maxhp > hurt_rate) {
+		            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2);
+		        } else {
+		            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2 + attack_anim);
+		        }
+			}
+			else{
+		        if (hp/(maxhp - helmet_hp) > hurt_rate) {
+		            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2);
+		        } else {
+		            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2 + attack_anim);
+		        }
+			}
+		}
         // 攻击动画
-        if (hp/maxhp > hurt_rate) {
-            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2);
-        } else {
-            image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2 + attack_anim);
-        }
         
         // 检查目标是否有效
         if (!instance_exists(target_plant)) {
@@ -163,11 +247,20 @@ switch(state) {
 		ice_timer = 0
 		frozen_timer = 0
         // 死亡动画
-        if image_index >= death_anim + move_anim * 2 + attack_anim * 2 - 1 {
-            image_alpha -= 0.08;
-        } else {
-            image_index = (floor(timer / flash_speed) mod death_anim) + move_anim * 2 + attack_anim * 2;
-        }
+		if shield_max_hp > 0 && shield_hp > 0{
+			if image_index >= death_anim + move_anim * 4 + attack_anim * 4 - 1 {
+	            image_alpha -= 0.08;
+	        } else {
+	            image_index = (floor(timer / flash_speed) mod death_anim) + move_anim * 4 + attack_anim * 4;
+	        }
+		}
+		else{
+	        if image_index >= death_anim + move_anim * 2 + attack_anim * 2 - 1 {
+	            image_alpha -= 0.08;
+	        } else {
+	            image_index = (floor(timer / flash_speed) mod death_anim) + move_anim * 2 + attack_anim * 2;
+	        }
+		}
         break;
     }
 }
