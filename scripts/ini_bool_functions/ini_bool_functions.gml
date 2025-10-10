@@ -24,12 +24,24 @@ function ini_read_bool(section, key, default_value){
 	}
 
 	// 将字符串转换为布尔值
-	if (str_value == "true" || real(str_value) > 0) {
-	    return true;
-	} else if (str_value == "false" || real(str_value) == 0) {
-	    return false;
-	} else {
-	    // 无效值，返回默认值
-	    return default_value;
-}
+	if str_value == "true" or str_value == "false"{
+		if (str_value == "true") {
+		    return true;
+		} else if (str_value == "false") {
+		    return false;
+		} else {
+		    // 无效值，返回默认值
+		    return default_value;
+		}
+	}
+	else{
+		if (real(str_value) > 0) {
+		    return true;
+		} else if (real(str_value) == 0) {
+		    return false;
+		} else {
+		    // 无效值，返回默认值
+		    return default_value;
+		}
+	}
 }

@@ -313,6 +313,8 @@
     {"id":{"name":"deck_init","path":"scripts/deck_init/deck_init.yy",},},
     {"id":{"name":"deselect_shovel","path":"scripts/deselect_shovel/deselect_shovel.yy",},},
     {"id":{"name":"edit_file","path":"scripts/edit_file/edit_file.yy",},},
+    {"id":{"name":"enemy_info_island_init","path":"scripts/enemy_info_island_init/enemy_info_island_init.yy",},},
+    {"id":{"name":"enemy_info_island_registry","path":"scripts/enemy_info_island_registry/enemy_info_island_registry.yy",},},
     {"id":{"name":"enemy_init","path":"scripts/enemy_init/enemy_init.yy",},},
     {"id":{"name":"enemy_registry","path":"scripts/enemy_registry/enemy_registry.yy",},},
     {"id":{"name":"Enum_Init","path":"scripts/Enum_Init/Enum_Init.yy",},},

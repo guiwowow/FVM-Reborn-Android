@@ -11,6 +11,7 @@ goods_registry_init()
 shop_init()
 maps_init()
 enemy_init()
+enemy_info_island_init()
 randomise()
 
 // 全局植物注册表

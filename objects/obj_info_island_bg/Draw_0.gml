@@ -147,102 +147,139 @@ if info_button_select == 1 {
 		draw_text(x-320,y-190,name)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
+		var sun = string(info[? "flame_produce"])
+		if sun == "undefined"{
+			sun = "无"
+		}
 		draw_text_ext_transformed(x-200,y-290,"攻击力："+string(info[? "atk"])+"\n"+"生命值："+string(info[? "hp"])+"\n"+"能量消耗："+string(info[? "cost"]),40,1920,1,1,0)
-		draw_text_ext_transformed(x,y-290,"攻击间隔："+string(info[? "cycle"]/60)+"\n"+"冷却时间："+string(info[? "cooldown"]/60)+"\n"+"火苗产量："+string(info[? "flame_produce"]),40,1920,1,1,0)
+		draw_text_ext_transformed(x,y-290,"攻击间隔："+string(info[? "cycle"]/60)+"\n"+"冷却时间："+string(info[? "cooldown"]/60)+"\n"+"火苗产量："+sun,40,1920,1,1,0)
 		draw_text_ext(x-390,y-100,info_text,30,300)
 		draw_set_font(font_yuan)
 	}
 }
-//else if package_button_select == 2 {
-//    // 绘制武器背包
-//    for(var i = 0 ; i < package_rows ; i++){
-//        for(var j = 0 ; j < package_cols ; j++){
-//            draw_sprite_ext(spr_package_slot_bg,1,x-354+i*84,y - 368 + 88 * j,1.8,1.8,0,c_white,1)
-//        }
-//    }
+else if info_button_select == 2 {
+	if surface_exists(info_surface){
+		surface_set_target(info_surface)
+		draw_clear_alpha(c_black,0)
+    for(var i = 0 ; i < info_rows ; i++){
+        for(var j = 0 ; j < info_cols ; j++){
+			if j + i * info_cols == select_card_index{
+				draw_sprite_ext(spr_info_island_info_bg,1,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
+			}
+			else{
+				draw_sprite_ext(spr_info_island_info_bg,0,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
+			}
+        }
+    }
     
-//    // 绘制所有已解锁的武器
-//    var weapon_index = 0;
-//    hover_weapon_index = -1; // 重置悬停武器索引
+    // 绘制所有已注册的敌人
+    var enemy_index = 0;
+    hover_card_index = -1; // 重置悬停卡片索引
     
-//    for(var i = 0; i < array_length(global.save_data.unlocked_weapons); i++) {
-//        var weapon_id = global.save_data.unlocked_weapons[i].id;
-//        var weapon_data = global.weapon_pool[? weapon_id];
+	var enemy_id_array = ds_map_keys_to_array(global.enemy_map)
+    for(var i = 0; i < array_length(enemy_id_array); i += 1) {
+        var enemy_id = enemy_id_array[i]
+		var enemy_data = global.enemy_map[? enemy_id];
+		var info = global.enemy_info_island[? enemy_id]
         
-//        if (!is_undefined(weapon_data)) {
-//            // 计算武器位置
-//            var row = weapon_index div package_cols;
-//            var col = weapon_index mod package_cols;
-            
-//            if (row < package_rows) {
-//                var weapon_x = x - 354 + col * 84;
-//                var weapon_y = y - 368 + row * 88;
-                
-//                // 检查武器是否已装备
-//                var is_equipped = is_weapon_equipped(weapon_id);
-                
-//                // 绘制武器图标
-//                if (is_equipped) {
-//                    // 已装备的武器，用高亮边框或颜色显示
-//                    draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_yellow, 1);
-//                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1, 1, 0, c_white, 1);
-//                } else {
-//                    draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_white, 1);
-//                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1, 1, 0, c_white, 1);
-//                }
-                
-//                // 检查鼠标是否悬停在武器上
-//                var spr_width = 84;
-//                var spr_height = 88;
-                
-//                if (point_in_rectangle(mouse_x, mouse_y, 
-//                                      weapon_x - spr_width/2, weapon_y - spr_height/2,
-//                                      weapon_x + spr_width/2, weapon_y + spr_height/2)) {
-//                    hover_weapon_index = i;
-//                }
-                
-//                weapon_index++;
-//            }
-//        }
-//    }
-    
-//    // 绘制悬停提示
-//    if (hover_weapon_index != -1) {
-//        var weapon_id = global.save_data.unlocked_weapons[hover_weapon_index].id;
-//        var weapon_data = global.weapon_pool[? weapon_id];
+        // 计算敌人位置
+        var row = enemy_index div info_cols;
+        var col = enemy_index mod info_cols;
         
-//        if (!is_undefined(weapon_data)) {
-//            // 获取鼠标位置
-//            var tooltip_x = mouse_x + 15;
-//            var tooltip_y = mouse_y + 15;
+        if (row < info_rows) {
+            var card_x = x - 1154 + col * 128*1.5;
+            var card_y = y - 435 + row * 142*1.5-y_offset;
             
-//			// 获取提示文本
-            
-//            var tooltip_text = ""
-//            var is_equipped = is_weapon_equipped(weapon_id);
-//            if (is_equipped) {
-//                var slot = get_weapon_slot(weapon_id);
-//                tooltip_text = weapon_data.description + "\n已装备\n左键点击卸下"
-//            } else {
-//                tooltip_text = weapon_data.description + "\n左键点击装备"
-//            }
-			
-//            // 绘制提示背景
-//            draw_set_color(c_black);
-//            draw_set_alpha(0.7);
-//            draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
-//                          tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
-//			//绘制提示文本
-//			draw_set_halign(fa_left);
-//            draw_set_valign(fa_top);
-//            draw_set_alpha(1);
-//            draw_set_color(c_white);
-//			draw_text(tooltip_x, tooltip_y, tooltip_text);
-			
-            
-//        }
-//    }
-//}
+            // 绘制敌人
+				
+                draw_sprite_ext(enemy_data.spr, 0, card_x, card_y+65, 1, 1, 0, c_white, 1);
+				draw_set_color(c_white);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_set_font(font_yuan)
+				draw_text(card_x,card_y+87,enemy_data.name)
+				draw_set_font(font_yuan)
+                // 检查鼠标是否悬停在敌人上
+                var spr_width = 128*1.5;
+                var spr_height = 142*1.5;
+                if (point_in_rectangle(mouse_x, mouse_y, 
+                                      card_x - spr_width/2, card_y + 45,
+                                      card_x + spr_width/2, card_y + 45+spr_height)) 
+				&& mouse_y >= y - 375 && mouse_y <= y - 375 + surface_height {
+                    hover_card_index = enemy_index;
+                }
+				if enemy_index == hover_card_index{
+					draw_set_alpha(1)
+					draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+				}
+                        
+            enemy_index++;
+        }
+    }
+	
+	surface_reset_target()
+	}
+	draw_surface(info_surface,x-1380,y-368)
+    // 绘制悬停提示
+    if (hover_card_index != -1) {
+        // 获取鼠标位置
+        var tooltip_x = mouse_x + 15;
+        var tooltip_y = mouse_y - 15;
+		var row = hover_card_index div info_cols;
+        var col = hover_card_index mod info_cols;
+        
+        if (row < info_rows) {
+            var card_x = x - 1154 + col * 128*1.5;
+            var card_y = y - 265 + row * 142*1.5-y_offset;
+			//draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+		}
+		
+        
+        // 绘制提示背景
+        draw_set_color(c_black);
+        draw_set_alpha(0.7);
+        draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
+                      tooltip_x + 150, tooltip_y + 30, false);
+        
+        // 绘制提示文本
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_text(tooltip_x, tooltip_y, "点击查看情报");
+    }
+	if select_card_index != -1{
+		//绘制右侧信息栏
+		var enemy_id_array = ds_map_keys_to_array(global.enemy_map)
+        var enemy_id = enemy_id_array[select_card_index]
+		var enemy_data = global.enemy_map[? enemy_id];
+		var info = global.enemy_info_island[? enemy_id]
+		var name = enemy_data.name
+		
+		
+		//绘制文本
+		draw_set_font(font_hei)
+		draw_sprite_ext(enemy_data.spr, 0, x-320, y-180, 1.5, 1.5, 0, c_white, 1);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		//draw_text(x-360,y-350,"当前查看数值：星级："+string(view_card_level)+"，转职："+string(current_view_shape)+"，技能："+string(view_card_skill))
+		draw_set_color(c_white);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(x-320,y-160,name)
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		var ash = "否"
+		if enemy_data.ash_proof{
+			ash = "是"
+		}
+		draw_text_ext_transformed(x-200,y-310,"攻击力："+string(enemy_data.atk)+"\n"+"生命值："+string(enemy_data.hp)+"\n"+"移动速度："+string(enemy_data.speed),40,1920,1,1,0)
+		draw_text_ext_transformed(x,y-310,"攻击间隔："+string(enemy_data.cycle/60)+"\n"+"盾牌血量："+string(enemy_data.shield)+"\n"+"防爆："+ash,40,1920,1,1,0)
+		draw_text_ext(x-390,y-100,info,30,300)
+		draw_set_font(font_yuan)
+	}
+}
+
 
 // 重置绘制设置
 draw_set_halign(fa_left);
