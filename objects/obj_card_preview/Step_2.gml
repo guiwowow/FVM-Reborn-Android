@@ -1,2 +1,4 @@
 var grid_pos = get_grid_position_from_world(x, y);
-is_valid = can_place_at_position(x, y, "normal");
+ var card_shape = get_card_info_simple(card_id).shape
+var card_data = deck_get_card_data(card_id,card_shape)
+is_valid = (can_place_at_position(mouse_x, mouse_y, card_data[? "plant_type"],card_data[? "feature_type"],card_data[? "target_card"]));

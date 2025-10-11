@@ -16,6 +16,9 @@ function register_card(card_id, _obj, _shapes_array) {
         shape_data[? "cooldown"] = shape_info.cooldown;
         shape_data[? "description"] = shape_info.description;
 		shape_data[? "obj"] = _obj;
+		shape_data[? "plant_type"] = shape_info.plant_type;
+		shape_data[? "feature_type"] = shape_info.feature_type;
+		shape_data[? "target_card"] = shape_info.target_card;
         
         ds_list_add(card[? "shapes"], shape_data);
     }

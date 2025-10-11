@@ -1,5 +1,5 @@
 if not is_placed{
-	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal"));
+	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal","normal","none"));
 	if can_plant{
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
 		draw_sprite_ext(sprite_index,0,grid_pos.x,grid_pos.y,1.6,1.6,0,c_white,0.5)

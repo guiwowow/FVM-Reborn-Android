@@ -53,3 +53,36 @@ if current_level >= 4{ //绑定星级贴图
 	inst.parent_card = id
 	banding_star_obj = inst.id
 }
+
+var card_shape = get_card_info_simple(plant_id).shape
+var card_data = deck_get_card_data(plant_id,card_shape)
+plant_type = card_data[? "plant_type"]
+feature_type = card_data[? "feature_type"]
+target_card = card_data[? "target_card"]
+
+var grid_pos = get_grid_position_from_world(x, y);
+    var col = grid_pos.col;
+    var row = grid_pos.row;
+    
+    // 检查是否在网格范围内
+    if (col < 0 || col >= global.grid_cols || row < 0 || row >= global.grid_rows) {
+        exit
+    }
+    
+    // 获取该网格的植物列表
+    var plant_list = ds_grid_get(global.grid_plants, col, row);
+    
+    // 根据植物类型检查是否可以种植
+	if target_card != "none"{
+		for (var i = 0; i < ds_list_size(plant_list); i++) {
+	        var plant = ds_list_find_value(plant_list, i);
+	        if (plant.plant_id == target_card) {
+				
+				if feature_type == "upgrade"{
+					instance_destroy(plant)
+					break
+				}
+				
+	       }
+	    }
+	}

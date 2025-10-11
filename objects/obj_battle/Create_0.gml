@@ -60,6 +60,7 @@ for (var col = 0; col < global.grid_cols; col++) {
 }
 
 var plant_list = global.level_file.map
+global.grid_terrains = plant_list
 for(var i = 0 ; i < global.grid_rows ; i++){
 	for(var j = 0 ; j < global.grid_cols ; j ++){
 		if plant_list[i][j].plant != ""{

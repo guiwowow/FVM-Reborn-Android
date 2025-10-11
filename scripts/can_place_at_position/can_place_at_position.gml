@@ -1,9 +1,11 @@
-/// @function can_plant_at_position(x, y, plant_type)
+/// @function can_plant_at_position(x, y, plant_type,feature_type,target_card)
 /// @description 检查是否可以在指定位置种植植物
 /// @param {real} x X坐标
 /// @param {real} y Y坐标
 /// @param {string} plant_type 植物类型
-function can_place_at_position(x, y, plant_type) {
+/// @param {string} feature_type 植物特性
+/// @param {string} target_card 底座卡片
+function can_place_at_position(x, y, plant_type,feature_type,target_card) {
     // 获取网格位置
     var grid_pos = get_grid_position_from_world(x, y);
     var col = grid_pos.col;
@@ -18,24 +20,39 @@ function can_place_at_position(x, y, plant_type) {
     var plant_list = ds_grid_get(global.grid_plants, col, row);
     
     // 根据植物类型检查是否可以种植
+	if target_card != "none"{
+		for (var i = 0; i < ds_list_size(plant_list); i++) {
+	        var plant = ds_list_find_value(plant_list, i);
+	        if (plant.plant_id == target_card) {
+				
+				return true;
+				
+	       }
+	    }
+		return false
+	}
     switch (plant_type) {
         case "lilypad":
             // 莲叶花盆只能种在水上且该网格必须为空
-            if (ds_list_size(plant_list) == 0) {
-                // 空地上
-                //return (global.grid_terrain[# col, row] == "grass");
-				return true
-            } else {
-                // 检查是否有同类
-                for (var i = 0; i < ds_list_size(plant_list); i++) {
-                    var plant = ds_list_find_value(plant_list, i);
-                    if (plant.plant_type == "lilypad") {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            
+			if global.grid_terrains[row][col].type == "water"{
+	            if (ds_list_size(plant_list) == 0) {
+	                // 空地上
+	                //return (global.grid_terrain[# col, row] == "grass");
+					return true
+	            } else {
+	                // 检查是否有同类
+	                for (var i = 0; i < ds_list_size(plant_list); i++) {
+	                    var plant = ds_list_find_value(plant_list, i);
+	                    if (plant.plant_type == "lilypad") {
+	                        return false;
+	                    }
+	                }
+	                return true;
+	            }
+			}
+			else{
+				return false
+			}
         case "coffee":
             if (ds_list_size(plant_list) == 0) {
                 // 空地上
@@ -64,20 +81,39 @@ function can_place_at_position(x, y, plant_type) {
             
         case "normal":
             // 普通植物只能种在空地上或莲叶上
-            if (ds_list_size(plant_list) == 0) {
-                // 空地上
-                //return (global.grid_terrain[# col, row] == "grass");
-				return true
-            } else {
-                // 检查是否有同类
-                for (var i = 0; i < ds_list_size(plant_list); i++) {
+			if global.grid_terrains[row][col].type != "water"{
+	            if (ds_list_size(plant_list) == 0) {
+	                // 空地上
+	                //return (global.grid_terrain[# col, row] == "grass");
+					return true
+	            } else {
+	                // 检查是否有同类
+	                for (var i = 0; i < ds_list_size(plant_list); i++) {
+	                    var plant = ds_list_find_value(plant_list, i);
+	                    if (plant.plant_type == "normal") {
+	                        return false;
+	                    }
+	                }
+	                return true;
+	            }
+			}
+			else{
+				// 检查是否有同类
+	                for (var i = 0; i < ds_list_size(plant_list); i++) {
+	                    var plant = ds_list_find_value(plant_list, i);
+						if (plant.plant_type == "normal") {
+	                        return false;
+	                    }
+	                    
+	                }
+					for (var i = 0; i < ds_list_size(plant_list); i++) {
                     var plant = ds_list_find_value(plant_list, i);
-                    if (plant.plant_type == "normal") {
-                        return false;
+                    if (plant.plant_type == "lilypad") {
+                        return true;
                     }
                 }
-                return true;
-            }
+				return false
+			}
             
         default:
             // 其他植物类型

@@ -12,6 +12,7 @@ depth_value = 0
 depth_offset = 0
 plant_type = "normal"
 feature_type = "normal"
+target_card = "none"
 can_shovel_remove = false
 invincible = false
 hurt_time = 0

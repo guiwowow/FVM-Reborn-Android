@@ -1,5 +1,5 @@
 if not is_placed{
-	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal"));
+	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal","normal","none"));
 	if can_plant{
 		is_placed = true
 		global.is_paused = false
