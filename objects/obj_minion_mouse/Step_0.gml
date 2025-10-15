@@ -15,6 +15,9 @@ if not summon{
 	}
 
 event_inherited();
+if global.is_paused or is_frozen{
+	exit
+}
 if state == ENEMY_STATE.ACTING{
 	
 	image_index = floor(timer/flash_speed) mod 10 

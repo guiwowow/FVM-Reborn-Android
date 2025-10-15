@@ -16,7 +16,7 @@ if (hover_alpha > 0) {
     var box_width = text_width + 20;
     var box_height = text_height + 15;
 	var display_description = description;
-	if (!is_ready && global.flame < cost && cooldown_timer >= cooldown) {
+	if (!is_ready && global.flame < current_cost && cooldown_timer >= cooldown) {
 		box_height += text_height 
 		display_description = description + "\n没有足够的火苗" 
 	}

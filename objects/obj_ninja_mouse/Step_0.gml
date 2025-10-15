@@ -17,6 +17,9 @@ else{
 	}
 }
 event_inherited();
+if global.is_paused or is_frozen{
+	exit
+}
 if dash && (state == ENEMY_STATE.ATTACK or timer > 4.5*60){
 	move_speed = 0.27
 	move_anim = 12

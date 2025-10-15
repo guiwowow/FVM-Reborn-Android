@@ -1,14 +1,14 @@
 // Inherit the parent event
 
 event_inherited();
-if global.is_paused{
+if global.is_paused or is_frozen{
 	exit
 }
 if state == ENEMY_STATE.ATTACK{
 	timer = 0
 	state = ENEMY_STATE.ACTING
 }
-if state = ENEMY_STATE.ACTING{
+if state == ENEMY_STATE.ACTING{
 	if hp > maxhp * hurt_rate{
 		image_index = floor(timer/flash_speed) mod 8
 	}

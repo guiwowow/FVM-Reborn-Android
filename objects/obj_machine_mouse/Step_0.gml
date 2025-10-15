@@ -8,6 +8,9 @@ else{
 }
 
 event_inherited();
+if global.is_paused or is_frozen{
+	exit
+}
 if state == ENEMY_STATE.ATTACK && not acted{
 	state = ENEMY_STATE.ACTING
 	timer = 0

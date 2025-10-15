@@ -22,7 +22,7 @@ if shield_hp <= 0 && not dropped && hp > 0{
 	dropped = true
 }
 event_inherited();
-if global.is_paused{
+if global.is_paused or is_frozen{
 	exit
 }
 if dropped && state = ENEMY_STATE.ACTING{

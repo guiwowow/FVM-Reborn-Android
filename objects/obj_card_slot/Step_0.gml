@@ -2,6 +2,14 @@
 if global.is_paused{
 	exit
 }
+current_cost = cost
+if card_id == "large_fire"{
+	with obj_large_fire{
+		if shape < 2{
+			other.current_cost += 50
+		}
+	}
+}
 if cooldown_timer < cooldown{
 	cooldown_timer ++
 
@@ -14,7 +22,7 @@ if cooldown_timer < cooldown{
     cooling_alpha = max(cooling_alpha - 0.05, 0); // 淡出冷却效果
     
     // 检查阳光是否足够
-    if (global.flame >= cost) {
+    if (global.flame >= current_cost) {
         is_ready = true;
     } else {
         is_ready = false;
@@ -106,7 +114,7 @@ if (is_selected) {
 		var card_data = deck_get_card_data(card_id,card_shape)
         var can_plant = (can_place_at_position(mouse_x, mouse_y, card_data[? "plant_type"],card_data[? "feature_type"],card_data[? "target_card"]));
         
-        if (can_plant && global.flame >= cost) {
+        if (can_plant && global.flame >= current_cost) {
             // 创建植物实例
 			var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
             var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
@@ -115,16 +123,27 @@ if (is_selected) {
 			var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 			card_created(new_plant, grid_pos.col, grid_pos.row);
 			new_plant.depth = depth_value
-			instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+			}
+			else{
+				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
+				inst.sprite_index = spr_enter_water_effect
+			}
             
             // 扣除阳光
-            global.flame -= cost;
+            global.flame -= current_cost;
             
             // 重置冷却计时器
             cooldown_timer = 0;
             is_ready = false;
             
-			audio_play_sound(snd_place1,0,0)
+			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				audio_play_sound(snd_place1,0,0)
+			}
+			else{
+				audio_play_sound(snd_enter_water,0,0)
+			}
             // 取消选择
             is_selected = false;
             if (selected_preview != noone && instance_exists(selected_preview)) {

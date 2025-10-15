@@ -13,7 +13,7 @@ else{
 	move_speed = 0.3
 }
 event_inherited();
-if global.is_paused{
+if global.is_paused or is_frozen{
 	exit
 }
 if not placed && state = ENEMY_STATE.ACTING{

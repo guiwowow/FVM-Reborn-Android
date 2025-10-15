@@ -5,14 +5,14 @@ battle_time ++
 // obj_controller STEP 事件
 if keyboard_check_pressed(ord("M")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_kangaroo)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_paper_boat_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
 }
 if keyboard_check_pressed(ord("N")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_iron_pan_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_frog_prince_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -26,7 +26,7 @@ if keyboard_check_pressed(ord("L")){
 }
 if keyboard_check_pressed(ord("K")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_landlady_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_diver_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -40,7 +40,7 @@ if keyboard_check_pressed(ord("B")){
 }
 if keyboard_check_pressed(ord("J")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_machine_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_butterfly_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -71,7 +71,7 @@ if keyboard_check_pressed(ord("A")){
 		var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 		card_created(new_plant, grid_pos.col, grid_pos.row);
 		new_plant.depth = depth_value
-		new_plant.ice_timer = 600
+		new_plant.atk = 90000
 		instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 		audio_play_sound(snd_place1,0,0)
 	}
@@ -82,7 +82,7 @@ if battle_time >=( global.level_file.first_wave_delay * 60 )&& level_stage == "r
 	wave_timer = wave_max_time
 	level_stage = "pre"
 	audio_play_sound(snd_mouse_wave_attack,0,0)
-	current_subwave += 1
+	
 	var subwave_enemy = global.level_file.waves[current_wave].subwaves
 	enemy_list = subwave_enemy[current_subwave].enemy_list
 	for(var i = 0; i < array_length(enemy_list);i++){
@@ -95,11 +95,14 @@ if battle_time >=( global.level_file.first_wave_delay * 60 )&& level_stage == "r
 			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
 		}
 	}
+	current_subwave += 1
 }
 var current_total_subwaves = array_length(global.level_file.waves[current_wave].subwaves)
 if wave_timer <= 0 && level_stage == "pre"{
 	wave_timer = wave_max_time
 	current_total_hp = 0
+	var subwave_enemy = global.level_file.waves[current_wave].subwaves
+	enemy_list = subwave_enemy[current_subwave].enemy_list
 	for(var i = 0; i < array_length(enemy_list);i++){
 		if enemy_list[i].type != ""{
 			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
@@ -113,7 +116,7 @@ if wave_timer <= 0 && level_stage == "pre"{
 			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
 		}
 	}
-	if current_subwave < current_total_subwaves{
+	if current_subwave < current_total_subwaves-1{
 		current_subwave+=1
 	}
 	else if current_wave == total_wave-1{
