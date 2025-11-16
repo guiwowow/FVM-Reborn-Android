@@ -24,9 +24,9 @@ function slots_init(){
 	])
 	
 	register_card("mouse_clip",obj_mouse_clip,[
-	    {"shape":0, "sprite":spr_mouse_clip, "cost":25, "cooldown":30*60, "description":"老鼠夹子：准备完成后，会在地面敌人接触后爆炸","plant_type":"normal","feature_type":"low","target_card":"none"},
-	    {"shape":1, "sprite":spr_mouse_clip_1, "cost":25, "cooldown":30*60, "description":"多用老鼠夹子：准备完成后，会在敌人接触后爆炸","plant_type":"normal","feature_type":"low","target_card":"none"},
-		{"shape":2, "sprite":spr_mouse_clip_2, "cost":25, "cooldown":30*60, "description":"黑猫鼠夹：准备完成后，会在敌人接触后产生3*4爆炸","plant_type":"normal","feature_type":"low","target_card":"none"}
+	    {"shape":0, "sprite":spr_mouse_clip, "cost":25, "cooldown":30*60, "description":"老鼠夹子：准备完成后，会在地面敌人接触后爆炸","plant_type":"normal","feature_type":"dwarf","target_card":"none"},
+	    {"shape":1, "sprite":spr_mouse_clip_1, "cost":25, "cooldown":30*60, "description":"多用老鼠夹子：准备完成后，会在敌人接触后爆炸","plant_type":"normal","feature_type":"dwarf","target_card":"none"},
+		{"shape":2, "sprite":spr_mouse_clip_2, "cost":25, "cooldown":30*60, "description":"黑猫鼠夹：准备完成后，会在敌人接触后产生3*4爆炸","plant_type":"normal","feature_type":"dwarf","target_card":"none"}
 	])
 	register_card("coke_bomb",obj_coke_bomb,[
 	    {"shape":0, "sprite":spr_coke_bomb, "cost":150, "cooldown":50*60, "description":"可乐炸弹：3*4范围爆炸","plant_type":"normal","feature_type":"normal","target_card":"none"},
@@ -87,7 +87,7 @@ function slots_init(){
 		{"shape":2, "sprite":spr_kettle_bomb_2, "cost":350, "cooldown":50*60, "description":"汽油干冰弹：5*5范围爆炸和减速","plant_type":"normal","feature_type":"normal","target_card":"none"}
 	])
 	register_card("fishbone",obj_fishbone,[
-	    {"shape":0, "sprite":spr_fishbone, "cost":100, "cooldown":7*60, "description":"鱼刺：攻击踩上它的老鼠，卡坏车辆","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	    {"shape":0, "sprite":spr_fishbone, "cost":100, "cooldown":7*60, "description":"鱼刺：攻击踩上它的老鼠，卡坏车辆","plant_type":"normal","feature_type":"dwarf","target_card":"none"}
 	])
 	register_card("triple_wine_rack",obj_triple_wine_rack,[
 	    {"shape":0, "sprite":spr_triple_wine_rack, "cost":325, "cooldown":7*60, "description":"三线酒架：向前方三行发射3发葡萄酒弹","plant_type":"normal","feature_type":"normal","target_card":"none"},
@@ -106,8 +106,8 @@ function slots_init(){
 	])
 	register_card("iron_fishbone",obj_iron_fishbone,[
 	    {"shape":0, "sprite":spr_iron_fishbone, "cost":125, "cooldown":50*60, "description":"钢鱼刺：攻击踩上它的老鼠，卡坏四次车辆","plant_type":"normal","feature_type":"upgrade","target_card":"fishbone"},
-	    {"shape":1, "sprite":spr_iron_fishbone_1, "cost":125, "cooldown":50*60, "description":"无座钢鱼刺：攻击踩上它的老鼠，卡坏四次车辆","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":2, "sprite":spr_iron_fishbone_2, "cost":125, "cooldown":50*60, "description":"海贼王鱼刺：攻击并减速踩上它的老鼠，卡坏四次车辆","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	    {"shape":1, "sprite":spr_iron_fishbone_1, "cost":125, "cooldown":50*60, "description":"无座钢鱼刺：攻击踩上它的老鼠，卡坏四次车辆","plant_type":"normal","feature_type":"dwarf","target_card":"none"},
+		{"shape":2, "sprite":spr_iron_fishbone_2, "cost":125, "cooldown":50*60, "description":"海贼王鱼刺：攻击并减速踩上它的老鼠，卡坏四次车辆","plant_type":"normal","feature_type":"dwarf","target_card":"none"}
 	])
 	register_card("gatlin_long_bao",obj_gatlin_long_bao,[
 	    {"shape":0, "sprite":spr_gatlin_long_bao, "cost":250, "cooldown":50*60, "description":"机枪小笼包：发射四发包子","plant_type":"normal","feature_type":"upgrade","target_card":"double_long_bao"},
@@ -120,8 +120,8 @@ function slots_init(){
 		{"shape":2, "sprite":spr_rotating_coffee_pot_2, "cost":150, "cooldown":50*60, "description":"原子咖啡壶：5*5范围穿透攻击","plant_type":"normal","feature_type":"normal","target_card":"none"}
 	]);
 	register_card("takoyaki", obj_takoyaki, [
-	    {"shape":0, "sprite":spr_takoyaki, "cost":225, "cooldown":50*60, "description":"章鱼烧：甩出两发追踪飞镖","plant_type":"normal","feature_type":"water","target_card":"wooden_plate"},
-	    {"shape":1, "sprite":spr_takoyaki_1, "cost":225, "cooldown":50*60, "description":"两栖章鱼烧：甩出两发追踪飞镖","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":2, "sprite":spr_takoyaki_2, "cost":225, "cooldown":50*60, "description":"火影章鱼烧：甩出四发追踪飞镖","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	    {"shape":0, "sprite":spr_takoyaki, "cost":225, "cooldown":50*60, "description":"章鱼烧：甩出两发追踪飞镖","plant_type":"normal","feature_type":"normal","target_card":"wooden_plate"},
+	    {"shape":1, "sprite":spr_takoyaki_1, "cost":225, "cooldown":50*60, "description":"两栖章鱼烧：甩出两发追踪飞镖","plant_type":"normal","feature_type":"amphi","target_card":"none"},
+		{"shape":2, "sprite":spr_takoyaki_2, "cost":225, "cooldown":50*60, "description":"火影章鱼烧：甩出四发追踪飞镖","plant_type":"normal","feature_type":"amphi","target_card":"none"}
 	]);
 }

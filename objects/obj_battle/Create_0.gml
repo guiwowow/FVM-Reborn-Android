@@ -24,7 +24,7 @@ global.current_seed = noone;
 global.grid_offset_x = 695
 global.grid_cell_size_x = 107
 global.grid_cell_size_y = 116
-global.grid_offset_y = 242
+global.grid_offset_y = 228
 global.grid_cols = global.level_file.map_cols
 global.grid_rows = global.level_file.map_rows
 

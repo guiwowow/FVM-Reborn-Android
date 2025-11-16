@@ -201,23 +201,41 @@ switch(state) {
 			}
 		}
         // 攻击动画
+        // 检测前方植物
+        var plant_in_range = noone;
         
-        // 检查目标是否有效
-        if (!instance_exists(target_plant)) {
-            // 目标已不存在，返回移动状态
-            state = ENEMY_STATE.NORMAL;
-            timer = 0;
-            break;
+		
+        // 使用碰撞检测查找攻击范围内的植物
+        with (obj_card_parent) {
+			var dx = x - other.x;
+			var dy = y - other.y;
+			var is_in_front = false
+			is_in_front = (dx < 0 && dx > -other.attack_range);
+				
+            // 检查是否在攻击范围内
+            if (is_in_front && zombie_grid.row == grid_row && feature_type!="dwarf") {
+                // 按铲除顺序优先选择
+                for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
+                    var target_type = ds_list_find_value(global.shovel_order, i);
+                    
+                    if (plant_type == target_type) {
+                        plant_in_range = id;
+                        break;
+                    }
+                }
+                
+                if (plant_in_range != noone) break;
+            }
         }
-        
-        // 检查目标是否仍在攻击范围内
-		var dx = target_plant.x - x
-        if ((dx > 0 || dx < -attack_range) || zombie_grid.row != target_plant.grid_row) {
-            state = ENEMY_STATE.NORMAL;
-            target_plant = noone;
-            timer = 0;
-            break;
+		if (plant_in_range != noone) {
+            target_plant = plant_in_range;
         }
+		else{
+			state = ENEMY_STATE.NORMAL;
+            target_plant = plant_in_range;
+            attack_timer = 0;  // 重置攻击计时器
+            timer = 0;         // 重置动画计时器
+		}
         
         // 攻击处理
         attack_timer++;

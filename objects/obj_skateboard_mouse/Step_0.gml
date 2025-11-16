@@ -131,8 +131,13 @@ switch(state) {
             image_index = (floor(timer / flash_speed) mod attack_anim + move_anim * 2 + attack_anim);
         }
         if not skipped{
+			if array_get_index(block_list,target_plant.plant_id) == -1{
 			
-			move_speed = 1.80
+				move_speed = 1.80
+			}
+			else{
+				move_speed = 0
+			}
 			if  ((hp/maxhp > hurt_rate) && image_index == move_anim * 2 + attack_anim-1) or ((hp/maxhp <= hurt_rate) && image_index == move_anim * 2 + attack_anim*2-1){
 				skipped = true
 			}

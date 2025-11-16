@@ -23,7 +23,15 @@ if state != CARD_STATE.IDLE{
 		            //effect_create_above(effect_smoke, x, y, 1, c_gray);
 		        } else {
 		            // 直接摧毁非免疫敌人
-					instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					if special_ash{
+						var inst = instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+						inst.special_ash = true
+						inst.sprite_index = sprite_index
+						inst.image_index = image_index
+					}
+					else{
+						instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					}
 		            instance_destroy();
 		            // 摧毁效果
 		            //effect_create_above(ef_explosion, x, y, 1, c_yellow);
@@ -40,7 +48,15 @@ if state != CARD_STATE.IDLE{
 		            //effect_create_above(effect_smoke, x, y, 1, c_gray);
 		        } else {
 		            // 直接摧毁非免疫敌人
-					instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					if special_ash{
+						var inst = instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+						inst.special_ash = true
+						inst.sprite_index = sprite_index
+						inst.image_index = image_index
+					}
+					else{
+						instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					}
 		            instance_destroy();
 		            // 摧毁效果
 		            //effect_create_above(ef_explosion, x, y, 1, c_yellow);
@@ -54,7 +70,8 @@ if state != CARD_STATE.IDLE{
 
 	// 播放攻击声音
 	 audio_play_sound(snd_mouse_clip_explode, 0, false);
-	 
+
+//创建爆炸效果	 
 var effect_inst = instance_create_depth(x,y,depth,obj_mouse_clip_explode)
 if shape == 0 {
 	effect_inst.sprite_index = spr_mouse_clip_explode

@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"mus_readyroom",
   "audioGroupId":{
     "name":"music",
     "path":"audiogroups/music",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":60.212246,
+  "exportDir":"",
   "name":"mus_readyroom",
   "parent":{
     "name":"Battle BGM",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_readyroom.mp3",
-  "type":0,
   "volume":1.0,
 }

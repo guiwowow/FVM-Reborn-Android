@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_flour_sack_find",
   "audioGroupId":{
     "name":"sound",
     "path":"audiogroups/sound",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.5485714,
+  "exportDir":"",
   "name":"snd_flour_sack_find",
   "parent":{
     "name":"Sound Effect",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_flour_sack_find.mp3",
-  "type":0,
   "volume":1.0,
 }

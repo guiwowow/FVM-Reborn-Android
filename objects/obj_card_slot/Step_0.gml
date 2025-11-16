@@ -3,9 +3,10 @@ if global.is_paused{
 	exit
 }
 current_cost = cost
-if card_id == "large_fire"{
-	with obj_large_fire{
-		if shape < 2{
+if ds_map_find_value(global.plus_card_map,card_id) != undefined{
+	var plus_info = ds_map_find_value(global.plus_card_map,card_id)
+	with plus_info[0]{
+		if shape < plus_info[1]{
 			other.current_cost += 50
 		}
 	}
@@ -67,17 +68,18 @@ if keyboard_check_pressed(slot_key) && is_ready{
 		if !is_selected{
 			select_slot()
         
-		if global.quick_placement{
-			try_place_once()
-		}
-		else{
-        // 创建放置预览对象
-        if (selected_preview == noone) {
-            selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
-            selected_preview.preview_sprite = card_spr; // 设置预览精灵
-            selected_preview.parent_slot = id; // 设置父卡槽
-        }
-		}
+			if global.quick_placement{
+				try_place_once()
+			}
+			else{
+	        // 创建放置预览对象
+		        if (selected_preview == noone) {
+		            selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
+		            selected_preview.preview_sprite = card_spr; // 设置预览精灵
+		            selected_preview.parent_slot = id; // 设置父卡槽
+					selected_preview.card_id = card_id
+		        }
+			}
 		}
 		else{
 			is_selected = false;
@@ -110,6 +112,7 @@ if (is_selected) {
     // 左键尝试放置植物
     if (mouse_check_button_pressed(mb_left)) {
         // 检查是否在可种植区域
+		
         var card_shape = get_card_info_simple(card_id).shape
 		var card_data = deck_get_card_data(card_id,card_shape)
         var can_plant = (can_place_at_position(mouse_x, mouse_y, card_data[? "plant_type"],card_data[? "feature_type"],card_data[? "target_card"]));
@@ -117,6 +120,16 @@ if (is_selected) {
         if (can_plant && global.flame >= current_cost) {
             // 创建植物实例
 			var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
+			var plant_list = ds_grid_get(global.grid_plants, grid_pos.col, grid_pos.row);
+			if global.replace_placement{
+			for (var i = 0; i < ds_list_size(plant_list); i++) {
+	                    var plant = ds_list_find_value(plant_list, i);
+	                    if (plant.plant_type == card_data[? "plant_type"]) {
+	                        card_destroyed(plant)
+							instance_destroy(plant)
+	                    }
+	                }
+			}
             var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
 			//new_plant.plant_type = plant_type;
 			// 计算深度值
@@ -133,6 +146,7 @@ if (is_selected) {
             
             // 扣除阳光
             global.flame -= current_cost;
+			
             
             // 重置冷却计时器
             cooldown_timer = 0;

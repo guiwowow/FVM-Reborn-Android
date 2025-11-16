@@ -7,3 +7,4 @@ attack_anim = 7
 death_anim = 13
 move_speed = 0.36
 reversed = false
+special_ash = true

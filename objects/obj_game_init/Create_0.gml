@@ -7,7 +7,7 @@ global.level_file = ""
 global.level_name = "曲奇岛"
 global.level_data = {}
 Music_Init()
-gpu_set_tex_filter(true)
+
 // 初始化全局键位映射
 global.keybind_map = ds_map_create();
 // 定义所有快捷键配置
@@ -48,6 +48,7 @@ if (!file_exists("config.ini")) {
 	ini_write_bool("settings", "replace_placement", false);
 	ini_write_bool("settings", "card_hpbar", false);
 	ini_write_bool("settings", "enemy_hpbar", false);
+	ini_write_bool("settings", "tex_fliter", true);
 	ini_open("config.ini");
     for (var i = 0; i < array_length(global.keybind_config); i++) {
         var kb = global.keybind_config[i];
@@ -70,6 +71,7 @@ global.quick_placement = ini_read_bool("settings", "quick_placement", false);
 global.replace_placement = ini_read_bool("settings", "replace_placement", false);
 global.card_hpbar = ini_read_bool("settings", "card_hpbar", false);
 global.enemy_hpbar = ini_read_bool("settings", "enemy_hpbar", false);
+global.tex_fliter = ini_read_bool("settings", "tex_fliter", true);
 for (var i = 0; i < array_length(global.keybind_config); i++) {
 	    var kb = global.keybind_config[i];
 	    var key_val = ini_read_real("keybinds", kb.name, kb.default1);
@@ -79,6 +81,7 @@ ini_close();
 audio_group_set_gain(music,global.music_volume,0)
 audio_group_set_gain(sound,global.sound_volume,0)
 window_set_fullscreen(global.fullscreen)
+gpu_set_tex_filter(global.tex_fliter)
 
 // 设置初始静音状态
 global.music_volume_before_mute = global.music_volume > 0 ? global.music_volume : 0.7;

@@ -27,6 +27,7 @@ helmet_hp = 0
 helmet_max_hp = 0
 shield_hp = 0
 shield_max_hp = 0
+special_ash = false
 
 // 加载Shader
 shader_hit = hit_effect_2

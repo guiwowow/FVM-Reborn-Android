@@ -12,6 +12,7 @@ shop_init()
 maps_init()
 enemy_init()
 enemy_info_island_init()
+plus_card_init()
 randomise()
 
 // 全局植物注册表
@@ -23,10 +24,10 @@ global.player_sprite = noone;
 
 load_file()
 //reset_file()
-unlock_card("toast_bread",12,0,7)
-unlock_card("small_fire",12,2,7)
-unlock_card("xiao_long_bao",12,0,7)
-unlock_card("flour_sack",12,2,7)
+unlock_card("toast_bread",4,0,3)
+unlock_card("small_fire",12,2,8)
+unlock_card("xiao_long_bao",4,0,3)
+unlock_card("flour_sack",4,0,3)
 unlock_card("double_long_bao",12,0,7)
 unlock_card("mouse_clip",12,2,7)
 unlock_card("coke_bomb",12,2,7)
@@ -50,7 +51,7 @@ unlock_card("iron_fishbone",12,0,7)
 unlock_card("gatlin_long_bao",12,0,7)
 unlock_card("rotating_coffee_pot",12,0,7)
 unlock_card("takoyaki",12,0,7)
-global.save_data.player.gold = 900000
+global.save_data.player.gold = 200
 //unlock_weapon("long_bao_gun")
 unlock_weapon("star_gun")
 global.player_name = global.save_data.player.name

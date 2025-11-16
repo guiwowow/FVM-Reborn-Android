@@ -3,6 +3,9 @@ switch (button_select) {
     case 2: // 画面设置
         draw_settings_page();
         break;
+	case 3:
+		draw_games_page()
+		break
     
     case 0: // 音乐设置
         draw_audio_page();
@@ -52,17 +55,41 @@ function draw_settings_page(){
 	    btn3.state = global.fullscreen;
 	    array_push(setting_buttons, btn3);
 		
-		// 创建植物血条开关
+		// 创建纹理过滤开关
 	    var btn4 = instance_create_depth(x - 200, y + 60, depth-1, obj_setting_toggle);
-	    btn4.config_key = "card_hpbar";
-	    btn4.state = global.card_hpbar;
+	    btn4.config_key = "tex_fliter";
+	    btn4.state = global.tex_fliter;
+		btn4.tooltip_text = "关闭该选项可改善贴图变糊问题，但是会导致图像锐化"
 	    array_push(setting_buttons, btn4);
+    
+	    // 标记当前设置页面
+	    current_settings = id;
+	}
+}
+
+function draw_games_page(){
+	if (!instance_exists(current_settings)) {
+	    // 销毁旧按钮
+	    for (var i = 0; i < array_length(setting_buttons); i++) {
+	        if (instance_exists(setting_buttons[i])) {
+	            instance_destroy(setting_buttons[i]);
+	        }
+	    }
+	    setting_buttons = [];
+    
+	    
+		
+		// 创建植物血条开关
+	    var btn1 = instance_create_depth(x - 200, y - 180, depth-1, obj_setting_toggle);
+	    btn1.config_key = "card_hpbar";
+	    btn1.state = global.card_hpbar;
+	    array_push(setting_buttons, btn1);
 		
 		// 创建敌人血条开关
-	    var btn5 = instance_create_depth(x - 200, y + 140, depth-1, obj_setting_toggle);
-	    btn5.config_key = "enemy_hpbar";
-	    btn5.state = global.enemy_hpbar;
-	    array_push(setting_buttons, btn5);
+	    var btn2 = instance_create_depth(x - 200, y - 100, depth-1, obj_setting_toggle);
+	    btn2.config_key = "enemy_hpbar";
+	    btn2.state = global.enemy_hpbar;
+	    array_push(setting_buttons, btn2);
     
 	    // 标记当前设置页面
 	    current_settings = id;

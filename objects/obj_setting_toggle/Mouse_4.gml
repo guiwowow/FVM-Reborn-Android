@@ -30,3 +30,7 @@ else if (config_key == "card_hpbar"){
 else if (config_key == "enemy_hpbar"){
 	global.enemy_hpbar = state
 }
+else if (config_key == "tex_fliter"){
+	global.tex_fliter = state
+	gpu_set_tex_filter(global.tex_fliter)
+}

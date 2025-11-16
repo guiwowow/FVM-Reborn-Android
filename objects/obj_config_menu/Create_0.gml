@@ -9,9 +9,11 @@ closemenu_btn = instance_create_depth(x+440, y-310, depth-1, obj_closemenu_btn);
 menu_btn1 = instance_create_depth(x-340, y-245, depth-1, obj_menu_select_btn);
 menu_btn2 = instance_create_depth(x-120, y-245, depth-1, obj_menu_select_btn);
 menu_btn3 = instance_create_depth(x+100, y-245, depth-1, obj_menu_select_btn);
+menu_btn4 = instance_create_depth(x+320, y-245, depth-1, obj_menu_select_btn);
 
 menu_btn2.button_index = 1;
 menu_btn3.button_index = 2;
+menu_btn4.button_index = 3;
 
 // 添加操作设置相关变量
 keybind_page = 0; // 当前快捷键设置页

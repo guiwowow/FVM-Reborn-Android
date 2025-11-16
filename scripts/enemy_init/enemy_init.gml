@@ -20,4 +20,5 @@ function enemy_init(){
 	register_enemy("taro_toho_mouse",{"name":"多宝太郎鼠","_obj":obj_taro_toho_mouse,"hp":280,"shield":0,"description":"多宝太郎鼠：死亡后必定掉落金币","speed":0.30,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_taro_toho_mouse})
 	register_enemy("water_taro_toho_mouse",{"name":"水上多宝太郎鼠","_obj":obj_water_taro_toho_mouse,"hp":280,"shield":0,"description":"水上多宝太郎鼠：死亡后必定掉落金币","speed":0.36,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_water_taro_toho_mouse_land})
 	register_enemy("assault_mouse",{"name":"突袭鼠","_obj":obj_assault_mouse,"hp":280,"shield":0,"description":"突袭鼠：从水里突然出现","speed":0.30,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_assault_mouse_land_helmet})
+	register_enemy("frog_prince_mouse",{"name":"青蛙王子鼠","_obj":obj_frog_prince_mouse,"hp":170,"shield":0,"description":"青蛙王子鼠：在水中跳过第一个卡片","speed":2.25,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_frog_prince_mouse_enter})
 }

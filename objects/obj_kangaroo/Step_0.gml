@@ -16,7 +16,13 @@ if state == ENEMY_STATE.ACTING{
 		image_index = floor(timer/flash_speed) mod 8 + 7
 	}
 	if timer >= 6 *9 && timer <= 6*16{
-		x -= 2.50
+		if array_get_index(block_list,target_plant.plant_id) == -1{
+			
+			x -= 2.50
+		}
+		else{
+			x -= 0
+		}
 		//y -= 0.50 
 	}
 	if timer >= flash_speed * 11 & timer <= flash_speed * 15{

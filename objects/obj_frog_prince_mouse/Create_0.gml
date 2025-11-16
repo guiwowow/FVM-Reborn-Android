@@ -7,3 +7,5 @@ attack_anim = 10
 death_anim = 12
 move_speed = 2.25
 state = ENEMY_STATE.ACTING
+special_ash = true
+block_list = ["chocolate_bread"]

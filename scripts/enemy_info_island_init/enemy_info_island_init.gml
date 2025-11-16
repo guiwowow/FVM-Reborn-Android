@@ -20,4 +20,5 @@ function enemy_info_island_init(){
 	register_enemy_info_island("taro_toho_mouse","死亡后必定掉落一枚金币，有25%概率额外掉落四枚金币")
 	register_enemy_info_island("water_taro_toho_mouse","死亡后必定掉落一枚金币，有25%概率额外掉落四枚金币")
 	register_enemy_info_island("assault_mouse","会从水里突然出现。\nTip：记得提前给靠前的重要卡片套上瓜皮。")
+	register_enemy_info_island("frog_prince_mouse","跳入水中后以2.25的速度移动，遇到第一个卡片后会翻越，并落在该卡片的\n后面一格，随后移动速度降低至0.3。无法越过重型防御。\nTip：可以利用低耗火的卡片使其提前翻越。")
 }

@@ -51,6 +51,7 @@ function select_slot(){
 //尝试放置逻辑
 function try_place_once(){
 	// 检查是否在可种植区域
+		
 		var card_shape = get_card_info_simple(card_id).shape
 		var card_data = deck_get_card_data(card_id,card_shape)
         var can_plant = (can_place_at_position(mouse_x, mouse_y, card_data[? "plant_type"],card_data[? "feature_type"],card_data[? "target_card"]));
@@ -58,6 +59,17 @@ function try_place_once(){
         if (can_plant && global.flame >= current_cost) {
             // 创建植物实例
 			var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
+			var plant_list = ds_grid_get(global.grid_plants, grid_pos.col, grid_pos.row);
+			//替换放置逻辑
+			if global.replace_placement{
+			for (var i = 0; i < ds_list_size(plant_list); i++) {
+	                    var plant = ds_list_find_value(plant_list, i);
+	                    if (plant.plant_type == card_data[? "plant_type"]) {
+	                        card_destroyed(plant)
+							instance_destroy(plant)
+	                    }
+	                }
+			}
             var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
 			//new_plant.plant_type = plant_type;
 			// 计算深度值

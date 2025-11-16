@@ -17,7 +17,15 @@
 		            //effect_create_above(effect_smoke, x, y, 1, c_gray);
 		        } else {
 		            // 直接摧毁非免疫敌人
-					instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					if special_ash{
+						var inst = instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+						inst.special_ash = true
+						inst.sprite_index = sprite_index
+						inst.image_index = image_index
+					}
+					else{
+						instance_create_depth(x,y-20,depth,obj_mouse_ash_death)
+					}
 		            instance_destroy();
 		            // 摧毁效果
 		            //effect_create_above(ef_explosion, x, y, 1, c_yellow);

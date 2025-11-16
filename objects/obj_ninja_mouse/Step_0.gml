@@ -20,6 +20,7 @@ event_inherited();
 if global.is_paused or is_frozen{
 	exit
 }
+if summon_cooldown > 0 {summon_cooldown--}
 if dash && (state == ENEMY_STATE.ATTACK or timer > 4.5*60){
 	move_speed = 0.27
 	move_anim = 12
@@ -42,6 +43,11 @@ if dash && (state == ENEMY_STATE.ATTACK or timer > 4.5*60){
 	}
 }
 if state == ENEMY_STATE.ACTING{
+	if hp <= 0{
+		timer = 0
+		sprite_index = spr_ninja_mouse
+		state = ENEMY_STATE.DEAD
+	}
 	if hp > maxhp * hurt_rate{
 		image_index = floor(timer/flash_speed) mod 16 + 12
 	}
@@ -50,18 +56,26 @@ if state == ENEMY_STATE.ACTING{
 	}
 	if timer >= flash_speed * 16 or hp <= 0{
 		if hp > 0{
-			
-			instance_create_depth(x-100,y,depth,obj_minion_mouse)
-			instance_create_depth(x+100,y,depth,obj_minion_mouse)
-			if grid_row > 0{
-				instance_create_depth(x,y-global.grid_cell_size_y,depth,obj_minion_mouse)
+			if !instance_exists(inst_left){
+				inst_left = instance_create_depth(x-100,y,depth,obj_minion_mouse)
 			}
-			if grid_row < global.grid_rows - 1{
-				instance_create_depth(x,y+global.grid_cell_size_y,depth,obj_minion_mouse)
+			if !instance_exists(inst_right){
+				inst_right = instance_create_depth(x+100,y,depth,obj_minion_mouse)
+			}
+			if grid_row > 0 && !instance_exists(inst_up){
+				inst_up = instance_create_depth(x,y-global.grid_cell_size_y,depth,obj_minion_mouse)
+			}
+			if grid_row < global.grid_rows - 1 && !instance_exists(inst_down){
+				inst_down = instance_create_depth(x,y+global.grid_cell_size_y,depth,obj_minion_mouse)
 			}
 			
 		}
 		state = ENEMY_STATE.NORMAL
 		sprite_index = spr_ninja_mouse
 	}
+	summon_cooldown = 900
+}
+if (!instance_exists(inst_left) || !instance_exists(inst_right) || (!instance_exists(inst_up) && grid_row > 0) || (!instance_exists(inst_down) && grid_row < global.grid_rows - 1)) && summon_cooldown <= 0 && state != ENEMY_STATE.DEAD && state != ENEMY_STATE.ACTING{
+	timer = 0
+	state = ENEMY_STATE.ACTING
 }

@@ -43,7 +43,7 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
 	                // 检查是否有同类
 	                for (var i = 0; i < ds_list_size(plant_list); i++) {
 	                    var plant = ds_list_find_value(plant_list, i);
-	                    if (plant.plant_type == "lilypad") {
+	                    if ((plant.plant_type == "lilypad" && !global.replace_placement) || (plant.plant_type != "lilypad" && plant.feature_type == "water")) {
 	                        return false;
 	                    }
 	                }
@@ -60,6 +60,9 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
 				return true
             } else {
                 // 检查是否有同类
+				if global.replace_placement{
+						return true
+					}
                 for (var i = 0; i < ds_list_size(plant_list); i++) {
                     var plant = ds_list_find_value(plant_list, i);
                     if (plant.plant_type == "coffee") {
@@ -82,12 +85,18 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
         case "normal":
             // 普通植物只能种在空地上或莲叶上
 			if global.grid_terrains[row][col].type != "water"{
+				if feature_type == "water"{
+					return false
+				}
 	            if (ds_list_size(plant_list) == 0) {
 	                // 空地上
 	                //return (global.grid_terrain[# col, row] == "grass");
 					return true
 	            } else {
 	                // 检查是否有同类
+					if global.replace_placement{
+						return true
+					}
 	                for (var i = 0; i < ds_list_size(plant_list); i++) {
 	                    var plant = ds_list_find_value(plant_list, i);
 	                    if (plant.plant_type == "normal") {
@@ -97,22 +106,55 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
 	                return true;
 	            }
 			}
-			else{
+			else if global.grid_terrains[row][col].type == "water"{
 				// 检查是否有同类
-	                for (var i = 0; i < ds_list_size(plant_list); i++) {
-	                    var plant = ds_list_find_value(plant_list, i);
-						if (plant.plant_type == "normal") {
-	                        return false;
-	                    }
+					var has_same = false
+					if feature_type == "dwarf"{
+						return false;
+					}
+					if feature_type == "water"{
+						for (var i = 0; i < ds_list_size(plant_list); i++) {
+		                    var plant = ds_list_find_value(plant_list, i);
+							if (plant.plant_type == "normal" && !global.replace_placement) {
+		                        has_same = true
+		                    }
 	                    
-	                }
-					for (var i = 0; i < ds_list_size(plant_list); i++) {
-                    var plant = ds_list_find_value(plant_list, i);
-                    if (plant.plant_type == "lilypad") {
-                        return true;
-                    }
+		                }
+						for (var i = 0; i < ds_list_size(plant_list); i++) {
+		                    var plant = ds_list_find_value(plant_list, i);
+		                    if (plant.plant_type == "lilypad" || has_same) {
+		                        return false;
+		                    }
+						}
+						return true
+					}
+					else if feature_type == "amphi"{
+						for (var i = 0; i < ds_list_size(plant_list); i++) {
+		                    var plant = ds_list_find_value(plant_list, i);
+							if (plant.plant_type == "normal" && !global.replace_placement) {
+		                        return false
+		                    }
+	                    
+		                }
+						return true
+					}
+					else{
+		                for (var i = 0; i < ds_list_size(plant_list); i++) {
+		                    var plant = ds_list_find_value(plant_list, i);
+							if (plant.plant_type == "normal" && !global.replace_placement) {
+		                        has_same = true
+		                    }
+	                    
+		                }
+						for (var i = 0; i < ds_list_size(plant_list); i++) {
+		                    var plant = ds_list_find_value(plant_list, i);
+		                    if (plant.plant_type == "lilypad" && !has_same) {
+		                        return true;
+		                    }
+						}
+						return false
                 }
-				return false
+				
 			}
             
         default:

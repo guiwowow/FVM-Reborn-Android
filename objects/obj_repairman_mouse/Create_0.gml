@@ -7,3 +7,5 @@ shield_max_hp = 80
 death_anim = 12
 move_speed = 0.60
 placed = false
+
+can_place_list = ["toast_bread","chocolate_bread"]

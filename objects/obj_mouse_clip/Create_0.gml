@@ -20,3 +20,4 @@ idle_anim = 8
 flash_speed = 5
 plant_type = "normal"
 invincible = false
+feature_type = "low"
