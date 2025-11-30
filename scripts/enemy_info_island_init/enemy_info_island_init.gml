@@ -8,7 +8,7 @@ function enemy_info_island_init(){
 	register_enemy_info_island("landlady_mouse","盾牌可以抵挡直射伤害，并免疫其带来的负面效果，但是无法抵挡投掷和穿\n透伤害。")
 	register_enemy_info_island("ninja_mouse","入场后以1.2的速度冲刺，对第一个碰到的卡片造成10点冲撞伤害，随后停\n止，并在上下左右各召唤一个小喽啰，初次召唤后移动速度降低至0.26。如\n果没有碰到卡片，则会在4.5秒后停止冲刺并进行初次召唤。\nTip：可以利用低耗火的卡片挡住冲锋，利用穿透或群伤卡片快速清除小喽\n啰。")
 	register_enemy_info_island("minion_mouse","由忍者鼠召唤出的小喽啰，没有特殊能力。")
-	register_enemy_info_island("repairman_mouse","入场时以0.6的速度移动，遇到防御类卡片则会将梯子摆在其上，使鼠军可\n以翻越该卡片。失去梯子后移动速度降低至0.3。\nTip：铲除带有梯子的植物，或使用炸弹，均可以移除梯子。")
+	register_enemy_info_island("repairman_mouse","入场时以0.6的速度移动，遇到防御类卡片则会将梯子摆在其上，使鼠军可\n以翻越该卡片。失去梯子后移动速度降低至0.3。\nTip：铲除带有梯子的卡片，或使用炸弹，均可以移除梯子。")
 	register_enemy_info_island("machine_mouse","遇到第一个卡片后会停下，并在1秒的起爆动作后自爆，对3*3范围内的所有\n卡片造成[攻击力]点伤害。\nTip：可以利用低耗火的卡片使其提前爆炸。")
 	register_enemy_info_island("kangaroo","遇到卡片后，会在短暂的停顿后跳过该卡片。无法越过重型防御。\nTip：尽量避免在前排放置卡片，这会让它更快接近基地！")
 	register_enemy_info_island("diver_mouse","入场后会跳至水中并潜水，免疫大部分直线子弹的伤害，但无法免疫低矮卡\n片、投手和追踪卡片的伤害。啃食时会露出水面。")

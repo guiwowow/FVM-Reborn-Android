@@ -19,7 +19,7 @@ draw_sprite_ext(card_spr, 0, x, y+18,0.9,0.9,0,c_white,1);
 //绘制星级
 
 if clevel > 0{
-	draw_sprite_ext(spr_star_slot, clevel - 1, x-35, y-45,1.6,1.6,0,c_white,1);
+	draw_sprite_ext(spr_star_slot, clevel - 1, x-30, y-43,1.6,1.6,0,c_white,1);
 }
 
 
@@ -86,6 +86,16 @@ if (cooldown_timer < cooldown) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
+//快捷键提示
+var slot_key = global.keybind_map[? "卡槽" + string(slot_index)]
+draw_set_color(c_black);
+draw_set_font(font_song);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_sprite_ext(spr_hotkey_prompt,0,x+33,y-46,1,1,0,c_white,1)
+draw_text(x+33,y-48,keyboard_get_string(slot_key))
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 
 
 

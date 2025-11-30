@@ -28,6 +28,7 @@ helmet_max_hp = 0
 shield_hp = 0
 shield_max_hp = 0
 special_ash = false
+current_frozen = false
 
 // 加载Shader
 shader_hit = hit_effect_2
@@ -43,3 +44,5 @@ damage_amount = 0
 damage_type = ""
 
 hit_sound = snd_hit1
+
+water_effect_timer = 0

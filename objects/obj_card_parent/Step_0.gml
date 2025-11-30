@@ -59,3 +59,12 @@ if instance_exists(banding_star_obj){
 banding_star_obj.depth = depth - 1
 }
 
+if !instance_exists(banding_water_obj) && global.grid_terrains[grid_row][grid_col].type == "water" {
+	if plant_type == "lilypad" || (feature_type == "water" && plant_type == "normal"){
+		banding_water_obj = instance_create_depth(x,y,depth+5,obj_in_water_effect)
+		banding_water_obj.banding_card_obj = id
+	}
+}
+if instance_exists(banding_water_obj) && global.grid_terrains[grid_row][grid_col].type != "water"{
+	instance_destroy(banding_water_obj)
+}

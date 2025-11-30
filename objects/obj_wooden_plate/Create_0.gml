@@ -2,6 +2,11 @@ event_inherited();  // 继承父对象属性
 plant_id = "wooden_plate"; 
 // 设置对象类型和精灵
 obj_type = object_index;
+
+
+is_derivative = false
+
+
 event_user(0)
 
 // ========== 特定属性默认值 ==========

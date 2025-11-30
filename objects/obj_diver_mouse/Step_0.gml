@@ -44,51 +44,86 @@ else{
 		death_anim = 13
 	}
 }
+if state == ENEMY_STATE.ATTACK && entered{
+	if instance_exists(target_plant) && not up{
+		sprite_index = spr_diver_mouse_up
+		state = ENEMY_STATE.ACTING
+		timer = 0
+	}
+	if !instance_exists(target_plant) && up{
+		sprite_index = spr_diver_mouse_up
+		state = ENEMY_STATE.ACTING
+		timer = 0
+	}
+}
 
 event_inherited();
 if global.is_paused or is_frozen{
 	exit
 }
 if state == ENEMY_STATE.ACTING{
-	if hp <= 0{
-		timer = 0
-		state = ENEMY_STATE.DEAD
-		if reversed{
-			sprite_index = spr_diver_mouse_land
-		}
-		else{
-			sprite_index = spr_diver_mouse
-		}
-		
-	}
-	x -= move_speed
-	if hp > maxhp * hurt_rate{
-		if reversed{
-			image_index = 9 - (floor(timer/flash_speed) mod 9)
-		}
-		else{
-			image_index = floor(timer/flash_speed) mod 9
-		}
-	}
-	else{
-		if reversed{
-			image_index = 9 - (floor(timer/flash_speed) mod 9) + 8
-		}
-		else{
-			image_index = (floor(timer/flash_speed) mod 9) + 8
-		}
-	}
-	if timer >= flash_speed * 9 or hp <= 0{
-		state = ENEMY_STATE.NORMAL
-		if reversed{
-			sprite_index = spr_diver_mouse_land
-		}
-		else{
-			sprite_index = spr_diver_mouse
-		}
+	if not entered{
 		if hp <= 0{
 			timer = 0
 			state = ENEMY_STATE.DEAD
+			if reversed{
+				sprite_index = spr_diver_mouse_land
+			}
+			else{
+				sprite_index = spr_diver_mouse
+			}
+		
+		}
+		x -= move_speed
+		if hp > maxhp * hurt_rate{
+			if reversed{
+				image_index = 9 - (floor(timer/flash_speed) mod 9)
+			}
+			else{
+				image_index = floor(timer/flash_speed) mod 9
+			}
+		}
+		else{
+			if reversed{
+				image_index = 9 - (floor(timer/flash_speed) mod 9) + 8
+			}
+			else{
+				image_index = (floor(timer/flash_speed) mod 9) + 8
+			}
+		}
+		if timer >= flash_speed * 9 or hp <= 0{
+			state = ENEMY_STATE.NORMAL
+			entered = true
+			if reversed{
+				sprite_index = spr_diver_mouse_land
+			}
+			else{
+				sprite_index = spr_diver_mouse
+			}
+			if hp <= 0{
+				timer = 0
+				state = ENEMY_STATE.DEAD
+			}
+		}
+	}
+	else{
+		timer++
+		if not up{
+			image_index = floor(timer/flash_speed) mod 8
+		}
+		else{
+			image_index = 8 - (floor(timer/flash_speed) mod 8)
+		}
+		if timer >= flash_speed * 8 or hp <= 0{
+			state = ENEMY_STATE.NORMAL
+			
+			sprite_index = spr_diver_mouse_land
+			up = !up
+			
+			if hp <= 0{
+				timer = 0
+				state = ENEMY_STATE.DEAD
+			}
 		}
 	}
 }

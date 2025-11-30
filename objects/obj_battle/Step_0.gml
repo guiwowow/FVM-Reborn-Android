@@ -5,14 +5,14 @@ battle_time ++
 // obj_controller STEP 事件
 if keyboard_check_pressed(ord("M")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_skateboard_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_paper_boat_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
 }
 if keyboard_check_pressed(ord("N")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_frog_prince_mouse)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_duck_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000
@@ -40,7 +40,7 @@ if keyboard_check_pressed(ord("B")){
 }
 if keyboard_check_pressed(ord("J")){
 	var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_kangaroo)
+	var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_butterfly_mouse)
 	inst.grid_row = grid_pos.row
 	inst.grid_col = grid_pos.col
 	inst.frozen_timer = 0000

@@ -38,6 +38,7 @@ image_speed = 0
 flash_speed = 6
 attack_anim = 0
 banding_star_obj = noone
+banding_water_obj = noone
 flash_value = 0
 idle_anim = 0
 ice_timer = 0
