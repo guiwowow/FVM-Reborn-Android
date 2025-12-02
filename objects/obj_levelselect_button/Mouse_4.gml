@@ -1,4 +1,4 @@
-if on_click {
+if on_click && obj_player_info_ui.menu_type == 0 {
 	pressed = true
     audio_play_sound(snd_button, 0, 0);
     room_goto(room_ready);

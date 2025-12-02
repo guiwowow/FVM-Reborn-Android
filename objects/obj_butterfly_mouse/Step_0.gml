@@ -60,7 +60,20 @@ else{
 		}
 	}
 }
-
+if shield_hp <= 0 && not armor_dropped{
+	var inst = instance_create_depth(x-45,y-75,depth-1,obj_enemy_armor)
+	inst.ground_y = y - 30
+	if sprite_index == spr_butterfly_mouse || sprite_index == spr_butterfly_mouse_shield{
+		inst.y += 30
+		inst.water = true
+	}
+	inst.type = "shield"
+	inst.x_speed = random_range(-3,-5)
+	inst.y_speed = random_range(-1,-3)
+	inst.cgravity = 0.8
+	inst.sprite_index = spr_landlady_shield
+	armor_dropped = true
+}
 event_inherited();
 if global.is_paused or is_frozen{
 	exit

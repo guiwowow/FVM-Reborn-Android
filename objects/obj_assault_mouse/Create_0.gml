@@ -9,3 +9,4 @@ reversed = false
 state = ENEMY_STATE.ACTING
 audio_play_sound(snd_enter_water,0,0)
 special_ash = true
+armor_dropped = false

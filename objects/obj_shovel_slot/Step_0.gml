@@ -44,7 +44,7 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
     // 如果没有植物，播放错误音效
     if (ds_list_size(plant_list) == 0) {
         //audio_play_sound(snd_error, 1, false);
-        return;
+        //return;
     }
     
     // 按铲除顺序查找要移除的植物
@@ -72,7 +72,15 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
         with (plant_to_remove) {
             // 播放移除动画
             instance_create_depth(x+10, y-55, depth, obj_shovel);
-			instance_create_depth(x,y,-2,obj_place_effect)
+			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+				audio_play_sound(snd_place2, 1, false);
+			}
+			else{
+				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
+				inst.sprite_index = spr_enter_water_effect
+				audio_play_sound(snd_enter_water,0,0)
+			}
             instance_destroy();
         }
 		
@@ -81,13 +89,19 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
 		// 重新排序剩余植物
         sort_plants_in_grid(col, row);
         
-        // 播放音效
-        audio_play_sound(snd_place2, 1, false);
     } else {
 		// 没有找到可移除的植物
-		instance_create_depth(x+10, y-55, depth, obj_shovel);
-		instance_create_depth(x,y,-2,obj_place_effect)
-		audio_play_sound(snd_place2, 1, false);
+		
+		instance_create_depth(grid_pos.x+10, grid_pos.y-55, depth, obj_shovel);
+		if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+				audio_play_sound(snd_place2, 1, false);
+			}
+			else{
+				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
+				inst.sprite_index = spr_enter_water_effect
+				audio_play_sound(snd_enter_water,0,0)
+			}
 		deselect_shovel()
         
     }

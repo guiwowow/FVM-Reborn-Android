@@ -8,3 +8,4 @@ death_anim = 12
 move_speed = 0.36
 reversed = false
 special_ash = true
+armor_dropped = false

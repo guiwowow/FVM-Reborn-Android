@@ -12,6 +12,16 @@ else if shield_hp <= 0 && state != ENEMY_STATE.ACTING{
 	attack_anim = 4
 	move_speed = 0.3
 }
+if shield_hp <= 0 && not placed && not armor_dropped{
+	var inst = instance_create_depth(x-35,y-75,depth-1,obj_enemy_armor)
+	inst.ground_y = y - 30
+	inst.type = "shield"
+	inst.x_speed = random_range(-3,-5)
+	inst.y_speed = random_range(-1,-3)
+	inst.cgravity = 0.8
+	inst.sprite_index = spr_ladder_shield
+	armor_dropped = true
+}
 event_inherited();
 if global.is_paused or is_frozen{
 	exit
@@ -49,6 +59,9 @@ if not placed && state = ENEMY_STATE.ACTING{
 		}
 	}
 	if timer >= flash_speed * 6 or hp <= 0{
+		if hp > 0 && instance_exists(target_plant){
+			instance_create_depth(x-50,y-37,depth,obj_ladder)
+		}
 		sprite_index = spr_repairman_mouse
 		state = ENEMY_STATE.NORMAL
 		shield_hp = 0
