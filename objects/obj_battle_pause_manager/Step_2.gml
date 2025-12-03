@@ -40,6 +40,14 @@ if (keyboard_check_pressed(vk_escape)) {
     }
 }
 
+if (keyboard_check_pressed(ord("R"))) {
+	if global.game_over{
+		if obj_game_over.sprite_index == spr_lose{
+			room_restart()
+		}
+	}
+}
+
 if obj_battle.battle_time == 1{
 	global.is_paused = true;
 }

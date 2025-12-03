@@ -29,6 +29,14 @@ shield_hp = 0
 shield_max_hp = 0
 special_ash = false
 current_frozen = false
+is_scare = false
+scare_timer = 0
+is_stun = false
+stun_timer = 0
+
+// =======猫驱赶相关=======
+y_move = 0
+left_move_flashs = 0
 
 // 加载Shader
 shader_hit = hit_effect_2

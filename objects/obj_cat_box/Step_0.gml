@@ -1,6 +1,7 @@
 if global.is_paused{
 	exit
 }
+
 if hp <= 0.33*max_hp{
 	sprite_index = spr_cat_box_3
 }
@@ -14,28 +15,32 @@ if is_slowdown{
 }
 //检测自身右方是否有敌人
 var has_enemy = false
+for(var i = 0; i < array_length(scared_enemy) ; i++){
+	array_delete(scared_enemy,0,1)
+}
 with(obj_enemy_parent){
-	if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (global.grid_cols + 1) && health > 0){
+	if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (other.grid_col + 1) && hp > 0){
+		array_push(other.scared_enemy,id)
 		has_enemy = true
-		break
 	}
 }
-//攻击逻辑
-//if (has_enemy) {
-//    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
-//        attack_timer++;
-//    } else if (attack_timer <= cycle) {
-//        attack_timer++;
-//        state = CARD_STATE.ATTACK;
-//    } else {
-//        event_user(1); // 发射子弹
-//        attack_timer = 0;
-//        state = CARD_STATE.IDLE;
-//    }
-//} else {
-//    // 没有符合条件的敌人，重置状态
-//    attack_timer = 0;
-//    state = CARD_STATE.IDLE;
-//}
+if current_hp != hp && has_enemy{
+	state = CARD_STATE.ATTACK
+	timer = 0
+}
+if state == CARD_STATE.ATTACK{
+	if attack_timer == 20{
+		if has_enemy{
+			event_user(1)
+		}
+	}
+	
+	attack_timer++
+	if attack_timer >= current_flash_speed * attack_anim{
+		state = CARD_STATE.IDLE
+		attack_timer = 0
+		timer = 0
+	}
+}
 
-
+current_hp = hp

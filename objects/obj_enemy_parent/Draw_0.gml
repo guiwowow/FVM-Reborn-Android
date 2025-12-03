@@ -35,3 +35,6 @@ else{
 if is_frozen{
 	draw_sprite_ext(ice_sprite,0,x,y+50,1.8,1.8,0,c_white,1)
 }
+if is_scare{
+	draw_sprite_ext(spr_mouse_scared,0,x-45,y-125,1.8,1.8,0,c_white,1)
+}

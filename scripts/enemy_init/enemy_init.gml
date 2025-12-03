@@ -22,4 +22,5 @@ function enemy_init(){
 	register_enemy("assault_mouse",{"name":"突袭鼠","_obj":obj_assault_mouse,"hp":280,"shield":0,"description":"突袭鼠：从水里突然出现","speed":0.30,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_assault_mouse_land_helmet})
 	register_enemy("frog_prince_mouse",{"name":"青蛙王子鼠","_obj":obj_frog_prince_mouse,"hp":170,"shield":0,"description":"青蛙王子鼠：在水中跳过第一个卡片","speed":2.25,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_frog_prince_mouse_enter})
 	register_enemy("roller_skating_mouse",{"name":"轮滑鼠","_obj":obj_roller_skating_mouse,"hp":810,"shield":0,"description":"轮滑鼠：生命值极高且速度快的普通老鼠","speed":0.60,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_roller_skating_mouse_helmet})
+	register_enemy("giant_mouse",{"name":"巨型鼠","_obj":obj_giant_mouse,"hp":1800,"shield":0,"description":"巨型鼠：生命值和伤害极高，但攻速慢","speed":0.27,"atk":900,"cycle":108,"range":180,"ash_proof":true,"spr":spr_giant_mouse})
 }

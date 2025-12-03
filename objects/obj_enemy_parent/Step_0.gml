@@ -17,6 +17,13 @@ if frozen_timer > 0{
 else{
 	is_frozen = false
 }
+if scare_timer > 0{
+	scare_timer--
+	is_scare = true
+}
+else{
+	is_scare = false
+}
 if flash_value > 0 {
 	flash_value -= 10
 }
@@ -35,7 +42,11 @@ else{
 	current_move_speed = move_speed
 	current_atk_cycle = atk_cycle
 }
-if is_frozen{
+if left_move_flashs > 0{
+	y += y_move
+	left_move_flashs--
+}
+if is_frozen || is_scare{
 	exit
 }
 

@@ -11,8 +11,10 @@ event_user(0)
 // ========== 特定属性默认值 ==========
 
 attack_anim = 26;
+attack_timer = 0
 idle_anim = 10
 flash_speed = 5
 plant_type = "normal"
 is_slowdown = false
-
+scared_enemy = []
+current_hp = hp

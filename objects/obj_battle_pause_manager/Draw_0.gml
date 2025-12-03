@@ -41,6 +41,9 @@ if (global.is_paused)
 		}
 		else{
 			draw_text(room_width / 2, room_height / 2 + 150, "按空格键继续……");
+			if obj_game_over.sprite_index == spr_lose{
+				draw_text(room_width / 2, room_height / 2 + 175, "按R重新开始")
+			}
 		}
     }
 }
