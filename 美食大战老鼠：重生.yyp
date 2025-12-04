@@ -144,6 +144,7 @@
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"cookie_island.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"cookie_island.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salad_island_land.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"salad_island_land.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salad_island_water.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"salad_island_water.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
@@ -461,6 +462,7 @@
     {"id":{"name":"spr_common_button","path":"sprites/spr_common_button/spr_common_button.yy",},},
     {"id":{"name":"spr_config_btn","path":"sprites/spr_config_btn/spr_config_btn.yy",},},
     {"id":{"name":"spr_cookbook_btn","path":"sprites/spr_cookbook_btn/spr_cookbook_btn.yy",},},
+    {"id":{"name":"spr_cookie_island","path":"sprites/spr_cookie_island/spr_cookie_island.yy",},},
     {"id":{"name":"spr_crab","path":"sprites/spr_crab/spr_crab.yy",},},
     {"id":{"name":"spr_deck_save_btn","path":"sprites/spr_deck_save_btn/spr_deck_save_btn.yy",},},
     {"id":{"name":"spr_deck_save_menu_btn_1","path":"sprites/spr_deck_save_menu_btn_1/spr_deck_save_menu_btn_1.yy",},},

@@ -6,7 +6,14 @@ draw_sprite_ext(spr_level_wave_text,0,x-340,y-40,1.8,1.8,0,c_white,1)
 
 
 
-if obj_battle.current_wave >= elite_wave && not instance_exists(obj_enemy_parent){
+if obj_battle.current_wave >= elite_wave && obj_battle.wave_timer <= 1{
+	if not global.game_over{
+		global.is_paused = true
+		global.game_over = true
+		var inst = instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+		inst.sprite_index = spr_win
+		audio_play_sound(snd_win,0,0)
+	}
 	level_stage = "elite"
 	if obj_battle_music_controller.battle_music != mus_delicious_island_daytime_elite{
 		with obj_battle_music_controller{

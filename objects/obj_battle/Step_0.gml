@@ -91,6 +91,9 @@ if battle_time >=( global.level_file.first_wave_delay * 60 )&& level_stage == "r
 		if enemy_list[i].type != ""{
 			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
 			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
+			if enemy_list[i].row <= 0{
+				enemy_list[i].row = irandom_range(1,global.grid_rows)
+			}
 			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
 			var grid_pos = get_grid_position_from_world(new_x,new_y)
 			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);

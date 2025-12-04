@@ -3,14 +3,17 @@
 // 使用注册数据初始化属性
 // 使用注册数据初始化属性
 var plant_data = get_plant_data(plant_id);
+current_level = 0
 if (plant_data != undefined) {
     name = plant_data[? "name"];
     description = plant_data[? "description"];
 	
 	var card_save_data = get_card_info(plant_id)
-	current_level = card_save_data.level
-	skill = card_save_data.skill
-	shape = card_save_data.shape
+	if card_save_data != false{
+		current_level = card_save_data.level
+		skill = card_save_data.skill
+		shape = card_save_data.shape
+	}
     
     // 应用基础属性
     var upgrade_data = get_plant_data_with_skill(plant_id, shape,current_level,skill);
@@ -54,7 +57,11 @@ if current_level >= 4{ //绑定星级贴图
 	banding_star_obj = inst.id
 }
 
-var card_shape = get_card_info_simple(plant_id).shape
+var card_shape_data = get_card_info_simple(plant_id)
+var card_shape = 0
+if card_shape_data != false{
+	card_shape = card_shape_data.shape
+}
 var card_data = deck_get_card_data(plant_id,card_shape)
 plant_type = card_data[? "plant_type"]
 feature_type = card_data[? "feature_type"]

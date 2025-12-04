@@ -73,6 +73,7 @@ for(var i = 0 ; i < global.grid_rows ; i++){
 			var depth_value = calculate_plant_depth(j, i, new_plant.plant_type);
 			card_created(new_plant, j, i);
 			new_plant.depth = depth_value
+			
 		}
 	}
 	var new_x = global.grid_offset_x -1 * global.grid_cell_size_x
@@ -89,7 +90,7 @@ total_wave = global.level_file.total_waves
 level_stage = "ready"
 current_total_hp = 0
 current_wave_hp = 0
-hp_ratio = 0.5
+hp_ratio = 0.2
 enemy_list = []
 
 wave_max_time = 25*60
