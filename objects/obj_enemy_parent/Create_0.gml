@@ -33,6 +33,8 @@ is_scare = false
 scare_timer = 0
 is_stun = false
 stun_timer = 0
+mouse_id = ""
+giant_type = false
 
 // =======猫驱赶相关=======
 y_move = 0

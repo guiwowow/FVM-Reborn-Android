@@ -132,7 +132,7 @@ switch(state) {
 			is_in_front = (dx < 0 && dx > -other.attack_range);
 				
             // 检查是否在攻击范围内
-            if (is_in_front && zombie_grid.row == grid_row && feature_type!="dwarf") {
+            if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
                     var target_type = ds_list_find_value(global.shovel_order, i);
@@ -225,7 +225,7 @@ switch(state) {
 			is_in_front = (dx < 0 && dx > -other.attack_range);
 				
             // 检查是否在攻击范围内
-            if (is_in_front && zombie_grid.row == grid_row && feature_type!="dwarf") {
+            if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
                     var target_type = ds_list_find_value(global.shovel_order, i);

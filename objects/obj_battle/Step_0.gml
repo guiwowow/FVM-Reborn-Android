@@ -12,11 +12,14 @@ if global.debug{
 		inst.frozen_timer = 0000
 	}
 	if keyboard_check_pressed(ord("N")){
-		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_duck_mouse)
-		inst.grid_row = grid_pos.row
-		inst.grid_col = grid_pos.col
-		inst.frozen_timer = 0000
+		var enemy_row = irandom_range(0,global.grid_rows-1)
+		var enemy_pos = get_world_position_from_grid(10,enemy_row)
+		instance_create_depth(enemy_pos.x-50,enemy_pos.y+30,-200,obj_mario_mouse)
+		//var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
+		//var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_mario_mouse)
+		//inst.grid_row = grid_pos.row
+		//inst.grid_col = grid_pos.col
+		//inst.frozen_timer = 0000
 	}
 	if keyboard_check_pressed(ord("L")){
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
@@ -79,57 +82,30 @@ if global.debug{
 	}
 }
 
-if battle_time >=( global.level_file.first_wave_delay * 60 )&& level_stage == "ready"{
-	current_total_hp = 0
-	wave_timer = wave_max_time
-	level_stage = "pre"
-	audio_play_sound(snd_mouse_wave_attack,0,0)
-	
-	var subwave_enemy = global.level_file.waves[current_wave].subwaves
-	enemy_list = subwave_enemy[current_subwave].enemy_list
-	for(var i = 0; i < array_length(enemy_list);i++){
-		if enemy_list[i].type != ""{
-			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
-			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
-			if enemy_list[i].row <= 0{
-				enemy_list[i].row = irandom_range(1,global.grid_rows)
-			}
-			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
-			var grid_pos = get_grid_position_from_world(new_x,new_y)
-			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);
-			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
-		}
-	}
-	current_subwave += 1
+if battle_time >= (global.level_file.first_wave_delay * 60) && level_stage == "ready" {
+    
+    level_stage = "pre"
+    audio_play_sound(snd_mouse_wave_attack, 0, 0)
+    
+    enemy_subwave_summon()
+    
+    current_subwave += 1;
 }
 var current_total_subwaves = array_length(global.level_file.waves[current_wave].subwaves)
 if wave_timer <= 0 && level_stage == "pre"{
-	wave_timer = wave_max_time
-	current_total_hp = 0
-	var subwave_enemy = global.level_file.waves[current_wave].subwaves
-	enemy_list = subwave_enemy[current_subwave].enemy_list
-	for(var i = 0; i < array_length(enemy_list);i++){
-		if enemy_list[i].type != ""{
-			var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj
-			var new_x = global.grid_offset_x + 9 * global.grid_cell_size_x
-			if enemy_list[i].row <= 0{
-				enemy_list[i].row = irandom_range(1,global.grid_rows)
-			}
-			var new_y = global.grid_offset_y + (enemy_list[i].row - 1) * global.grid_cell_size_y
-			var grid_pos = get_grid_position_from_world(new_x,new_y)
-			var new_enemy = instance_create_depth(grid_pos.x, grid_pos.y+38, 0,enemy_obj);
-			current_total_hp += global.enemy_map[? enemy_list[i].type].hp
-		}
-	}
+	enemy_subwave_summon()
 	if current_subwave < current_total_subwaves-1{
 		current_subwave+=1
 	}
 	else if current_wave == total_wave-1{
-		global.is_paused = true
-		global.game_over = true
-		var inst = instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
-		inst.sprite_index = spr_win
-		audio_play_sound(snd_win,0,0)
+		level_stage = "boss"
+		var enemy_row = irandom_range(0,global.grid_rows-1)
+		var enemy_pos = get_world_position_from_grid(10,enemy_row)
+		instance_create_depth(enemy_pos.x-50,enemy_pos.y+30,-200,obj_mario_mouse)
+		with obj_battle_music_controller{
+			new_battle_music = global.level_data.boss_music
+			event_user(0)
+		}
 	}
 	else if current_wave < total_wave{
 		current_wave += 1
@@ -137,6 +113,9 @@ if wave_timer <= 0 && level_stage == "pre"{
 		audio_play_sound(snd_mouse_wave_attack,0,0)
 		instance_create_depth(room_width/2,room_height/2,-300,obj_huge_wave_text)
 	}
+}
+if wave_timer <= 0 && level_stage == "boss"{
+	enemy_subwave_summon()
 }
 
 

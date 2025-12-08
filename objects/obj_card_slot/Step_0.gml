@@ -11,6 +11,9 @@ if ds_map_find_value(global.plus_card_map,card_id) != undefined{
 		}
 	}
 }
+if global.debug{
+	cooldown_timer = cooldown
+}
 if cooldown_timer < cooldown{
 	cooldown_timer ++
 

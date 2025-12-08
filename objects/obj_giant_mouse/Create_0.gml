@@ -11,3 +11,4 @@ attack_anim = 18
 death_anim = 22
 immune_to_ash = true
 special_ash = true
+giant_type = true

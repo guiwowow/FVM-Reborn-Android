@@ -6,13 +6,12 @@ surface_reset_target();
 depth = 5
 
 instance_create_depth(0,0,-900,obj_flame_manager)
+//instance_create_depth(450,1040,-900,obj_boss_hpbar)
 var mus_inst = instance_create_depth(0,0,0,obj_battle_music_controller)
 mus_inst.battle_music = global.level_data.pre_music
 
 global.game_over = false
 
-//instance_create_depth(1800,330,0,obj_enemy_parent)
-//instance_create_depth(1800,460,0,obj_enemy_parent)
 instance_create_depth(0,0,0,obj_battle_pause_manager)
 instance_create_depth(mouse_x,mouse_y,0,obj_player_character)
 
@@ -96,3 +95,87 @@ enemy_list = []
 wave_max_time = 25*60
 wave_min_time = 4 * 60
 wave_timer = 0
+
+function enemy_subwave_summon(){
+	current_total_hp = 0
+    wave_timer = wave_max_time
+    
+    var subwave_enemy = global.level_file.waves[current_wave].subwaves
+    enemy_list = subwave_enemy[current_subwave].enemy_list
+    
+    // 第一阶段：先处理已有行数的敌人
+    var row_enemy_count = array_create(global.grid_rows, 0); // 记录每行已有敌人数
+    
+    // 先统计已有行数的敌人
+    for (var i = 0; i < array_length(enemy_list); i++) {
+        if (enemy_list[i].type != "" && enemy_list[i].row > 0) {
+            var row_index = enemy_list[i].row - 1;
+            if (row_index >= 0 && row_index < global.grid_rows) {
+                row_enemy_count[row_index]++;
+            }
+        }
+    }
+    
+    // 创建已使用的行数组（用于第二阶段）
+    var rows_used = array_create(global.grid_rows, false);
+    
+    // 第二阶段：创建敌人实例
+    for (var i = 0; i < array_length(enemy_list); i++) {
+        if (enemy_list[i].type != "") {
+            var target_row = enemy_list[i].row;
+            var x_offset = 0;
+            
+            // 情况1：已有行数的敌人
+            if (target_row > 0 && target_row <= global.grid_rows) {
+                // 保留原有行数
+                var row_index = target_row - 1;
+                x_offset = row_enemy_count[row_index]; // 使用该行已有的敌人数作为偏移
+                rows_used[row_index] = true; // 标记该行已使用
+            }
+            // 情况2：需要随机分配行数的敌人
+            else {
+                // 优先选择未使用的行
+                var available_rows = [];
+                for (var r = 0; r < global.grid_rows; r++) {
+                    if (!rows_used[r]) {
+                        array_push(available_rows, r + 1); // 存储行号（1-based）
+                    }
+                }
+                
+                // 如果还有未使用的行
+                if (array_length(available_rows) > 0) {
+                    // 随机选择一个未使用的行
+                    target_row = available_rows[irandom(array_length(available_rows) - 1)];
+                } else {
+                    // 所有行都已使用，随机选择一行
+                    target_row = irandom_range(1, global.grid_rows);
+                }
+                
+                // 更新敌人的行属性
+                enemy_list[i].row = target_row;
+                var row_index = target_row - 1;
+                x_offset = row_enemy_count[row_index]+1; // 使用该行已有的敌人数作为偏移
+                rows_used[row_index] = true; // 标记该行已使用
+            }
+            
+            // 创建敌人实例
+            var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj;
+            
+            // 计算位置（考虑偏移）
+            var new_x = global.grid_offset_x + (8 + x_offset) * global.grid_cell_size_x;
+            var new_y = global.grid_offset_y + (target_row - 1) * global.grid_cell_size_y;
+            
+            
+            var grid_pos = get_grid_position_from_world(new_x, new_y);
+            var new_enemy = instance_create_depth(grid_pos.x+30, grid_pos.y + 38, 0, enemy_obj);
+            
+            // 更新统计信息
+            current_total_hp += global.enemy_map[? enemy_list[i].type].hp;
+            
+            // 更新该行的敌人数
+            var row_index = target_row - 1;
+            row_enemy_count[row_index]++;
+        }
+    }
+    
+}

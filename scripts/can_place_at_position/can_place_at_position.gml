@@ -83,6 +83,12 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
             return false;
             
         case "normal":
+			for (var i = 0; i < ds_list_size(plant_list); i++) {
+	            var plant = ds_list_find_value(plant_list, i);
+	            if (plant.plant_id == "player") {
+	                return false;
+	            }
+	        }
             // 普通植物只能种在空地上或莲叶上
 			if global.grid_terrains[row][col].type != "water"{
 				if feature_type == "water"{

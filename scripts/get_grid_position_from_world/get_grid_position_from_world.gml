@@ -22,3 +22,18 @@ function get_grid_position_from_world(wx, wy) {
         y: center_y
     };
 }
+
+function get_world_position_from_grid(col, row) {
+   
+    
+    // 计算网格中心位置
+    var center_x = global.grid_offset_x + col * global.grid_cell_size_x + global.grid_cell_size_x / 2;
+    var center_y = global.grid_offset_y + row * global.grid_cell_size_y + global.grid_cell_size_y / 2;
+    
+    return {
+        col: col,
+        row: row,
+        x: center_x,
+        y: center_y
+    };
+}
