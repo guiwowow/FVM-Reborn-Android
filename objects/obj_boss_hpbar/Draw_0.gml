@@ -1,5 +1,6 @@
 if instance_exists(target_boss){
 	hp = target_boss.hp
+	if hp < 0 hp = 0
 	maxhp = target_boss.maxhp
 	hp_rate = hp/maxhp
 }

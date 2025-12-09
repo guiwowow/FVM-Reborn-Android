@@ -1,6 +1,6 @@
 
 
-	if (other.state == ENEMY_STATE.NORMAL or other.state == ENEMY_STATE.ATTACK)and row == other.grid_row{
+	if other.hp > 0 and row == other.grid_row{
 		with(other){
 			audio_play_sound(hit_sound,0,0)
 			damage_amount = other.damage

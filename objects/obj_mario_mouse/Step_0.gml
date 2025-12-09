@@ -152,6 +152,7 @@ switch state{
 		image_index = floor(timer/5) mod image_number
 		if timer >= image_number * 5{
 			image_alpha -= 0.1
+			image_index = image_number - 1
 		}
 		break
 }

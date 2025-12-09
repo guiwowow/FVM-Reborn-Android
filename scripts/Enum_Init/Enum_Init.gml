@@ -26,4 +26,13 @@ function Enum_Init(){
 		DEAD,
 		ACTING
 	}
+	
+	enum BOSS_STATE{
+		APPEAR,
+		IDLE,
+		SKILL1,
+		SKILL2,
+		DISAPPEAR,
+		DEATH
+	}
 }
