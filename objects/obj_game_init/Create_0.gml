@@ -65,7 +65,7 @@ global.sound_volume_before_mute = 0.7;
 ini_open("config.ini");
 global.screen_shake = ini_read_bool("settings", "screen_shake", true);
 global.screen_flash = ini_read_bool("settings", "screen_flash", true);
-global.fullscreen = ini_read_bool("settings", "fullscreen", true);
+global.fullscreen = ini_read_bool("settings", "fullscreen", false);
 global.music_volume = ini_read_real("settings", "music_volume", 0.7);
 global.sound_volume = ini_read_real("settings", "sound_volume", 0.7);
 global.quick_placement = ini_read_bool("settings", "quick_placement", false);

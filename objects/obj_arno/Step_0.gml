@@ -111,10 +111,10 @@ switch state{
 		else{
 			sprite_index = spr_arno_skill_2
 			if hp > maxhp * hurt_rate{
-				image_index = floor(timer/5) mod 11
+				image_index = floor((timer - 13 * 5 * 3)/5) mod 11
 			}
 			else{
-				image_index = floor(timer/5) mod 11 + 11
+				image_index = floor((timer - 13 * 5 * 3)/5) mod 11 + 11
 			}
 		}
 		if timer > 13 * 5 * 3{

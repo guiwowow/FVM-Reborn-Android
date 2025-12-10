@@ -78,7 +78,7 @@ for(var i = 0 ; i < global.grid_rows ; i++){
 	var new_x = global.grid_offset_x -1 * global.grid_cell_size_x
 	var new_y = global.grid_offset_y + i * global.grid_cell_size_y
 	var grid_pos = get_grid_position_from_world(new_x,new_y)
-	var cat_inst = instance_create_depth(grid_pos.x, grid_pos.y, 0,obj_cat);
+	var cat_inst = instance_create_depth(grid_pos.x - 10, grid_pos.y+10, 0,obj_cat);
 	cat_inst.row = i
 }
 

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Battle Maps",
-    "path":"folders/精灵/Battle Maps.yy",
+    "name":"delicious_island",
+    "path":"folders/精灵/Battle Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

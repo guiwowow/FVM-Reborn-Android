@@ -18,3 +18,5 @@ else{
 if timer >= 60*60{
 	instance_destroy()
 }
+var base_depth = -10 - (grid_pos.row * 45) - (grid_pos.col * 5);
+depth = base_depth - 4.5;

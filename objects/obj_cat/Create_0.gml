@@ -11,4 +11,4 @@ awake_anim = 2
 attack_anim = 7
 attack_timer = 0
 
-ignore_list = ["mario_mouse","mario_pipeline","arno"]
+ignore_list = ["mario_mouse","mario_pipeline","arno","pharaoh_coffin"]

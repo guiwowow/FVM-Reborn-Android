@@ -14,7 +14,7 @@ if global.debug{
 	if keyboard_check_pressed(ord("N")){
 		var enemy_row = irandom_range(0,global.grid_rows-1)
 		var enemy_pos = get_world_position_from_grid(10,enemy_row)
-		instance_create_depth(enemy_pos.x-50,enemy_pos.y+33,-200,obj_arno)
+		instance_create_depth(enemy_pos.x-50,enemy_pos.y+33,-200,obj_mario_mouse)
 		//var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
 		//var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_mario_mouse)
 		//inst.grid_row = grid_pos.row
@@ -23,14 +23,14 @@ if global.debug{
 	}
 	if keyboard_check_pressed(ord("L")){
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_assault_mouse)
+		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_mummy_mouse)
 		inst.grid_row = grid_pos.row
 		inst.grid_col = grid_pos.col
 		inst.frozen_timer = 0000
 	}
 	if keyboard_check_pressed(ord("K")){
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_roller_skating_mouse)
+		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_skateboard_mouse)
 		inst.grid_row = grid_pos.row
 		inst.grid_col = grid_pos.col
 		inst.frozen_timer = 0000
@@ -101,7 +101,7 @@ if wave_timer <= 0 && level_stage == "pre"{
 		level_stage = "boss"
 		var enemy_row = irandom_range(0,global.grid_rows-1)
 		var enemy_pos = get_world_position_from_grid(10,enemy_row)
-		instance_create_depth(enemy_pos.x-50,enemy_pos.y+30,-200,obj_mario_mouse)
+		instance_create_depth(enemy_pos.x-50,enemy_pos.y+30,-200,global.level_data.boss)
 		with obj_battle_music_controller{
 			new_battle_music = global.level_data.boss_music
 			event_user(0)

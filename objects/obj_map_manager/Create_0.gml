@@ -13,6 +13,7 @@ for(var i = 0 ; i <button_array_length ; i++){
 	inst.target_level_id = button_struct.id
 	inst.target_level_file = button_struct.level_file
 	inst.level_index = i
+	inst.sprite_index = button_struct.button_spr
 }
 
 instance_create_depth(room_width-210,room_height,-1,obj_player_menu_bg)
