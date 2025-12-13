@@ -62,16 +62,19 @@ var plant_list = global.level_file.map
 global.grid_terrains = plant_list
 for(var i = 0 ; i < global.grid_rows ; i++){
 	for(var j = 0 ; j < global.grid_cols ; j ++){
-		if plant_list[i][j].plant != ""{
-			var card_data = deck_get_card_data(plant_list[i][j].plant,0)
-			var card_obj = card_data[? "obj"]
-			var new_x = global.grid_offset_x + j * global.grid_cell_size_x
-			var new_y = global.grid_offset_y + i * global.grid_cell_size_y
-			var grid_pos = get_grid_position_from_world(new_x,new_y)
-			var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
-			var depth_value = calculate_plant_depth(j, i, new_plant.plant_type);
-			card_created(new_plant, j, i);
-			new_plant.depth = depth_value
+		var cards = plant_list[i][j].plant
+		if array_length(cards) > 0{
+			for(var k = 0; k < array_length(cards);k++){
+				var card_data = deck_get_card_data(cards[k],0)
+				var card_obj = card_data[? "obj"]
+				var new_x = global.grid_offset_x + j * global.grid_cell_size_x
+				var new_y = global.grid_offset_y + i * global.grid_cell_size_y
+				var grid_pos = get_grid_position_from_world(new_x,new_y)
+				var new_plant = instance_create_depth(grid_pos.x, grid_pos.y, 0,card_obj);
+				var depth_value = calculate_plant_depth(j, i, new_plant.plant_type);
+				card_created(new_plant, j, i);
+				new_plant.depth = depth_value
+			}
 			
 		}
 	}
@@ -99,6 +102,9 @@ wave_timer = 0
 function enemy_subwave_summon(){
 	current_total_hp = 0
     wave_timer = wave_max_time
+	if level_stage == "boss"{
+		wave_timer = 15 * 60
+	}
     
     var subwave_enemy = global.level_file.waves[current_wave].subwaves
     enemy_list = subwave_enemy[current_subwave].enemy_list

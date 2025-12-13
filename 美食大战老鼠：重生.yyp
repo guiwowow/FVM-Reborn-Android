@@ -153,11 +153,12 @@
     {"$GMIncludedFile":"","%Name":"cookie_island.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"cookie_island.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salad_island_land.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"salad_island_land.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"salad_island_water.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"salad_island_water.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"temple.json","CopyToMask":-1,"filePath":"datafiles/level_data","name":"temple.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.212",
   },
   "name":"美食大战老鼠：重生",
   "resources":[

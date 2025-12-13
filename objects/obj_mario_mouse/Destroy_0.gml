@@ -8,6 +8,8 @@ with obj_battle{
 	}
 	else{
 		level_stage = "pre"
+		current_wave += 1
+		current_subwave = 0
 	}
 }
 instance_destroy(hpbar_inst)

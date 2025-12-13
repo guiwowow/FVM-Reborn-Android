@@ -1,4 +1,9 @@
 // Inherit the parent event
+if hp <= 0 && state != ENEMY_STATE.DEAD{
+	state = ENEMY_STATE.DEAD
+	sprite_index = spr_zombie_with_flower_pot
+	timer = 0
+}
 
 if shield_hp > 0{
 	sprite_index = spr_zombie_with_flower_pot_shield

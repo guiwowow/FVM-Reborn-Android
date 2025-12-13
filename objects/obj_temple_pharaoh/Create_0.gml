@@ -4,8 +4,8 @@ event_inherited();
 mouse_id = "temple_pharaoh"
 jump_times = 0
 state = BOSS_STATE.APPEAR
-hp = 6000
-maxhp = 6000
+hp = 12000
+maxhp = 12000
 immune_to_ash = true
 wait_time = 3 * 60
 cave = noone

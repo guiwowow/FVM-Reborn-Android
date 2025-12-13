@@ -4,8 +4,8 @@ event_inherited();
 mouse_id = "mario_mouse"
 jump_times = 0
 state = BOSS_STATE.APPEAR
-hp = 5500
-maxhp = 5500
+hp = 9000
+maxhp = 9000
 immune_to_ash = true
 wait_time = 5 * 60
 cave = noone

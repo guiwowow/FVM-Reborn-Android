@@ -4,8 +4,8 @@ event_inherited();
 mouse_id = "arno"
 jump_times = 0
 state = BOSS_STATE.APPEAR
-hp = 5000
-maxhp = 5000
+hp = 8000
+maxhp = 8000
 immune_to_ash = true
 wait_time = 12 * 5 - 1
 cave = noone
