@@ -1,4 +1,4 @@
-if timer <= 32{
+if timer < image_number * 5 - 2{
 	timer ++
 }
 else{

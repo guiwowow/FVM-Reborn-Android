@@ -60,7 +60,8 @@ function reset_file(){
                 "max_skill_level": 0,
                 "max_gem_level": 0,
 				"max_slot":5,
-				"max_shape":[]
+				"max_shape":[],
+				"shovel":"normal"
             },
             "unlocked_weapons": [
                 {"id": "long_bao_gun"}

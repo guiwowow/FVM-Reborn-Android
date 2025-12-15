@@ -63,10 +63,14 @@ if state == ENEMY_STATE.ACTING{
 				inst_right = instance_create_depth(x+100,y,depth,obj_minion_mouse)
 			}
 			if grid_row > 0 && !instance_exists(inst_up){
-				inst_up = instance_create_depth(x,y-global.grid_cell_size_y,depth,obj_minion_mouse)
+				if global.row_feature[grid_row - 1] != "water"{
+					inst_up = instance_create_depth(x,y-global.grid_cell_size_y,depth,obj_minion_mouse)
+				}
 			}
 			if grid_row < global.grid_rows - 1 && !instance_exists(inst_down){
-				inst_down = instance_create_depth(x,y+global.grid_cell_size_y,depth,obj_minion_mouse)
+				if global.row_feature[grid_row + 1] != "water"{
+					inst_down = instance_create_depth(x,y+global.grid_cell_size_y,depth,obj_minion_mouse)
+				}
 			}
 			
 		}
@@ -76,6 +80,8 @@ if state == ENEMY_STATE.ACTING{
 	summon_cooldown = 900
 }
 if (!instance_exists(inst_left) || !instance_exists(inst_right) || (!instance_exists(inst_up) && grid_row > 0) || (!instance_exists(inst_down) && grid_row < global.grid_rows - 1)) && summon_cooldown <= 0 && state != ENEMY_STATE.DEAD && state != ENEMY_STATE.ACTING{
-	timer = 0
-	state = ENEMY_STATE.ACTING
+	if (!instance_exists(inst_left) || !instance_exists(inst_right) || !instance_exists(inst_up) && global.row_feature[grid_row - 1] != "water") || (!instance_exists(inst_down) && global.row_feature[grid_row + 1] != "water"){
+		timer = 0
+		state = ENEMY_STATE.ACTING
+	}
 }

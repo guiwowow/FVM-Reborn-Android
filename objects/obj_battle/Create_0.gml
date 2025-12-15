@@ -60,6 +60,15 @@ for (var col = 0; col < global.grid_cols; col++) {
 
 var plant_list = global.level_file.map
 global.grid_terrains = plant_list
+global.row_feature = []
+for(var i = 0 ; i < global.grid_rows;i++){
+	if global.grid_terrains[i][0].type == "water"{
+		global.row_feature[i] = "water"
+	}
+	else{
+		global.row_feature[i] = "land"
+	}
+}
 for(var i = 0 ; i < global.grid_rows ; i++){
 	for(var j = 0 ; j < global.grid_cols ; j ++){
 		var cards = plant_list[i][j].plant
@@ -83,6 +92,12 @@ for(var i = 0 ; i < global.grid_rows ; i++){
 	var grid_pos = get_grid_position_from_world(new_x,new_y)
 	var cat_inst = instance_create_depth(grid_pos.x - 10, grid_pos.y+10, 0,obj_cat);
 	cat_inst.row = i
+	if global.row_feature[i] == "water"{
+		cat_inst.sprite_index = spr_crab
+		cat_inst.idle_anim = 8
+		cat_inst.awake_anim = 6
+		cat_inst.attack_anim = 9
+	}
 }
 
 //关卡波次
@@ -103,7 +118,7 @@ function enemy_subwave_summon(){
 	current_total_hp = 0
     wave_timer = wave_max_time
 	if level_stage == "boss"{
-		wave_timer = 15 * 60
+		wave_timer = 10 * 60
 	}
     
     var subwave_enemy = global.level_file.waves[current_wave].subwaves
@@ -117,7 +132,7 @@ function enemy_subwave_summon(){
         if (enemy_list[i].type != "" && enemy_list[i].row > 0) {
             var row_index = enemy_list[i].row - 1;
             if (row_index >= 0 && row_index < global.grid_rows) {
-                row_enemy_count[row_index]++;
+                //row_enemy_count[row_index]++;
             }
         }
     }
@@ -131,36 +146,83 @@ function enemy_subwave_summon(){
             var target_row = enemy_list[i].row;
             var x_offset = 0;
             
+            // 获取敌人的特性（陆地或水上）
+            var enemy_feature = global.enemy_map[? enemy_list[i].type].feature;
+            
             // 情况1：已有行数的敌人
             if (target_row > 0 && target_row <= global.grid_rows) {
-                // 保留原有行数
+                // 检查该行是否适合这种敌人
                 var row_index = target_row - 1;
-                x_offset = row_enemy_count[row_index]; // 使用该行已有的敌人数作为偏移
-                rows_used[row_index] = true; // 标记该行已使用
+                var row_type = global.row_feature[row_index];
+                
+                // 如果行类型与敌人特性不匹配，则需要重新分配
+                if ((enemy_feature == "land" && row_type != "land") || 
+                    (enemy_feature == "water" && row_type != "water")) {
+                    // 标记为需要重新分配行数
+                    target_row = 0;
+                } else {
+                    // 保留原有行数
+                    x_offset = row_enemy_count[row_index]; // 使用该行已有的敌人数作为偏移
+                    rows_used[row_index] = true; // 标记该行已使用
+                }
             }
-            // 情况2：需要随机分配行数的敌人
-            else {
-                // 优先选择未使用的行
+            
+            // 情况2：需要随机分配行数的敌人（包括不匹配的情况）
+            if (target_row <= 0 || target_row > global.grid_rows) {
+                // 根据敌人特性筛选合适的行
                 var available_rows = [];
                 for (var r = 0; r < global.grid_rows; r++) {
-                    if (!rows_used[r]) {
+                    var row_type = global.row_feature[r];
+                    
+                    // 检查行类型是否匹配敌人特性
+                    var row_matches = false;
+                    if (enemy_feature == "land" && row_type == "land") {
+                        row_matches = true;
+                    } else if (enemy_feature == "water" && row_type == "water") {
+                        row_matches = true;
+                    }
+                    
+                    // 如果行类型匹配，并且该行未被使用，则加入可用行列表
+                    if (row_matches && !rows_used[r]) {
                         array_push(available_rows, r + 1); // 存储行号（1-based）
                     }
                 }
                 
-                // 如果还有未使用的行
+                // 如果还有未使用的匹配行
                 if (array_length(available_rows) > 0) {
-                    // 随机选择一个未使用的行
+                    // 随机选择一个未使用的匹配行
                     target_row = available_rows[irandom(array_length(available_rows) - 1)];
                 } else {
-                    // 所有行都已使用，随机选择一行
-                    target_row = irandom_range(1, global.grid_rows);
+                    // 所有匹配行都已使用，从所有匹配行中随机选择
+                    var all_matching_rows = [];
+                    for (var r = 0; r < global.grid_rows; r++) {
+                        var row_type = global.row_feature[r];
+                        
+                        var row_matches = false;
+                        if (enemy_feature == "land" && row_type == "land") {
+                            row_matches = true;
+                        } else if (enemy_feature == "water" && row_type == "water") {
+                            row_matches = true;
+                        }
+                        
+                        if (row_matches) {
+                            array_push(all_matching_rows, r + 1);
+                        }
+                    }
+                    
+                    if (array_length(all_matching_rows) > 0) {
+                        target_row = all_matching_rows[irandom(array_length(all_matching_rows) - 1)];
+                    } else {
+                        // 如果没有匹配的行，发出警告并选择第一行（或者你可以处理这个错误）
+                        show_debug_message("错误：没有适合" + enemy_feature + "敌人的行！");
+                        target_row = 1;
+                    }
                 }
                 
                 // 更新敌人的行属性
                 enemy_list[i].row = target_row;
                 var row_index = target_row - 1;
-                x_offset = row_enemy_count[row_index]+1; // 使用该行已有的敌人数作为偏移
+                x_offset = row_enemy_count[row_index]; // 使用该行已有的敌人数作为偏移
                 rows_used[row_index] = true; // 标记该行已使用
             }
             
@@ -168,9 +230,8 @@ function enemy_subwave_summon(){
             var enemy_obj = global.enemy_map[? enemy_list[i].type]._obj;
             
             // 计算位置（考虑偏移）
-            var new_x = global.grid_offset_x + (8 + x_offset) * global.grid_cell_size_x;
+            var new_x = global.grid_offset_x + (9 + x_offset) * global.grid_cell_size_x;
             var new_y = global.grid_offset_y + (target_row - 1) * global.grid_cell_size_y;
-            
             
             var grid_pos = get_grid_position_from_world(new_x, new_y);
             var new_enemy = instance_create_depth(grid_pos.x+30, grid_pos.y + 38, 0, enemy_obj);

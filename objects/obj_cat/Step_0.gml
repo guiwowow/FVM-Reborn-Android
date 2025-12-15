@@ -1,32 +1,27 @@
 if global.is_paused{
 	exit
 }
-if timer < flash_speed - 1 {
-    timer++;
-} else {
-    switch (state) {
-        case "idle":
-            if image_index < idle_anim image_index++;
-            else image_index = 0;
-            break;
+timer ++
+switch (state) {
+    case "idle":
+        image_index = floor(timer / flash_speed) mod idle_anim
+        break;
             
-        case "awake":
-            if (image_index >= (idle_anim+1) && image_index < (idle_anim+1) + awake_anim) image_index++;
-            else image_index = (idle_anim+1);
-            break;
-		case "attack":
-            if (image_index >= ((idle_anim+2) + awake_anim) && image_index < (idle_anim+2) + awake_anim+attack_anim) image_index++;
-            else image_index = ((idle_anim+2) + awake_anim);
-            break;
+    case "awake":
+        image_index = floor(timer / flash_speed) mod awake_anim + idle_anim
+        break;
+	case "attack":
+        image_index = floor(timer / flash_speed) mod attack_anim + awake_anim + idle_anim
+        break;
 		
-    }
-    timer = 0;
 }
+
 if state == "awake"{
 	attack_timer ++
-	if attack_timer > flash_speed * 3{
+	if attack_timer > flash_speed * awake_anim{
 		state = "attack"
 		flash_speed = 4
+		timer = 0
 	}
 }
 if state == "attack"{

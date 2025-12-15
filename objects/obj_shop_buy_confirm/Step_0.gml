@@ -33,6 +33,22 @@ for (var i = 0; i < array_length(buttons); i++) {
 							global.save_data.player.gold -= cost
 							unlock_card(target_item,global.save_data.unlocked_items.max_card_level,0,global.save_data.unlocked_items.max_skill_level)
 						}
+						else if btn_type == "item"{
+							global.save_data.player.gold -= cost
+							if target_item == "card_slot" && global.save_data.unlocked_items.max_slot < 18{
+								global.save_data.unlocked_items.max_slot += 1
+							}
+							else if target_item == "card_slot_19" && global.save_data.unlocked_items.max_slot == 18{
+								global.save_data.unlocked_items.max_slot += 1
+							}
+							else if target_item == "card_slot_20" && global.save_data.unlocked_items.max_slot == 19{
+								global.save_data.unlocked_items.max_slot += 1
+							}
+							else if target_item == "card_slot_21" && global.save_data.unlocked_items.max_slot == 20{
+								global.save_data.unlocked_items.max_slot += 1
+							}
+							save_file()
+						}
 					}
 						with obj_shop_bg{
 							shop_list_recharge()

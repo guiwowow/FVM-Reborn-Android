@@ -71,7 +71,13 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
         // 播放移除效果
         with (plant_to_remove) {
             // 播放移除动画
-            instance_create_depth(x+10, y-55, depth, obj_shovel);
+            var shovel_effect = instance_create_depth(x+10, y-55, depth, obj_shovel);
+			shovel_effect.sprite_index = other.shovel_spr
+			if other.flame_rate > 0{
+				var flame_cost = get_plant_data_with_skill(plant_id,shape,current_level,skill)[? "cost"]
+				var flame_inst = instance_create_depth(x,y-30,-2000,obj_flame)
+				flame_inst.value = round(flame_cost * other.flame_rate)
+			}
 			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
 				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
 				audio_play_sound(snd_place2, 1, false);
@@ -92,7 +98,8 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
     } else {
 		// 没有找到可移除的植物
 		
-		instance_create_depth(grid_pos.x+10, grid_pos.y-55, depth, obj_shovel);
+		var shovel_effect = instance_create_depth(grid_pos.x+10, grid_pos.y-55, depth, obj_shovel);
+		shovel_effect.sprite_index = shovel_spr
 		if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
 				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
 				audio_play_sound(snd_place2, 1, false);

@@ -7,8 +7,8 @@ state = "idle"
 
 flash_speed = 6
 idle_anim = 10
-awake_anim = 2
-attack_anim = 7
+awake_anim = 4
+attack_anim = 8
 attack_timer = 0
 
 ignore_list = ["mario_mouse","mario_pipeline","arno","pharaoh_coffin"]

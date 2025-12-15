@@ -6,7 +6,28 @@ image_speed = 0
 is_selected = false;        // 铲子是否被选中
 is_ready = true;            // 铲子总是可用
 description = "铲子:移除植物";
-shovel_spr = spr_shovel;    // 铲子精灵
+flame_rate = 0 //回收比例
+
+// 铲子精灵
+if global.save_data.unlocked_items.shovel == "normal"{
+	shovel_spr = spr_shovel;
+}
+else if global.save_data.unlocked_items.shovel == "copper"{
+	shovel_spr = spr_copper_shovel;
+	flame_rate = 0.1
+}
+else if global.save_data.unlocked_items.shovel == "silver"{
+	shovel_spr = spr_silver_shovel;
+	flame_rate = 0.25
+}
+else if global.save_data.unlocked_items.shovel == "gold"{
+	shovel_spr = spr_gold_shovel;
+	flame_rate = 0.5
+}
+else{
+	shovel_spr = spr_shovel;
+}
+
 hotkey = "`";               // 快捷键
 var slot_length = ds_list_size(global.selected_deck)
 if slot_length <= 14{

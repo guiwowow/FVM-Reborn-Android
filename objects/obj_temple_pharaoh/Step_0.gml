@@ -8,7 +8,7 @@ if flash_value > 0 {
 
 // 死亡处理
 if (hp <= 0 && state != BOSS_STATE.DEATH) {
-	global.save_data.player.gold += 500
+	global.save_data.player.gold += 1000
     timer = 0;
     state = BOSS_STATE.DEATH;
     target_plant = noone;  // 清除攻击目标

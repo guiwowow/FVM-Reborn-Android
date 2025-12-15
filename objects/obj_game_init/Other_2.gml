@@ -47,16 +47,17 @@ unlock_card("kettle_bomb",4,0,3)
 unlock_card("fishbone",4,0,3)
 unlock_card("triple_wine_rack",4,0,3)
 unlock_card("brazier",4,0,3)
-unlock_card("large_fire",4,0,3)
-unlock_card("iron_fishbone",4,0,3)
-unlock_card("gatlin_long_bao",4,0,3)
-unlock_card("rotating_coffee_pot",4,0,3)
-unlock_card("takoyaki",4,0,3)
-//global.save_data.player.gold = 200
+//unlock_card("large_fire",4,0,3)
+//unlock_card("iron_fishbone",4,0,3)
+//unlock_card("gatlin_long_bao",4,0,3)
+//unlock_card("rotating_coffee_pot",4,0,3)
+//unlock_card("takoyaki",4,0,3)
+global.save_data.player.gold = 20000000
 global.save_data.player.level = 7
 global.save_data.unlocked_items.max_card_level = 4
 global.save_data.unlocked_items.max_skill_level = 3
 global.save_data.unlocked_items.max_slot = 10
+global.save_data.unlocked_items.shovel = "normal"
 unlock_weapon("star_gun")
 global.player_name = global.save_data.player.name
 global.total_time = global.save_data.player.total_time
