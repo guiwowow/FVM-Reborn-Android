@@ -5,12 +5,21 @@
         // 从头开始播放新实例
         audio_play_sound(readyroom_music, 0, 0);
     }
-
 if keyboard_check_pressed(vk_escape){
 	if instance_exists(obj_quit_confirm){
 		instance_destroy(obj_quit_confirm)
 	}
 	else{
-		instance_create_depth(room_width / 2,room_height / 2,-100,obj_quit_confirm)
+		if !is_submenu_open{
+			instance_create_depth(room_width / 2,room_height / 2,-100,obj_quit_confirm)
+		}
 	}
 }
+
+if instance_exists(obj_quit_confirm) || instance_exists(obj_level_preview){
+	is_submenu_open = true
+}
+else{
+	is_submenu_open = false
+}
+

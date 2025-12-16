@@ -1,7 +1,8 @@
-/// @function save_file()
+/// @function save_file(file_slot)
 /// @desc 将全局变量global.save_data保存到存档文件中
-function save_file() {
-	var file_path = working_directory + "/saves/save.json"
+/// @param {real} file_slot 存档槽位
+function save_file(file_slot) {
+	var file_path = "saves/"+"save" + string(file_slot) + ".json"
     // 将数据转换为JSON字符串
     var json_string = json_stringify(global.save_data);
     

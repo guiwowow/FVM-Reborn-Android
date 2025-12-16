@@ -3,21 +3,21 @@ for(var i = 0; i < array_length(scared_enemy);i++){
 		scare_timer = 30
 		left_move_flashs = 30
 		if grid_row == 0 {
-			if global.row_feature[1] != "water"{
+			if global.row_feature[1] == global.row_feature[0]{
 				y_move = global.grid_cell_size_y/left_move_flashs
 				grid_row += 1
 			}
 		}
 		else if grid_row == global.grid_rows - 1{
-			if global.row_feature[global.grid_rows - 2] != "water"{
+			if global.row_feature[global.grid_rows - 2] == global.row_feature[global.grid_rows - 1]{
 				y_move = -global.grid_cell_size_y/left_move_flashs
 				grid_row -= 1
 			}
 		}
 		else{
 			var im = irandom_range(1,100)
-			var up_water = global.row_feature[grid_row - 1] == "water"
-			var down_water = global.row_feature[grid_row + 1] == "water"
+			var up_water = global.row_feature[grid_row - 1] != global.row_feature[grid_row]
+			var down_water = global.row_feature[grid_row + 1] != global.row_feature[grid_row]
 			if down_water {im = 25}
 			if up_water {im = 75}
 			if not (up_water && down_water){

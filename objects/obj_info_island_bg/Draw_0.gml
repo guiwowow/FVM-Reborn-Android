@@ -279,6 +279,122 @@ else if info_button_select == 2 {
 		draw_set_font(font_yuan)
 	}
 }
+else if info_button_select == 3 {
+	if surface_exists(info_surface){
+		surface_set_target(info_surface)
+		draw_clear_alpha(c_black,0)
+    for(var i = 0 ; i < info_rows ; i++){
+        for(var j = 0 ; j < info_cols ; j++){
+			if j + i * info_cols == select_card_index{
+				draw_sprite_ext(spr_info_island_info_bg,1,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
+			}
+			else{
+				draw_sprite_ext(spr_info_island_info_bg,0,x-1154+j*128*1.5,y - 435 + 142*1.5 * i-y_offset,1.5,1.5,0,c_white,1)
+			}
+        }
+    }
+    
+    // 绘制所有已注册的关卡
+    var enemy_index = 0;
+    hover_card_index = -1; // 重置悬停卡片索引
+    
+	var enemy_id_array = ds_map_keys_to_array(global.level_info_island_map)
+    for(var i = 0; i < array_length(enemy_id_array); i += 1) {
+        var enemy_id = enemy_id_array[i]
+		var enemy_data = global.level_info_island_map[? enemy_id];
+		var info = enemy_data.description
+        
+        // 计算敌人位置
+        var row = enemy_index div info_cols;
+        var col = enemy_index mod info_cols;
+        
+        if (row < info_rows) {
+            var card_x = x - 1154 + col * 128*1.5;
+            var card_y = y - 435 + row * 142*1.5-y_offset;
+            
+            // 绘制敌人
+				
+            draw_sprite_ext(enemy_data.icon, 0, card_x-79, card_y-91, 0.2, 0.2, 0, c_white, 1);
+			draw_set_color(c_white);
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			draw_set_font(font_yuan)
+			draw_text(card_x,card_y+87,enemy_data.name)
+			draw_set_font(font_yuan)
+            // 检查鼠标是否悬停在敌人上
+            var spr_width = 128*1.5;
+            var spr_height = 142*1.5;
+            if (point_in_rectangle(mouse_x, mouse_y, 
+                                    card_x - spr_width/2, card_y + 45,
+                                    card_x + spr_width/2, card_y + 45+spr_height)) 
+			&& mouse_y >= y - 375 && mouse_y <= y - 375 + surface_height {
+                hover_card_index = enemy_index;
+            }
+			if enemy_index == hover_card_index{
+				draw_set_alpha(1)
+				draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+			}
+                        
+            enemy_index++;
+        }
+    }
+	
+	surface_reset_target()
+	}
+	draw_surface(info_surface,x-1380,y-368)
+    // 绘制悬停提示
+    if (hover_card_index != -1) {
+        // 获取鼠标位置
+        var tooltip_x = mouse_x + 15;
+        var tooltip_y = mouse_y - 15;
+		var row = hover_card_index div info_cols;
+        var col = hover_card_index mod info_cols;
+        
+        if (row < info_rows) {
+            var card_x = x - 1154 + col * 128*1.5;
+            var card_y = y - 265 + row * 142*1.5-y_offset;
+			//draw_sprite_ext(spr_info_island_select_box,0,card_x,card_y,2,2,0,c_white,0.5)
+		}
+		
+        
+        // 绘制提示背景
+        draw_set_color(c_black);
+        draw_set_alpha(0.7);
+        draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
+                      tooltip_x + 150, tooltip_y + 30, false);
+        
+        // 绘制提示文本
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_text(tooltip_x, tooltip_y, "点击查看情报");
+    }
+	if select_card_index != -1{
+		//绘制右侧信息栏
+		var enemy_id_array = ds_map_keys_to_array(global.level_info_island_map)
+        var enemy_id = enemy_id_array[select_card_index]
+		var enemy_data = global.level_info_island_map[? enemy_id];
+		var info = enemy_data.description
+		var name = enemy_data.name
+		
+		
+		//绘制文本
+		draw_set_font(font_hei)
+		draw_sprite_ext(enemy_data.spr, 0, x-390, y-355, 0.2, 0.2, 0, c_white, 1);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		//draw_text(x-360,y-350,"当前查看数值：星级："+string(view_card_level)+"，转职："+string(current_view_shape)+"，技能："+string(view_card_skill))
+		draw_set_color(c_white);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		//draw_text(x-320,y-160,name)
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_ext(x-390,y-100,info,30,300)
+		draw_set_font(font_yuan)
+	}
+}
 
 
 // 重置绘制设置

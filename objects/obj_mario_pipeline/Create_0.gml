@@ -9,3 +9,4 @@ state = "appear"
 anim_wait = 90
 special_ash = true
 mouse_id = "mario_pipeline"
+current_grid_type = ""

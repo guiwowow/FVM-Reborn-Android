@@ -6,8 +6,13 @@ var grid_pos = get_grid_position_from_world(x,y)
 if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
 	sprite_index = spr_mario_pipeline_water
 }
-else{
+else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
 	sprite_index = spr_mario_pipeline_land
+}
+
+if global.grid_terrains[grid_pos.row][grid_pos.col].type != "obstacle"{
+	current_grid_type = global.grid_terrains[grid_pos.row][grid_pos.col].type
+	global.grid_terrains[grid_pos.row][grid_pos.col].type = "obstacle"
 }
 
 if flash_value > 0{

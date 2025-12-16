@@ -23,7 +23,7 @@ function equip_weapon(weapon_id,slot){
 	if slot == "main_weapon"{
 		global.save_data.equipped_items.main_weapon.id = weapon_id
 	}
-	save_file()
+	save_file(0)
 }
 
 /// @function remove_weapon(slot)
@@ -34,7 +34,7 @@ function remove_weapon(slot){
 	if slot == "main_weapon"{
 		global.save_data.equipped_items.main_weapon.id = ""
 	}
-	save_file()
+	save_file(0)
 }
 
 /// @function equip_gem(gem_id,slot,level)

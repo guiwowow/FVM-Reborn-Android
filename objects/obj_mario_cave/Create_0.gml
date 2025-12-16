@@ -7,3 +7,5 @@ image_yscale = 1.8
 image_speed = 0
 
 ignore_list = ["mario_mouse","mario_pipeline"]
+
+current_grid_type = ""

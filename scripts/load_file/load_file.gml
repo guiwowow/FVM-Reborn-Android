@@ -1,7 +1,8 @@
-/// @function load_file()
+/// @function load_file(file_slot)
 /// @desc 加载存档文件到全局变量global.save_data中
-function load_file() {
-	var file_path = working_directory + "/saves/save.json"
+/// @param {real} file_slot 存档槽位
+function load_file(file_slot) {
+	var file_path = "saves/" + "save" + string(file_slot) + ".json"
     // 检查存档文件是否存在
     if (!file_exists(file_path)) {
         // 如果存档不存在，创建初始存档数据
@@ -92,5 +93,5 @@ function reset_file(){
 				{"name":"卡组6","card_id":[]} 
 			]
         };
-	save_file()
+	save_file(0)
 }

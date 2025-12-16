@@ -21,6 +21,9 @@ hover_slot_index = -1
 slot_rows = 11
 slot_cols = 10
 slot_surface = -1
+map_surface = -1
+
+is_submenu_open = false
 
 deck_first_slot_index = 0
 
@@ -36,3 +39,23 @@ var prev_btn = instance_create_depth(x+1745,y+105,depth-5,obj_readyroom_slot_btn
 prev_btn.type = "prev"
 var next_btn = instance_create_depth(x+1745,y+155,depth-5,obj_readyroom_slot_btn)
 next_btn.type = "next"
+
+//统计敌人和BOSS类型
+enemy_type_list = []
+boss_type_list = []
+for(var i = 0;i < global.level_file.total_waves;i ++){
+	if global.level_file.waves[i].boss_wave{
+		if array_get_index(boss_type_list,global.level_file.waves[i].boss) == -1{
+			array_push(boss_type_list,global.level_file.waves[i].boss)
+		}
+	}
+	var subwave = global.level_file.waves[i].subwaves
+	for(var j = 0 ; j <array_length(subwave);j++){
+		var enemy_list = subwave[j].enemy_list
+		for(var k = 0 ; k < array_length(enemy_list);k++){
+			if array_get_index(enemy_type_list,enemy_list[k].type) == -1{
+				array_push(enemy_type_list,enemy_list[k].type)
+			}
+		}
+	}
+}

@@ -3,6 +3,10 @@ if global.is_paused{
 }
 var grid_pos = get_grid_position_from_world(x,y)
 timer++
+if global.grid_terrains[grid_pos.row][grid_pos.col].type != "obstacle"{
+	current_grid_type = global.grid_terrains[grid_pos.row][grid_pos.col].type
+	global.grid_terrains[grid_pos.row][grid_pos.col].type = "obstacle"
+}
 if image_index < image_number - 1{
 	image_index = floor(timer/5)
 }
@@ -10,6 +14,9 @@ else{
 	image_index = image_number - 1
 }
 if timer >= 30*60{
+	if current_grid_type != ""{
+		global.grid_terrains[grid_pos.row][grid_pos.col].type = current_grid_type
+	}
 	image_alpha -= 0.1
 	if image_alpha <= 0{
 		instance_destroy()

@@ -25,5 +25,5 @@ function save_to_custom_deck(deck_index,deck_name){
 	for(var i = 0; i < length;i++){
 		global.save_data.saved_decks[deck_index].card_id[i] = global.selected_deck[| i][? "card_id"]
 	}
-	save_file()
+	save_file(0)
 }

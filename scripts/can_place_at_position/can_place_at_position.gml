@@ -15,6 +15,10 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
     if (col < 0 || col >= global.grid_cols || row < 0 || row >= global.grid_rows) {
         return false;
     }
+	// 检查是否有障碍
+	if global.grid_terrains[row][col].type == "obstacle" && plant_type != "coffee"{
+		return false
+	}
     
     // 获取该网格的植物列表
     var plant_list = ds_grid_get(global.grid_plants, col, row);

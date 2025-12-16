@@ -29,6 +29,9 @@ if flash_value > 0 {
 }
 if hp <= 0{
 	frozen_timer = 0
+	scare_timer = 0
+	left_move_flashs = 0
+	stun_timer = 0
 }
 var current_atk_cycle = 0
 var current_move_speed = 0

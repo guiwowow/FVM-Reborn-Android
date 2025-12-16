@@ -14,6 +14,7 @@ enemy_init()
 enemy_info_island_init()
 plus_card_init()
 boss_init()
+level_info_island_init()
 randomise()
 
 // 全局植物注册表
@@ -23,7 +24,7 @@ cards_init()
 global.player_name = "Player";
 global.player_sprite = noone;
 
-load_file()
+load_file(0)
 //reset_file()
 unlock_card("toast_bread",4,0,3)
 unlock_card("small_fire",4,0,3)

@@ -115,7 +115,7 @@ for(var i = 0 ; i < slot_rows ; i++){
 }
 draw_surface(slot_surface,x-25,y)
 {// 绘制悬停提示
-    if (hover_card_index != -1) {
+    if (hover_card_index != -1 && !is_submenu_open) {
 		var card_id = global.player_deck[| hover_card_index*2];
         var deck_entry = global.player_deck[| hover_card_index*2+1];
 		var card_data_shapes = deck_entry[? "shapes"]
@@ -234,4 +234,76 @@ for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 		draw_sprite_ext(main_weapon_icon,0,x+120,y+160,1,1,0,c_white,1)
 	}
 	draw_sprite_ext(spr_attack_gem,0,x+240,y+160,1.4,1.4,0,c_white,1)
+}
+{//绘制关卡信息
+	draw_set_color(c_white)
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_middle)
+	draw_set_font(font_yuan)
+	
+	//绘制基本信息
+	draw_text(120,450,"关卡总波数："+string(global.level_file.total_waves))
+	draw_text(120,490,"精英段波次："+string(global.level_file.elite_wave))
+	draw_text(120,530,"初始火苗："+string(global.level_file.starting_flame))
+	draw_text(120,570,"关卡限时："+string(global.level_file.time_limit))
+	draw_text(120,610,"关卡特性："+ (global.level_file.level_time_feature == "night" ? "黑夜":"白天"))
+	var wave_data = global.level_file.waves
+	var boss_amount = 0
+	for(var i = 0 ; i < array_length(wave_data) ; i++){
+		if wave_data[i].boss_wave{boss_amount++}
+	}
+	draw_text(120,650,"BOSS数量："+string(boss_amount))
+	
+	//绘制奖励
+	draw_text(100,780,"关卡奖励（首通）")
+	draw_text(100,820,"金币：500")
+	draw_text(100,860,"技能：1级")
+	draw_text(100,900,"星级：1级")
+	draw_text(100,940,"等级：2级")
+	draw_text(100,980,"卡片解锁：巧克力面包")
+	draw_text(100,1020,"武器解锁：星星枪")
+	draw_text(100,1060,"宝石解锁：攻击宝石")
+	draw_text(300,860,"宝石等级：1级")
+	
+	//关卡地图和敌人提示
+	surface_set_target(map_surface)
+	draw_sprite_ext(global.level_data.level_sprite,0,x,y,0.2,0.2,0,c_white,1)
+	surface_reset_target()
+	draw_surface(map_surface,760,771)
+	for(var i = 0;i < array_length(enemy_type_list);i++){
+		if i <= 5{
+			var enemy_spr = global.enemy_map[? enemy_type_list[i]].spr
+			draw_sprite_ext(enemy_spr,0,1070+i*90,960,1.5,1.5,0,c_white,1)
+		}
+	}
+	//打开关卡详情位置检测
+	if(mouse_x > 785 && mouse_x < 1546 && mouse_y > 762 && mouse_y < 980) && !is_submenu_open{
+		draw_set_alpha(0.5)
+		draw_set_colour(c_white)
+		draw_roundrect(785,762,1546,980,0)
+		draw_set_alpha(1)
+		var tooltip_text = "点击打开关卡详情"
+		// 获取鼠标位置
+	    var tooltip_x = mouse_x - 15;
+	    var tooltip_y = mouse_y - 25;
+		
+		
+	    draw_set_font(font_yuan)
+	    // 绘制提示背景
+	    draw_set_color(c_black);
+	    draw_set_alpha(0.7);
+	    draw_rectangle(tooltip_x + 5, tooltip_y - 5, 
+	                    tooltip_x - string_width(tooltip_text)-5, tooltip_y + string_height(tooltip_text)+5, false);
+        
+	    // 绘制提示文本
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+	    draw_set_alpha(1);
+	    draw_set_color(c_white);
+		
+	    draw_text(tooltip_x- string_width(tooltip_text), tooltip_y, tooltip_text);
+	
+		draw_set_valign(fa_top)
+	}
+	
 }

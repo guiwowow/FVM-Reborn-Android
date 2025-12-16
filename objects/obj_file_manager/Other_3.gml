@@ -1,1 +1,1 @@
-save_file()
+save_file(0)
