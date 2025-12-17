@@ -7,6 +7,10 @@ if on_click && obj_player_info_ui.menu_type == 0 {
 // 这是文件在 datafiles 目录下的相对路径
 global.level_id = target_level_id;
 var _file_path = "level_data/" + target_level_file; 
+if global.difficulty == 2{
+	_file_path = "level_data/" + target_level_file_hard; 
+}
+
 
  //使用 load_buffer 和 buffer_read 加载文件内容
 var _buffer = buffer_load(_file_path);

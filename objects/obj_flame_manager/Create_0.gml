@@ -1,4 +1,7 @@
 global.flame = global.level_file.starting_flame
+if global.difficulty == 0{
+	global.flame += 150
+}
 // 放置植物成功后调用
 //global.selected_slot.cooldown_timer = 0;
 //global.selected_slot.is_selected = false;

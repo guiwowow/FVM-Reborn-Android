@@ -16,12 +16,17 @@ if state == ENEMY_STATE.ACTING{
 		image_index = floor(timer/flash_speed) mod 8 + 7
 	}
 	if timer >= 6 *9 && timer <= 6*16{
-		if array_get_index(block_list,target_plant.plant_id) == -1{
+		if instance_exists(target_plant){
+			if array_get_index(block_list,target_plant.plant_id) == -1{
 			
-			x -= 2.50
+				x -= 2.50
+			}
+			else{
+				x -= 0
+			}
 		}
 		else{
-			x -= 0
+			x -= 2.50
 		}
 		//y -= 0.50 
 	}

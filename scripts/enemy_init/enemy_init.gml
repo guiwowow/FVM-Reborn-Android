@@ -24,6 +24,6 @@ function enemy_init(){
 	register_enemy("roller_skating_mouse",{"name":"轮滑鼠","_obj":obj_roller_skating_mouse,"hp":810,"shield":0,"description":"轮滑鼠：生命值极高且速度快的普通老鼠","speed":0.60,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_roller_skating_mouse_helmet,"feature":"land"})
 	register_enemy("giant_mouse",{"name":"巨型鼠","_obj":obj_giant_mouse,"hp":1800,"shield":0,"description":"巨型鼠：生命值和伤害极高，但攻速慢","speed":0.27,"atk":900,"cycle":108,"range":180,"ash_proof":true,"spr":spr_giant_mouse,"feature":"land"})
 	register_enemy("mario_mouse",{"name":"洞君","_obj":obj_mario_mouse,"hp":9000,"shield":0,"description":"洞君：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_mario_mouse_idle,"feature":"land"})
-	register_enemy("arno",{"name":"阿诺","_obj":obj_arno,"hp":8000,"shield":0,"description":"阿诺：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_arno_disappear,"feature":"land"})
+	register_enemy("arno",{"name":"阿诺","_obj":obj_arno,"hp":8000,"shield":0,"description":"阿诺：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_arno_skill_1,"feature":"land"})
 	register_enemy("temple_pharaoh",{"name":"法老原形","_obj":obj_temple_pharaoh,"hp":12000,"shield":0,"description":"法老原形：神殿BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_temple_pharaoh_idle,"feature":"land"})
 }

@@ -90,6 +90,12 @@ function draw_games_page(){
 	    btn2.config_key = "enemy_hpbar";
 	    btn2.state = global.enemy_hpbar;
 	    array_push(setting_buttons, btn2);
+		
+		// 创建难度开关
+	    var btn3 = instance_create_depth(x - 200, y - 20, depth-1, obj_difficulty_select_btn);
+	    btn3.config_key = "difficulty";
+	    btn3.state = global.difficulty;
+	    array_push(setting_buttons, btn3);
     
 	    // 标记当前设置页面
 	    current_settings = id;

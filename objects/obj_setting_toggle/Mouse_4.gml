@@ -34,3 +34,6 @@ else if (config_key == "tex_fliter"){
 	global.tex_fliter = state
 	gpu_set_tex_filter(global.tex_fliter)
 }
+else if (config_key == "difficulty"){
+	global.difficulty = state
+}

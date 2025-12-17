@@ -108,6 +108,9 @@ level_stage = "ready"
 current_total_hp = 0
 current_wave_hp = 0
 hp_ratio = 0.2
+if global.difficulty == 2{
+	hp_ratio = 0.5
+}
 enemy_list = []
 
 wave_max_time = 25*60

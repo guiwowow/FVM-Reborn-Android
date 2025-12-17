@@ -11,6 +11,7 @@ for(var i = 0 ; i <button_array_length ; i++){
 	var inst = instance_create_depth(button_struct.button_x,button_struct.button_y,-2,obj_levelselect_button)
 	inst.image_index = button_struct.button_index
 	inst.target_level_id = button_struct.id
+	inst.target_level_file_hard = button_struct.hard_level_file
 	inst.target_level_file = button_struct.level_file
 	inst.level_index = i
 	inst.sprite_index = button_struct.button_spr

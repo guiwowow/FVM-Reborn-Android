@@ -5,4 +5,5 @@ on_click = false
 level_index = 0
 target_level_id = ""
 target_level_file = ""
+target_level_file_hard = ""
 pressed = false

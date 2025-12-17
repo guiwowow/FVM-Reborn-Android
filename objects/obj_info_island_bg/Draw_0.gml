@@ -176,7 +176,7 @@ else if info_button_select == 2 {
     var enemy_index = 0;
     hover_card_index = -1; // 重置悬停卡片索引
     
-	var enemy_id_array = ds_map_keys_to_array(global.enemy_map)
+	var enemy_id_array = global.enemy_id_list
     for(var i = 0; i < array_length(enemy_id_array); i += 1) {
         var enemy_id = enemy_id_array[i]
 		var enemy_data = global.enemy_map[? enemy_id];
@@ -250,7 +250,7 @@ else if info_button_select == 2 {
     }
 	if select_card_index != -1{
 		//绘制右侧信息栏
-		var enemy_id_array = ds_map_keys_to_array(global.enemy_map)
+		var enemy_id_array = global.enemy_id_list
         var enemy_id = enemy_id_array[select_card_index]
 		var enemy_data = global.enemy_map[? enemy_id];
 		var info = global.enemy_info_island[? enemy_id]
@@ -298,7 +298,7 @@ else if info_button_select == 3 {
     var enemy_index = 0;
     hover_card_index = -1; // 重置悬停卡片索引
     
-	var enemy_id_array = ds_map_keys_to_array(global.level_info_island_map)
+	var enemy_id_array = global.level_id_list
     for(var i = 0; i < array_length(enemy_id_array); i += 1) {
         var enemy_id = enemy_id_array[i]
 		var enemy_data = global.level_info_island_map[? enemy_id];
@@ -314,7 +314,7 @@ else if info_button_select == 3 {
             
             // 绘制敌人
 				
-            draw_sprite_ext(enemy_data.icon, 0, card_x-79, card_y-91, 0.2, 0.2, 0, c_white, 1);
+            draw_sprite_ext(enemy_data.icon, enemy_index, card_x, card_y, 1, 1, 0, c_white, 1);
 			draw_set_color(c_white);
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_middle);
@@ -372,7 +372,7 @@ else if info_button_select == 3 {
     }
 	if select_card_index != -1{
 		//绘制右侧信息栏
-		var enemy_id_array = ds_map_keys_to_array(global.level_info_island_map)
+		var enemy_id_array = global.level_id_list
         var enemy_id = enemy_id_array[select_card_index]
 		var enemy_data = global.level_info_island_map[? enemy_id];
 		var info = enemy_data.description
