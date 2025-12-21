@@ -21,27 +21,29 @@ if (grid_col < 0 || grid_col >= global.grid_cols || grid_row < 0 || grid_row >= 
 	death_anim = 13
 }
 else{
-	if global.grid_terrains[grid_row][grid_col].type == "water" && not entered{
-		if sprite_index == spr_diver_mouse_land{
-			state = ENEMY_STATE.ACTING
-			sprite_index = spr_diver_mouse_enter
-			timer = 0
-			audio_play_sound(snd_enter_water,0,0)
-			reversed = false
+	if state != ENEMY_STATE.DEAD{
+		if global.grid_terrains[grid_row][grid_col].type == "water" && not entered{
+			if sprite_index == spr_diver_mouse_land{
+				state = ENEMY_STATE.ACTING
+				sprite_index = spr_diver_mouse_enter
+				timer = 0
+				audio_play_sound(snd_enter_water,0,0)
+				reversed = false
+			}
+			move_anim = 4
+			death_anim = 10
 		}
-		move_anim = 4
-		death_anim = 10
-	}
-	else if global.grid_terrains[grid_row][grid_col].type != "water" && entered{
-		if sprite_index == spr_diver_mouse{
-			state = ENEMY_STATE.ACTING
-			sprite_index = spr_diver_mouse_enter
-			timer = 0
-			audio_play_sound(snd_enter_water,0,0)
-			reversed = true
+		else if global.grid_terrains[grid_row][grid_col].type != "water" && entered{
+			if sprite_index == spr_diver_mouse{
+				state = ENEMY_STATE.ACTING
+				sprite_index = spr_diver_mouse_enter
+				timer = 0
+				audio_play_sound(snd_enter_water,0,0)
+				reversed = true
+			}
+			move_anim = 8
+			death_anim = 13
 		}
-		move_anim = 8
-		death_anim = 13
 	}
 }
 if state == ENEMY_STATE.ATTACK && entered{

@@ -164,7 +164,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.212",
+    "IDEVersion":"2024.14.2.213",
   },
   "name":"美食大战老鼠：重生",
   "resources":[
@@ -173,7 +173,6 @@
     {"id":{"name":"font_song","path":"fonts/font_song/font_song.yy",},},
     {"id":{"name":"font_song2","path":"fonts/font_song2/font_song2.yy",},},
     {"id":{"name":"font_yuan","path":"fonts/font_yuan/font_yuan.yy",},},
-    {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},},
     {"id":{"name":"obj_arno_bullet_effect","path":"objects/obj_arno_bullet_effect/obj_arno_bullet_effect.yy",},},
     {"id":{"name":"obj_arno_bullet","path":"objects/obj_arno_bullet/obj_arno_bullet.yy",},},
     {"id":{"name":"obj_arno","path":"objects/obj_arno/obj_arno.yy",},},

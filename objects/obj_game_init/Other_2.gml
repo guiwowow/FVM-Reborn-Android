@@ -25,7 +25,7 @@ global.player_name = "Player";
 global.player_sprite = noone;
 
 load_file(0)
-reset_file()
+//reset_file()
 unlock_card("toast_bread",4,0,3)
 unlock_card("small_fire",4,0,3)
 unlock_card("xiao_long_bao",4,0,3)

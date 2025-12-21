@@ -5,16 +5,20 @@ draw_set_halign(fa_center)
 if config_key == "difficulty"{
 	switch state{
 		case 0:
-			draw_text(x,y,"简单")
+			draw_text(x,y,"美味级")
 			tooltip_text = "初始火苗增加150\n敌人血量降低20%"
 			break
 		case 1:
-			draw_text(x,y,"普通")
+			draw_text(x,y,"火山级")
 			tooltip_text = "标准的游戏体验"
 			break
 		case 2:
-			draw_text(x,y,"困难")
+			draw_text(x,y,"浮空级")
 			tooltip_text = "重新设计的关卡，难度较高"
+			break
+		case 3:
+			draw_text(x,y,"遗忘级")
+			tooltip_text = "在浮空级的基础上，所有敌人血量翻倍。\n祝你好运！"
 			break
 	}
 	
