@@ -60,6 +60,11 @@ global.save_data.unlocked_items.max_skill_level = 3
 global.save_data.unlocked_items.max_slot = 10
 global.save_data.unlocked_items.shovel = "normal"
 unlock_weapon("star_gun")
+unlock_weapon("ice_gun")
+unlock_weapon("cat_gun")
+unlock_weapon("mighty_gun")
+unlock_weapon("steel_claw_gun")
+unlock_weapon("bubble_gun")
 global.player_name = global.save_data.player.name
 global.total_time = global.save_data.player.total_time
 

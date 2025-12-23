@@ -12,7 +12,7 @@ function weapons_init(){
 									})
 	register_weapon("star_gun",{"sprite":spr_star_gun_icon,
 									"icon":spr_star_gun_icon,
-									"obj":obj_long_bao_gun,
+									"obj":obj_star_gun,
 									"slot":"main_weapon",
 									"atk":10,
 									"cycle":78,
@@ -20,5 +20,55 @@ function weapons_init(){
 									"name":"星星枪",
 									"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
 									})
+	register_weapon("ice_gun",{"sprite":spr_ice_gun,
+									"icon":spr_ice_gun_icon,
+									"obj":obj_ice_gun,
+									"slot":"main_weapon",
+									"atk":10,
+									"cycle":78,
+									"description":"冰块枪：发射减速冰弹攻击敌人",
+									"name":"冰块枪",
+									"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+									})
+	register_weapon("cat_gun",{"sprite":spr_cat_gun,
+									"icon":spr_cat_gun_icon,
+									"obj":obj_cat_gun,
+									"slot":"main_weapon",
+									"atk":10,
+									"cycle":78,
+									"description":"猫猫枪：发射能惊吓敌人的猫猫弹",
+									"name":"猫猫枪",
+									"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+									})
+	register_weapon("mighty_gun",{"sprite":spr_mighty_gun,
+								"icon":spr_mighty_gun_icon,
+								"obj":obj_mighty_gun,
+								"slot":"main_weapon",
+								"atk":10,
+								"cycle":78,
+								"description":"威武枪：发射四颗子弹攻击敌人",
+								"name":"威武枪",
+								"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+								})
+	register_weapon("steel_claw_gun",{"sprite":spr_steel_claw_gun,
+								"icon":spr_steel_claw_gun_icon,
+								"obj":obj_steel_claw_gun,
+								"slot":"main_weapon",
+								"atk":10,
+								"cycle":78,
+								"description":"钢爪枪：向前方三行发射水弹",
+								"name":"钢爪枪",
+								"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+								})
+	register_weapon("bubble_gun",{"sprite":spr_bubble_gun_icon,
+								"icon":spr_bubble_gun_icon,
+								"obj":obj_bubble_gun,
+								"slot":"main_weapon",
+								"atk":10,
+								"cycle":78,
+								"description":"泡泡枪：发射穿透泡泡",
+								"name":"泡泡枪",
+								"atk_impact":[12,14,16,18,20,22,26,32,40,50,62,67,72,77,82,87]
+								})
 	}
 }
