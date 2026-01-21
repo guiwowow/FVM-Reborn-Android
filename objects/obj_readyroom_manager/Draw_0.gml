@@ -217,6 +217,7 @@ for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
+	draw_set_font(font_yuan)
 	draw_text(x+88 , y + 103, "装备配置");
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -232,8 +233,40 @@ for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 	if global.save_data.equipped_items.main_weapon.id != ""{
 		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.main_weapon.id).icon
 		draw_sprite_ext(main_weapon_icon,0,x+120,y+160,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.main_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x+240+120*i,y+160,1.4,1.4,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x+215+120*i,y+134,1.4,1.4,0,c_white,1)
+			}
+		}
 	}
-	draw_sprite_ext(spr_attack_gem,0,x+240,y+160,1.4,1.4,0,c_white,1)
+	if global.save_data.equipped_items.secondary_weapon.id != ""{
+		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.secondary_weapon.id).icon
+		draw_sprite_ext(main_weapon_icon,0,x+120,y+260,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.secondary_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x+240+120*i,y+260,1.4,1.4,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x+215+120*i,y+234,1.4,1.4,0,c_white,1)
+			}
+		}
+	}
+	if global.save_data.equipped_items.super_weapon.id != ""{
+		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.super_weapon.id).icon
+		draw_sprite_ext(main_weapon_icon,0,x+120,y+360,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.super_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x+240+120*i,y+360,1.4,1.4,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x+215+120*i,y+334,1.4,1.4,0,c_white,1)
+			}
+		}
+	}
+	//draw_sprite_ext(spr_attack_gem,0,x+240,y+160,1.4,1.4,0,c_white,1)
 }
 {//绘制关卡信息
 	draw_set_color(c_white)

@@ -15,3 +15,7 @@ weapon_id = "long_bao_gun"
 weapon_info = get_weapon_info(weapon_id)
 atk = weapon_info.atk
 cycle = weapon_info.cycle
+
+if get_gem_index("attack_gem")!= -1{
+	atk = weapon_info.atk_impact[get_gem_level("attack_gem")]
+}

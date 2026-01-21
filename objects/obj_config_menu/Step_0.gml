@@ -61,6 +61,13 @@ function draw_settings_page(){
 	    btn4.state = global.tex_fliter;
 		btn4.tooltip_text = "关闭该选项可改善贴图变糊问题，但是会导致图像锐化"
 	    array_push(setting_buttons, btn4);
+		
+		// 创建无边框窗口开关
+	    var btn5 = instance_create_depth(x - 200, y + 140, depth-1, obj_setting_toggle);
+	    btn5.config_key = "borderless_window";
+	    btn5.state = global.borderless_window;
+		btn5.tooltip_text = "将全屏变为无边框窗口模式\n该选项只会在你下一次切换全屏时生效"
+	    array_push(setting_buttons, btn5);
     
 	    // 标记当前设置页面
 	    current_settings = id;

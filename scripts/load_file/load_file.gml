@@ -29,6 +29,9 @@ function load_file(file_slot) {
     try {
         global.save_data = json_parse(json_string);
         show_debug_message("存档加载成功!");
+		if global.save_data.version == 1.0{
+			reset_file()
+		}
         return true;
     } catch(e) {
         show_debug_message("存档解析错误: " + string(e));
@@ -39,7 +42,7 @@ function load_file(file_slot) {
 function reset_file(){
 	//重置到初始存档
 	global.save_data = {
-            "version": 1.0,
+            "version": "1.1",
             "player": {
                 "gold": 0,
                 "level": 1,
@@ -67,17 +70,15 @@ function reset_file(){
             "unlocked_weapons": [
                 {"id": "long_bao_gun"}
             ],
-			"unlocked_gems":[
-				{"id":"attack_gem","level":0}
-			],
+			"unlocked_gems":[],
 			"equipped_items":{
 				"main_weapon":{
 					"id":"long_bao_gun",
-					"gems":[{"id":"attack_gem","level":0},{},{}]
+					"gems":[]
 				},
 				"secondary_weapon":{
 					"id":"",
-					"gems":[{},{},{}]
+					"gems":[]
 				},
 				"super_weapon":{
 					"id":"",

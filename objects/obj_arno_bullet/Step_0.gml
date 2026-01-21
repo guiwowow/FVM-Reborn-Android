@@ -18,11 +18,11 @@ y -= cvspeed
 cvspeed -= cgravity
 
 if x >= target_x - 10 && x <= target_x + 10{
-	var plant_list = ds_grid_get(global.grid_plants, target_col, row);
-		for (var i = 0; i < ds_list_size(plant_list); i++) {
-		var plant = ds_list_find_value(plant_list, i);
-		if plant.plant_id != "player"{
-			instance_destroy(plant)
+	var erase_col = target_col
+	var erase_row = row
+	with obj_card_parent{
+		if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+			instance_destroy()
 		}
 	}
 	var inst_y = get_world_position_from_grid(target_col,row).y

@@ -63,7 +63,7 @@ if (cooldown_timer < cooldown) {
 // 绘制冷却时间显示
 if (cooldown_timer < cooldown) {
     // 计算剩余时间（秒）
-    var time_left = (cooldown - cooldown_timer) / room_speed;
+    var time_left = (cooldown - cooldown_timer) / 60;
     
     // 准备显示的文本
     var display_text = "";

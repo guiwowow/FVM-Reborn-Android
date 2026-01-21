@@ -41,8 +41,54 @@ if info_button_select == 1{
 	if global.save_data.equipped_items.main_weapon.id != ""{
 		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.main_weapon.id).icon
 		draw_sprite_ext(main_weapon_icon,0,x-1180,y-320,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.main_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y-220,1.5,1.5,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y-246,1.5,1.5,0,c_white,1)
+			}
+		}
 	}
-	draw_sprite_ext(spr_attack_gem,0,x-1180,y-220,1.5,1.5,0,c_white,1)
+	if global.save_data.equipped_items.secondary_weapon.id != ""{
+		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.secondary_weapon.id).icon
+		draw_sprite_ext(main_weapon_icon,0,x-1180,y-60,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.secondary_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+40,1.5,1.5,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+14,1.5,1.5,0,c_white,1)
+			}
+		}
+	}
+	if global.save_data.equipped_items.super_weapon.id != ""{
+		var main_weapon_icon = get_weapon_info(global.save_data.equipped_items.super_weapon.id).icon
+		draw_sprite_ext(main_weapon_icon,0,x-1180,y+200,1,1,0,c_white,1)
+		var gem_list = global.save_data.equipped_items.super_weapon.gems
+		for(var i = 0 ; i < array_length(gem_list);i++){
+			var gem_icon = get_gem_info(gem_list[i]).icon
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+300,1.5,1.5,0,c_white,1)
+			if get_gem_level(gem_list[i]) > 0{
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+274,1.5,1.5,0,c_white,1)
+			}
+		}
+	}
+	//draw_sprite_ext(spr_attack_gem,0,x-1180,y-220,1.5,1.5,0,c_white,1)
+}
+else if info_button_select == 2{
+	//绘制解锁信息
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_white);
+	draw_text(x - 1220, y - 380, "最大卡片星级："+string(global.save_data.unlocked_items.max_card_level));
+	draw_text(x - 1220, y - 320, "最大技能等级："+string(global.save_data.unlocked_items.max_skill_level));
+	draw_text(x - 1220, y - 260, "卡槽数："+string(global.save_data.unlocked_items.max_slot));
+	draw_text(x - 1220, y - 200, "铲子："+string(global.save_data.unlocked_items.shovel));
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_bottom);
+	draw_set_font(font_yuan)
 }
 if package_button_select == 1 {
     for(var i = 0 ; i < package_rows ; i++){
@@ -165,8 +211,10 @@ else if package_button_select == 2 {
         
         if (!is_undefined(weapon_data)) {
             // 计算武器位置
-            var row = weapon_index div package_cols;
-            var col = weapon_index mod package_cols;
+            var row = weapon_index div package_rows;
+            var col = weapon_index mod package_rows;
+			
+			gem_start_line = weapon_index div package_rows;
             
             if (row < package_rows) {
                 var weapon_x = x - 354 + col * 84;
@@ -196,6 +244,54 @@ else if package_button_select == 2 {
                 }
                 
                 weapon_index++;
+            }
+        }
+    }
+	
+	//绘制已解锁的宝石图标
+	var gem_index = 0
+	hover_gem_index = -1
+	
+	for(var i = 0; i < array_length(global.save_data.unlocked_gems); i++) {
+        var weapon_id = global.save_data.unlocked_gems[i].id;
+        var weapon_data = get_gem_info(weapon_id)
+        
+        if (!is_undefined(weapon_data)) {
+            // 计算宝石位置
+            var row = (gem_index div package_rows) + gem_start_line + 1;
+            var col = gem_index mod package_rows;
+            
+            if (row < package_rows) {
+                var weapon_x = x - 354 + col * 84;
+                var weapon_y = y - 368 + row * 88;
+                
+                // 检查宝石是否已装备
+                var is_equipped = (get_gem_index(weapon_id) != -1)
+                
+                // 绘制宝石图标
+                if (is_equipped) {
+                    // 已装备的宝石，用高亮边框或颜色显示
+                    draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_yellow, 1);
+                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.2, 1.2, 0, c_white, 1);
+                } else {
+                    draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_white, 1);
+                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.2, 1.2, 0, c_white, 1);
+                }
+				if get_gem_level(weapon_id) > 0{
+					draw_sprite_ext(spr_star_slot,get_gem_level(weapon_id)-1,weapon_x-28,weapon_y-30,1.4,1.4,0,c_white,1)
+				}
+                
+                // 检查鼠标是否悬停在宝石上
+                var spr_width = 84;
+                var spr_height = 88;
+                
+                if (point_in_rectangle(mouse_x, mouse_y, 
+                                      weapon_x - spr_width/2, weapon_y - spr_height/2,
+                                      weapon_x + spr_width/2, weapon_y + spr_height/2)) {
+                    hover_gem_index = i;
+                }
+                
+                gem_index++;
             }
         }
     }
@@ -236,6 +332,43 @@ else if package_button_select == 2 {
             
         }
     }
+    if (hover_gem_index != -1) {
+        var weapon_id = global.save_data.unlocked_gems[hover_gem_index].id;
+        var weapon_data = get_gem_info(weapon_id)
+        
+        if (!is_undefined(weapon_data)) {
+            // 获取鼠标位置
+            var tooltip_x = mouse_x + 15;
+            var tooltip_y = mouse_y + 15;
+            
+			// 获取提示文本
+            
+            var tooltip_text = ""
+            var is_equipped = (get_gem_index(weapon_id) != -1)
+            if (is_equipped) {
+                //var slot = get_weapon_slot(weapon_id);
+                tooltip_text = weapon_data.description + "\n左键点击卸下\n右键点击编辑"
+            } else {
+                tooltip_text = weapon_data.description + "\n左键点击镶嵌\n右键点击编辑"
+            }
+			
+            // 绘制提示背景
+            draw_set_color(c_black);
+            draw_set_alpha(0.7);
+            draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
+                          tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
+			//绘制提示文本
+			draw_set_halign(fa_left);
+            draw_set_valign(fa_top);
+            draw_set_alpha(1);
+            draw_set_color(c_white);
+			draw_text(tooltip_x, tooltip_y, tooltip_text);
+			
+            
+        }
+    }
+	
+
 }
 
 // 重置绘制设置

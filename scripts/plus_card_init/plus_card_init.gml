@@ -5,4 +5,5 @@ function plus_card_init(){
 	ds_map_add(global.plus_card_map,"gatlin_long_bao",[obj_gatlin_long_bao,1])
 	ds_map_add(global.plus_card_map,"iron_fishbone",[obj_iron_fishbone,1])
 	ds_map_add(global.plus_card_map,"takoyaki",[obj_takoyaki,2])
+	ds_map_add(global.plus_card_map,"chocolate_bread",[obj_chocolate_bread,1])
 }

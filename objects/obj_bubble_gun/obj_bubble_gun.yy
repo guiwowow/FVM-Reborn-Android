@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_long_bao_gun",
-    "path":"sprites/spr_long_bao_gun/spr_long_bao_gun.yy",
+    "name":"spr_bubble_gun",
+    "path":"sprites/spr_bubble_gun/spr_bubble_gun.yy",
   },
   "spriteMaskId":null,
   "visible":true,

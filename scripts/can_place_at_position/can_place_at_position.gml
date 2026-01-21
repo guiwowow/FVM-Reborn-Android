@@ -15,6 +15,10 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
     if (col < 0 || col >= global.grid_cols || row < 0 || row >= global.grid_rows) {
         return false;
     }
+	//调试相关
+	if global.debug{
+		return true
+	}
 	// 检查是否有障碍
 	if global.grid_terrains[row][col].type == "obstacle" && plant_type != "coffee"{
 		return false
@@ -25,9 +29,19 @@ function can_place_at_position(x, y, plant_type,feature_type,target_card) {
     
     // 根据植物类型检查是否可以种植
 	if target_card != "none"{
+		var same = false
+		//检查是否有同类
+		for (var i = 0; i < ds_list_size(plant_list); i++) {
+		    var plant = ds_list_find_value(plant_list, i);
+			if (plant.plant_type == plant_type && !global.replace_placement && feature_type != "upgrade") {
+		        same = true
+		    }
+	                    
+		}
+		//检查是否有底座卡片
 		for (var i = 0; i < ds_list_size(plant_list); i++) {
 	        var plant = ds_list_find_value(plant_list, i);
-	        if (plant.plant_id == target_card) {
+	        if (plant.plant_id == target_card && !same) {
 				
 				return true;
 				

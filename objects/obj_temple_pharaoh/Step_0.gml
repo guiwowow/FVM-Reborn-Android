@@ -93,13 +93,13 @@ switch state{
 			var coord = target_coord[jump_times]
 			var bandage_pos = get_world_position_from_grid(coord[0],coord[1])
 			instance_create_depth(bandage_pos.x,bandage_pos.y+15,-200,obj_pharaoh_bandage)
-			var plant_list = ds_grid_get(global.grid_plants, coord[0],coord[1]);
-			for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			var erase_col = coord[0]
+			var erase_row = coord[1]
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 			jump_times++
 		}
 		
@@ -164,13 +164,14 @@ switch state{
 			var coord = target_coord[jump_times]
 			var bandage_pos = get_world_position_from_grid(coord[0],coord[1])
 			instance_create_depth(bandage_pos.x,bandage_pos.y-40,-200,obj_pharaoh_coffin)
-			var plant_list = ds_grid_get(global.grid_plants, coord[0],coord[1]);
-			for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			//var plant_list = ds_grid_get(global.grid_plants, coord[0],coord[1]);
+			var erase_col = coord[0]
+			var erase_row = coord[1]
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 			jump_times++
 			
 		}

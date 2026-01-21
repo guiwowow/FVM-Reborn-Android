@@ -16,6 +16,7 @@ if (mouse_check_button_pressed(mb_left)) {
 if keyboard_check_pressed(slot_key){
 	if !is_selected{
 		select_shovel();
+		hotkey_pressed = true
 		audio_play_sound(snd_shovel,0,0)
 	}
 	else{
@@ -26,7 +27,7 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && global.quick_placement)) {
+if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && global.quick_placement && hotkey_pressed)) {
     // 获取鼠标位置对应的网格
     var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
     var col = grid_pos.col;
@@ -112,4 +113,5 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
 		deselect_shovel()
         
     }
+	hotkey_pressed = false
 }

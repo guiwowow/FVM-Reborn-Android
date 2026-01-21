@@ -6,6 +6,14 @@ function weapon_registry_init(){
 	ds_map_add(global.equipped_weapon,"super_weapon",{"weapon_id":""})
 }
 
+function gem_registry_init(){
+	global.gems_pool = ds_map_create()
+}
+/// @desc 注册宝石
+function register_gem(gem_id,data){
+	ds_map_add(global.gems_pool,gem_id,data)
+}
+
 /// @function register_weapon(weapon_id,data)
 /// @desc 注册新的武器
 /// @param {string} weapon_id 武器ID
@@ -23,6 +31,12 @@ function equip_weapon(weapon_id,slot){
 	if slot == "main_weapon"{
 		global.save_data.equipped_items.main_weapon.id = weapon_id
 	}
+	else if slot == "secondary_weapon"{
+		global.save_data.equipped_items.secondary_weapon.id = weapon_id
+	}
+	else if slot == "super_weapon"{
+		global.save_data.equipped_items.super_weapon.id = weapon_id
+	}
 	save_file(0)
 }
 
@@ -34,29 +48,67 @@ function remove_weapon(slot){
 	if slot == "main_weapon"{
 		global.save_data.equipped_items.main_weapon.id = ""
 	}
+	else if slot == "secondary_weapon"{
+		global.save_data.equipped_items.secondary_weapon.id = ""
+	}
+	else if slot == "super_weapon"{
+		global.save_data.equipped_items.super_weapon.id = ""
+	}
 	save_file(0)
 }
 
 /// @function equip_gem(gem_id,slot,level)
 /// @desc 装备宝石
 /// @param {string} gem_id 宝石ID
-/// @param {string} slot 武器槽位
-/// @param {real} level 宝石等级
-function equip_gem(gem_id,slot,level){
-	if not struct_exists(global.equipped_weapon[? slot],gem1){
-		global.equipped_weapon[? slot].gem1.gem_id = gem_id
-		global.equipped_weapon[? slot].gem1.level = level
+function equip_gem(gem_id){
+	var gem_data = get_gem_info(gem_id)
+	var gem_level = get_gem_level(gem_id)
+	var slot = gem_data.slot
+	var slot_gem = []
+	if slot == "main_weapon"{
+		if get_gem_index(gem_id) == -1{
+			slot_gem = global.save_data.equipped_items.main_weapon.gems
+			//show_debug_message(slot_gem)
+			if array_length(slot_gem) < 3{
+				slot_gem[array_length(slot_gem)] = gem_id
+			}
+			//show_debug_message(slot_gem)
+		}
 	}
-	else if not struct_exists(global.equipped_weapon[? slot],gem2){
-		global.equipped_weapon[? slot].gem2.gem_id = gem_id
-		global.equipped_weapon[? slot].gem2.level = level
+	else if slot == "secondary_weapon"{
+		if get_gem_index(gem_id) == -1{
+			slot_gem = global.save_data.equipped_items.secondary_weapon.gems
+			//show_debug_message(slot_gem)
+			if array_length(slot_gem) < 3{
+				slot_gem[array_length(slot_gem)] = gem_id
+			}
+			//show_debug_message(slot_gem)
+		}
 	}
-	else if not struct_exists(global.equipped_weapon[? slot],gem3){
-		global.equipped_weapon[? slot].gem3.gem_id = gem_id
-		global.equipped_weapon[? slot].gem3.level = level
+	else if slot == "super_weapon"{
+		if get_gem_index(gem_id) == -1{
+			slot_gem = global.save_data.equipped_items.super_weapon.gems
+			//show_debug_message(slot_gem)
+			if array_length(slot_gem) < 3{
+				slot_gem[array_length(slot_gem)] = gem_id
+			}
+			//show_debug_message(slot_gem)
+		}
 	}
-	else{
-		return false
+	save_file(0)
+}
+
+function get_gem_index(gem_id){
+	var gem_data = get_gem_info(gem_id)
+	var slot = gem_data.slot
+	if slot == "main_weapon"{
+		return array_get_index(global.save_data.equipped_items.main_weapon.gems,gem_id)
+	}
+	else if slot == "secondary_weapon"{
+		return array_get_index(global.save_data.equipped_items.secondary_weapon.gems,gem_id)
+	}
+	else if slot == "super_weapon"{
+		return array_get_index(global.save_data.equipped_items.super_weapon.gems,gem_id)
 	}
 }
 
@@ -64,19 +116,29 @@ function equip_gem(gem_id,slot,level){
 /// @desc 卸下宝石
 /// @param {string} slot 武器槽位
 /// @param {real} gem_index 宝石索引
-function remove_gem(slot,gem_index){
-	if gem_index == 0{
-		struct_remove(global.equipped_weapon[? slot],gem1)
+function remove_gem(gem_id){
+	var gem_data = get_gem_info(gem_id)
+	var slot = gem_data.slot
+	if slot == "main_weapon"{
+		var gem_index = get_gem_index(gem_id)
+		if gem_index != -1{
+			array_delete(global.save_data.equipped_items.main_weapon.gems,gem_index,1)
+		}
+		
 	}
-	else if gem_index == 1{
-		struct_remove(global.equipped_weapon[? slot],gem2)
+	else if slot == "secondary_weapon"{
+		var gem_index = get_gem_index(gem_id)
+		if gem_index != -1{
+			array_delete(global.save_data.equipped_items.secondary_weapon.gems,gem_index,1)
+		}
 	}
-	else if gem_index == 2{
-		struct_remove(global.equipped_weapon[? slot],gem3)
+	else if slot == "super_weapon"{
+		var gem_index = get_gem_index(gem_id)
+		if gem_index != -1{
+			array_delete(global.save_data.equipped_items.super_weapon.gems,gem_index,1)
+		}
 	}
-	else{
-		return false
-	}
+	save_file(0)
 }
 
 /// @function is_weapon_equipped(weapon_id)
@@ -110,4 +172,9 @@ function get_weapon_slot(weapon_id) {
 /// @return {struct} weapon_info 武器信息结构体
 function get_weapon_info(weapon_id) {
     return global.weapon_pool[? weapon_id]
+}
+
+/// @desc 获取宝石信息
+function get_gem_info(gem_id) {
+    return global.gems_pool[? gem_id]
 }

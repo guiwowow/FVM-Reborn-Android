@@ -3,10 +3,10 @@ global.menu_screen = true
 global.map_name = "美味岛"
 global.map_id = "delicious_town"
 global.level_id = ""
-global.level_file = ""
+global.level_file = {}
 global.level_name = "曲奇岛"
 global.level_data = {}
-global.debug = false
+global.debug = 1
 Music_Init()
 
 // 初始化全局键位映射
@@ -36,7 +36,7 @@ global.keybind_config = [
     {"name": "卡槽20", "default1": ord("F"), "tooltip": ""},
     {"name": "卡槽21", "default1": ord("G"), "tooltip": ""}
 ];
-//window_set_caption("FVM:ReBorn")
+//window_set_caption("FVM:Reborn")
 // 初始化全局设置（如果不存在配置文件）
 if (!file_exists("config.ini")) {
     ini_open("config.ini");
@@ -51,6 +51,7 @@ if (!file_exists("config.ini")) {
 	ini_write_bool("settings", "enemy_hpbar", false);
 	ini_write_bool("settings", "tex_fliter", true);
 	ini_write_real("settings", "difficulty", 1)
+	ini_write_bool("settings", "borderless_window", true);
 	ini_open("config.ini");
     for (var i = 0; i < array_length(global.keybind_config); i++) {
         var kb = global.keybind_config[i];
@@ -75,6 +76,7 @@ global.card_hpbar = ini_read_bool("settings", "card_hpbar", false);
 global.enemy_hpbar = ini_read_bool("settings", "enemy_hpbar", false);
 global.tex_fliter = ini_read_bool("settings", "tex_fliter", true);
 global.difficulty = ini_read_real("settings", "difficulty", 1)
+global.borderless_window = ini_read_bool("settings", "borderless_window", true);
 for (var i = 0; i < array_length(global.keybind_config); i++) {
 	    var kb = global.keybind_config[i];
 	    var key_val = ini_read_real("keybinds", kb.name, kb.default1);
@@ -85,6 +87,7 @@ audio_group_set_gain(music,global.music_volume,0)
 audio_group_set_gain(sound,global.sound_volume,0)
 window_set_fullscreen(global.fullscreen)
 gpu_set_tex_filter(global.tex_fliter)
+window_enable_borderless_fullscreen(global.borderless_window)
 
 // 设置初始静音状态
 global.music_volume_before_mute = global.music_volume > 0 ? global.music_volume : 0.7;

@@ -127,7 +127,7 @@ if (is_selected) {
 			if global.replace_placement{
 			for (var i = 0; i < ds_list_size(plant_list); i++) {
 	                    var plant = ds_list_find_value(plant_list, i);
-	                    if (plant.plant_type == card_data[? "plant_type"]) {
+	                    if (plant.plant_type == card_data[? "plant_type"] && plant.plant_id != "player") {
 	                        card_destroyed(plant)
 							instance_destroy(plant)
 	                    }

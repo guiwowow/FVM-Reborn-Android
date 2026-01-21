@@ -6,6 +6,7 @@ package_rows = 9
 info_button_select = 1
 package_button_select = 1
 is_submenu_opened = false
+gem_start_line = 0
 //创建背包栏位选择按钮
 var btn1 = instance_create_depth(x-300,y-455,depth-1,obj_packageselect_btn)
 btn1.type = "Package"
@@ -26,4 +27,5 @@ btn4.sprite_index = spr_packageselect_btn_4
 
 hover_card_index = -1; // 当前悬停的卡片索引
 hover_weapon_index = -1
+hover_gem_index = -1
 view_max_shapes = 0

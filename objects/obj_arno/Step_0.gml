@@ -122,13 +122,13 @@ switch state{
 		}
 		if timer == 13 * 5 * 3 + 30 * jump_times + 1{
 			jump_times++
-			 var plant_list = ds_grid_get(global.grid_plants, 9 - jump_times*1, grid_row);
-			 for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			var erase_col = 9-jump_times*1
+			var erase_row = grid_row
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 		}
 		if jump_times >= 4{
 			jump_times = 0

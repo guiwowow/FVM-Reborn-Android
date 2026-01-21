@@ -17,3 +17,7 @@ atk = weapon_info.atk
 cycle = weapon_info.cycle
 
 y -= 10
+
+if get_gem_index("attack_gem")!= -1{
+	atk = weapon_info.atk_impact[get_gem_level("attack_gem")]
+}

@@ -7,6 +7,7 @@ is_selected = false;        // 铲子是否被选中
 is_ready = true;            // 铲子总是可用
 description = "铲子:移除植物";
 flame_rate = 0 //回收比例
+hotkey_pressed = false
 
 // 铲子精灵
 if global.save_data.unlocked_items.shovel == "normal"{

@@ -37,3 +37,7 @@ else if (config_key == "tex_fliter"){
 else if (config_key == "difficulty"){
 	global.difficulty = state
 }
+else if (config_key == "borderless_window"){
+	global.borderless_window = state
+	window_enable_borderless_fullscreen(global.borderless_window)
+}

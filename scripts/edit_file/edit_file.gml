@@ -145,7 +145,7 @@ function get_completed_levels() {
 
 /// @function is_weapon_unlocked(weapon_id)
 /// @desc 检查武器是否已解锁
-/// @param {string} weapon_id 关卡ID
+/// @param {string} weapon_id 武器ID
 function is_weapon_unlocked(weapon_id) {
     for (var i = 0; i < array_length(global.save_data.unlocked_weapons); i++) {
         if (global.save_data.unlocked_weapons[i].id == weapon_id) {
@@ -163,5 +163,46 @@ function unlock_weapon(weapon_id){
 		var index = array_length(global.save_data.unlocked_weapons)
 		global.save_data.unlocked_weapons[index] = {"id":weapon_id}
 		save_file(0)
+	}
+}
+
+/// @function is_gem_unlocked(gem_id)
+/// @desc 检查宝石是否已解锁
+/// @param {string} gem_id 宝石ID
+function is_gem_unlocked(gem_id) {
+    for (var i = 0; i < array_length(global.save_data.unlocked_gems); i++) {
+        if (global.save_data.unlocked_gems[i].id == gem_id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/// @function unlock_gem(gem_id)
+/// @desc 解锁新的宝石
+/// @param {string} gem_id 宝石ID
+function unlock_gem(gem_id){
+	if not is_gem_unlocked(gem_id){
+		var index = array_length(global.save_data.unlocked_gems)
+		global.save_data.unlocked_gems[index] = {"id":gem_id,"level":global.save_data.unlocked_items.max_gem_level}
+		save_file(0)
+	}
+}
+
+function get_gem_level(gem_id){
+	var gem_level = 0
+	for(var i = 0;i < array_length(global.save_data.unlocked_gems);i++){
+		if global.save_data.unlocked_gems[i].id == gem_id{
+			gem_level = global.save_data.unlocked_gems[i].level
+		}
+	}
+	return gem_level
+}
+
+function edit_gem_level(gem_id,new_level){
+	for(var i = 0;i < array_length(global.save_data.unlocked_gems);i++){
+		if global.save_data.unlocked_gems[i].id == gem_id{
+			gem_level = global.save_data.unlocked_gems[i].level = new_level
+		}
 	}
 }

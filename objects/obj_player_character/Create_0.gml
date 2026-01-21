@@ -1,4 +1,4 @@
-hp = 1200
+hp = 600
 max_hp = hp
 grid_row = -1
 grid_col = -1

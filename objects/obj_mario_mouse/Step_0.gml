@@ -61,26 +61,26 @@ switch state{
 		var pipeline = noone
 		if timer == 3*60{
 			var cave_pos = get_world_position_from_grid(8,grid_row)
-			var plant_list = ds_grid_get(global.grid_plants, 8, grid_row);
-			for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			var erase_col = 8
+			var erase_row = grid_row
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 			cave = instance_create_depth(cave_pos.x+8,cave_pos.y+15,depth,obj_mario_cave)
 		}
 		if timer == 4 * 60{
 			var pipeline_col = irandom_range(3,6)
 			var pipeline_row = irandom_range(0,global.grid_rows - 1)
 			var pipeline_pos = get_world_position_from_grid(pipeline_col,pipeline_row)
-			var plant_list = ds_grid_get(global.grid_plants, pipeline_col, pipeline_row);
-			for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			var erase_col = pipeline_col
+			var erase_row = pipeline_row
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 			pipeline = instance_create_depth(pipeline_pos.x+8,pipeline_pos.y+15,depth,obj_mario_pipeline)
 			cave.banding_pipeline_obj = pipeline
 			pipeline.banding_cave_obj = cave
@@ -109,13 +109,13 @@ switch state{
 		}
 		if timer == 10 * 5 + 70 * jump_times + 1{
 			jump_times++
-			 var plant_list = ds_grid_get(global.grid_plants, 9 - jump_times*2, grid_row);
-			 for (var i = 0; i < ds_list_size(plant_list); i++) {
-		        var plant = ds_list_find_value(plant_list, i);
-				if plant.plant_id != "player"{
-					instance_destroy(plant)
+			var erase_col = 9-jump_times*2
+			var erase_row = grid_row
+			with obj_card_parent{
+				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					instance_destroy()
 				}
-		    }
+			}
 		}
 		if jump_times >= 3{
 			jump_times = 0

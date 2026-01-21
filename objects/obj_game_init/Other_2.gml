@@ -4,6 +4,7 @@ slots_init()
 skill_registry_init();
 skill_init()
 weapon_registry_init()
+gem_registry_init()
 weapons_init()
 info_island_register_init()
 info_island_init()
@@ -57,15 +58,49 @@ global.save_data.player.gold = 20000000
 global.save_data.player.level = 7
 global.save_data.unlocked_items.max_card_level = 4
 global.save_data.unlocked_items.max_skill_level = 3
+global.save_data.unlocked_items.max_gem_level = 3
 global.save_data.unlocked_items.max_slot = 10
 global.save_data.unlocked_items.shovel = "normal"
+
 unlock_weapon("star_gun")
 unlock_weapon("ice_gun")
 unlock_weapon("cat_gun")
 unlock_weapon("mighty_gun")
 unlock_weapon("steel_claw_gun")
 unlock_weapon("bubble_gun")
+unlock_weapon("cookie_shield")
+unlock_weapon("oreo_shield")
+unlock_weapon("cut_cake_shield")
+unlock_weapon("howitzer")
+unlock_weapon("enhanced_howitzer")
+unlock_gem("attack_gem")
+unlock_gem("health_gem")
+unlock_gem("laser_gem")
+unlock_gem("bomb_gem")
+unlock_gem("cateye_gem")
+unlock_gem("freeze_gem")
+unlock_gem("starlight_gem")
+unlock_gem("power_gem")
+unlock_gem("gale_gem")
+unlock_gem("transform_gem")
+unlock_gem("flame_recover_gem")
+unlock_gem("produce_gem")
+unlock_gem("slow_down_gem")
+unlock_gem("bleed_gem")
+unlock_gem("guard_gem")
+unlock_gem("strength_gem")
 global.player_name = global.save_data.player.name
 global.total_time = global.save_data.player.total_time
+
+//debug相关
+if global.debug{
+	global.save_data.player.gold = 9999999999
+	global.save_data.player.level = 80
+	global.save_data.unlocked_items.max_card_level = 16
+	global.save_data.unlocked_items.max_skill_level = 8
+	global.save_data.unlocked_items.max_gem_level = 15
+	global.save_data.unlocked_items.max_slot = 21
+	global.save_data.unlocked_items.shovel = "gold"
+}
 
 room_goto(room_menu)

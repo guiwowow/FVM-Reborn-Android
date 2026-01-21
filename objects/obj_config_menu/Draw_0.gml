@@ -19,6 +19,7 @@ switch (button_select) {
 		draw_text(x - 380, y - 100, "闪烁效果");
 		draw_text(x - 380, y - 20, "全屏");
 		draw_text(x - 380, y + 60, "纹理过滤");
+		draw_text(x - 380, y + 140, "无边框窗口");
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 	    break;
