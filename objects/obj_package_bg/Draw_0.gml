@@ -44,9 +44,9 @@ if info_button_select == 1{
 		var gem_list = global.save_data.equipped_items.main_weapon.gems
 		for(var i = 0 ; i < array_length(gem_list);i++){
 			var gem_icon = get_gem_info(gem_list[i]).icon
-			draw_sprite_ext(gem_icon,0,x-1180+200*i,y-220,1.5,1.5,0,c_white,1)
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y-220,1.7,1.7,0,c_white,1)
 			if get_gem_level(gem_list[i]) > 0{
-				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y-246,1.5,1.5,0,c_white,1)
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y-246,1.6,1.6,0,c_white,1)
 			}
 		}
 	}
@@ -56,9 +56,9 @@ if info_button_select == 1{
 		var gem_list = global.save_data.equipped_items.secondary_weapon.gems
 		for(var i = 0 ; i < array_length(gem_list);i++){
 			var gem_icon = get_gem_info(gem_list[i]).icon
-			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+40,1.5,1.5,0,c_white,1)
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+40,1.7,1.7,0,c_white,1)
 			if get_gem_level(gem_list[i]) > 0{
-				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+14,1.5,1.5,0,c_white,1)
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+14,1.6,1.6,0,c_white,1)
 			}
 		}
 	}
@@ -68,9 +68,9 @@ if info_button_select == 1{
 		var gem_list = global.save_data.equipped_items.super_weapon.gems
 		for(var i = 0 ; i < array_length(gem_list);i++){
 			var gem_icon = get_gem_info(gem_list[i]).icon
-			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+300,1.5,1.5,0,c_white,1)
+			draw_sprite_ext(gem_icon,0,x-1180+200*i,y+300,1.7,1.7,0,c_white,1)
 			if get_gem_level(gem_list[i]) > 0{
-				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+274,1.5,1.5,0,c_white,1)
+				draw_sprite_ext(spr_star_slot,get_gem_level(gem_list[i])-1,x-1205+200*i,y+274,1.6,1.6,0,c_white,1)
 			}
 		}
 	}
@@ -272,10 +272,10 @@ else if package_button_select == 2 {
                 if (is_equipped) {
                     // 已装备的宝石，用高亮边框或颜色显示
                     draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_yellow, 1);
-                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.2, 1.2, 0, c_white, 1);
+                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.4, 1.4, 0, c_white, 1);
                 } else {
                     draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_white, 1);
-                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.2, 1.2, 0, c_white, 1);
+                    draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.4, 1.4, 0, c_white, 1);
                 }
 				if get_gem_level(weapon_id) > 0{
 					draw_sprite_ext(spr_star_slot,get_gem_level(weapon_id)-1,weapon_x-28,weapon_y-30,1.4,1.4,0,c_white,1)
@@ -303,8 +303,8 @@ else if package_button_select == 2 {
         
         if (!is_undefined(weapon_data)) {
             // 获取鼠标位置
-            var tooltip_x = mouse_x + 15;
-            var tooltip_y = mouse_y + 15;
+            var tooltip_x = mouse_x - 15;
+            var tooltip_y = mouse_y - 15;
             
 			// 获取提示文本
             
@@ -320,14 +320,14 @@ else if package_button_select == 2 {
             // 绘制提示背景
             draw_set_color(c_black);
             draw_set_alpha(0.7);
-            draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
-                          tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
+            draw_rectangle(tooltip_x - string_width(tooltip_text) - 5, tooltip_y - 5, 
+                          tooltip_x +5, tooltip_y + string_height(tooltip_text)+5, false);
 			//绘制提示文本
 			draw_set_halign(fa_left);
             draw_set_valign(fa_top);
             draw_set_alpha(1);
             draw_set_color(c_white);
-			draw_text(tooltip_x, tooltip_y, tooltip_text);
+			draw_text(tooltip_x- string_width(tooltip_text), tooltip_y, tooltip_text);
 			
             
         }
@@ -338,8 +338,8 @@ else if package_button_select == 2 {
         
         if (!is_undefined(weapon_data)) {
             // 获取鼠标位置
-            var tooltip_x = mouse_x + 15;
-            var tooltip_y = mouse_y + 15;
+            var tooltip_x = mouse_x - 15;
+            var tooltip_y = mouse_y - 15;
             
 			// 获取提示文本
             
@@ -355,14 +355,14 @@ else if package_button_select == 2 {
             // 绘制提示背景
             draw_set_color(c_black);
             draw_set_alpha(0.7);
-            draw_rectangle(tooltip_x - 5, tooltip_y - 5, 
-                          tooltip_x + string_width(tooltip_text)+5, tooltip_y + string_height(tooltip_text)+5, false);
+            draw_rectangle(tooltip_x - string_width(tooltip_text)- 5, tooltip_y - 5, 
+                          tooltip_x +5, tooltip_y + string_height(tooltip_text)+5, false);
 			//绘制提示文本
 			draw_set_halign(fa_left);
             draw_set_valign(fa_top);
             draw_set_alpha(1);
             draw_set_color(c_white);
-			draw_text(tooltip_x, tooltip_y, tooltip_text);
+			draw_text(tooltip_x- string_width(tooltip_text), tooltip_y, tooltip_text);
 			
             
         }

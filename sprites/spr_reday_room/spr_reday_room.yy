@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Maps",
-    "path":"folders/精灵/Player/Maps.yy",
+    "path":"folders/精灵/Maps.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

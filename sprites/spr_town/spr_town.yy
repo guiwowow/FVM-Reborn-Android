@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"b1b0fa82-1a8a-4d98-9102-4a4c8867a4c5","name":"b1b0fa82-1a8a-4d98-9102-4a4c8867a4c5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ddc117ab-3119-4fcc-b5ac-15b295cbcc6f","name":"ddc117ab-3119-4fcc-b5ac-15b295cbcc6f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"2782a6ac-0fee-4a5e-b34f-ebe6e953b293","blendMode":0,"displayName":"default","isLocked":false,"name":"2782a6ac-0fee-4a5e-b34f-ebe6e953b293","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"709f2b8d-bafe-4b02-95ee-1550fae63327","blendMode":0,"displayName":"default","isLocked":false,"name":"709f2b8d-bafe-4b02-95ee-1550fae63327","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_town",
   "nineSlice":null,
   "origin":0,
   "parent":{
     "name":"Maps",
-    "path":"folders/精灵/Player/Maps.yy",
+    "path":"folders/精灵/Maps.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b1b0fa82-1a8a-4d98-9102-4a4c8867a4c5","path":"sprites/spr_town/spr_town.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1ca7b45b-5905-4a16-a00c-66afdd215ef8","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ddc117ab-3119-4fcc-b5ac-15b295cbcc6f","path":"sprites/spr_town/spr_town.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4e790a8e-5328-4144-8a7b-0388d83da3ed","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

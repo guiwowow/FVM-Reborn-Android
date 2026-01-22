@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"3e56ab08-b579-4823-b0e4-9b6f5e50c98a","name":"3e56ab08-b579-4823-b0e4-9b6f5e50c98a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"3cb84b44-5453-4440-98fd-fd93a806a6a9","name":"3cb84b44-5453-4440-98fd-fd93a806a6a9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"92e3d86c-535f-4a68-9e6c-22f1c8e8914f","blendMode":0,"displayName":"default","isLocked":false,"name":"92e3d86c-535f-4a68-9e6c-22f1c8e8914f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"a26ac85a-5bee-4b3a-ab8e-fd3ce145a619","blendMode":0,"displayName":"default","isLocked":false,"name":"a26ac85a-5bee-4b3a-ab8e-fd3ce145a619","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_cookie_island",
   "nineSlice":null,
   "origin":0,
   "parent":{
     "name":"delicious_island",
-    "path":"folders/精灵/Battle Maps/delicious_island.yy",
+    "path":"folders/精灵/Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3e56ab08-b579-4823-b0e4-9b6f5e50c98a","path":"sprites/spr_cookie_island/spr_cookie_island.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c8cf09c5-0262-4925-9cc4-a1d1ee2a3a37","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3cb84b44-5453-4440-98fd-fd93a806a6a9","path":"sprites/spr_cookie_island/spr_cookie_island.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8e0119ce-5f4f-428a-98e2-7182a5679be0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -74,7 +74,7 @@ if guard_gem || strength_gem{
 				}
 			}
 			if other.strength_gem && (array_get_index(other.atk_modified_card_list,id)==-1){
-				atk = round(atk*(other.atk_ratio+1))
+				atk = atk*(other.atk_ratio+1)
 				array_push(other.atk_modified_card_list,id)
 			}
 		}

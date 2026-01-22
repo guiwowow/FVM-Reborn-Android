@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"84f1e8f9-cf4b-4a5f-abe3-1a1710c5958b","name":"84f1e8f9-cf4b-4a5f-abe3-1a1710c5958b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"eede0054-a923-4b11-b097-414c57051dbb","name":"eede0054-a923-4b11-b097-414c57051dbb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"f6092e76-dff8-4be4-b2c1-8ffdde2f0a91","blendMode":0,"displayName":"default","isLocked":false,"name":"f6092e76-dff8-4be4-b2c1-8ffdde2f0a91","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"58103d7f-6d8f-4086-9781-90dcee654edd","blendMode":0,"displayName":"default","isLocked":false,"name":"58103d7f-6d8f-4086-9781-90dcee654edd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_mousse_island",
   "nineSlice":null,
   "origin":0,
   "parent":{
     "name":"delicious_island",
-    "path":"folders/精灵/Battle Maps/delicious_island.yy",
+    "path":"folders/精灵/Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"84f1e8f9-cf4b-4a5f-abe3-1a1710c5958b","path":"sprites/spr_mousse_island/spr_mousse_island.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ae4d89b2-97d1-412a-ad2a-80c31a4cceca","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"eede0054-a923-4b11-b097-414c57051dbb","path":"sprites/spr_mousse_island/spr_mousse_island.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f85fe36b-489b-4981-9bc8-a2f68c30936e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

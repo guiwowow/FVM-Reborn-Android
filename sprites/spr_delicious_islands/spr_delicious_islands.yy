@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"e56a5279-ba26-4f3c-a85a-5324fd9c43ab","name":"e56a5279-ba26-4f3c-a85a-5324fd9c43ab","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"b5430d74-fad8-43ae-8f5a-55c8827bc907","name":"b5430d74-fad8-43ae-8f5a-55c8827bc907","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"59bf1b8a-b75e-483e-9352-cb43bd8215c7","blendMode":0,"displayName":"default","isLocked":false,"name":"59bf1b8a-b75e-483e-9352-cb43bd8215c7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7c8fee06-9422-48e3-8263-d4e648373d9c","blendMode":0,"displayName":"default","isLocked":false,"name":"7c8fee06-9422-48e3-8263-d4e648373d9c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_delicious_islands",
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Maps",
-    "path":"folders/精灵/Player/Maps.yy",
+    "name":"delicious_island",
+    "path":"folders/精灵/Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e56a5279-ba26-4f3c-a85a-5324fd9c43ab","path":"sprites/spr_delicious_islands/spr_delicious_islands.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"02699753-bed9-4c1c-9056-6e3777985801","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b5430d74-fad8-43ae-8f5a-55c8827bc907","path":"sprites/spr_delicious_islands/spr_delicious_islands.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f9c76785-e75b-4e4e-9457-d47d76610d06","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

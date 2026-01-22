@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"64114327-2efa-42b7-9167-b97c5ef13745","name":"64114327-2efa-42b7-9167-b97c5ef13745","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f7286909-19f8-41b0-9be0-065b37425f87","name":"f7286909-19f8-41b0-9be0-065b37425f87","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"d4249c2f-dec6-4fb7-ba01-c5c0304287a3","blendMode":0,"displayName":"default","isLocked":false,"name":"d4249c2f-dec6-4fb7-ba01-c5c0304287a3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"bcb01ed4-0328-4b1e-90f5-ea73afa6e99a","blendMode":0,"displayName":"default","isLocked":false,"name":"bcb01ed4-0328-4b1e-90f5-ea73afa6e99a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_salad_island_water",
   "nineSlice":null,
   "origin":0,
   "parent":{
     "name":"delicious_island",
-    "path":"folders/精灵/Battle Maps/delicious_island.yy",
+    "path":"folders/精灵/Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"64114327-2efa-42b7-9167-b97c5ef13745","path":"sprites/spr_salad_island_water/spr_salad_island_water.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"24628e18-a086-4e7f-96f6-36300b23d277","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f7286909-19f8-41b0-9be0-065b37425f87","path":"sprites/spr_salad_island_water/spr_salad_island_water.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4c16acaa-af2d-4f2b-b0d4-b483d3554c6f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

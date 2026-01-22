@@ -69,7 +69,7 @@ switch state{
 			}
 		}
 		
-		if timer == 1*60{
+		if timer == 1*60 || timer == 2*60 || timer == 3*60{
 			var bullet = instance_create_depth(x-60,y-180,-200,obj_arno_bullet)
 			bullet.row = grid_row
 			bullet.target_col = target_col
@@ -130,7 +130,7 @@ switch state{
 				}
 			}
 		}
-		if jump_times >= 4{
+		if jump_times >= 5{
 			jump_times = 0
 			timer = 0
 			state = BOSS_STATE.DISAPPEAR
