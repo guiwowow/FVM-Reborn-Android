@@ -6,7 +6,7 @@ global.level_id = ""
 global.level_file = {}
 global.level_name = "曲奇岛"
 global.level_data = {}
-global.debug = 0
+global.debug = 1
 Music_Init()
 
 // 初始化全局键位映射
@@ -52,6 +52,7 @@ if (!file_exists("config.ini")) {
 	ini_write_bool("settings", "tex_fliter", true);
 	ini_write_real("settings", "difficulty", 1)
 	ini_write_bool("settings", "borderless_window", true);
+	ini_write_real("settings", "save_slot", 0)
 	ini_open("config.ini");
     for (var i = 0; i < array_length(global.keybind_config); i++) {
         var kb = global.keybind_config[i];
@@ -77,6 +78,7 @@ global.enemy_hpbar = ini_read_bool("settings", "enemy_hpbar", false);
 global.tex_fliter = ini_read_bool("settings", "tex_fliter", true);
 global.difficulty = ini_read_real("settings", "difficulty", 1)
 global.borderless_window = ini_read_bool("settings", "borderless_window", true);
+global.save_slot = ini_read_real("settings", "save_slot", 0)
 for (var i = 0; i < array_length(global.keybind_config); i++) {
 	    var kb = global.keybind_config[i];
 	    var key_val = ini_read_real("keybinds", kb.name, kb.default1);

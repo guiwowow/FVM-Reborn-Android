@@ -17,7 +17,7 @@ if config_key == "difficulty"{
 			tooltip_text = "重新设计的关卡，难度较高"
 			break
 		case 3:
-			draw_text(x,y,"遗忘级")
+			draw_text(x,y,"星际级")
 			tooltip_text = "在浮空级的基础上，所有敌人血量翻倍。\n祝你好运！"
 			break
 	}

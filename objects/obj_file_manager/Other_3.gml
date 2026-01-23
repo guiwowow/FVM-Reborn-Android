@@ -1,1 +1,1 @@
-save_file(0)
+save_file(global.save_slot)

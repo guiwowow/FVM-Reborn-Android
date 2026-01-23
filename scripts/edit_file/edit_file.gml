@@ -12,7 +12,7 @@ function unlock_card(card_id, level, shape, skill) {
             global.save_data.unlocked_cards[i].shape = shape;
 			global.save_data.unlocked_cards[i].skill = skill;
 			global.save_data.unlocked_cards[i].max_shape = 2;
-            save_file(0); // 立即保存
+            save_file(global.save_slot); // 立即保存
             return true;
         }
     }
@@ -27,7 +27,7 @@ function unlock_card(card_id, level, shape, skill) {
     };
     
     array_push(global.save_data.unlocked_cards, new_card);
-    save_file(0); // 立即保存
+    save_file(global.save_slot); // 立即保存
     return true;
 }
 
@@ -39,7 +39,7 @@ function remove_card(card_id) {
         if (global.save_data.unlocked_cards[i].id == card_id) {
             // 找到卡片，从数组中移除
             array_delete(global.save_data.unlocked_cards, i, 1);
-            save_file(0); // 立即保存
+            save_file(global.save_slot); // 立即保存
             return true;
         }
     }
@@ -57,7 +57,7 @@ function upgrade_card(card_id, levels) {
         if (global.save_data.unlocked_cards[i].id == card_id) {
             // 找到卡片，升级等级
             global.save_data.unlocked_cards[i].level = levels;
-            save_file(0); // 立即保存
+            save_file(global.save_slot); // 立即保存
             return true;
         }
     }
@@ -104,7 +104,7 @@ function complete_level(level_id) {
     
     // 添加新完成的关卡
     array_push(global.save_data.completed_levels, level_id);
-    save_file(0); // 立即保存
+    save_file(global.save_slot); // 立即保存
     return true;
 }
 
@@ -116,7 +116,7 @@ function uncomplete_level(level_id) {
         if (global.save_data.completed_levels[i] == level_id) {
             // 找到关卡，从数组中移除
             array_delete(global.save_data.completed_levels, i, 1);
-            save_file(0); // 立即保存
+            save_file(global.save_slot); // 立即保存
             return true;
         }
     }
@@ -162,7 +162,7 @@ function unlock_weapon(weapon_id){
 	if not is_weapon_unlocked(weapon_id){
 		var index = array_length(global.save_data.unlocked_weapons)
 		global.save_data.unlocked_weapons[index] = {"id":weapon_id}
-		save_file(0)
+		save_file(global.save_slot)
 	}
 }
 
@@ -185,7 +185,7 @@ function unlock_gem(gem_id){
 	if not is_gem_unlocked(gem_id){
 		var index = array_length(global.save_data.unlocked_gems)
 		global.save_data.unlocked_gems[index] = {"id":gem_id,"level":global.save_data.unlocked_items.max_gem_level}
-		save_file(0)
+		save_file(global.save_slot)
 	}
 }
 

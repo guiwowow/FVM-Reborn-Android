@@ -25,7 +25,7 @@ if btn_type == "confirm"{
 	}
 	
 	
-	save_file(0)
+	save_file(global.save_slot)
 }
 else if btn_type == "apply"{
 	var length = array_length(global.save_data.unlocked_cards)
@@ -47,7 +47,7 @@ else if btn_type == "apply"{
 	}
 	
 	
-	save_file(0)
+	save_file(global.save_slot)
 }
 obj_package_bg.is_submenu_opened = false
 instance_destroy(obj_card_edit_menu)

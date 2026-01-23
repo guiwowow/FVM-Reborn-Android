@@ -58,6 +58,9 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
         if (selected_preview == noone) {
             selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
             selected_preview.preview_sprite = card_spr; // 设置预览精灵
+			if place_preview != undefined{
+				selected_preview.preview_sprite = place_preview
+			}
             selected_preview.parent_slot = id; // 设置父卡槽
 			selected_preview.card_id = card_id
         }
@@ -79,6 +82,9 @@ if keyboard_check_pressed(slot_key) && is_ready{
 		        if (selected_preview == noone) {
 		            selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
 		            selected_preview.preview_sprite = card_spr; // 设置预览精灵
+					if place_preview != undefined{
+						selected_preview.preview_sprite = place_preview
+					}
 		            selected_preview.parent_slot = id; // 设置父卡槽
 					selected_preview.card_id = card_id
 		        }

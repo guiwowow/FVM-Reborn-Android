@@ -6,7 +6,7 @@ function load_file(file_slot) {
     // 检查存档文件是否存在
     if (!file_exists(file_path)) {
         // 如果存档不存在，创建初始存档数据
-        reset_file()
+        reset_file(file_slot)
         return true;
     }
     
@@ -30,7 +30,7 @@ function load_file(file_slot) {
         global.save_data = json_parse(json_string);
         show_debug_message("存档加载成功!");
 		if global.save_data.version == 1.0{
-			reset_file()
+			reset_file(file_slot)
 		}
         return true;
     } catch(e) {
@@ -39,7 +39,7 @@ function load_file(file_slot) {
     }
 }
 
-function reset_file(){
+function reset_file(file_slot){
 	//重置到初始存档
 	global.save_data = {
             "version": "1.1",
@@ -94,5 +94,5 @@ function reset_file(){
 				{"name":"卡组6","card_id":[]} 
 			]
         };
-	save_file(0)
+	save_file(file_slot)
 }

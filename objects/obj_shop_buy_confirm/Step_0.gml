@@ -47,7 +47,7 @@ for (var i = 0; i < array_length(buttons); i++) {
 							else if target_item == "card_slot_21" && global.save_data.unlocked_items.max_slot == 20{
 								global.save_data.unlocked_items.max_slot += 1
 							}
-							save_file(0)
+							save_file(global.save_slot)
 						}
 					}
 						with obj_shop_bg{

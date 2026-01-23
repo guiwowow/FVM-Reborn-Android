@@ -2,6 +2,7 @@
 cooldown = 7 * 60
 card_obj = obj_small_fire
 card_spr = spr_small_fire
+place_preview = spr_small_fire
 card_id = ""
 cost = 50
 current_cost = 0

@@ -37,7 +37,7 @@ function equip_weapon(weapon_id,slot){
 	else if slot == "super_weapon"{
 		global.save_data.equipped_items.super_weapon.id = weapon_id
 	}
-	save_file(0)
+	save_file(global.save_slot)
 }
 
 /// @function remove_weapon(slot)
@@ -54,7 +54,7 @@ function remove_weapon(slot){
 	else if slot == "super_weapon"{
 		global.save_data.equipped_items.super_weapon.id = ""
 	}
-	save_file(0)
+	save_file(global.save_slot)
 }
 
 /// @function equip_gem(gem_id,slot,level)
@@ -95,7 +95,7 @@ function equip_gem(gem_id){
 			//show_debug_message(slot_gem)
 		}
 	}
-	save_file(0)
+	save_file(global.save_slot)
 }
 
 function get_gem_index(gem_id){
@@ -138,7 +138,7 @@ function remove_gem(gem_id){
 			array_delete(global.save_data.equipped_items.super_weapon.gems,gem_index,1)
 		}
 	}
-	save_file(0)
+	save_file(global.save_slot)
 }
 
 /// @function is_weapon_equipped(weapon_id)

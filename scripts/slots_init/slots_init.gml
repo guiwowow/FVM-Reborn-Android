@@ -59,11 +59,11 @@ function slots_init(){
 	register_card("coffee_pot", obj_coffee_pot, [
 	    {"shape":0, "sprite":spr_coffee_pot, "cost":75, "cooldown":7*60, "description":"咖啡喷壶：穿透攻击四格内敌人，白天睡觉","plant_type":"normal","feature_type":"normal","target_card":"none"},
 	    {"shape":1, "sprite":spr_coffee_pot_1, "cost":75, "cooldown":7*60, "description":"香醇咖啡喷壶：穿透攻击四格内敌人","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":2, "sprite":spr_coffee_pot_icon_2, "cost":75, "cooldown":7*60, "description":"红温咖啡喷壶：穿透攻击一行敌人","plant_type":"normal","feature_type":"normal","target_card":"none"}
+		{"shape":2, "sprite":spr_coffee_pot_icon_2, "cost":75, "cooldown":7*60, "description":"红温咖啡喷壶：穿透攻击一行敌人","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_coffee_pot_2}
 	]);
 	register_card("chocolate_bread",obj_chocolate_bread,[
 		{"shape":0,"sprite":spr_chocolate_bread,"cost":125,"cooldown":30*60,"description":"巧克力面包：阻挡敌人翻越","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":1,"sprite":spr_chocolate_bread_icon_1,"cost":125,"cooldown":30*60,"description":"德芙面包：阻挡敌人翻越","plant_type":"normal","feature_type":"normal","target_card":"none"}
+		{"shape":1,"sprite":spr_chocolate_bread_icon_1,"cost":125,"cooldown":30*60,"description":"德芙面包：阻挡敌人翻越","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_chocolate_bread_1}
 	])
 	register_card("water_tea_cup",obj_water_tea_cup,[
 		{"shape":0,"sprite":spr_water_tea_cup,"cost":0,"cooldown":7*60,"description":"水上茶杯：在水上攻击三格内敌人，白天睡觉","plant_type":"normal","feature_type":"water","target_card":"none"}
@@ -124,4 +124,19 @@ function slots_init(){
 	    {"shape":1, "sprite":spr_takoyaki_1, "cost":225, "cooldown":50*60, "description":"两栖章鱼烧：甩出两发追踪飞镖","plant_type":"normal","feature_type":"amphi","target_card":"none"},
 		{"shape":2, "sprite":spr_takoyaki_2, "cost":225, "cooldown":50*60, "description":"火影章鱼烧：甩出四发追踪飞镖","plant_type":"normal","feature_type":"amphi","target_card":"none"}
 	]);
+	register_card("wine_bottle_bomb",obj_wine_bottle_bomb,[
+	    {"shape":0, "sprite":spr_wine_bottle_bomb, "cost":125, "cooldown":50*60, "description":"酒瓶炸弹：一行范围爆炸","plant_type":"normal","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_wine_bottle_bomb_1, "cost":150, "cooldown":50*60, "description":"高爆酒瓶弹：一行范围爆炸","plant_type":"normal","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_wine_bottle_bomb_2, "cost":200, "cooldown":50*60, "description":"子母酒瓶弹：一行和一列范围爆炸","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	])
+	register_card("egg_boiler_pult", obj_egg_boiler_pult, [
+	    {"shape":0, "sprite":spr_egg_boiler_pult_icon, "cost":250, "cooldown":7*60, "description":"煮蛋器投手：投掷溅射鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_egg_boiler_pult},
+	    {"shape":1, "sprite":spr_egg_boiler_pult_icon_1, "cost":250, "cooldown":7*60, "description":"威力煮蛋器：投掷溅射鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_egg_boiler_pult_1},
+		{"shape":2, "sprite":spr_egg_boiler_pult_icon_2, "cost":250, "cooldown":7*60, "description":"强袭煮蛋器：投掷两个溅射鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_egg_boiler_pult_2}
+	]);
+	register_card("double_water_pipe",obj_double_water_pipe,[
+	    {"shape":0, "sprite":spr_double_water_pipe, "cost":125, "cooldown":7*60, "description":"双向水管：向前后两个方向发射水弹","plant_type":"normal","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_double_water_pipe_1, "cost":125, "cooldown":7*60, "description":"控温双向水管：向前后两个方向发射水弹","plant_type":"normal","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_double_water_pipe_2, "cost":125, "cooldown":7*60, "description":"合金水管：向前后两个方向发射水弹","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	])
 }

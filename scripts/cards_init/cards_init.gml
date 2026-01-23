@@ -17270,5 +17270,2247 @@ function cards_init(){
 
 
 		}
+		{//注册酒瓶炸弹
+			// 注册wine_bottle_bomb
+		register_plant(
+		    "wine_bottle_bomb",
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 3000,
+		            "cycle": 0
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 3000,
+		            "cycle": 0
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 3000,
+		            "cycle": 0
+		        }
+		    ]
+		);
+
+// 添加wine_bottle_bomb升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2880,
+		            "cycle": 0,
+		            "level": 1
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2880,
+		            "cycle": 0,
+		            "level": 1
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2880,
+		            "cycle": 0,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 1, upgrade1);
+
+// 添加wine_bottle_bomb升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2760,
+		            "cycle": 0,
+		            "level": 2
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2760,
+		            "cycle": 0,
+		            "level": 2
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2760,
+		            "cycle": 0,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 2, upgrade2);
+
+// 添加wine_bottle_bomb升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2640,
+		            "cycle": 0,
+		            "level": 3
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2640,
+		            "cycle": 0,
+		            "level": 3
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2640,
+		            "cycle": 0,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 3, upgrade3);
+
+// 添加wine_bottle_bomb升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2520,
+		            "cycle": 0,
+		            "level": 4
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2520,
+		            "cycle": 0,
+		            "level": 4
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2520,
+		            "cycle": 0,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 4, upgrade4);
+
+// 添加wine_bottle_bomb升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2400,
+		            "cycle": 0,
+		            "level": 5
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2400,
+		            "cycle": 0,
+		            "level": 5
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2400,
+		            "cycle": 0,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 5, upgrade5);
+
+// 添加wine_bottle_bomb升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2280,
+		            "cycle": 0,
+		            "level": 6
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2280,
+		            "cycle": 0,
+		            "level": 6
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2280,
+		            "cycle": 0,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 6, upgrade6);
+
+// 添加wine_bottle_bomb升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2100,
+		            "cycle": 0,
+		            "level": 7
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2100,
+		            "cycle": 0,
+		            "level": 7
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 2100,
+		            "cycle": 0,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 7, upgrade7);
+
+// 添加wine_bottle_bomb升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1920,
+		            "cycle": 0,
+		            "level": 8
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1920,
+		            "cycle": 0,
+		            "level": 8
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1920,
+		            "cycle": 0,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 8, upgrade8);
+
+// 添加wine_bottle_bomb升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1740,
+		            "cycle": 0,
+		            "level": 9
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1740,
+		            "cycle": 0,
+		            "level": 9
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1740,
+		            "cycle": 0,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 9, upgrade9);
+
+// 添加wine_bottle_bomb升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1560,
+		            "cycle": 0,
+		            "level": 10
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1560,
+		            "cycle": 0,
+		            "level": 10
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1560,
+		            "cycle": 0,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 10, upgrade10);
+
+// 添加wine_bottle_bomb升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1380,
+		            "cycle": 0,
+		            "level": 11
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1380,
+		            "cycle": 0,
+		            "level": 11
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1380,
+		            "cycle": 0,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 11, upgrade11);
+
+// 添加wine_bottle_bomb升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1200,
+		            "cycle": 0,
+		            "level": 12
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1200,
+		            "cycle": 0,
+		            "level": 12
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1200,
+		            "cycle": 0,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 12, upgrade12);
+
+// 添加wine_bottle_bomb升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1020,
+		            "cycle": 0,
+		            "level": 13
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1020,
+		            "cycle": 0,
+		            "level": 13
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 1020,
+		            "cycle": 0,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 13, upgrade13);
+
+// 添加wine_bottle_bomb升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 840,
+		            "cycle": 0,
+		            "level": 14
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 840,
+		            "cycle": 0,
+		            "level": 14
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 840,
+		            "cycle": 0,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 14, upgrade14);
+
+// 添加wine_bottle_bomb升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 660,
+		            "cycle": 0,
+		            "level": 15
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 660,
+		            "cycle": 0,
+		            "level": 15
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 660,
+		            "cycle": 0,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 15, upgrade15);
+
+// 添加wine_bottle_bomb升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "酒瓶炸弹",
+		            "shape": 0,
+		            "description": "酒瓶炸弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 125,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        },
+		        {
+		            "name": "高爆酒瓶弹",
+		            "shape": 1,
+		            "description": "高爆酒瓶弹：一行范围爆炸",
+		            "hp": 20000,
+		            "cost": 150,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        },
+		        {
+		            "name": "子母酒瓶弹",
+		            "shape": 2,
+		            "description": "子母酒瓶弹：一行和一列范围爆炸",
+		            "hp": 20000,
+		            "cost": 200,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 0,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("wine_bottle_bomb", 16, upgrade16);
+
+
+		
+		}
+		{//注册煮蛋器投手
+			// 注册egg_boiler_pult
+		register_plant(
+		    "egg_boiler_pult",
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 50,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 50,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 50,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180
+		        }
+		    ]
+		);
+
+// 添加egg_boiler_pult升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 60,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 1
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 60,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 1
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 60,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 1, upgrade1);
+
+// 添加egg_boiler_pult升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 2
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 2
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 2, upgrade2);
+
+// 添加egg_boiler_pult升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 80,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 3
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 80,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 3
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 80,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 3, upgrade3);
+
+// 添加egg_boiler_pult升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 4
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 4
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 4, upgrade4);
+
+// 添加egg_boiler_pult升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 120,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 5
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 120,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 5
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 120,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 5, upgrade5);
+
+// 添加egg_boiler_pult升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 140,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 6
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 140,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 6
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 140,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 6, upgrade6);
+
+// 添加egg_boiler_pult升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 170,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 7
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 170,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 7
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 170,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 7, upgrade7);
+
+// 添加egg_boiler_pult升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 200,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 8
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 200,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 8
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 200,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 8, upgrade8);
+
+// 添加egg_boiler_pult升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 230,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 9
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 230,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 9
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 230,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 9, upgrade9);
+
+// 添加egg_boiler_pult升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 280,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 10
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 280,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 10
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 280,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 10, upgrade10);
+
+// 添加egg_boiler_pult升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 360,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 11
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 360,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 11
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 360,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 11, upgrade11);
+
+// 添加egg_boiler_pult升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 450,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 450,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 12
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 450,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 12, upgrade12);
+
+// 添加egg_boiler_pult升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 550,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 13
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 550,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 13
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 550,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 13, upgrade13);
+
+// 添加egg_boiler_pult升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 660,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 14
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 660,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 14
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 660,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 14, upgrade14);
+
+// 添加egg_boiler_pult升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 780,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 15
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 780,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 15
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 780,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 15, upgrade15);
+
+// 添加egg_boiler_pult升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "煮蛋器投手",
+		            "shape": 0,
+		            "description": "煮蛋器投手：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 16
+		        },
+		        {
+		            "name": "威力煮蛋器",
+		            "shape": 1,
+		            "description": "威力煮蛋器：投掷范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 16
+		        },
+		        {
+		            "name": "强袭煮蛋器",
+		            "shape": 2,
+		            "description": "强袭煮蛋器：投掷两颗范围溅射鸡蛋",
+		            "hp": 50,
+		            "cost": 250,
+		            "atk": 900,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 180,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("egg_boiler_pult", 16, upgrade16);
+
+
+		}
+		{//注册双向水管
+			// 注册double_water_pipe
+		register_plant(
+		    "double_water_pipe",
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 10,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 10,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 10,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78
+		        }
+		    ]
+		);
+
+// 添加double_water_pipe升级1
+		var upgrade1 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 12,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 12,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 12,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 1
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 1, upgrade1);
+
+// 添加double_water_pipe升级2
+		var upgrade2 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 14,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 14,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 14,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 2
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 2, upgrade2);
+
+// 添加double_water_pipe升级3
+		var upgrade3 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 16,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 16,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 16,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 3
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 3, upgrade3);
+
+// 添加double_water_pipe升级4
+		var upgrade4 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 18,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 18,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 18,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 4
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 4, upgrade4);
+
+// 添加double_water_pipe升级5
+		var upgrade5 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 20,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 5
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 5, upgrade5);
+
+// 添加double_water_pipe升级6
+		var upgrade6 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 22,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 22,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 22,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 6
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 6, upgrade6);
+
+// 添加double_water_pipe升级7
+		var upgrade7 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 26,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 26,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 26,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 7
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 7, upgrade7);
+
+// 添加double_water_pipe升级8
+		var upgrade8 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 32,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 8
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 8, upgrade8);
+
+// 添加double_water_pipe升级9
+		var upgrade9 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 40,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 9
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 9, upgrade9);
+
+// 添加double_water_pipe升级10
+		var upgrade10 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 55,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 55,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 55,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 10
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 10, upgrade10);
+
+// 添加double_water_pipe升级11
+		var upgrade11 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 70,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 11
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 11, upgrade11);
+
+// 添加double_water_pipe升级12
+		var upgrade12 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 85,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 85,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 85,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 12
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 12, upgrade12);
+
+// 添加double_water_pipe升级13
+		var upgrade13 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 100,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 13
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 13, upgrade13);
+
+// 添加double_water_pipe升级14
+		var upgrade14 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 115,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 115,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 115,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 14
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 14, upgrade14);
+
+// 添加double_water_pipe升级15
+		var upgrade15 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 130,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 130,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 130,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 15
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 15, upgrade15);
+
+// 添加double_water_pipe升级16
+		var upgrade16 = create_upgrade_data(
+		    [
+		        {
+		            "name": "双向水管",
+		            "shape": 0,
+		            "description": "双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 145,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "控温双向水管",
+		            "shape": 1,
+		            "description": "控温双向水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 145,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        },
+		        {
+		            "name": "合金水管",
+		            "shape": 2,
+		            "description": "合金水管：向前后两个方向发射水弹",
+		            "hp": 50,
+		            "cost": 125,
+		            "atk": 145,
+		            "range": 9,
+		            "cooldown": 420,
+		            "cycle": 78,
+		            "level": 16
+		        }
+		    ]
+		);
+
+		add_plant_upgrade("double_water_pipe", 16, upgrade16);
+
+
+		}
 	}
 }

@@ -31,6 +31,7 @@ function create_battle_slots() {
         inst.cooldown = card_data[? "cooldown"];
         inst.card_obj = card_data[? "obj"]; 
         inst.card_spr = card_data[? "sprite"];
+		inst.place_preview = card_data[? "place_preview"]
         inst.description = card_data[? "description"];
         inst.slot_index = i + 1;
 		inst.card_id = deck_entry[? "card_id"];
