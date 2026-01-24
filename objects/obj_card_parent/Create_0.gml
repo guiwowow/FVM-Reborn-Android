@@ -42,6 +42,7 @@ banding_water_obj = noone
 flash_value = 0
 idle_anim = 0
 ice_timer = 0
+frozen_timer = 0
 
 // ========== 注册信息 ==========
 plant_id = ""  // 植物唯一标识符

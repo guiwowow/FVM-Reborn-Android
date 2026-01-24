@@ -57,6 +57,8 @@ unlock_card("brazier",5,0,4)
 unlock_card("wine_bottle_bomb",5,0,4)
 unlock_card("egg_boiler_pult",5,0,4)
 unlock_card("double_water_pipe",5,0,4)
+unlock_card("melon_shield",5,0,4)
+unlock_card("ice_egg_boiler_pult",5,0,4)
 global.save_data.player.gold = 20000000
 global.save_data.player.level = 11
 global.save_data.unlocked_items.max_card_level = 5

@@ -44,7 +44,9 @@ ds_map_add(global.plant_layers, "coffee", 4);      // 咖啡豆类
 
 // 铲除顺序
 global.shovel_order = ds_list_create();
-ds_list_add(global.shovel_order,"coffee" ,"normal", "shield", "lilypad");
+ds_list_add(global.shovel_order,"normal", "shield","shield_outer", "lilypad","coffee");
+global.eat_order = ds_list_create();
+ds_list_add(global.eat_order,"shield","shield_outer" ,"normal",  "lilypad");
 
 // 网格植物存储数据结构
 global.grid_plants = ds_grid_create(global.grid_cols, global.grid_rows);

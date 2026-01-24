@@ -8,6 +8,9 @@ if hp <= 0.33*max_hp{
 else if hp <= 0.66*max_hp{
 	sprite_index = spr_cat_box_2
 }
+else{
+	sprite_index = spr_cat_box_1
+}
 event_inherited(); 
 var current_flash_speed = flash_speed
 if is_slowdown{

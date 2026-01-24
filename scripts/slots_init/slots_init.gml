@@ -139,4 +139,14 @@ function slots_init(){
 	    {"shape":1, "sprite":spr_double_water_pipe_1, "cost":125, "cooldown":7*60, "description":"控温双向水管：向前后两个方向发射水弹","plant_type":"normal","feature_type":"normal","target_card":"none"},
 		{"shape":2, "sprite":spr_double_water_pipe_2, "cost":125, "cooldown":7*60, "description":"合金水管：向前后两个方向发射水弹","plant_type":"normal","feature_type":"normal","target_card":"none"}
 	])
+	register_card("melon_shield",obj_melon_shield,[
+	    {"shape":0, "sprite":spr_melon_shield_icon, "cost":125, "cooldown":30*60, "description":"瓜皮护罩：保护被罩住的卡片","plant_type":"shield_outer","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_melon_shield_icon_1, "cost":125, "cooldown":30*60, "description":"尖刺瓜皮护罩：保护被罩住的卡片并反伤","plant_type":"shield_outer","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_melon_shield_icon_2, "cost":125, "cooldown":30*60, "description":"锋芒瓜皮护罩：保护被罩住的卡片并反伤","plant_type":"shield_outer","feature_type":"normal","target_card":"none"}
+	])
+	register_card("ice_egg_boiler_pult", obj_ice_egg_boiler_pult, [
+	    {"shape":0, "sprite":spr_ice_egg_boiler_pult_icon, "cost":200, "cooldown":50*60, "description":"冰煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"upgrade","target_card":"egg_boiler_pult","place_preview":spr_ice_egg_boiler_pult},
+	    {"shape":1, "sprite":spr_ice_egg_boiler_pult_icon_1, "cost":200, "cooldown":50*60, "description":"节能冰煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"upgrade","target_card":"egg_boiler_pult","place_preview":spr_ice_egg_boiler_pult_1},
+		{"shape":2, "sprite":spr_ice_egg_boiler_pult_icon_2, "cost":200, "cooldown":50*60, "description":"冰河煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_ice_egg_boiler_pult_2}
+	]);
 }

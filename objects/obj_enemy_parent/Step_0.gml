@@ -125,6 +125,8 @@ switch(state) {
         
         // 检测前方植物
         var plant_in_range = noone;
+		
+		var plant_order_list = [noone,noone,noone,noone]
         
 		
         // 使用碰撞检测查找攻击范围内的植物
@@ -137,18 +139,26 @@ switch(state) {
             // 检查是否在攻击范围内
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
-                for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
-                    var target_type = ds_list_find_value(global.shovel_order, i);
+                for (var i = 0; i < ds_list_size(global.eat_order); i++) {
+                    var target_type = ds_list_find_value(global.eat_order, i);
                     
                     if (plant_type == target_type) {
-                        plant_in_range = id;
+                        plant_order_list[i] = id;
                         break;
                     }
                 }
+				
                 
                 if (plant_in_range != noone) break;
             }
         }
+		
+		for(var i = 0 ; i < 3 ; i++){
+			if plant_order_list[i] != noone{
+				plant_in_range = plant_order_list[i]
+				break
+			}
+		}
         
         // 如果找到目标植物，进入攻击状态
         if (plant_in_range != noone) {
@@ -219,6 +229,7 @@ switch(state) {
         // 检测前方植物
         var plant_in_range = noone;
         
+		var plant_order_list = [noone,noone,noone,noone]
 		
         // 使用碰撞检测查找攻击范围内的植物
         with (obj_card_parent) {
@@ -230,11 +241,11 @@ switch(state) {
             // 检查是否在攻击范围内
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
-                for (var i = 0; i < ds_list_size(global.shovel_order); i++) {
-                    var target_type = ds_list_find_value(global.shovel_order, i);
+                for (var i = 0; i < ds_list_size(global.eat_order); i++) {
+                    var target_type = ds_list_find_value(global.eat_order, i);
                     
                     if (plant_type == target_type) {
-                        plant_in_range = id;
+                        plant_order_list[i] = id;
                         break;
                     }
                 }
@@ -242,6 +253,12 @@ switch(state) {
                 if (plant_in_range != noone) break;
             }
         }
+		for(var i = 0 ; i < 3 ; i++){
+			if plant_order_list[i] != noone{
+				plant_in_range = plant_order_list[i]
+				break
+			}
+		}
 		if (plant_in_range != noone) {
             target_plant = plant_in_range;
         }

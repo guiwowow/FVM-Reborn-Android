@@ -75,7 +75,8 @@ if global.debug{
 			var depth_value = calculate_plant_depth(grid_pos.col, grid_pos.row, new_plant.plant_type);
 			card_created(new_plant, grid_pos.col, grid_pos.row);
 			new_plant.depth = depth_value
-			new_plant.atk = 90000
+			new_plant.atk = 90
+			new_plant.ice_timer = 600
 			instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)        
 			audio_play_sound(snd_place1,0,0)
 		}
@@ -126,7 +127,7 @@ if wave_timer <= 0 && level_stage == "boss"{
 }
 
 if global.debug{
-	if keyboard_check_pressed(ord("Q")){
+	if keyboard_check_pressed(ord("V")){
 		if level_stage == "ready"{
 			battle_time = (global.level_file.first_wave_delay * 60)
 		}
