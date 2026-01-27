@@ -34,5 +34,5 @@ u_flashColor = shader_get_uniform(shader_hit, "u_flashColor");
 
 flash_color = #FFFFFF
 
-grid_col = 0
-grid_row = 0
+grid_col = 99
+grid_row = 99

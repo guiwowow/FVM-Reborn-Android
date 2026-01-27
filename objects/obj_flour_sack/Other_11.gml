@@ -8,7 +8,7 @@ var nearest_enemy = noone;
 var nearest_dist = 1000; // 足够大的初始距离
 
 with (obj_enemy_parent) {
-    if (health > 0) {
+    if (hp > 0) {
         var dist = point_distance(x, y, other.x, other.y);
         if (grid_row == other.grid_row && grid_col >= other.grid_col-other.range && grid_col <= (other.grid_col + other.range)) {
             nearest_enemy = id;
@@ -45,6 +45,25 @@ if (has_target) {
 	
 	
 } else {
-    // 如果没有找到目标，立即执行攻击
-    //event_perform(1);
+	var x_distance = min(global.grid_cell_size_x,abs(x - first_target_x))
+	if first_target_x < x{
+		target_x = x - x_distance
+	}
+	else{
+		target_x = x + x_distance
+	}
+    //target_x = nearest_enemy.x;
+    target_y = first_target_y;
+	var delay = 0
+	if shape == 0{
+		delay = 20
+	}
+	else{
+		delay = 25
+	}
+    // 移动到目标
+    //move_towards_point(target_x, target_y, 20);
+	chspeed = (target_x-x)/delay
+	cvspeed = (target_y-45-y)/delay
+	alarm[0] = delay; // 设置一个短暂延迟，让倭瓜有时间移动到目标位置
 }

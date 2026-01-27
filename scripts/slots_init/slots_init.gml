@@ -149,4 +149,20 @@ function slots_init(){
 	    {"shape":1, "sprite":spr_ice_egg_boiler_pult_icon_1, "cost":200, "cooldown":50*60, "description":"节能冰煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"upgrade","target_card":"egg_boiler_pult","place_preview":spr_ice_egg_boiler_pult_1},
 		{"shape":2, "sprite":spr_ice_egg_boiler_pult_icon_2, "cost":200, "cooldown":50*60, "description":"冰河煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_ice_egg_boiler_pult_2}
 	]);
+	register_card("coffee_grounds",obj_coffee_grounds,[
+	    {"shape":0, "sprite":spr_coffee_grounds_icon, "cost":75, "cooldown":7*60, "description":"咖啡粉：唤醒卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_coffee_grounds_icon_1, "cost":25, "cooldown":7*60, "description":"名贵咖啡粉：唤醒3*3范围卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_coffee_grounds_icon_2, "cost":25, "cooldown":7*60, "description":"皇族咖啡粉：唤醒全屏卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"}
+	])
+	register_card("hamburger",obj_hamburger,[
+	    {"shape":0, "sprite":spr_hamburger, "cost":150, "cooldown":7*60, "description":"汉堡包：吃掉老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_hamburger_1, "cost":150, "cooldown":7*60, "description":"天椒双层堡：吃掉前方三格老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_hamburger_2, "cost":150, "cooldown":7*60, "description":"牛肉双黑汉堡：吃掉前方三格老鼠并留下毒雾","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	])
+	register_card("steel_wool",obj_steel_wool,[
+		{"shape":0,"sprite":spr_steel_wool,"cost":25,"cooldown":30*60,"description":"钢丝球：将老鼠拖入水中","plant_type":"normal","feature_type":"water","target_card":"none"}
+	])
+	register_card("wooden_cork",obj_wooden_cork,[
+		{"shape":0,"sprite":spr_wooden_cork,"cost":75,"cooldown":7*60,"description":"木塞子：堵住老鼠洞","plant_type":"coffee","feature_type":"normal","target_card":"none"}
+	])
 }

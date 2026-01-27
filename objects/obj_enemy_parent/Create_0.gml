@@ -29,14 +29,14 @@ shield_hp = 0
 shield_max_hp = 0
 special_ash = false
 current_frozen = false
-is_scare = false
-scare_timer = 0
 is_stun = false
 stun_timer = 0
 mouse_id = ""
 giant_type = false
 
 // =======猫驱赶相关=======
+is_scare = false
+scare_timer = 0
 y_move = 0
 left_move_flashs = 0
 
@@ -47,8 +47,8 @@ u_flashColor = shader_get_uniform(shader_hit, "u_flashColor");
 
 flash_color = #FFFFFF
 
-grid_col = 0
-grid_row = 0
+grid_col = 99
+grid_row = 99
 
 damage_amount = 0
 damage_type = ""

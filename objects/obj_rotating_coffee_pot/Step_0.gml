@@ -13,6 +13,31 @@ var current_flash_speed = flash_speed
 if is_slowdown{
 	current_flash_speed *= 2
 }
+
+var sleep_anim = 19
+if shape >= 1 sleep_anim = 11
+
+if state == CARD_STATE.SLEEP{
+	anim_timer++
+	image_index = floor(anim_timer/current_flash_speed) mod sleep_anim
+	//if anim_timer > 60{
+	//	state = CARD_STATE.AWAKE
+	//}
+}
+if state == CARD_STATE.AWAKE{
+	wake_timer++
+	image_index = floor(wake_timer/current_flash_speed) mod 6 + sleep_anim
+	if wake_timer >= 5*current_flash_speed{
+		sprite_index = spr_rotating_coffee_pot;
+		if shape >= 1{
+			sprite_index = spr_rotating_coffee_pot_1
+		}
+		image_index = 0
+		timer = 0
+		state = CARD_STATE.IDLE
+	}
+}
+
 //检测自身右方是否有敌人
 var has_enemy = false
 	
@@ -32,28 +57,30 @@ var has_enemy = false
 	}
 
 //攻击逻辑
-if (has_enemy) {
-    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
-        attack_timer++;
-    } else if (attack_timer < cycle) {
-        attack_timer++;
-        state = CARD_STATE.ATTACK;
-    } else {
-        attack_timer = 0;
-        state = CARD_STATE.IDLE;
-    }
-	if (attack_timer == cycle - 8 * current_flash_speed) && state == CARD_STATE.ATTACK{
+if state != CARD_STATE.SLEEP && state != CARD_STATE.AWAKE{
+	if (has_enemy) {
+	    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
+	        attack_timer++;
+	    } else if (attack_timer < cycle) {
+	        attack_timer++;
+	        state = CARD_STATE.ATTACK;
+	    } else {
+	        attack_timer = 0;
+	        state = CARD_STATE.IDLE;
+	    }
+		if (attack_timer == cycle - 8 * current_flash_speed) && state == CARD_STATE.ATTACK{
         
-		event_user(1)
-    }
-	if (attack_timer == cycle - 12 * current_flash_speed) && state == CARD_STATE.ATTACK{
+			event_user(1)
+	    }
+		if (attack_timer == cycle - 12 * current_flash_speed) && state == CARD_STATE.ATTACK{
         
-		audio_play_sound(snd_coffee_pot_attack,0,0)
-    }
-} else {
-    // 没有符合条件的敌人，重置状态
-    attack_timer = 0;
-    state = CARD_STATE.IDLE;
+			audio_play_sound(snd_coffee_pot_attack,0,0)
+	    }
+	} else {
+	    // 没有符合条件的敌人，重置状态
+	    attack_timer = 0;
+	    state = CARD_STATE.IDLE;
+	}
 }
 
 

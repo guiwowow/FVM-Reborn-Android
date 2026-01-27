@@ -119,6 +119,10 @@ wave_max_time = 25*60
 wave_min_time = 4 * 60
 wave_timer = 0
 
+//(测试)生成老鼠洞
+var cave_pos = get_world_position_from_grid(5,5)
+instance_create_depth(cave_pos.x,cave_pos.y,-5,obj_mouse_hole)
+
 function enemy_subwave_summon(){
 	current_total_hp = 0
     wave_timer = wave_max_time

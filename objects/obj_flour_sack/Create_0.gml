@@ -25,3 +25,9 @@ plant_type = "normal"
 chspeed = 0
 cvspeed = 0
 invincible = true
+
+first_target_x = 0
+first_target_y = 0
+
+origin_row = -1
+origin_col = -1

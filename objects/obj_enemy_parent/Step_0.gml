@@ -134,7 +134,12 @@ switch(state) {
 			var dx = x - other.x;
 			var dy = y - other.y;
 			var is_in_front = false
-			is_in_front = (dx < 0 && dx > -other.attack_range);
+			if other.attack_range > 0{
+				is_in_front = (dx < 0 && dx > -other.attack_range);
+			}
+			else{
+				is_in_front = (dx > 0 && dx < -other.attack_range);
+			}
 				
             // 检查是否在攻击范围内
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
@@ -236,7 +241,12 @@ switch(state) {
 			var dx = x - other.x;
 			var dy = y - other.y;
 			var is_in_front = false
-			is_in_front = (dx < 0 && dx > -other.attack_range);
+			if other.attack_range > 0{
+				is_in_front = (dx < 0 && dx > -other.attack_range);
+			}
+			else{
+				is_in_front = (dx > 0 && dx < -other.attack_range);
+			}
 				
             // 检查是否在攻击范围内
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {

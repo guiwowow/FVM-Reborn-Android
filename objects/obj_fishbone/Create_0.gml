@@ -18,3 +18,5 @@ flash_speed = 5
 plant_type = "normal"
 is_slowdown = false
 feature_type = "dwarf"
+
+kill_list = ["engineering_vehicle_mouse","garbage_track_mouse"]

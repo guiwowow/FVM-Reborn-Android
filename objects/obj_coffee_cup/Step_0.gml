@@ -25,21 +25,23 @@ else{
 	}
 }
 //攻击逻辑
-if (has_enemy) {
-    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
-        attack_timer++;
-    } else if (attack_timer <= cycle) {
-        attack_timer++;
-        state = CARD_STATE.ATTACK;
-    } else {
-        event_user(1); // 发射子弹
-        attack_timer = 0;
-        state = CARD_STATE.IDLE;
-    }
-} else {
-    // 没有符合条件的敌人，重置状态
-    attack_timer = 0;
-    state = CARD_STATE.IDLE;
+if state != CARD_STATE.SLEEP{
+	if (has_enemy){
+	    if (attack_timer <= cycle - attack_anim * current_flash_speed) {
+	        attack_timer++;
+	    } else if (attack_timer <= cycle) {
+	        attack_timer++;
+	        state = CARD_STATE.ATTACK;
+	    } else {
+	        event_user(1); // 发射子弹
+	        attack_timer = 0;
+	        state = CARD_STATE.IDLE;
+	    }
+	} else {
+	    // 没有符合条件的敌人，重置状态
+	    attack_timer = 0;
+	    state = CARD_STATE.IDLE;
+	}
 }
 
 

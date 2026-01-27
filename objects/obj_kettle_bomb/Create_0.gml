@@ -14,12 +14,27 @@ else if shape == 2{
 
 // ========== 特定属性默认值 ==========
 
+if global.level_file.level_time_feature == "daytime" && shape < 2{
+	state = CARD_STATE.SLEEP
+	if shape == 0{
+		sprite_index = spr_kettle_bomb_sleep
+	}
+	else if shape == 1{
+		sprite_index = spr_kettle_bomb_sleep_1
+	}
+}
+
 attack_anim = 7;
+
+anim_timer = 0
+wake_timer = 0
 
 idle_anim = 8
 flash_speed = 5
 plant_type = "normal"
-invincible = true
+if shape >= 2{
+	invincible = true
+}
 if shape >= 1{
 	atk*= 1.3
 }

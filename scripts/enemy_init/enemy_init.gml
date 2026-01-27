@@ -26,4 +26,7 @@ function enemy_init(){
 	register_enemy("mario_mouse",{"name":"洞君","_obj":obj_mario_mouse,"hp":9000,"shield":0,"description":"洞君：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_mario_mouse_idle,"feature":"land"})
 	register_enemy("arno",{"name":"阿诺","_obj":obj_arno,"hp":8000,"shield":0,"description":"阿诺：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_arno_skill_1,"feature":"land"})
 	register_enemy("temple_pharaoh",{"name":"法老原形","_obj":obj_temple_pharaoh,"hp":12000,"shield":0,"description":"法老原形：神殿BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_temple_pharaoh_idle,"feature":"land"})
+	register_enemy("engineering_vehicle_mouse",{"name":"工程车鼠","_obj":obj_engineering_vehicle_mouse,"hp":420,"shield":0,"description":"工程车鼠：向最后一个卡片投掷土块","speed":0.6,"atk":10,"cycle":300,"range":90,"ash_proof":false,"spr":spr_engineering_vehicle_mouse,"feature":"land"})
+	register_enemy("garbage_track_mouse",{"name":"垃圾车鼠","_obj":obj_garbage_track_mouse,"hp":640,"shield":0,"description":"垃圾车鼠：碾压卡片并留下垃圾","speed":0.6,"atk":2000,"cycle":1,"range":90,"ash_proof":false,"spr":spr_garbage_track_mouse,"feature":"land"})
+	register_enemy("mole",{"name":"鼹鼠","_obj":obj_mole,"hp":100,"shield":0,"description":"鼹鼠：挖掘到后方发动攻击","speed":0.15,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_mole,"feature":"land"})
 }

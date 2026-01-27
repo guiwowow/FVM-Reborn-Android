@@ -1,5 +1,5 @@
 // Inherit the parent event
-
+if state == CARD_STATE.IDLE{
 	// alarm[0]事件 - 实际攻击执行
 	// 摧毁范围内敌人
 	var _x = x;
@@ -53,14 +53,16 @@
 		screen_flash(c_purple,20)
 	}
 	 
-var effect_inst = instance_create_depth(x,y,depth,obj_coke_bomb_explode)
-if shape == 0 {
-	effect_inst.sprite_index = spr_kettle_bomb_explode
+	var effect_inst = instance_create_depth(x,y,depth,obj_coke_bomb_explode)
+	if shape == 0 {
+		effect_inst.sprite_index = spr_kettle_bomb_explode
+	}
+	else if shape == 1{
+		effect_inst.sprite_index = spr_kettle_bomb_explode_1
+	}
+	else if shape == 2{
+		effect_inst.sprite_index = spr_kettle_bomb_explode_2
+	}
+
 }
-else if shape == 1{
-	effect_inst.sprite_index = spr_kettle_bomb_explode_1
-}
-else if shape == 2{
-	effect_inst.sprite_index = spr_kettle_bomb_explode_2
-}
-event_inherited()
+	event_inherited()

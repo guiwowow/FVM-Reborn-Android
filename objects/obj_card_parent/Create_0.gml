@@ -26,6 +26,7 @@ cycle = 0
 first_produce = 0
 first_produce_delay = 0
 flame_produce = 0
+awake_buff_timer = 0
 
 // ========== 位置信息 ==========
 grid_col = -1
@@ -39,10 +40,12 @@ flash_speed = 6
 attack_anim = 0
 banding_star_obj = noone
 banding_water_obj = noone
+banding_sleep_obj = noone
 flash_value = 0
 idle_anim = 0
 ice_timer = 0
 frozen_timer = 0
+awake_anim = 0
 
 // ========== 注册信息 ==========
 plant_id = ""  // 植物唯一标识符

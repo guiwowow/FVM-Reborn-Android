@@ -4,7 +4,9 @@ function Enum_Init(){
 		ATTACK,
 		GROW,
 		READY,
-		
+		SLEEP,
+		AWAKE,
+		RELAX
 	}
 	enum CARD_DATA {
 	    obj,        // 卡牌对象
@@ -21,10 +23,10 @@ function Enum_Init(){
 		IDLE,
 		ATTACK,
 		NORMAL,
-		HURT,
-		HURTATTACK,
 		DEAD,
-		ACTING
+		ACTING,
+		APPEAR,
+		DIG
 	}
 	
 	enum BOSS_STATE{

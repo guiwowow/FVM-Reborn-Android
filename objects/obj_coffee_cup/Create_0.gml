@@ -18,6 +18,10 @@ else if shape == 2{
 
 // ========== 特定属性默认值 ==========
 
+if global.level_file.level_time_feature == "daytime" && shape < 1{
+	state = CARD_STATE.SLEEP
+}
+
 attack_anim = 7;
 idle_anim = 11
 flash_speed = 5

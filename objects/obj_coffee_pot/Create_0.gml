@@ -18,9 +18,18 @@ else if shape == 2{
 
 // ========== 特定属性默认值 ==========
 
+if global.level_file.level_time_feature == "daytime" && shape < 1{
+	state = CARD_STATE.SLEEP
+	sprite_index = spr_coffee_pot_sleep
+}
+
 attack_anim = 12;
 idle_anim = 11
 flash_speed = 5
 plant_type = "normal"
 is_slowdown = false
+
+awake_anim = 5
+anim_timer = 0
+wake_timer = 0
 

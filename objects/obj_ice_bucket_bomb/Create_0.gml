@@ -15,8 +15,20 @@ else if shape == 2{
 // ========== 特定属性默认值 ==========
 
 attack_anim = 7;
-
+if global.level_file.level_time_feature == "daytime"{
+	state = CARD_STATE.SLEEP
+	if shape == 0{
+		sprite_index = spr_ice_bucket_bomb_sleep
+	}
+	else if shape == 1{
+		sprite_index = spr_ice_bucket_bomb_sleep_1
+	}
+	else{
+		sprite_index = spr_ice_bucket_bomb_sleep_2
+	}
+}
 idle_anim = 9
 flash_speed = 6
 plant_type = "normal"
-invincible = true
+anim_timer = 0
+wake_timer = 0
