@@ -35,4 +35,5 @@ function skill_init(){
 	register_card_skill("hamburger","hp",[50,60,70,80,90,100,110,130,150])
 	register_card_skill("steel_wool","atk",[900,950,1000,1050,1100,1150,1200,1250,1300])
 	register_card_skill("wooden_cork","cooldown",[7*60,6.5*60,6*60,5.5*60,5*60,4.5*60,4*60,3.5*60,3*60])
+	register_card_skill("sausage","cycle",[1.3*60,1.25*60,1.2*60,1.15*60,1.1*60,1.05*60,1*60,0.95*60,0.9*60])
 }

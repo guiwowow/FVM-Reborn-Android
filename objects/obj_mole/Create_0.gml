@@ -9,6 +9,9 @@ move_speed = 0.9
 mouse_id = "mole"
 attack_range = -90
 
+target_type = "underground"
+
+special_ash = true
 state = ENEMY_STATE.DIG
 sprite_index = spr_mole_dig
 anim_timer = 0

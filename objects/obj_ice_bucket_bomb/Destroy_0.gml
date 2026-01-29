@@ -7,6 +7,17 @@ if state == CARD_STATE.IDLE{
 	var _range = 250
 
 	with (obj_enemy_parent) {
+		if mouse_id == "ice_residue"{
+			if shape == "fire" && state == BOSS_STATE.SKILL2{
+				timer = 0
+				state = BOSS_STATE.STUN
+			}
+		}
+		if mouse_id == "ice_residue_ball"{
+			if shape == "fire"{
+				hp -= maxhp
+			}
+		}
 		hp -= other.atk
 		if frozen_timer < other.cycle{
 			frozen_timer = other.cycle

@@ -29,4 +29,6 @@ function enemy_init(){
 	register_enemy("engineering_vehicle_mouse",{"name":"工程车鼠","_obj":obj_engineering_vehicle_mouse,"hp":420,"shield":0,"description":"工程车鼠：向最后一个卡片投掷土块","speed":0.6,"atk":10,"cycle":300,"range":90,"ash_proof":false,"spr":spr_engineering_vehicle_mouse,"feature":"land"})
 	register_enemy("garbage_track_mouse",{"name":"垃圾车鼠","_obj":obj_garbage_track_mouse,"hp":640,"shield":0,"description":"垃圾车鼠：碾压卡片并留下垃圾","speed":0.6,"atk":2000,"cycle":1,"range":90,"ash_proof":false,"spr":spr_garbage_track_mouse,"feature":"land"})
 	register_enemy("mole",{"name":"鼹鼠","_obj":obj_mole,"hp":100,"shield":0,"description":"鼹鼠：挖掘到后方发动攻击","speed":0.15,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_mole,"feature":"land"})
+	register_enemy("glider_mouse",{"name":"滑翔鼠","_obj":obj_glider_mouse,"hp":150,"shield":20,"description":"滑翔鼠：滑翔越过防线","speed":0.72,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_glider_mouse_air,"feature":"land"})
+	register_enemy("ice_residue",{"name":"冰渣","_obj":obj_ice_residue,"hp":12000,"shield":0,"description":"冰渣：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_ice_residue_disappear,"feature":"land"})
 }

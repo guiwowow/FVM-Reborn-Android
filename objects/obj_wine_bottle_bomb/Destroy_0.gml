@@ -6,6 +6,17 @@
 	var _y = y;
 
 	with (obj_enemy_parent) {
+			if mouse_id == "ice_residue"{
+				if shape == "ice" && state == BOSS_STATE.SKILL2{
+					timer = 0
+					state = BOSS_STATE.STUN
+				}
+			}
+			if mouse_id == "ice_residue_ball"{
+				if shape == "ice"{
+					hp -= maxhp
+				}
+			}
 		
 			if (grid_row == other.grid_row||(abs(x - other.x) <= 65 && other.shape >= 2)) {
 		        if (immune_to_ash && hp>other.atk) {

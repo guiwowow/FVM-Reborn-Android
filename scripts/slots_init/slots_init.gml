@@ -165,4 +165,7 @@ function slots_init(){
 	register_card("wooden_cork",obj_wooden_cork,[
 		{"shape":0,"sprite":spr_wooden_cork,"cost":75,"cooldown":7*60,"description":"木塞子：堵住老鼠洞","plant_type":"coffee","feature_type":"normal","target_card":"none"}
 	])
+	register_card("sausage", obj_sausage, [
+	    {"shape":0, "sprite":spr_sausage_land, "cost":125, "cooldown":7*60, "description":"香肠：发射香肠攻击空中和地面敌人","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	]);
 }

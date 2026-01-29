@@ -142,3 +142,10 @@ if state == ENEMY_STATE.ACTING{
 		}
 	}
 }
+
+if sprite_index == spr_diver_mouse{
+	target_type = "diver"
+}
+else{
+	target_type = "normal"
+}

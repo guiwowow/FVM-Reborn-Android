@@ -160,10 +160,6 @@ switch state{
 
 timer ++
 
-if damage_amount > 0{
-	hp -= damage_amount
-}
-
 // 透明度处理
 if (image_alpha <= 0 && state == BOSS_STATE.DEATH) {
     instance_destroy();

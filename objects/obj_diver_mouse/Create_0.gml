@@ -9,3 +9,5 @@ reversed = false
 special_ash = true
 entered = false
 up = false
+
+target_type = "diver"

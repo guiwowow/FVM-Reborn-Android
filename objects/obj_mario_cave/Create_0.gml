@@ -6,6 +6,6 @@ image_xscale = 1.8
 image_yscale = 1.8
 image_speed = 0
 
-ignore_list = ["mario_mouse","mario_pipeline","arno","pharaoh_coffin","temple_pharaoh"]
+ignore_list = ["mario_mouse","mario_pipeline","arno","pharaoh_coffin","temple_pharaoh","ice_residue","ice_residue_ball"]
 
 current_grid_type = ""

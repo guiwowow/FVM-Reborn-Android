@@ -52,9 +52,6 @@ if image_alpha <= 0 && hp <= 0{
 	instance_destroy()
 }
 
-if damage_amount > 0{
-	hp -= damage_amount
-}
 
 var zombie_grid = get_grid_position_from_world(x, y);
 

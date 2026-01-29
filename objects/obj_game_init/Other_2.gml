@@ -63,6 +63,7 @@ unlock_card("coffee_grounds",5,0,4)
 unlock_card("hamburger",5,0,4)
 unlock_card("steel_wool",5,0,4)
 unlock_card("wooden_cork",5,0,4)
+unlock_card("sausage",5,0,4)
 global.save_data.player.gold = 20000000
 global.save_data.player.level = 11
 global.save_data.unlocked_items.max_card_level = 5
