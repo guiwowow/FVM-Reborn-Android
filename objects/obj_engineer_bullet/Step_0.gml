@@ -8,7 +8,7 @@ else{
 
 var target_x = get_world_position_from_grid(target_col,row).x
 
-if x > 2200 or y > 1200 or x < 0 or y < 0{
+if x > 2200 or y > 1200 or x < -200 or y < -200{
 	instance_destroy()
 }
 

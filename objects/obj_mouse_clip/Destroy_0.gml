@@ -14,7 +14,7 @@ if state != CARD_STATE.IDLE{
 
 	with (obj_enemy_parent) {
 		if other.shape != 2{
-		    if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.grid_row) {
+		    if (!(other.shape==0&&target_type=="air") && point_distance(x, y, _x, _y) < _range && grid_row == other.grid_row) {
 		        if (immune_to_ash && hp>other.atk) {
 		            // 对免疫灰烬的敌人只造成伤害
 		            hp -= other.atk;
@@ -39,7 +39,7 @@ if state != CARD_STATE.IDLE{
 		    }
 		}
 		else{
-			if (health > 0 && point_distance(x, y, _x, _y) < _range && grid_row >= other.grid_row-1&&grid_row <= other.grid_row+1) {
+			if (point_distance(x, y, _x, _y) < _range && grid_row >= other.grid_row-1&&grid_row <= other.grid_row+1) {
 		        if (immune_to_ash) {
 		            // 对免疫灰烬的敌人只造成伤害
 		            hp -= other.atk;

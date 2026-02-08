@@ -83,7 +83,7 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
 				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
 				audio_play_sound(snd_place2, 1, false);
 			}
-			else{
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
 				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
 				inst.sprite_index = spr_enter_water_effect
 				audio_play_sound(snd_enter_water,0,0)
@@ -105,7 +105,7 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
 				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
 				audio_play_sound(snd_place2, 1, false);
 			}
-			else{
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
 				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
 				inst.sprite_index = spr_enter_water_effect
 				audio_play_sound(snd_enter_water,0,0)

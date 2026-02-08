@@ -8,14 +8,16 @@ for(var i = 0;i < array_length(target_enemy);i++){
 	}
 	if instance_exists(target_inst){
 		with target_inst{
-			if !immune_to_ash && hp > 0{
-				instance_destroy()
-				other.enemy_hitted = true
-			}
-			else if hp > 0{
-				damage_amount = other.atk
-				damage_type = "pierce"
-				event_user(0)
+			if can_hit(other.target_type,target_type){
+				if !immune_to_ash && hp > 0{
+					instance_destroy()
+					other.enemy_hitted = true
+				}
+				else if hp > 0{
+					damage_amount = other.atk
+					damage_type = "pierce"
+					event_user(0)
+				}
 			}
 		}
 	}

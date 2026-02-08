@@ -10,7 +10,7 @@ if is_slowdown{
 var has_enemy = false
 if shape < 2{	
 	with(obj_enemy_parent){
-		if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (other.grid_col + 3) && health > 0){
+		if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (other.grid_col + 3) && can_target_on(other.target_type,target_type)){
 			has_enemy = true
 			break
 		}
@@ -18,7 +18,7 @@ if shape < 2{
 }
 else{
 	with(obj_enemy_parent){
-		if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (global.grid_cols + 1) && health > 0){
+		if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (global.grid_cols + 1) && can_target_on(other.target_type,target_type)){
 			has_enemy = true
 			break
 		}

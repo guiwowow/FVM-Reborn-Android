@@ -6,6 +6,7 @@ mouse_id = "engineering_vehicle_mouse"
 hp = 420
 maxhp = 420
 
+move_speed = 0.6
 move_anim = 6
 attack_anim = 12
 death_anim = 14

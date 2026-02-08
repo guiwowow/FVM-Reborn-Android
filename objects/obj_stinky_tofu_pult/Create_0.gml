@@ -26,3 +26,4 @@ is_slowdown = false
 target_instance = noone
 stinky_tofu_cooldown = 300
 stinky_tofu_timer = 300
+target_type = "throw"

@@ -1,5 +1,5 @@
 var _damage = damage 
-if other.hp > 0 and row == other.grid_row{
+if other.hp > 0 and row == other.grid_row  and can_hit(target_type,other.target_type){
 	with(other){
 		if other.burnt == 1{
 				audio_play_sound(snd_fire_hit,0,0)

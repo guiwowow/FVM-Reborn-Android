@@ -143,7 +143,7 @@ if state == ENEMY_STATE.ACTING{
 	}
 }
 
-if sprite_index == spr_diver_mouse{
+if sprite_index == spr_diver_mouse && state != ENEMY_STATE.ATTACK{
 	target_type = "diver"
 }
 else{

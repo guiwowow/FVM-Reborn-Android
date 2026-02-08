@@ -1,5 +1,5 @@
 var _damage = damage 
-if other.hp > 0 and row == other.grid_row{
+if other.hp > 0 and row == other.grid_row  and can_hit(target_type,other.target_type){
 	with(other){
 		scare_timer = 30
 		left_move_flashs = 30

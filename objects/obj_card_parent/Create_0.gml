@@ -12,6 +12,7 @@ attack_type = ATTACK_TYPE.PRODUCER
 plant_type = ""
 feature_type = "normal"
 target_card = "none"
+target_type = "normal"
 shape = 0
 skill = 0
 invincible = false

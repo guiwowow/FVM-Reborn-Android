@@ -6,6 +6,7 @@ surface_reset_target();
 depth = 5
 
 instance_create_depth(0,0,-900,obj_flame_manager)
+instance_create_depth(0,0,0,obj_event_manager)
 //instance_create_depth(450,1040,-900,obj_boss_hpbar)
 var mus_inst = instance_create_depth(0,0,0,obj_battle_music_controller)
 mus_inst.battle_music = global.level_data.pre_music
@@ -46,7 +47,7 @@ ds_map_add(global.plant_layers, "coffee", 4);      // 咖啡豆类
 global.shovel_order = ds_list_create();
 ds_list_add(global.shovel_order,"normal", "shield","shield_outer", "lilypad","coffee");
 global.eat_order = ds_list_create();
-ds_list_add(global.eat_order,"shield","shield_outer" ,"normal",  "lilypad");
+ds_list_add(global.eat_order,"shield","shield_outer","normal","lilypad");
 
 // 网格植物存储数据结构
 global.grid_plants = ds_grid_create(global.grid_cols, global.grid_rows);
@@ -61,7 +62,7 @@ for (var col = 0; col < global.grid_cols; col++) {
 }
 
 var plant_list = global.level_file.map
-global.grid_terrains = plant_list
+global.grid_terrains = global.level_file.map
 global.row_feature = []
 for(var i = 0 ; i < global.grid_rows;i++){
 	if global.grid_terrains[i][0].type == "water"{
@@ -119,9 +120,7 @@ wave_max_time = 25*60
 wave_min_time = 4 * 60
 wave_timer = 0
 
-//(测试)生成老鼠洞
-var cave_pos = get_world_position_from_grid(5,5)
-instance_create_depth(cave_pos.x,cave_pos.y,-5,obj_mouse_hole)
+
 
 function enemy_subwave_summon(){
 	current_total_hp = 0

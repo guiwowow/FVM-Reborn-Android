@@ -10,7 +10,7 @@ if is_slowdown{
 var has_enemy = false
 if shape <= 2{	
 	with obj_enemy_parent{
-		if place_meeting(x,y,other) && grid_row == other.grid_row{
+		if place_meeting(x,y,other) && grid_row == other.grid_row && can_target_on(other.target_type,target_type){
 			has_enemy = true
 			if array_get_index(other.kill_list,mouse_id) != -1 && hp > 0{
 				hp -= maxhp

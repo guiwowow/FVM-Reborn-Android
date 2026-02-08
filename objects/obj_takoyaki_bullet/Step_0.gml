@@ -23,11 +23,11 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     
     // 寻找更高优先级的目标
     with (obj_enemy_parent) {
-        if (hp > 0) {
+        if (hp > 0 && can_hit(other.target_type,target_type)) {
             // 检查是否在子弹右边一格内（更高优先级）
 			if instance_exists(other.banding_card_obj){
 	            if (x >= other.banding_card_obj.x && x <= other.banding_card_obj.x + right_range && grid_row == other.row) {
-	                if (new_target == noone || hp > new_target.hp) {
+	                if (new_target == noone || hp > new_target.hp){
 	                    new_target = id;
 	                }
 	            }
@@ -35,7 +35,7 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
             
             // 检查是否比当前目标更靠左
             if (x < other.target_enemy.x) {
-                if (closest_left_enemy == noone || x < min_x || (x == min_x && hp > max_hp)) {
+                if (closest_left_enemy == noone || x < min_x || (x == min_x && hp > max_hp)){
                     min_x = x;
                     max_hp = hp;
                     closest_left_enemy = id;
@@ -60,7 +60,7 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     var right_range = 80;
     
     with (obj_enemy_parent) {
-        if (hp > 0) {
+        if (hp > 0 && can_hit(other.target_type,target_type)) {
             // 检查是否在子弹右边一格内
 			if instance_exists(other.banding_card_obj){
 	            if (x >= other.banding_card_obj.x && x <= other.banding_card_obj.x + right_range && grid_row == other.row) {
@@ -71,7 +71,7 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
 			}
             
             // 寻找最左侧敌人
-            if (x < min_x || (x == min_x && hp > max_hp)) {
+            if (x < min_x || (x == min_x && hp > max_hp)){
                 min_x = x;
                 max_hp = hp;
                 closest_left_enemy = id;
@@ -93,6 +93,6 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
 }
 
 image_angle =- timer * 6
-if x > 2200 or y > 1200 or x < 0 or y < 0{
+if x > 2200 or y > 1200 or x < -200 or y < -200{
 	instance_destroy()
 }

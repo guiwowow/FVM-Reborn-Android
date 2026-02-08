@@ -31,4 +31,7 @@ function enemy_init(){
 	register_enemy("mole",{"name":"鼹鼠","_obj":obj_mole,"hp":100,"shield":0,"description":"鼹鼠：挖掘到后方发动攻击","speed":0.15,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_mole,"feature":"land"})
 	register_enemy("glider_mouse",{"name":"滑翔鼠","_obj":obj_glider_mouse,"hp":150,"shield":20,"description":"滑翔鼠：滑翔越过防线","speed":0.72,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_glider_mouse_air,"feature":"land"})
 	register_enemy("ice_residue",{"name":"冰渣","_obj":obj_ice_residue,"hp":12000,"shield":0,"description":"冰渣：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_ice_residue_disappear,"feature":"land"})
+	register_enemy("bat_mouse",{"name":"蝙蝠鼠","_obj":obj_bat_mouse,"hp":800,"shield":0,"description":"蝙蝠鼠：偷走卡片","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":false,"spr":spr_bat_mouse,"feature":"land"})
+	register_enemy("rumble",{"name":"轰隆隆","_obj":obj_rumble,"hp":20000,"shield":0,"description":"轰隆隆：美味岛BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_rumble_idle,"feature":"land"})
+	register_enemy("abyss_pharaoh",{"name":"法老鼠","_obj":obj_abyss_pharaoh,"hp":35000,"shield":0,"description":"法老鼠：深渊BOSS","speed":0.3,"atk":10,"cycle":36,"range":90,"ash_proof":true,"spr":spr_abyss_pharaoh_idle,"feature":"land"})
 }

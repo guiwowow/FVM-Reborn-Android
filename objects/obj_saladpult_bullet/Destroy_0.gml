@@ -7,7 +7,7 @@
 	}
 
 	with (obj_enemy_parent) {
-	    if (hp > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.row && id != other.hitted_enemy) {
+	    if (hp > 0 && point_distance(x, y, _x, _y) < _range && grid_row == other.row && id != other.hitted_enemy and can_hit(other.target_type,target_type)) {
 	        
 	        // 对敌人造成溅射伤害
 	        damage_amount = other.damage * splash_ratio

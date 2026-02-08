@@ -145,9 +145,9 @@ switch(state) {
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.eat_order); i++) {
-                    var target_type = ds_list_find_value(global.eat_order, i);
+                    var tar_type = ds_list_find_value(global.eat_order, i);
                     
-                    if (plant_type == target_type) {
+                    if (plant_type == tar_type) {
                         plant_order_list[i] = id;
                         break;
                     }
@@ -158,7 +158,7 @@ switch(state) {
             }
         }
 		
-		for(var i = 0 ; i < 3 ; i++){
+		for(var i = 0 ; i < 4 ; i++){
 			if plant_order_list[i] != noone{
 				plant_in_range = plant_order_list[i]
 				break
@@ -252,9 +252,9 @@ switch(state) {
             if (is_in_front && zombie_grid.row == grid_row && (feature_type!="dwarf" || (feature_type=="dwarf" && other.giant_type))) {
                 // 按铲除顺序优先选择
                 for (var i = 0; i < ds_list_size(global.eat_order); i++) {
-                    var target_type = ds_list_find_value(global.eat_order, i);
+                    var tar_type = ds_list_find_value(global.eat_order, i);
                     
-                    if (plant_type == target_type) {
+                    if (plant_type == tar_type) {
                         plant_order_list[i] = id;
                         break;
                     }
@@ -263,7 +263,7 @@ switch(state) {
                 if (plant_in_range != noone) break;
             }
         }
-		for(var i = 0 ; i < 3 ; i++){
+		for(var i = 0 ; i < 4 ; i++){
 			if plant_order_list[i] != noone{
 				plant_in_range = plant_order_list[i]
 				break

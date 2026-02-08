@@ -15,7 +15,7 @@ if shape >= 1{
 }
 
 with obj_enemy_parent{
-	if x - other.x >0 && x - other.x <= _range && grid_row == other.grid_row{
+	if x - other.x >0 && x - other.x <= _range && grid_row == other.grid_row && can_target_on(other.target_type,target_type){
 		has_enemy = true
 		other.enemy_encounted = true
 		array_push(other.target_enemy,id)

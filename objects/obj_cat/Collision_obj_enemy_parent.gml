@@ -1,4 +1,4 @@
-if state == "idle" && row == other.grid_row && (array_get_index(ignore_list,other.mouse_id) == -1)&& (array_get_index(target_ignore,other.mouse_id) == -1){
+if state == "idle" && row == other.grid_row && other.hp > 0 && (array_get_index(ignore_list,other.mouse_id) == -1)&& (array_get_index(target_ignore,other.mouse_id) == -1){
 	state = "awake"
 	timer = 0
 }

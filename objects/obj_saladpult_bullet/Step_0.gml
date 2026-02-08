@@ -5,7 +5,7 @@ x += move_speed
 y -= cvspeed
 cvspeed -= cgravity
 image_angle -= 2
-if x > 2200 or y > 1200 or x < 0 or y < 0{
+if x > 2200 or y > 1200 or x < -200 or y < -200{
 	instance_destroy()
 }
 // 检查是否命中目标敌人

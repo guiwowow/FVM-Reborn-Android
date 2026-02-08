@@ -9,7 +9,11 @@ if is_slowdown{
 //检测屏幕上是否有敌人
 var has_enemy = false
 if instance_exists(obj_enemy_parent){
-	has_enemy = true
+	with obj_enemy_parent{
+		if can_target_on(other.target_type,target_type){
+			has_enemy = true
+		}
+	}
 }
 //攻击逻辑
 if (has_enemy) {

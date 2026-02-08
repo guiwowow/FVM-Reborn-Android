@@ -73,7 +73,7 @@ if is_slowdown{
 //检测自身附近是否有敌人
 var has_enemy = false
 with(obj_enemy_parent){
-	if (grid_row == other.grid_row && x >= other.x - 1*global.grid_cell_size_x && x <= other.x + 1*global.grid_cell_size_x && health > 0){
+	if (grid_row == other.grid_row && x >= other.x - 1*global.grid_cell_size_x && x <= other.x + 1*global.grid_cell_size_x && !(other.shape==0&&target_type=="air")){
 		has_enemy = true
 		break
 	}

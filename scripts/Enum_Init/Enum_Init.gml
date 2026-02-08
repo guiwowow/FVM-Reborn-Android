@@ -36,6 +36,9 @@ function Enum_Init(){
 		SKILL2,
 		SKILL3,
 		SKILL4,
+		MOVE,
+		LAUNCH,
+		DROP,
 		DISAPPEAR,
 		STUN,
 		DEATH

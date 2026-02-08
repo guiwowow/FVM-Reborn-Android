@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"snd_egg_bullet",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"sound",
+    "path":"audiogroups/sound",
   },
   "bitDepth":1,
   "channelFormat":0,

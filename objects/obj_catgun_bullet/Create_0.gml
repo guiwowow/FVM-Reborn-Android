@@ -2,6 +2,7 @@ damage = 0
 move_speed = 0
 row = 0
 damage_type = "normal"
+target_type = "normal"
 timer = 0
 target_row = 0
 start_y = 0

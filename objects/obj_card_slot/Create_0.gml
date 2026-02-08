@@ -80,7 +80,7 @@ function try_place_once(){
 			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
 				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
 			}
-			else{
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
 				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
 				inst.sprite_index = spr_enter_water_effect
 			}
@@ -94,7 +94,7 @@ function try_place_once(){
             if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
 				audio_play_sound(snd_place1,0,0)
 			}
-			else{
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
 				audio_play_sound(snd_enter_water,0,0)
 			}
             // 取消选择

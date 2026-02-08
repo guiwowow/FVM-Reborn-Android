@@ -24,4 +24,4 @@ flash_speed = 5
 plant_type = "normal"
 is_slowdown = false
 target_instance = noone
-
+target_type = "throw"

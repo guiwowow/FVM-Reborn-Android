@@ -9,6 +9,7 @@ hit_enemy = false
 splashed = false
 shape = 0
 damage_type = "throw"
+target_type = "throw"
 splash_ratio = 0.35
 image_angle = 45
 image_xscale = 1.8

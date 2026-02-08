@@ -54,7 +54,7 @@ if state == ENEMY_STATE.APPEAR{
 		anim_timer++
 		x -= current_move_speed
 		image_index = floor(anim_timer/flash_speed) mod 6
-		if anim_timer >= 12*flash_speed{
+		if x <= get_world_position_from_grid(9,grid_row).x{
 			anim_timer = 0
 			sprite_index = spr_engineering_vehicle_mouse
 			state = ENEMY_STATE.NORMAL

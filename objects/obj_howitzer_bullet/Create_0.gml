@@ -3,6 +3,7 @@ move_speed = 0
 target_col = 8
 row = 0
 damage_type = "normal"
+target_type = "all"
 burnt = 0
 brazier_list = ds_list_create()
 image_xscale = 1.8

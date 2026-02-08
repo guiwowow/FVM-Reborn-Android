@@ -9,6 +9,7 @@ col = 0
 start_col = 0
 disabled = false
 damage_type = "normal"
+target_type = "normal"
 image_xscale = 1.5
 image_yscale = 1.5
 image_speed = 0

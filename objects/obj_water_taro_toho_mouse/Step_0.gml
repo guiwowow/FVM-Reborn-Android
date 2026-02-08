@@ -1,4 +1,20 @@
 // Inherit the parent event
+if hp <= 0 && state != ENEMY_STATE.DEAD{
+		timer = 0
+		state = ENEMY_STATE.DEAD
+		if (grid_col < 0 || grid_col >= global.grid_cols || grid_row < 0 || grid_row >= global.grid_rows){
+			sprite_index = spr_water_taro_toho_mouse_land
+		}
+		else{
+			if global.grid_terrains[grid_row][grid_col].type == "water"{
+				sprite_index = spr_water_taro_toho_mouse
+			}
+			else{
+				sprite_index = spr_water_taro_toho_mouse_land
+			}
+		}
+		
+	}
 if (grid_col < 0 || grid_col >= global.grid_cols || grid_row < 0 || grid_row >= global.grid_rows) {
 	sprite_index = spr_water_taro_toho_mouse_land
 

@@ -1,8 +1,8 @@
 if global.is_paused{
 	exit
 }
+timer++
 if state == "appear"{
-	timer++
 	image_index = floor(timer/5) mod 9
 	if timer >= 9 * 5{
 		state = "idle"
@@ -10,6 +10,11 @@ if state == "appear"{
 }
 if state == "idle"{
 	image_index = 8
+}
+
+if timer mod 1800 == 0{
+	var i = irandom_range(0,2)
+	instance_create_depth(x,y+38,depth,enemy_list[i])
 }
 
 var grid_pos = get_grid_position_from_world(x,y)

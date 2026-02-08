@@ -24,7 +24,7 @@ else{
 }
 
 if hp > 0 && state != ENEMY_STATE.DEAD{
-	if state = ENEMY_STATE.APPEAR{
+	if state == ENEMY_STATE.APPEAR{
 		anim_timer++
 		x -= current_move_speed
 		image_index = floor(anim_timer/flash_speed) mod 6
@@ -34,7 +34,7 @@ if hp > 0 && state != ENEMY_STATE.DEAD{
 			anim_timer = 0
 		}
 	}
-	if state = ENEMY_STATE.ACTING{
+	if state == ENEMY_STATE.ACTING{
 		target_type = "normal"
 		anim_timer++
 		image_index = floor(anim_timer/flash_speed) mod 6

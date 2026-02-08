@@ -1,6 +1,7 @@
 damage = 0
 move_speed = 0
 damage_type = "normal"
+target_type = "track"
 timer = 0
 target_enemy = noone
 banding_card_obj = noone

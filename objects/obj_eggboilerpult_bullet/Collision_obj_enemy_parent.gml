@@ -1,5 +1,5 @@
 if !hit_enemy{
-	if other.hp > 0 and row == other.grid_row{
+	if other.hp > 0 and row == other.grid_row  and can_hit(target_type,other.target_type){
 		with(other){
 			audio_play_sound(snd_egg_bullet,0,0)
 			damage_amount = other.damage

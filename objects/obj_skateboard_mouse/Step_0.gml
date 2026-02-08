@@ -127,7 +127,7 @@ switch(state) {
             }
         }
 		
-		for(var i = 0 ; i < 3 ; i++){
+		for(var i = 0 ; i < 4 ; i++){
 			if plant_order_list[i] != noone{
 				plant_in_range = plant_order_list[i]
 				break
@@ -202,7 +202,7 @@ switch(state) {
 	                if (plant_in_range != noone) break;
 	            }
 	        }
-			for(var i = 0 ; i < 3 ; i++){
+			for(var i = 0 ; i < 4 ; i++){
 				if plant_order_list[i] != noone{
 					plant_in_range = plant_order_list[i]
 					break
