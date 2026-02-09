@@ -158,6 +158,15 @@ function slots_init(){
 	    {"shape":1, "sprite":spr_hamburger_1, "cost":150, "cooldown":7*60, "description":"天椒双层堡：吃掉前方三格老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"},
 		{"shape":2, "sprite":spr_hamburger_2, "cost":150, "cooldown":7*60, "description":"牛肉双黑汉堡：吃掉前方三格老鼠并留下毒雾","plant_type":"normal","feature_type":"normal","target_card":"none"}
 	])
+	register_card("oil_lamp",obj_oil_lamp,[
+		{"shape":0,"sprite":spr_oil_lamp,"cost":25,"cooldown":30*60,"description":"油灯：照亮迷雾和隐形老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"},
+		{"shape":1,"sprite":spr_oil_lamp_1,"cost":25,"cooldown":30*60,"description":"高亮油灯：照亮全屏迷雾和隐形老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	])
+	register_card("ventilation_fan", obj_ventilation_fan, [
+	    {"shape":0, "sprite":spr_ventilation_fan, "cost":100, "cooldown":7*60, "description":"换气扇：吹走迷雾和空军","plant_type":"normal","feature_type":"normal","target_card":"none"},
+	    {"shape":1, "sprite":spr_ventilation_fan_1, "cost":99, "cooldown":7*60, "description":"超能草扇：吹走迷雾和空军，击退敌人","plant_type":"normal","feature_type":"normal","target_card":"none"},
+		{"shape":2, "sprite":spr_ventilation_fan_2, "cost":99, "cooldown":7*60, "description":"SSR草扇：吹走迷雾和空军，击退敌人","plant_type":"normal","feature_type":"normal","target_card":"none"}
+	]);
 	register_card("egg_boiler_pult", obj_egg_boiler_pult, [
 	    {"shape":0, "sprite":spr_egg_boiler_pult_icon, "cost":250, "cooldown":7*60, "description":"煮蛋器投手：投掷溅射鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_egg_boiler_pult},
 	    {"shape":1, "sprite":spr_egg_boiler_pult_icon_1, "cost":250, "cooldown":7*60, "description":"威力煮蛋器：投掷溅射鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_egg_boiler_pult_1},
@@ -167,14 +176,5 @@ function slots_init(){
 	    {"shape":0, "sprite":spr_ice_egg_boiler_pult_icon, "cost":200, "cooldown":50*60, "description":"冰煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"upgrade","target_card":"egg_boiler_pult","place_preview":spr_ice_egg_boiler_pult},
 	    {"shape":1, "sprite":spr_ice_egg_boiler_pult_icon_1, "cost":200, "cooldown":50*60, "description":"节能冰煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"upgrade","target_card":"egg_boiler_pult","place_preview":spr_ice_egg_boiler_pult_1},
 		{"shape":2, "sprite":spr_ice_egg_boiler_pult_icon_2, "cost":200, "cooldown":50*60, "description":"冰河煮蛋器：投掷减速冰鸡蛋","plant_type":"normal","feature_type":"normal","target_card":"none","place_preview":spr_ice_egg_boiler_pult_2}
-	]);
-	register_card("oil_lamp",obj_oil_lamp,[
-		{"shape":0,"sprite":spr_oil_lamp,"cost":25,"cooldown":30*60,"description":"油灯：照亮迷雾和隐形老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":1,"sprite":spr_oil_lamp_1,"cost":25,"cooldown":30*60,"description":"高亮油灯：照亮全屏迷雾和隐形老鼠","plant_type":"normal","feature_type":"normal","target_card":"none"}
-	])
-	register_card("ventilation_fan", obj_ventilation_fan, [
-	    {"shape":0, "sprite":spr_ventilation_fan, "cost":100, "cooldown":7*60, "description":"换气扇：吹走迷雾和空军","plant_type":"normal","feature_type":"normal","target_card":"none"},
-	    {"shape":1, "sprite":spr_ventilation_fan_1, "cost":99, "cooldown":7*60, "description":"超能草扇：吹走迷雾和空军，击退敌人","plant_type":"normal","feature_type":"normal","target_card":"none"},
-		{"shape":2, "sprite":spr_ventilation_fan_2, "cost":99, "cooldown":7*60, "description":"SSR草扇：吹走迷雾和空军，击退敌人","plant_type":"normal","feature_type":"normal","target_card":"none"}
 	]);
 }

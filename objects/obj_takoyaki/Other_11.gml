@@ -1,6 +1,7 @@
 function find_priority_enemy() {
     var priority_enemy = noone;
     var closest_left_enemy = noone;
+	var air_enemy = noone
     var min_x = room_width; // 初始化为房间宽度
     var max_hp = 0;
     
@@ -14,7 +15,18 @@ function find_priority_enemy() {
                     priority_enemy = id;
                 }
             }
-            
+            //检查是否有空中敌人
+			if target_type == "air"{
+				if air_enemy != noone && instance_exists(air_enemy){
+					if x < air_enemy.x{
+						air_enemy = id
+					}
+				}
+				else{
+					air_enemy = id
+				}
+			}
+			
             // 同时寻找最左侧且生命值最高的敌人
             if (x < min_x || (x == min_x && hp > max_hp)) {
                 min_x = x;
@@ -28,6 +40,9 @@ function find_priority_enemy() {
     if (priority_enemy != noone) {
         return priority_enemy;
     }
+	if (air_enemy != noone){
+		return air_enemy
+	}
     return closest_left_enemy;
 }
 var target = find_priority_enemy()

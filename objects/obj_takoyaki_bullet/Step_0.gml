@@ -17,6 +17,7 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     // 检查是否需要重新选择目标（有更高优先级的目标出现）
     var new_target = noone;
     var closest_left_enemy = noone;
+	var air_enemy = noone
     var min_x = room_width;
     var max_hp = 0;
     var right_range = 150;
@@ -33,6 +34,17 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
 	            }
 			}
             
+			if target_type == "air"{
+				if air_enemy != noone && instance_exists(air_enemy){
+					if x < air_enemy.x{
+						air_enemy = id
+					}
+				}
+				else{
+					air_enemy = id
+				}
+			}
+			
             // 检查是否比当前目标更靠左
             if (x < other.target_enemy.x) {
                 if (closest_left_enemy == noone || x < min_x || (x == min_x && hp > max_hp)){
@@ -47,6 +59,8 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     // 如果找到更高优先级的目标，切换目标
     if (new_target != noone) {
         target_enemy = new_target;
+    } else if (air_enemy != noone) {
+        target_enemy = air_enemy;
     } else if (closest_left_enemy != noone) {
         target_enemy = closest_left_enemy;
     }
@@ -55,6 +69,7 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     // 目标不存在或已死亡，寻找新目标
     var new_target = noone;
     var closest_left_enemy = noone;
+	var air_enemy = noone
     var min_x = room_width;
     var max_hp = 0;
     var right_range = 80;
@@ -69,6 +84,16 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
 	                }
 	            }
 			}
+			if target_type == "air"{
+				if air_enemy != noone && instance_exists(air_enemy){
+					if x < air_enemy.x{
+						air_enemy = id
+					}
+				}
+				else{
+					air_enemy = id
+				}
+			}
             
             // 寻找最左侧敌人
             if (x < min_x || (x == min_x && hp > max_hp)){
@@ -82,7 +107,9 @@ if (instance_exists(target_enemy) && target_enemy.hp > 0) {
     // 优先选择右边一格内的敌人，如果没有则选择最左侧敌人
     if (new_target != noone) {
         target_enemy = new_target;
-    } else if (closest_left_enemy != noone) {
+    } else if (air_enemy != noone) {
+        target_enemy = air_enemy;
+    }else if (closest_left_enemy != noone) {
         target_enemy = closest_left_enemy;
     } else {
         // 没有敌人，按原方向继续飞行

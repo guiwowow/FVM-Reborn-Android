@@ -28,7 +28,7 @@ if hp > 0 && state != ENEMY_STATE.DEAD{
 		anim_timer++
 		x -= current_move_speed
 		image_index = floor(anim_timer/flash_speed) mod 6
-		if hp <= 150 || x <= global.grid_offset_x + 150{
+		if hp <= (maxhp-helmet_hp) || x <= global.grid_offset_x + 150{
 			state = ENEMY_STATE.ACTING
 			sprite_index = spr_glider_mouse_drop
 			anim_timer = 0

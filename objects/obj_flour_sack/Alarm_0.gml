@@ -3,7 +3,7 @@
 // 摧毁范围内敌人
 var _x = x;
 var _y = y;
-var _range = 80;
+var _range = 120;
 if shape == 1{
 	_range = 200
 }
