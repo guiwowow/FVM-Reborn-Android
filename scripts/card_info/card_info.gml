@@ -12,7 +12,9 @@ function get_card_info(card_id) {
                 id: global.save_data.unlocked_cards[i].id,
                 level: global.save_data.unlocked_cards[i].level,
                 shape: global.save_data.unlocked_cards[i].shape,
-				skill: global.save_data.unlocked_cards[i].skill
+				skill: global.save_data.unlocked_cards[i].skill,
+				max_shape: global.save_data.unlocked_cards[i].max_shape,
+				max_level: global.save_data.unlocked_cards[i].max_level,
             };
             
             // 尝试获取卡片的完整数据（从注册的卡牌数据中）
@@ -46,7 +48,10 @@ function get_card_info_simple(card_id) {
                 unlocked: true,
                 id: global.save_data.unlocked_cards[i].id,
                 level: global.save_data.unlocked_cards[i].level,
-                shape: global.save_data.unlocked_cards[i].shape
+                shape: global.save_data.unlocked_cards[i].shape,
+				skill: global.save_data.unlocked_cards[i].skill,
+				max_shape: global.save_data.unlocked_cards[i].max_shape,
+				max_level: global.save_data.unlocked_cards[i].max_level,
             };
         }
     }

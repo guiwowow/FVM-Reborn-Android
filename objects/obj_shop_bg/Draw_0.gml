@@ -63,6 +63,41 @@ for(var i = 0 ; i< 4; i++){
 				}
 			}
 		}
+		//绘制装备类型商品
+		else if shop_button_select == 2{
+			if ds_list_find_value(goods_list,i*4+j+(current_page-1)*16) != undefined{
+				//根据id获取装备信息
+				var goods_data = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)]
+				if goods_data.type == "weapon"{
+					var weapon_data = get_weapon_info(goods_data.unlock_item_id)
+					draw_sprite_ext(weapon_data.icon,0,x-618+411*j-122,y-210+165*i+25,1.5,1.5,0,c_white,1)
+					//检查是否解锁
+					var is_unlocked = is_weapon_unlocked(goods_data.unlock_item_id)
+					if is_unlocked{
+					
+						draw_set_color(c_black)
+						draw_set_alpha(0.5)
+						draw_rectangle(x-618+411*j-205,y-190+165*i-82,x-618+411*j+205,y-190+165*i+82,false)
+						draw_set_alpha(1)
+						draw_sprite_ext(spr_sold_out, 0, x-618+411*j,y-190+165*i, 1.8, 1.8, 0, c_white, 1);
+					}
+				}
+				else if goods_data.type == "gem"{
+					var weapon_data = get_gem_info(goods_data.unlock_item_id)
+					draw_sprite_ext(weapon_data.icon,0,x-618+411*j-122,y-210+165*i+25,1.8,1.8,0,c_white,1)
+					//检查是否解锁
+					var is_unlocked = is_gem_unlocked(goods_data.unlock_item_id)
+					if is_unlocked{
+					
+						draw_set_color(c_black)
+						draw_set_alpha(0.5)
+						draw_rectangle(x-618+411*j-205,y-190+165*i-82,x-618+411*j+205,y-190+165*i+82,false)
+						draw_set_alpha(1)
+						draw_sprite_ext(spr_sold_out, 0, x-618+411*j,y-190+165*i, 1.8, 1.8, 0, c_white, 1);
+					}
+				}
+			}
+		}
 		//绘制道具类型商品
 		else if shop_button_select == 3{
 			if ds_list_find_value(goods_list,i*4+j+(current_page-1)*16) != undefined{

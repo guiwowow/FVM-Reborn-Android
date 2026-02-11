@@ -31,7 +31,15 @@ for (var i = 0; i < array_length(buttons); i++) {
 					with banding_buy_btn{
 						if btn_type == "card"{
 							global.save_data.player.gold -= cost
-							unlock_card(target_item,global.save_data.unlocked_items.max_card_level,0,global.save_data.unlocked_items.max_skill_level)
+							unlock_card(target_item,0,0,global.save_data.unlocked_items.max_skill_level)
+						}
+						else if btn_type == "weapon"{
+							global.save_data.player.gold -= cost
+							unlock_weapon(target_item)
+						}
+						else if btn_type == "gem"{
+							global.save_data.player.gold -= cost
+							unlock_gem(target_item)
 						}
 						else if btn_type == "item"{
 							global.save_data.player.gold -= cost

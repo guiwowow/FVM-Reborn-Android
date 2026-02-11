@@ -29,7 +29,7 @@ function load_file(file_slot) {
     try {
         global.save_data = json_parse(json_string);
         show_debug_message("存档加载成功!");
-		if global.save_data.version == 1.0{
+		if global.save_data.version == 1.0 || global.save_data.version == "1.1"{
 			reset_file(file_slot)
 		}
         return true;
@@ -42,7 +42,7 @@ function load_file(file_slot) {
 function reset_file(file_slot){
 	//重置到初始存档
 	global.save_data = {
-            "version": "1.1",
+            "version": "1.2",
             "player": {
                 "gold": 0,
                 "level": 1,
@@ -51,11 +51,10 @@ function reset_file(file_slot){
 				"total_time":0
             },
             "unlocked_cards": [
-				
-                {"id": "small_fire", "level": 0, "shape": 0,"skill":0},
-				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0},
-				{"id": "xiao_long_bao", "level": 0, "shape": 0,"skill":0},
-				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0}
+                {"id": "small_fire", "level": 0, "shape": 0,"skill":0,"max_level":0,"max_shape":0},
+				{"id": "toast_bread", "level": 0, "shape": 0,"skill":0,"max_level":0,"max_shape":0},
+				{"id": "xiao_long_bao", "level": 0, "shape": 0,"skill":0,"max_level":0,"max_shape":0},
+				{"id": "flour_sack", "level": 0, "shape": 0,"skill":0,"max_level":0,"max_shape":0}
             ],
             "completed_levels": [],
             "inventory": [],

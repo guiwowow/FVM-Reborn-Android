@@ -370,6 +370,93 @@ else if package_button_select == 2 {
 	
 
 }
+else if package_button_select == 3{
+	// 绘制道具背包
+    for(var i = 0 ; i < package_rows ; i++){
+        for(var j = 0 ; j < package_cols ; j++){
+            draw_sprite_ext(spr_package_slot_bg,1,x-354+i*84,y - 368 + 88 * j,1.8,1.8,0,c_white,1)
+        }
+    }
+	// 绘制所有道具
+    var material_index = 0;
+    hover_material_index = -1; // 重置悬停道具索引
+	var material_list = ds_map_keys_to_array(global.material_pool)
+    
+    for(var i = 0; i < array_length(material_list); i++) {
+        var material_id = material_list[i]
+        var material_data = get_material_info(material_id)
+        
+        if (!is_undefined(material_data)) {
+            // 计算道具位置
+            var row = material_data.pos_y;
+            var col = material_data.pos_x;
+            
+            if (row < package_rows) {
+                var material_x = x - 354 + col * 84;
+                var material_y = y - 368 + row * 88;
+                               
+                //draw_sprite_ext(spr_package_slot_bg, 1, weapon_x, weapon_y, 1.8, 1.8, 0, c_white, 1);
+                draw_sprite_ext(spr_craft_material,material_data.icon, material_x, material_y, 1.8, 1.8, 0, c_white, 1);
+				draw_set_halign(fa_right);
+				draw_set_valign(fa_bottom);
+				draw_set_colour(c_white)
+				draw_set_font(font_yuan)
+				if get_material_amount(material_id) < 10000{
+					draw_text(material_x+40,material_y+42,string(get_material_amount(material_id)))
+				}
+				else{
+					draw_text(material_x+40,material_y+42,string(floor(get_material_amount(material_id)/10000))+"万")
+				}
+                
+                // 检查鼠标是否悬停在道具上
+                var spr_width = 84;
+                var spr_height = 88;
+                
+                if (point_in_rectangle(mouse_x, mouse_y, 
+                                      material_x - spr_width/2, material_y - spr_height/2,
+                                      material_x + spr_width/2, material_y + spr_height/2)) {
+                    hover_material_index = i;
+                }
+                
+                material_index++;
+            }
+        }
+    }
+	// 绘制悬停提示
+    if (hover_material_index != -1) {
+		var material_list = ds_map_keys_to_array(global.material_pool)
+        var material_id = material_list[hover_material_index]
+        var material_data = get_material_info(material_id)
+        
+        if (!is_undefined(material_data)) {
+            // 获取鼠标位置
+            var tooltip_x = mouse_x - 15;
+            var tooltip_y = mouse_y - 15;
+            
+			// 获取提示文本
+            
+            var tooltip_text = ""
+            
+			tooltip_text = material_data.description + "\n数量："+string(get_material_amount(material_id))
+            
+			
+            // 绘制提示背景
+			draw_set_font(font_yuan)
+            draw_set_color(c_black);
+            draw_set_alpha(0.7);
+            draw_rectangle(tooltip_x - string_width(tooltip_text) - 5, tooltip_y - 5, 
+                          tooltip_x +5, tooltip_y + string_height(tooltip_text)+5, false);
+			//绘制提示文本
+			draw_set_halign(fa_left);
+            draw_set_valign(fa_top);
+            draw_set_alpha(1);
+            draw_set_color(c_white);
+			draw_text(tooltip_x- string_width(tooltip_text), tooltip_y, tooltip_text);
+			
+            
+        }
+    }
+}
 
 // 重置绘制设置
 draw_set_halign(fa_left);

@@ -41,8 +41,20 @@ else if btn_type == "apply"{
 	}
 	else{
 		for (var i = 0;i < length;i++){
-			global.save_data.unlocked_cards[i].level = obj_card_edit_menu.target_current_info[? "level"]
+			var card_id = global.save_data.unlocked_cards[i].id
+			if obj_card_edit_menu.target_current_info[? "level"] <= get_card_info_simple(card_id).max_level{
+				global.save_data.unlocked_cards[i].level = obj_card_edit_menu.target_current_info[? "level"]
+			}
+			else{
+				global.save_data.unlocked_cards[i].level = get_card_info_simple(card_id).max_level
+			}
 			global.save_data.unlocked_cards[i].skill = obj_card_edit_menu.target_current_info[? "skill"]
+			if obj_card_edit_menu.target_current_info[? "shape"] <= get_card_info_simple(card_id).max_shape{
+				global.save_data.unlocked_cards[i].shape = obj_card_edit_menu.target_current_info[? "shape"]
+			}
+			else{
+				global.save_data.unlocked_cards[i].shape = get_card_info_simple(card_id).max_shape
+			}
 		}
 	}
 	

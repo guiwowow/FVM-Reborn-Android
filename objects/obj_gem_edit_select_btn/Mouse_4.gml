@@ -31,7 +31,12 @@ else if btn_type == "apply"{
 	}
 	else{
 		for (var i = 0;i < length;i++){
-			global.save_data.unlocked_gems[i].level = obj_gem_edit_menu.target_current_info
+			if obj_gem_edit_menu.target_current_info <= global.save_data.unlocked_gems[i].max_level{
+				global.save_data.unlocked_gems[i].level = obj_gem_edit_menu.target_current_info
+			}
+			else{
+				global.save_data.unlocked_gems[i].level = global.save_data.unlocked_gems[i].max_level
+			}
 		}
 	}
 	

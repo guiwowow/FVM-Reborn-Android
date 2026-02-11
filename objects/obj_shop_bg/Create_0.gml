@@ -56,6 +56,14 @@ function shop_list_recharge(){
 				ds_list_add(goods_list,map_array[i])
 			}
 		}
+		//获取武器和宝石商品
+		else if shop_button_select == 2{
+			if global.goods_map[? map_array[i]].type == "weapon" || global.goods_map[? map_array[i]].type == "gem"{
+				//将商品id添加到商品列表中
+				//var card_data = deck_get_card_data(global.goods_map[? map_array[i]].unlock_item_id,0)
+				ds_list_add(goods_list,map_array[i])
+			}
+		}
 	}
 	//按类型创建购买按钮
 	instance_destroy(obj_shop_buy_btn)
@@ -78,6 +86,28 @@ function shop_list_recharge(){
 					inst.cost = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].cost
 					inst.goods_name = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].display_name
 					inst.btn_type = "card"
+					if is_unlocked{
+						inst.is_disabled = true
+					}
+				}
+			}
+			else if shop_button_select == 2{
+				if ds_list_find_value(goods_list,i*4+j+(current_page-1)*16) != undefined{
+					// 检查商品类型
+		            var is_unlocked = false
+					var goods_type = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].type
+					if goods_type == "weapon"{
+						is_unlocked = is_weapon_unlocked(global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id)
+					}
+					else if goods_type == "gem"{
+						is_unlocked = is_gem_unlocked(global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id)
+					}
+					//根据商品id获取宝石或武器信息
+					var inst = instance_create_depth(x-618+411*j+77, y-190+165*i+60,depth-1,obj_shop_buy_btn)
+					inst.target_item = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].unlock_item_id
+					inst.cost = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].cost
+					inst.goods_name = global.goods_map[? ds_list_find_value(goods_list,i*4+j+(current_page-1)*16)].display_name
+					inst.btn_type = goods_type
 					if is_unlocked{
 						inst.is_disabled = true
 					}

@@ -11,7 +11,8 @@ function unlock_card(card_id, level, shape, skill) {
             global.save_data.unlocked_cards[i].level = level;
             global.save_data.unlocked_cards[i].shape = shape;
 			global.save_data.unlocked_cards[i].skill = skill;
-			global.save_data.unlocked_cards[i].max_shape = 2;
+			global.save_data.unlocked_cards[i].max_shape = shape;
+			global.save_data.unlocked_cards[i].max_level = level;
             save_file(global.save_slot); // 立即保存
             return true;
         }
@@ -23,7 +24,8 @@ function unlock_card(card_id, level, shape, skill) {
         level: level,
         shape: shape,
 		skill: skill,
-		max_shape: 2
+		max_level: level,
+		max_shape: shape
     };
     
     array_push(global.save_data.unlocked_cards, new_card);
@@ -56,7 +58,27 @@ function upgrade_card(card_id, levels) {
     for (var i = 0; i < array_length(global.save_data.unlocked_cards); i++) {
         if (global.save_data.unlocked_cards[i].id == card_id) {
             // 找到卡片，升级等级
-            global.save_data.unlocked_cards[i].level = levels;
+            global.save_data.unlocked_cards[i].max_level = levels;
+			global.save_data.unlocked_cards[i].level = levels;
+            save_file(global.save_slot); // 立即保存
+            return true;
+        }
+    }
+    
+    // 未找到卡片
+    return false;
+}
+
+/// @function upgrade_card_shape(card_id, shapes)
+/// @desc 解锁卡片转职并保存存档
+/// @param {string} card_id 卡片ID
+/// @param {number} shapes 要提升到的转职数
+function upgrade_card_shape(card_id, shapes) {
+    for (var i = 0; i < array_length(global.save_data.unlocked_cards); i++) {
+        if (global.save_data.unlocked_cards[i].id == card_id) {
+            // 找到卡片，升级等级
+            global.save_data.unlocked_cards[i].max_shape = shapes;
+			global.save_data.unlocked_cards[i].shape = shapes;
             save_file(global.save_slot); // 立即保存
             return true;
         }
@@ -184,7 +206,7 @@ function is_gem_unlocked(gem_id) {
 function unlock_gem(gem_id){
 	if not is_gem_unlocked(gem_id){
 		var index = array_length(global.save_data.unlocked_gems)
-		global.save_data.unlocked_gems[index] = {"id":gem_id,"level":global.save_data.unlocked_items.max_gem_level}
+		global.save_data.unlocked_gems[index] = {"id":gem_id,"level":0,"max_level":0}
 		save_file(global.save_slot)
 	}
 }
@@ -199,10 +221,28 @@ function get_gem_level(gem_id){
 	return gem_level
 }
 
+function get_gem_max_level(gem_id){
+	var gem_level = 0
+	for(var i = 0;i < array_length(global.save_data.unlocked_gems);i++){
+		if global.save_data.unlocked_gems[i].id == gem_id{
+			gem_level = global.save_data.unlocked_gems[i].max_level
+		}
+	}
+	return gem_level
+}
+
 function edit_gem_level(gem_id,new_level){
 	for(var i = 0;i < array_length(global.save_data.unlocked_gems);i++){
 		if global.save_data.unlocked_gems[i].id == gem_id{
-			gem_level = global.save_data.unlocked_gems[i].level = new_level
+			global.save_data.unlocked_gems[i].level = new_level
+		}
+	}
+}
+
+function edit_gem_max_level(gem_id,new_level){
+	for(var i = 0;i < array_length(global.save_data.unlocked_gems);i++){
+		if global.save_data.unlocked_gems[i].id == gem_id{
+			global.save_data.unlocked_gems[i].max_level = new_level
 		}
 	}
 }
