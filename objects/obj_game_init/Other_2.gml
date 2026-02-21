@@ -18,6 +18,7 @@ boss_init()
 level_info_island_init()
 material_init()
 craft_rule_init()
+task_init()
 randomise()
 
 // 全局植物注册表

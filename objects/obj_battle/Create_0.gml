@@ -52,6 +52,11 @@ ds_list_add(global.eat_order,"shield","shield_outer","normal","lilypad");
 // 网格植物存储数据结构
 global.grid_plants = ds_grid_create(global.grid_cols, global.grid_rows);
 
+//重置任务进度
+with obj_task_manager{
+	reset_task_state()
+}
+
 // 初始化网格
 for (var col = 0; col < global.grid_cols; col++) {
     for (var row = 0; row < global.grid_rows; row++) {

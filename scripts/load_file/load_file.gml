@@ -29,7 +29,7 @@ function load_file(file_slot) {
     try {
         global.save_data = json_parse(json_string);
         show_debug_message("存档加载成功!");
-		if global.save_data.version == 1.0 || global.save_data.version == "1.1"{
+		if global.save_data.version == 1.0 || global.save_data.version == "1.1"|| global.save_data.version == "1.2"{
 			reset_file(file_slot)
 		}
         return true;
@@ -42,7 +42,7 @@ function load_file(file_slot) {
 function reset_file(file_slot){
 	//重置到初始存档
 	global.save_data = {
-            "version": "1.2",
+            "version": "1.3",
             "player": {
                 "gold": 0,
                 "level": 1,
@@ -91,7 +91,35 @@ function reset_file(file_slot){
 				{"name":"卡组4","card_id":[]},
 				{"name":"卡组5","card_id":[]},
 				{"name":"卡组6","card_id":[]} 
-			]
+			],
+			"tasks":[
+				{
+					"id":"main_level_0",
+					"progress":[0],
+					"state":"new"
+				},
+				{
+					"id":"card_upgrade_1",
+					"progress":[0],
+					"state":"new"
+				},
+				{
+					"id":"flame_save_1",
+					"progress":[0,0],
+					"state":"new"
+				},
+				{
+					"id":"perfect_challenge_1",
+					"progress":[0,0,0],
+					"state":"new"
+				},
+				{
+					"id":"hardcore_challenge_1",
+					"progress":[0,0,0],
+					"state":"new"
+				}
+			],
+			"completed_tasks":[]
         };
 	save_file(file_slot)
 }

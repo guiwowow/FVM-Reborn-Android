@@ -20,10 +20,11 @@ draw_text(menu_x, menu_y - 138, "游戏暂停");
 //var level_time = "通关时间: " + string_format(global.level_time, 1, 2) + "秒";
 //var level_name = "当前关卡: " + global.level_name;
 draw_set_color(c_black)
-draw_text(menu_x, menu_y - 40, global.level_data.name);
+draw_text(menu_x, menu_y - 65, global.level_data.name);
 var minute = floor(obj_battle.battle_time/3600)
 var second = floor(obj_battle.battle_time/60 - minute * 60)
-draw_text(menu_x, menu_y - 10, "耗时："+string(minute)+"分"+string(second)+"秒");
+draw_text(menu_x, menu_y - 35, "耗时："+string(minute)+"分"+string(second)+"秒");
+draw_text(menu_x, menu_y - 5, "卡片损失："+string(obj_task_manager.card_loss));
 draw_set_color(c_white)
 // 绘制按钮
 for (var i = 0; i < array_length(buttons); i++) {

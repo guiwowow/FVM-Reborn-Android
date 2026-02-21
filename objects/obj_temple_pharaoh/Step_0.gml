@@ -97,6 +97,9 @@ switch state{
 			var erase_row = coord[1]
 			with obj_card_parent{
 				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					if hp >= max_hp{
+						obj_task_manager.card_loss++
+					}
 					instance_destroy()
 				}
 			}
@@ -169,6 +172,9 @@ switch state{
 			var erase_row = coord[1]
 			with obj_card_parent{
 				if(grid_col == erase_col && grid_row == erase_row && plant_id != "player"){
+					if hp >= max_hp{
+						obj_task_manager.card_loss++
+					}
 					instance_destroy()
 				}
 			}

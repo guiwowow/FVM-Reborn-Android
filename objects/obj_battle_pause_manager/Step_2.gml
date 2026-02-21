@@ -9,6 +9,11 @@ if (keyboard_check_pressed(vk_space)) {
         else if (global.is_paused && !global.show_menu) {
             // 取消暂停
 			if global.game_over{
+				if obj_game_over.sprite_index == spr_win{
+					with obj_task_manager{
+						refresh_task_progress()
+					}
+				}
 				room_goto(room_map)
 				global.menu_screen = true
 			}
