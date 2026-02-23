@@ -43,11 +43,11 @@ if global.debug{
 		inst.frozen_timer = 0000
 	}
 	if keyboard_check_pressed(ord("J")){
-		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_glider_mouse)
-		inst.grid_row = grid_pos.row
-		inst.grid_col = grid_pos.col
-		inst.frozen_timer = 0000
+		global.is_paused = true
+		global.game_over = true
+		var inst = instance_create_depth(room_width/2,room_height/2,-3001,obj_game_over)
+		inst.sprite_index = spr_win
+		audio_play_sound(snd_win,0,0)
 	}
 
 	if keyboard_check_pressed(ord("R")){

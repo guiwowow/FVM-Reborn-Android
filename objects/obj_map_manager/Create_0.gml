@@ -14,6 +14,8 @@ for(var i = 0 ; i <button_array_length ; i++){
 	inst.target_level_file_hard = button_struct.hard_level_file
 	inst.target_level_file = button_struct.level_file
 	inst.level_index = i
+	inst.player_level_require = button_struct.player_level_require
+	inst.pre_level_require = button_struct.pre_level_require
 	inst.sprite_index = button_struct.button_spr
 }
 

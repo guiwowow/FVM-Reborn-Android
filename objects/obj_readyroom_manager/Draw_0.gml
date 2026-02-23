@@ -288,15 +288,58 @@ for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 	draw_text(120,650,"BOSS数量："+string(boss_amount))
 	
 	//绘制奖励
-	draw_text(100,780,"关卡奖励（首通）")
-	draw_text(100,820,"金币：500")
-	draw_text(100,860,"技能：1级")
-	draw_text(100,900,"星级：1级")
-	draw_text(100,940,"等级：2级")
-	draw_text(100,980,"卡片解锁：巧克力面包")
-	draw_text(100,1020,"武器解锁：星星枪")
-	draw_text(100,1060,"宝石解锁：攻击宝石")
-	draw_text(300,860,"宝石等级：1级")
+	if global.level_file.version != "1.0.0"{
+		if array_get_index(global.save_data.completed_levels,global.level_data.id) == -1{
+			draw_text(100,780,"关卡奖励（首通）")
+			draw_text(100,820,"金币（"+string(global.level_file.rewards[1].gold)+"）")
+			draw_text(100,860,"技能："+string(global.level_file.rewards[1].skill_level)+"级")
+			var item_string = ""
+			var item_list = global.level_file.rewards[1].items
+			for(var i = 0 ; i < array_length(item_list) ; i++){
+				var item_id = item_list[i].id
+				var item_data = get_material_info(item_id)
+				item_string += (item_data.name + "（"+string(item_list[i].amount)+"） ")
+			}
+			draw_text(100,900,item_string)
+			draw_text(100,940,"等级："+string(global.level_file.rewards[1].player_level)+"级")
+			var card_string = ""
+			var card_unlock_id_list = global.level_file.rewards[1].card_unlock
+			for(var i = 0 ; i < array_length(card_unlock_id_list) ; i++){
+				var card_id = card_unlock_id_list[i]
+				var card_data = get_plant_shape_data(card_id,0)
+				card_string += (card_data[? "name"] + " ")
+			}
+			draw_text(100,980,"卡片解锁："+card_string)
+			var weapon_string = ""
+			var weapon_unlock_id_list = global.level_file.rewards[1].weapon_unlock
+			for(var i = 0 ; i < array_length(weapon_unlock_id_list) ; i++){
+				var weapon_id = weapon_unlock_id_list[i]
+				var weapon_data = get_weapon_info(weapon_id)
+				weapon_string += (weapon_data.name + " ")
+			}
+			draw_text(100,1020,"武器解锁："+weapon_string)
+			var gem_string = ""
+			var gem_unlock_id_list = global.level_file.rewards[1].gem_unlock
+			for(var i = 0 ; i < array_length(gem_unlock_id_list) ; i++){
+				var gem_id = gem_unlock_id_list[i]
+				var gem_data = get_gem_info(gem_id)
+				gem_string += (gem_data.name + " ")
+			}
+			draw_text(100,1060,"宝石解锁："+gem_string)
+		}
+		else{
+			draw_text(100,780,"关卡奖励")
+			draw_text(100,820,"金币（"+string(global.level_file.rewards[0].gold)+"）")
+			var item_string = ""
+			var item_list = global.level_file.rewards[0].items
+			for(var i = 0 ; i < array_length(item_list) ; i++){
+				var item_id = item_list[i].id
+				var item_data = get_material_info(item_id)
+				item_string += (item_data.name + "（"+string(item_list[i].amount)+"） ")
+			}
+			draw_text(100,860,item_string)
+		}
+	}
 	
 	//关卡地图和敌人提示
 	surface_set_target(map_surface)

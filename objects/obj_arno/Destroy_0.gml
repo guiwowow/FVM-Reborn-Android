@@ -12,4 +12,9 @@ with obj_battle{
 		current_subwave = 0
 	}
 }
+global.save_data.unlocked_items.arno_killed = true
+if global.save_data.unlocked_items.mario_mouse_killed && global.save_data.player.level < 7{
+	global.save_data.player.level = 7
+	show_notice("神殿已解锁",60)
+}
 instance_destroy(hpbar_inst)

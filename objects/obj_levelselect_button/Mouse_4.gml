@@ -1,7 +1,10 @@
-if on_click && obj_player_info_ui.menu_type == 0 {
+if on_click && obj_player_info_ui.menu_type == 0 && unlock{
 	pressed = true
     audio_play_sound(snd_button, 0, 0);
     room_goto(room_ready);
+}
+if !unlock && obj_player_info_ui.menu_type == 0{
+	show_notice("达到"+string(player_level_require)+"级以解锁此关",60)
 }
 
 // 这是文件在 datafiles 目录下的相对路径

@@ -1,6 +1,12 @@
 draw_self()
-if on_click{
-	draw_sprite_ext(spr_button_shader_2,0,x,y+5,1.8,1.8,0,c_white,0.3)
+if unlock{
+	image_blend = c_white
+	if on_click{
+		draw_sprite_ext(spr_button_shader_2,0,x,y+5,1.8,1.8,0,c_white,0.3)
+	}
+}
+else{
+	image_blend = merge_colour(c_white,c_black,0.5)
 }
 if pressed{
 	draw_set_alpha(0.5);

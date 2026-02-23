@@ -29,7 +29,7 @@ function load_file(file_slot) {
     try {
         global.save_data = json_parse(json_string);
         show_debug_message("存档加载成功!");
-		if global.save_data.version == 1.0 || global.save_data.version == "1.1"|| global.save_data.version == "1.2"{
+		if global.save_data.version == 1.0 || global.save_data.version == "1.1"|| global.save_data.version == "1.2"|| global.save_data.version == "1.3"{
 			reset_file(file_slot)
 		}
         return true;
@@ -42,7 +42,7 @@ function load_file(file_slot) {
 function reset_file(file_slot){
 	//重置到初始存档
 	global.save_data = {
-            "version": "1.3",
+            "version": "1.4",
             "player": {
                 "gold": 0,
                 "level": 1,
@@ -64,7 +64,10 @@ function reset_file(file_slot){
                 "max_gem_level": 0,
 				"max_slot":5,
 				"max_shape":[],
-				"shovel":"normal"
+				"shovel":"normal",
+				"elite_unlocked":false,
+				"mario_mouse_killed":false,
+				"arno_killed":false
             },
             "unlocked_weapons": [
                 {"id": "long_bao_gun"}

@@ -33,9 +33,11 @@ function check_card_upgrade(){
 				//根据任务类型，判断是否完成
 				//卡片强化类任务
 				if task_data.requirements[j].type == "card_upgrade"{
+					//先重置进度
+					edit_task_progress(task_id,j,0)
 					//遍历检查所有卡片等级
 					for(var k = 0 ; k < array_length(global.save_data.unlocked_cards) ; k++){
-						if global.save_data.unlocked_cards[i].max_level >= task_data.requirements[j].target_card_level{
+						if global.save_data.unlocked_cards[k].max_level >= task_data.requirements[j].target_card_level{
 							add_task_progress(task_id,j,1)
 						}
 					}
@@ -57,7 +59,7 @@ function check_card_upgrade(){
 function refresh_task_list(){
 	check_card_upgrade()
 	instance_destroy(obj_task_line_bg)
-	target_task_index = -1
+	//target_task_index = -1
 	current_task_list = []
 	var saved_task_list = global.save_data.tasks
 	for(var i = 0;i < array_length(saved_task_list);i++){

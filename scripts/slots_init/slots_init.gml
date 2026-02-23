@@ -127,7 +127,7 @@ function slots_init(){
 	register_card("wooden_cork",obj_wooden_cork,[
 		{"shape":0,"sprite":spr_wooden_cork,"cost":75,"cooldown":7*60,"description":"木塞子：堵住老鼠洞","plant_type":"coffee","feature_type":"normal","target_card":"none"}
 	])
-		register_card("coffee_grounds",obj_coffee_grounds,[
+	register_card("coffee_grounds",obj_coffee_grounds,[
 	    {"shape":0, "sprite":spr_coffee_grounds_icon, "cost":75, "cooldown":7*60, "description":"咖啡粉：唤醒卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"},
 	    {"shape":1, "sprite":spr_coffee_grounds_icon_1, "cost":25, "cooldown":7*60, "description":"名贵咖啡粉：唤醒3*3范围卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"},
 		{"shape":2, "sprite":spr_coffee_grounds_icon_2, "cost":25, "cooldown":7*60, "description":"皇族咖啡粉：唤醒全屏卡片","plant_type":"coffee","feature_type":"normal","target_card":"none"}

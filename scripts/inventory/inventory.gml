@@ -11,7 +11,8 @@ function add_material_amount(material_id,amount){
 	}
 	else{
 		//如果不存在，则创建物品
-		array_push(global.save_data.inventory,{"id":material_id,"amount":amount})
+		//array_push(global.save_data.inventory,{"id":material_id,"amount":amount})
+		set_material_amount(material_id,amount)
 	}
 	save_file(global.save_slot)
 }
