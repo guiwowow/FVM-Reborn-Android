@@ -14,3 +14,5 @@ sprite_index = spr_mario_mouse_appear
 hpbar_inst = instance_create_depth(450,1040,-900,obj_boss_hpbar)
 hpbar_inst.target_boss = id
 hpbar_inst.boss_id = mouse_id
+
+pipe_row = "land"

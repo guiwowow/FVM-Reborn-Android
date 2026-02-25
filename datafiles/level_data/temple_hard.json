@@ -5115,15 +5115,15 @@
     ],
     "rewards": [
         {
-            "gold": 500.0,
+            "gold": 3000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "10"
+                    "amount": 60
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 5.0
+                    "amount": 20
                 }
             ]
         },
@@ -5134,15 +5134,15 @@
             ],
             "player_level": 9.0,
             "skill_level": 4.0,
-            "gold": 1500.0,
+            "gold": 3000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "30"
+                    "amount": 60
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 10.0
+                    "amount": 20.0
                 }
             ],
             "card_unlock": [

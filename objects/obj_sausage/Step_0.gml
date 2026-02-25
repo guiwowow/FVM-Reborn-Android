@@ -8,10 +8,14 @@ if is_slowdown{
 }
 //检测自身右方是否有敌人
 var has_enemy = false
+has_air = false
 with(obj_enemy_parent){
 	if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (global.grid_cols + 1) && can_target_on(other.target_type,target_type)){
 		has_enemy = true
-		break
+		if target_type == "air"{
+			other.has_air = true
+			break
+		}
 	}
 }
 //攻击逻辑

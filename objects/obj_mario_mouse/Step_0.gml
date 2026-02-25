@@ -72,10 +72,15 @@ switch state{
 				}
 			}
 			cave = instance_create_depth(cave_pos.x+8,cave_pos.y+15,depth,obj_mario_cave)
+			pipe_row = global.row_feature[cave_pos.row]
 		}
 		if timer == 4 * 60{
 			var pipeline_col = irandom_range(3,6)
 			var pipeline_row = irandom_range(0,global.grid_rows - 1)
+			for(var i = 0 ; i < 100 ; i++){
+				pipeline_row = irandom_range(0,global.grid_rows - 1)
+				if global.row_feature[pipeline_row] == pipe_row break
+			}
 			var pipeline_pos = get_world_position_from_grid(pipeline_col,pipeline_row)
 			var erase_col = pipeline_col
 			var erase_row = pipeline_row
@@ -107,7 +112,7 @@ switch state{
 		}
 		if timer >= 4 * 5 + 70* jump_times && timer <= 10 * 5 + 70 * jump_times{
 			if jump_times == 0{
-				x -= 8.6
+				x -= 7.6
 			}
 			else{
 				x -= global.grid_cell_size_x * 2 / 30
@@ -147,7 +152,7 @@ switch state{
 		if timer == 210{
 			var enemy_row = irandom_range(0,global.grid_rows-1)
 			var enemy_pos = get_world_position_from_grid(10,enemy_row)
-			x = enemy_pos.x - 50
+			x = enemy_pos.x - 80
 			y = enemy_pos.y + 30
 			image_alpha = 1
 			timer = 0

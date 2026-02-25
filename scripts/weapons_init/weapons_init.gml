@@ -70,6 +70,26 @@ function weapons_init(){
 									"name":"泡泡枪",
 									"atk_impact":[12,14,16,18,20,22,26,32,40,55,70,85,100,115,130,145]
 									})
+		register_weapon("double_water_gun",{"sprite":spr_double_water_gun,
+									"icon":spr_double_water_gun_icon,
+									"obj":obj_double_water_gun,
+									"slot":"main_weapon",
+									"atk":10,
+									"cycle":78,
+									"description":"双向水枪：向前后两个方向发射水弹",
+									"name":"双向水枪",
+									"atk_impact":[12,14,16,18,20,22,26,32,40,55,70,85,100,115,130,145]
+									})
+		register_weapon("ice_spoon_crossbow",{"sprite":spr_ice_spoon_crossbow,
+									"icon":spr_ice_spoon_crossbow_icon,
+									"obj":obj_ice_spoon_crossbow,
+									"slot":"main_weapon",
+									"atk":60,
+									"cycle":180,
+									"description":"冰勺弩枪：投掷减速冰鸡蛋",
+									"name":"冰勺弩枪",
+									"atk_impact":[72, 84, 96, 118, 140, 162, 196, 232, 270, 335, 430, 535, 650, 775, 910, 1045]
+									})
 	}
 	{//注册所有副武器
 		register_weapon("cookie_shield",{"sprite":spr_cookie_shield_icon,

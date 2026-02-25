@@ -2396,15 +2396,15 @@
     ],
     "rewards": [
         {
-            "gold": 500.0,
+            "gold": 3000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": 10.0
+                    "amount": 50.0
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 5.0
+                    "amount": 20.0
                 }
             ]
         },
@@ -2412,15 +2412,15 @@
             "gem_unlock": [],
             "player_level": 14.0,
             "skill_level": 5.0,
-            "gold": 1500.0,
+            "gold": 3000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": 25.0
+                    "amount": 50.0
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 10.0
+                    "amount": 20.0
                 }
             ],
             "card_unlock": [

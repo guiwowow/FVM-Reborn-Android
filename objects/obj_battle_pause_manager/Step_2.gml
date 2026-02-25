@@ -22,8 +22,10 @@ if (keyboard_check_pressed(vk_space)) {
 							complete_level(global.level_data.id)
 							first_complete = true
 							if array_get_index(slot_unlock_level_id_list,global.level_data.id) != -1{
-								global.save_data.unlocked_items.max_slot += 1
-								show_notice("你解锁了一个新的卡槽",60)
+								if global.save_data.unlocked_items.max_slot < 21{
+									global.save_data.unlocked_items.max_slot += 1
+									show_notice("你解锁了一个新的卡槽",60)
+								}
 							}
 							if global.level_data.id == "champagne_island_water"{
 								global.save_data.unlocked_items.elite_unlocked = true

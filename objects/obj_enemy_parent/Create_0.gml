@@ -31,6 +31,7 @@ special_ash = false
 current_frozen = false
 is_stun = false
 stun_timer = 0
+stun_sprite = spr_mouse_stun
 mouse_id = ""
 giant_type = false
 target_type = "normal"

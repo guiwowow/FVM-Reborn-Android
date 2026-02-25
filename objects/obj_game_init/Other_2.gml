@@ -31,6 +31,10 @@ global.player_sprite = noone;
 load_file(global.save_slot)
 //reset_file(global.save_slot)
 
+//unlock_weapon("double_water_gun")
+//unlock_weapon("ice_spoon_crossbow")
+//unlock_card("chocolate_pult",12,2,7)
+//unlock_card("chocolate_cannon",12,2,7)
 {//测试版设置初始存档
 //	unlock_card("toast_bread",6,0,5)
 //	unlock_card("small_fire",6,0,5)

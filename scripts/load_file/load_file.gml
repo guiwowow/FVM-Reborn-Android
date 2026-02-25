@@ -32,6 +32,17 @@ function load_file(file_slot) {
 		if global.save_data.version == 1.0 || global.save_data.version == "1.1"|| global.save_data.version == "1.2"|| global.save_data.version == "1.3"{
 			reset_file(file_slot)
 		}
+		else{
+			if global.save_data.version == "1.4"{
+				if array_get_index(global.save_data.completed_levels,"cocoa_island_night") != -1{
+					unlock_weapon("double_water_gun")
+				}
+				if array_get_index(global.save_data.completed_levels,"abyss") != -1{
+					unlock_card("chocolate_pult",0,0,5)
+				}
+			}
+			global.save_data.version = 1.5
+		}
         return true;
     } catch(e) {
         show_debug_message("存档解析错误: " + string(e));
@@ -42,7 +53,7 @@ function load_file(file_slot) {
 function reset_file(file_slot){
 	//重置到初始存档
 	global.save_data = {
-            "version": "1.4",
+            "version": 1.5,
             "player": {
                 "gold": 0,
                 "level": 1,

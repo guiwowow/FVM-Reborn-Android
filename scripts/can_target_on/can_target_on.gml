@@ -1,6 +1,8 @@
 function can_target_on(card_target_type,enemy_target_type){
 	if enemy_target_type == "normal"{
-		return true
+		if card_target_type != "air_only"{
+			return true
+		}
 	}
 	if enemy_target_type == "diver"{
 		if card_target_type == "throw" || card_target_type == "track"{
@@ -8,7 +10,7 @@ function can_target_on(card_target_type,enemy_target_type){
 		}
 	}
 	if enemy_target_type == "air"{
-		if card_target_type == "air" || card_target_type == "track"{
+		if card_target_type == "air" || card_target_type == "track" || card_target_type == "air_only"{
 			return true
 		}
 	}

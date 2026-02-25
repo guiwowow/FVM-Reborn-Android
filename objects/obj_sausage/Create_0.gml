@@ -17,3 +17,4 @@ plant_type = "normal"
 is_slowdown = false
 
 target_type = "air"
+has_air = false

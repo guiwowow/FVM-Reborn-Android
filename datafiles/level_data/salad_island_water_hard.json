@@ -2221,11 +2221,11 @@
     ],
     "rewards": [
         {
-            "gold": 100.0,
+            "gold": 1000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "5"
+                    "amount": 20
                 }
             ]
         },
@@ -2235,11 +2235,11 @@
             ],
             "player_level": 4.0,
             "skill_level": 2.0,
-            "gold": 500.0,
+            "gold": 1000.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "10"
+                    "amount": 20
                 }
             ],
             "card_unlock": [

@@ -24,6 +24,14 @@ if scare_timer > 0{
 else{
 	is_scare = false
 }
+if stun_timer > 0{
+	stun_timer--
+	is_stun = true
+}
+else{
+	is_stun = false
+	stun_sprite = spr_mouse_stun
+}
 if flash_value > 0 {
 	flash_value -= 10
 }
@@ -49,7 +57,7 @@ if left_move_flashs > 0{
 	y += y_move
 	left_move_flashs--
 }
-if is_frozen || is_scare{
+if is_frozen || is_scare || is_stun{
 	exit
 }
 

@@ -6,7 +6,7 @@ battle_time ++
 if global.debug{
 	if keyboard_check_pressed(ord("M")){
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_mole)
+		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_giant_mouse)
 		inst.grid_row = grid_pos.row
 		inst.grid_col = grid_pos.col
 		inst.frozen_timer = 0000
@@ -14,7 +14,7 @@ if global.debug{
 	if keyboard_check_pressed(ord("N")){
 		var enemy_row = irandom_range(0,global.grid_rows-1)
 		var enemy_pos = get_world_position_from_grid(10,enemy_row)
-		instance_create_depth(enemy_pos.x-50,enemy_pos.y+33,-200,obj_abyss_pharaoh)
+		instance_create_depth(enemy_pos.x-80,enemy_pos.y+33,-200,obj_arno)
 		//var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
 		//var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_mario_mouse)
 		//inst.grid_row = grid_pos.row
@@ -23,7 +23,7 @@ if global.debug{
 	}
 	if keyboard_check_pressed(ord("L")){
 		var grid_pos = get_grid_position_from_world(mouse_x,mouse_y)
-		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_engineering_vehicle_mouse)
+		var inst = instance_create_depth(grid_pos.x,grid_pos.y+38,0,obj_glider_mouse)
 		inst.grid_row = grid_pos.row
 		inst.grid_col = grid_pos.col
 		inst.frozen_timer = 0000
@@ -94,26 +94,28 @@ if battle_time >= (global.level_file.first_wave_delay * 60) && level_stage == "r
 }
 var current_total_subwaves = array_length(global.level_file.waves[current_wave].subwaves)
 var wave_data = global.level_file.waves[current_wave]
-if wave_data.boss_wave && level_stage != "boss"{
+if wave_data.boss_wave && level_stage != "boss" && global.save_data.unlocked_items.elite_unlocked{
 	level_stage = "boss"
 	var enemy_row = irandom_range(0,global.grid_rows-1)
 	var enemy_pos = get_world_position_from_grid(10,enemy_row)
-	instance_create_depth(enemy_pos.x-50,enemy_pos.y+30,-200,global.enemy_map[? wave_data.boss]._obj)
+	instance_create_depth(enemy_pos.x-80,enemy_pos.y+30,-200,global.enemy_map[? wave_data.boss]._obj)
 	with obj_battle_music_controller{
 		new_battle_music = global.level_data.boss_music
 		event_user(0)
 	}
 }
 if wave_timer <= 0 && level_stage == "pre"{
-	enemy_subwave_summon()
-	if current_subwave < current_total_subwaves-1{
-		current_subwave+=1
-	}
-	else if current_wave < total_wave{
-		current_wave += 1
-		current_subwave = 0
-		audio_play_sound(snd_mouse_wave_attack,0,0)
-		instance_create_depth(room_width/2,room_height/2,-300,obj_huge_wave_text)
+	if(global.save_data.unlocked_items.elite_unlocked) || !global.save_data.unlocked_items.elite_unlocked && current_wave < global.level_file.elite_wave{
+		enemy_subwave_summon()
+		if current_subwave < current_total_subwaves-1{
+			current_subwave+=1
+		}
+		else if current_wave < total_wave{
+			current_wave += 1
+			current_subwave = 0
+			audio_play_sound(snd_mouse_wave_attack,0,0)
+			instance_create_depth(room_width/2,room_height/2,-300,obj_huge_wave_text)
+		}
 	}
 }
 if wave_timer <= 0 && level_stage == "boss"{

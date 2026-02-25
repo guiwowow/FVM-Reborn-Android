@@ -19,6 +19,7 @@ gem_material_id_list = ["less_crystal","middle_crystal","advanced_crystal"]
 
 hover_card_index = -1
 hover_gem_index = -1
+close_timer = -1
 
 current_uprade_target_id = ""
 

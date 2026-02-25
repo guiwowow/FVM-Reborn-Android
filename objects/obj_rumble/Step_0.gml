@@ -221,7 +221,7 @@ switch state{
 				target_pos.row = irandom_range(1,global.grid_rows-1)
 				target_pos.col = 10
 				var land_pos = get_world_position_from_grid(target_pos.col,target_pos.row)
-				x_move_speed = (land_pos.x-50 - x)/180
+				x_move_speed = (land_pos.x-80 - x)/180
 				y_move_speed = (land_pos.y+33 - y)/180
 				timer = 0
 				state = BOSS_STATE.MOVE

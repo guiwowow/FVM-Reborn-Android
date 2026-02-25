@@ -77,9 +77,10 @@ switch state{
 		}
 		
 		if (timer mod 85) == 45{
-			var bullet = instance_create_depth(x-60,y-180,-200,obj_arno_bullet)
+			var bullet = instance_create_depth(x-60,y-180,-200,obj_ice_residue_bullet)
 			bullet.row = grid_row
 			bullet.target_col = target_col
+			bullet.damage = 2000
 			bullet.sprite_index = spr_ice_residue_bullet
 			
 			 // 获取敌人当前位置和速度
@@ -157,7 +158,7 @@ switch state{
 		if timer == 210{
 			var enemy_row = irandom_range(0,global.grid_rows-1)
 			var enemy_pos = get_world_position_from_grid(10,enemy_row)
-			x = enemy_pos.x - 50
+			x = enemy_pos.x - 80
 			y = enemy_pos.y + 30
 			image_alpha = 1
 			var shape_i = irandom_range(1,100)

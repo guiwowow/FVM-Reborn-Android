@@ -5234,15 +5234,19 @@
     ],
     "rewards": [
         {
-            "gold": 1000.0,
+            "gold": 7500.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": 20.0
+                    "amount": 150.0
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 10.0
+                    "amount": 50.0
+                },
+                {
+                    "id": "clover_1",
+                    "amount": 3
                 }
             ]
         },
@@ -5253,18 +5257,22 @@
             ],
             "player_level": 21.0,
             "skill_level": 5.0,
-            "gold": 3000.0,
+            "gold": 7500.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": 50.0
+                    "amount": 150.0
                 },
                 {
                     "id": "less_crystal",
-                    "amount": 20.0
+                    "amount": 50.0
+                },
+                {
+                    "id": "clover_1",
+                    "amount": 3
                 }
             ],
-            "card_unlock": [],
+            "card_unlock": ["chocolate_pult"],
             "weapon_unlock": []
         }
     ]

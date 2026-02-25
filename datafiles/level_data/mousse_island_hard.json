@@ -1868,11 +1868,11 @@
     ],
     "rewards": [
         {
-            "gold": 200.0,
+            "gold": 1500.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "5"
+                    "amount": 30
                 }
             ]
         },
@@ -1880,11 +1880,11 @@
             "gem_unlock": [],
             "player_level": 5.0,
             "skill_level": 2.0,
-            "gold": 750.0,
+            "gold": 1500.0,
             "items": [
                 {
                     "id": "natural_spices",
-                    "amount": "15"
+                    "amount": 30
                 }
             ],
             "card_unlock": [
