@@ -1,0 +1,1 @@
+save_file(global.save_slot)

@@ -9,8 +9,8 @@ draw_self()
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 draw_set_color(c_black);
-draw_set_font(font_pixel);
-draw_text_ext_transformed(x-12, y+46, string(cost),25,1800,1.2,1.2,0);
+draw_set_font(font_yuan);
+draw_text_ext_transformed(x-12, y+40, string(current_cost),25,1800,1,1,0);
 draw_sprite_ext(spr_flame, 0, x-24, y+43, 0.3, 0.3, 0, c_white, 1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -18,8 +18,8 @@ draw_set_valign(fa_top);
 draw_sprite_ext(card_spr, 0, x, y+18,0.9,0.9,0,c_white,1);
 //绘制星级
 
-if level > 0{
-	draw_sprite_ext(spr_star_slot, level - 1, x-35, y-45,1.6,1.6,0,c_white,1);
+if clevel > 0{
+	draw_sprite_ext(spr_star_slot, clevel - 1, x-30, y-43,1.6,1.6,0,c_white,1);
 }
 
 
@@ -63,7 +63,7 @@ if (cooldown_timer < cooldown) {
 // 绘制冷却时间显示
 if (cooldown_timer < cooldown) {
     // 计算剩余时间（秒）
-    var time_left = (cooldown - cooldown_timer) / room_speed;
+    var time_left = (cooldown - cooldown_timer) / 60;
     
     // 准备显示的文本
     var display_text = "";
@@ -86,4 +86,16 @@ if (cooldown_timer < cooldown) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 }
+//快捷键提示
+var slot_key = global.keybind_map[? "卡槽" + string(slot_index)]
+draw_set_color(c_black);
+draw_set_font(font_song);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_sprite_ext(spr_hotkey_prompt,0,x+33,y-46,1,1,0,c_white,1)
+draw_text(x+33,y-48,keyboard_get_string(slot_key))
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+
 

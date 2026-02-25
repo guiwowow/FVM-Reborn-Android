@@ -1,4 +1,9 @@
-
+if global.is_paused{
+	image_speed = 0
+}
+else{
+	image_speed = 1
+}
 if (y >= ground_level)  {
         y = ground_level;
         is_landed = true;

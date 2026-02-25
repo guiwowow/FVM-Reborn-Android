@@ -11,7 +11,8 @@ event_user(0)
 // ========== 特定属性默认值 ==========
 
 attack_anim = 7;
+idle_anim = 11
 flash_speed = 5
 plant_type = "normal"
-
+is_slowdown = false
 

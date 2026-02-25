@@ -16,6 +16,7 @@ if (mouse_check_button_pressed(mb_left)) {
 if keyboard_check_pressed(slot_key){
 	if !is_selected{
 		select_shovel();
+		hotkey_pressed = true
 		audio_play_sound(snd_shovel,0,0)
 	}
 	else{
@@ -26,7 +27,7 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && global.quick_placement)) {
+if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && global.quick_placement && hotkey_pressed)) {
     // 获取鼠标位置对应的网格
     var grid_pos = get_grid_position_from_world(mouse_x, mouse_y);
     var col = grid_pos.col;
@@ -44,7 +45,7 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
     // 如果没有植物，播放错误音效
     if (ds_list_size(plant_list) == 0) {
         //audio_play_sound(snd_error, 1, false);
-        return;
+        //return;
     }
     
     // 按铲除顺序查找要移除的植物
@@ -57,7 +58,7 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
         // 从上层开始查找（列表最后）
         for (var j = ds_list_size(plant_list) - 1; j >= 0; j--) {
             var plant = ds_list_find_value(plant_list, j);
-            if (plant.plant_type == target_type) {
+            if (plant.plant_type == target_type and plant.can_shovel_remove) {
                 plant_to_remove = plant;
                 break;
             }
@@ -71,8 +72,22 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
         // 播放移除效果
         with (plant_to_remove) {
             // 播放移除动画
-            instance_create_depth(x+10, y-55, depth, obj_shovel);
-			instance_create_depth(x,y,-2,obj_place_effect)
+            var shovel_effect = instance_create_depth(x+10, y-55, depth, obj_shovel);
+			shovel_effect.sprite_index = other.shovel_spr
+			if other.flame_rate > 0{
+				var flame_cost = get_plant_data_with_skill(plant_id,shape,current_level,skill)[? "cost"]
+				var flame_inst = instance_create_depth(x,y-30,-2000,obj_flame)
+				flame_inst.value = round(flame_cost * other.flame_rate)
+			}
+			if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+				audio_play_sound(snd_place2, 1, false);
+			}
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
+				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
+				inst.sprite_index = spr_enter_water_effect
+				audio_play_sound(snd_enter_water,0,0)
+			}
             instance_destroy();
         }
 		
@@ -81,14 +96,22 @@ if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && glob
 		// 重新排序剩余植物
         sort_plants_in_grid(col, row);
         
-        // 播放音效
-        audio_play_sound(snd_place2, 1, false);
     } else {
 		// 没有找到可移除的植物
-		instance_create_depth(x+10, y-55, depth, obj_shovel);
-		instance_create_depth(x,y,-2,obj_place_effect)
-		audio_play_sound(snd_place2, 1, false);
+		
+		var shovel_effect = instance_create_depth(grid_pos.x+10, grid_pos.y-55, depth, obj_shovel);
+		shovel_effect.sprite_index = shovel_spr
+		if global.grid_terrains[grid_pos.row][grid_pos.col].type == "normal"{
+				instance_create_depth(grid_pos.x,grid_pos.y,-2,obj_place_effect)
+				audio_play_sound(snd_place2, 1, false);
+			}
+			else if global.grid_terrains[grid_pos.row][grid_pos.col].type == "water"{
+				var inst = instance_create_depth(grid_pos.x,grid_pos.y+20,-2500,obj_place_effect)
+				inst.sprite_index = spr_enter_water_effect
+				audio_play_sound(snd_enter_water,0,0)
+			}
 		deselect_shovel()
         
     }
+	hotkey_pressed = false
 }

@@ -4,7 +4,7 @@
 /// @function plant_upgrade(new_level)
 /// @param new_level 要升级到的等级
 function card_upgrade(new_level) {
-    var upgrade_data = get_plant_upgrade(plant_id, new_level);
+    var upgrade_data = get_plant_upgrade(plant_id, 0,new_level);
     if (upgrade_data == undefined) return false;
     
     // 应用升级属性

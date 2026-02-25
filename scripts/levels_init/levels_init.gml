@@ -1,0 +1,17 @@
+function level_info_island_init(){
+	level_info_island_registry_init()
+	register_level_info_island("cookie_island",{"name":"曲奇岛","icon":spr_levelselect_button,"spr":spr_cookie_island,"description":"欢迎来到《美食大战老鼠：重生》的第一关！\n本关没有特殊机制，出怪较少，留意滑板鼠即可。"})
+	register_level_info_island("salad_island_land",{"name":"色拉岛（陆）","icon":spr_levelselect_button,"spr":spr_salad_island_land,"description":"相比上一关，本关新增了一行路径，鼠军也增强了。\n利用老鼠夹子开局积攒火苗吧。"})
+	register_level_info_island("salad_island_water",{"name":"色拉岛（水）","icon":spr_levelselect_button,"spr":spr_salad_island_water,"description":"中间三行的水路上需要先放上木盘子才能放置卡片。\n注意，投手和追踪卡片可以直接攻击到潜水鼠。"})
+	register_level_info_island("mousse_island",{"name":"慕斯岛","icon":spr_levelselect_button,"spr":spr_mousse_island,"description":"夜间天上不再掉落火苗，需要依赖酒杯灯和咖啡杯。"})
+	register_level_info_island("champagne_island_land",{"name":"香槟岛（陆）","icon":spr_levelselect_button,"spr":spr_champagne_island_land,"description":"可以利用投手卡片或咖啡喷壶来快速清理房东鼠。"})
+	register_level_info_island("champagne_island_water",{"name":"香槟岛（水）","icon":spr_levelselect_button,"spr":spr_champagne_island_water,"description":"青蛙王子鼠的速度极快，需要提前垫卡阻止其突破防线。"})
+	register_level_info_island("temple",{"name":"神殿","icon":spr_levelselect_button,"spr":spr_temple,"description":"这是美味岛的第一个皇冠关，会接连出现三个BOSS。\n牢记各种BOSS的技能，努力坚持到底吧。"})
+	register_level_info_island("pudding_island_daytime",{"name":"布丁岛（日）","icon":spr_levelselect_button,"spr":spr_pudding_island_daytime,"description":"场地右侧五列会每隔30秒生成一个老鼠洞，需要使用木塞子堵住，否则每30\n秒都会有一只老鼠从中钻出。"})
+	register_level_info_island("pudding_island_night",{"name":"布丁岛（夜）","icon":spr_levelselect_button,"spr":spr_pudding_island_night,"description":"鼹鼠和工程车鼠的组合让后排很危险，可以利用鱼刺处理鼹鼠，并避免将攻\n击卡放置在底线。"})
+	register_level_info_island("cocoa_island_daytime",{"name":"可可岛（日）","icon":spr_levelselect_button,"spr":spr_cocoa_island_daytime,"description":"四行水道，初始木盘子少，且需要对付滑翔鼠，使得格子很紧张，需要灵活\n规划并在前期积攒火苗。"})
+	register_level_info_island("cocoa_island_night",{"name":"可可岛（夜）","icon":spr_levelselect_button,"spr":spr_cocoa_island_night,"description":"夜晚的火苗压力更大了，还有蝙蝠鼠干扰，需要尽快成阵并使用章鱼烧对付\n蝙蝠鼠。"})
+	register_level_info_island("curry_island_daytime",{"name":"咖喱岛（日）","icon":spr_levelselect_button,"spr":spr_curry_island_daytime,"description":"迷雾中难以获取信息，需要保护好油灯。垃圾车不会受到减速影响，还会碾\n压卡片，需要使用高伤害卡或鱼刺处理。"})
+	register_level_info_island("curry_island_night",{"name":"咖喱岛（夜）","icon":spr_levelselect_button,"spr":spr_curry_island_night,"description":"换气扇可以吹走滑翔鼠和迷雾，能够极大减轻防守压力。"})
+	register_level_info_island("abyss",{"name":"深渊岛","icon":spr_levelselect_button,"spr":spr_abyss,"description":"欢迎来到深渊！这里是美味岛最后一个关卡，所有强敌均会出现于此，而法\n老鼠的频繁破阵也会让难度大增。\n你，准备好了吗？"})
+}

@@ -21,11 +21,23 @@ for (var i = 0; i < array_length(buttons); i++) {
         if (mouse_check_button_released(mb_left)) {
             switch (i) {
                 case 1: // 取消
+					if instance_exists(obj_player_info_ui){
+						obj_player_info_ui.menu_type = 0
+					}
+					if instance_exists(obj_world_map_button){
+						obj_world_map_button.world_map = 0
+					}
                     instance_destroy();
                     break;
                     
                 case 0: // 确定
                     // 退出游戏逻辑
+					if instance_exists(obj_player_info_ui){
+						obj_player_info_ui.menu_type = 0
+					}
+					if instance_exists(obj_world_map_button){
+						obj_world_map_button.world_map = 0
+					}
 					if global.menu_screen{
 						game_end()
 					}

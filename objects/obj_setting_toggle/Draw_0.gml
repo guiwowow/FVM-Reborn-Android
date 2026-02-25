@@ -4,7 +4,7 @@ if (point_in_rectangle(mouse_x, mouse_y, x-20, y-20, x+20, y+20) && tooltip_text
     draw_set_color(c_black);
     draw_set_alpha(0.5);
     var tt_width = string_width(tooltip_text) + 20;
-    var tt_height = 30;
+    var tt_height = string_height(tooltip_text) + 10;
     var tt_x = mouse_x + 15;
     var tt_y = mouse_y - 15;
     

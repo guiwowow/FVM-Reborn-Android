@@ -14,6 +14,7 @@ draw_sprite_ext(bg, 0, x, y, 1.5, 1.5, 0, c_white, 1);
 draw_set_font(font_yuan);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
+draw_set_color(c_white)
 draw_text(x, y - 112, "退出确认")
 draw_text(x, y - 30, "确定要退出吗？");
 if not global.menu_screen{

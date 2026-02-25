@@ -9,8 +9,8 @@
   "name":"obj_menu_music_controller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Main Menu",
-    "path":"folders/物体/Main Menu.yy",
+    "name":"Menu",
+    "path":"folders/物体/Menu.yy",
   },
   "parentObjectId":null,
   "persistent":true,

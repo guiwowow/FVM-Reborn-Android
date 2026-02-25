@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"World Map",
-    "path":"folders/物体/Main Menu/World Map.yy",
+    "path":"folders/物体/Menu/World Map.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -25,3 +25,7 @@ input_field.max_length = 16;
 input_field.placeholder = "输入角色名";
 input_field.width = 300;
 input_field.active = true;
+
+var btn3 = instance_create_depth(x - 120, y -95 , depth-1, obj_save_slot_select_btn);
+btn3.config_key = "save_slot";
+btn3.state = global.save_slot;

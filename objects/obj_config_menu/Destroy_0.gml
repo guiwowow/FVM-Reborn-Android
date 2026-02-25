@@ -3,6 +3,7 @@ if (instance_exists(closemenu_btn)) instance_destroy(closemenu_btn);
 if (instance_exists(menu_btn1)) instance_destroy(menu_btn1);
 if (instance_exists(menu_btn2)) instance_destroy(menu_btn2);
 if (instance_exists(menu_btn3)) instance_destroy(menu_btn3);
+if (instance_exists(menu_btn4)) instance_destroy(menu_btn4);
 
 // 销毁设置按钮
 for (var i = 0; i < array_length(setting_buttons); i++) {

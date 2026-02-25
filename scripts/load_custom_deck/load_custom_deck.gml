@@ -1,13 +1,13 @@
 /// @function load_custom_deck(deck_data)
 /// @desc 加载自定义卡组（未来从存档/菜单读取）
-/// @param {array} deck_data 卡牌ID数组
-function load_custom_deck(deck_data) {
+/// @param {real} deck_index 卡组ID
+function load_custom_deck(deck_index) {
     // 清空当前卡组
     ds_list_clear(global.selected_deck);
     
     // 添加新卡牌
-    for(var i = 0; i < array_length(deck_data); i++) {
-        add_to_deck(deck_data[i]);
+    for(var i = 0; i < array_length(global.save_data.saved_decks[deck_index].card_id); i++) {
+        add_to_deck(global.save_data.saved_decks[deck_index].card_id[i],get_card_info(global.save_data.saved_decks[deck_index].card_id[i]).shape);
     }
     
     // 重新创建卡槽（需在战斗房间调用）
@@ -17,4 +17,13 @@ function load_custom_deck(deck_data) {
         // 创建新卡槽
         create_battle_slots();
     }
+}
+
+function save_to_custom_deck(deck_index,deck_name){
+	array_delete(global.save_data.saved_decks[deck_index].card_id,0,21)
+	var length = ds_list_size(global.selected_deck)
+	for(var i = 0; i < length;i++){
+		global.save_data.saved_decks[deck_index].card_id[i] = global.selected_deck[| i][? "card_id"]
+	}
+	save_file(global.save_slot)
 }

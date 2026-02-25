@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"mus_delicious_island_daytime_pre",
   "audioGroupId":{
     "name":"music",
     "path":"audiogroups/music",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":70.99202,
+  "exportDir":"",
   "name":"mus_delicious_island_daytime_pre",
   "parent":{
     "name":"Battle BGM",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_delicious_island_daytime_pre.mp3",
-  "type":0,
   "volume":1.0,
 }

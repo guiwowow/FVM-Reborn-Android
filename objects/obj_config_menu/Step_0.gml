@@ -3,6 +3,9 @@ switch (button_select) {
     case 2: // 画面设置
         draw_settings_page();
         break;
+	case 3:
+		draw_games_page()
+		break
     
     case 0: // 音乐设置
         draw_audio_page();
@@ -36,18 +39,69 @@ function draw_settings_page(){
 	    var btn1 = instance_create_depth(x - 200, y - 180, depth-1, obj_setting_toggle);
 	    btn1.config_key = "screen_shake";
 	    btn1.state = global.screen_shake;
+		btn1.tooltip_text = "炸弹造成的屏幕震动效果"
 	    array_push(setting_buttons, btn1);
     
 	    // 创建闪烁效果开关
 	    var btn2 = instance_create_depth(x - 200, y - 100, depth-1, obj_setting_toggle);
 	    btn2.config_key = "screen_flash";
 	    btn2.state = global.screen_flash;
+		btn2.tooltip_text = "冰桶、开水壶等造成的屏幕闪烁效果\n如果您对游戏画面感到不适，请关闭该选项，并及时就医。"
 	    array_push(setting_buttons, btn2);
 		
 		// 创建全屏开关
 	    var btn3 = instance_create_depth(x - 200, y - 20, depth-1, obj_setting_toggle);
 	    btn3.config_key = "fullscreen";
 	    btn3.state = global.fullscreen;
+	    array_push(setting_buttons, btn3);
+		
+		// 创建纹理过滤开关
+	    var btn4 = instance_create_depth(x - 200, y + 60, depth-1, obj_setting_toggle);
+	    btn4.config_key = "tex_fliter";
+	    btn4.state = global.tex_fliter;
+		btn4.tooltip_text = "关闭该选项可改善贴图变糊问题，但是会导致图像锐化"
+	    array_push(setting_buttons, btn4);
+		
+		// 创建无边框窗口开关
+	    var btn5 = instance_create_depth(x - 200, y + 140, depth-1, obj_setting_toggle);
+	    btn5.config_key = "borderless_window";
+	    btn5.state = global.borderless_window;
+		btn5.tooltip_text = "将全屏变为无边框窗口模式\n该选项只会在你下一次切换全屏时生效"
+	    array_push(setting_buttons, btn5);
+    
+	    // 标记当前设置页面
+	    current_settings = id;
+	}
+}
+
+function draw_games_page(){
+	if (!instance_exists(current_settings)) {
+	    // 销毁旧按钮
+	    for (var i = 0; i < array_length(setting_buttons); i++) {
+	        if (instance_exists(setting_buttons[i])) {
+	            instance_destroy(setting_buttons[i]);
+	        }
+	    }
+	    setting_buttons = [];
+    
+	    
+		
+		// 创建植物血条开关
+	    var btn1 = instance_create_depth(x - 200, y - 180, depth-1, obj_setting_toggle);
+	    btn1.config_key = "card_hpbar";
+	    btn1.state = global.card_hpbar;
+	    array_push(setting_buttons, btn1);
+		
+		// 创建敌人血条开关
+	    var btn2 = instance_create_depth(x - 200, y - 100, depth-1, obj_setting_toggle);
+	    btn2.config_key = "enemy_hpbar";
+	    btn2.state = global.enemy_hpbar;
+	    array_push(setting_buttons, btn2);
+		
+		// 创建难度开关
+	    var btn3 = instance_create_depth(x - 200, y - 20, depth-1, obj_difficulty_select_btn);
+	    btn3.config_key = "difficulty";
+	    btn3.state = global.difficulty;
 	    array_push(setting_buttons, btn3);
     
 	    // 标记当前设置页面
@@ -125,7 +179,7 @@ function draw_controls_page(){
     
 	    var btn2 = instance_create_depth(x + 200, y - 170, depth-1, obj_setting_toggle);
 	    btn2.config_key = "quick_placement";
-	    btn2.tooltip_text = "按下快捷键后直接将卡片放置在鼠标对应位置";
+	    btn2.tooltip_text = "按下快捷键后直接将卡片放置在鼠标对应位置\n该选项对铲子生效，开启该选项会自动关闭放置预览";
 	    ini_open("config.ini");
 	    btn2.state = ini_read_bool("settings", "quick_placement", false);
 	    ini_close();

@@ -24,3 +24,20 @@ else if (config_key == "replace_placement"){
 else if (config_key == "quick_placement"){
 	global.quick_placement = state
 }
+else if (config_key == "card_hpbar"){
+	global.card_hpbar = state
+}
+else if (config_key == "enemy_hpbar"){
+	global.enemy_hpbar = state
+}
+else if (config_key == "tex_fliter"){
+	global.tex_fliter = state
+	gpu_set_tex_filter(global.tex_fliter)
+}
+else if (config_key == "difficulty"){
+	global.difficulty = state
+}
+else if (config_key == "borderless_window"){
+	global.borderless_window = state
+	window_enable_borderless_fullscreen(global.borderless_window)
+}

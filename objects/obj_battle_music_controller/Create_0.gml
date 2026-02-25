@@ -1,2 +1,2 @@
-battle_music = mus_delicious_island_daytime_pre
-new_battle_music = mus_delicious_island_daytime_elite
+battle_music = global.level_data.pre_music
+new_battle_music = global.level_data.elite_music

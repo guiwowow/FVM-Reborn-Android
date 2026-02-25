@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_salad_island_land",
   "bboxMode":0,
   "bbox_bottom":1079,
@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"9cfd1118-c1b8-4daf-9b44-a03167cbf09b","name":"9cfd1118-c1b8-4daf-9b44-a03167cbf09b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c2a8a7ae-cf7f-4bd7-9487-496f9b740214","name":"c2a8a7ae-cf7f-4bd7-9487-496f9b740214","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1080,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"43abdbf6-c295-4471-aae3-05be613c8d9e","blendMode":0,"displayName":"default","isLocked":false,"name":"43abdbf6-c295-4471-aae3-05be613c8d9e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8f17e92d-39c6-4549-8479-293cb6aa9506","blendMode":0,"displayName":"default","isLocked":false,"name":"8f17e92d-39c6-4549-8479-293cb6aa9506","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_salad_island_land",
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Battle Maps",
-    "path":"folders/精灵/Battle Maps.yy",
+    "name":"delicious_island",
+    "path":"folders/精灵/Maps/delicious_island.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9cfd1118-c1b8-4daf-9b44-a03167cbf09b","path":"sprites/spr_salad_island_land/spr_salad_island_land.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"3f0c0f1c-367f-4a6d-a3a7-8ad3cb1ba66e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2a8a7ae-cf7f-4bd7-9487-496f9b740214","path":"sprites/spr_salad_island_land/spr_salad_island_land.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"81d9df70-7428-4b48-a5c8-52fa60d6646c","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

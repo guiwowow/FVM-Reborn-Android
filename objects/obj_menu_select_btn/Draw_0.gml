@@ -17,5 +17,8 @@ else if button_index == 1{
 else if button_index == 2{
 	draw_text_ext_transformed(x,y-15,"画面设置",0,900,1.2,1.2,0)
 }
+else if button_index == 3{
+	draw_text_ext_transformed(x,y-15,"游戏设置",0,900,1.2,1.2,0)
+}
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
