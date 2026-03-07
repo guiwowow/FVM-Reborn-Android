@@ -32,7 +32,7 @@ if state == ENEMY_STATE.ACTING{
 		if instance_exists(target_plant){
 			with target_plant{
 				if !invincible{
-					hp -= 2000
+					hp -= 900
 					event_user(2)
 				}
 			}

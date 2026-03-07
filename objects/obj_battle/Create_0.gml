@@ -14,6 +14,7 @@ mus_inst.battle_music = global.level_data.pre_music
 global.game_over = false
 
 instance_create_depth(0,0,0,obj_battle_pause_manager)
+instance_create_depth(0,0,-2900,obj_battle_timer_display)
 instance_create_depth(mouse_x,mouse_y,0,obj_player_character)
 
 instance_create_depth(room_width-200,room_height-25,0,obj_level_progress_bar)
@@ -32,6 +33,12 @@ global.grid_rows = global.level_file.map_rows
 //啃食音效
 chomp_sound_list = ds_list_create()
 battle_time = 0
+boss_count = 0
+
+speed_up = false
+time_limit = -1
+timer_pause = false
+
 ds_list_add(chomp_sound_list,snd_chomp1)
 ds_list_add(chomp_sound_list,snd_chomp2)
 ds_list_add(chomp_sound_list,snd_chomp3)
@@ -124,8 +131,17 @@ enemy_list = []
 wave_max_time = 25*60
 wave_min_time = 4 * 60
 wave_timer = 0
-
-
+//根据难度调整最大波长
+if global.difficulty >= 3 && global.map_id != "tower_cake"{
+	wave_max_time = 12.5*60
+}
+if is_real(global.level_file.version){
+	wave_max_time = global.level_file.max_wave_time
+	wave_min_time = global.level_file.min_wave_time
+	if global.difficulty >= 3 && global.map_id != "tower_cake"{
+		wave_max_time = round(wave_max_time/2)
+	}
+}
 
 function enemy_subwave_summon(){
 	current_total_hp = 0

@@ -1,5 +1,5 @@
 if not is_placed{
-	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal","normal","none"));
+	var can_plant = (can_place_at_position(mouse_x, mouse_y, "normal","amphi","none"));
 	if can_plant{
 		is_placed = true
 		global.is_paused = false
@@ -11,6 +11,12 @@ if not is_placed{
 		card_created(self,grid_col,grid_row)
 		audio_play_sound(snd_place1,0,0)
 		instance_create_depth(x,y,-2,obj_place_effect)
+		var plany_list = ds_grid_get(global.grid_plants,grid_col,grid_row)
+		if global.grid_terrains[grid_row][grid_col].type == "water"{
+			var card = instance_create_depth(x,y-10,depth+1,obj_wooden_plate)
+			card_created(card,grid_col,grid_row)
+			
+		}
 		var gem_index = 0
 		if global.save_data.equipped_items.main_weapon.id != ""{
 			var main_info = get_weapon_info(global.save_data.equipped_items.main_weapon.id)

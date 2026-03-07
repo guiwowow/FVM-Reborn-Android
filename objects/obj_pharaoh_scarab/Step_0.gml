@@ -16,8 +16,16 @@ if state == ENEMY_STATE.ATTACK{
 if state == ENEMY_STATE.ACTING{
 	if instance_exists(target_plant){
 		with target_plant{
-			hp -= 2000
-			event_user(2)
+			if plant_id != "player"{
+				if !invincible{
+					hp -= 2000
+					event_user(2)
+				}
+			}
+			else{
+				hp = 10
+				event_user(2)
+			}
 		}
 	}
 	image_index = floor(timer/5) mod 5 + 10

@@ -9,7 +9,13 @@ draw_sprite_ext(spr_level_progress_bg_left,0,x-260,y,1.8,1.8,0,c_white,1)
 draw_sprite_ext(spr_level_wave_text,0,x-340,y-40,1.8,1.8,0,c_white,1)
 
 var level_progress = 0
-var current_total_subwaves = array_length(global.level_file.waves[obj_battle.current_wave].subwaves)
+var current_total_subwaves = 0
+if obj_battle.current_wave < obj_battle.total_wave{
+	current_total_subwaves = array_length(global.level_file.waves[obj_battle.current_wave].subwaves)
+}
+else{
+	current_total_subwaves = array_length(global.level_file.waves[obj_battle.current_wave-1].subwaves)
+}
 if obj_battle.current_wave == total_wave - 1 && obj_battle.current_subwave == current_total_subwaves{
 	last_wave = true
 	draw_sprite_ext(spr_level_wave_number,total_wave mod 10,x-340,y-40,1.8,1.8,0,c_white,1)

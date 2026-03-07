@@ -15,6 +15,7 @@ attack_timer = 0
 idle_anim = 10
 flash_speed = 5
 plant_type = "normal"
+target_type = "normal"
 is_slowdown = false
 scared_enemy = []
 current_hp = hp

@@ -57,14 +57,24 @@ if state == ENEMY_STATE.ACTING{
 		if instance_exists(target_plant){
 			if array_get_index(block_list,target_plant.plant_id) == -1{
 			
-				x -= 2.50
+				if is_slowdown{
+					x -= 1.25
+				}
+				else{
+					x -= 2.5
+				}
 			}
 			else{
 				x -= 0
 			}
 		}
 		else{
-			x -= 2.50
+			if is_slowdown{
+				x -= 1.25
+			}
+			else{
+				x -= 2.5
+			}
 		}
 		if hp > maxhp * hurt_rate{
 			image_index = floor(timer/flash_speed) mod attack_anim + move_anim * 2 - 1

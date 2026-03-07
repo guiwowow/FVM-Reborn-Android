@@ -19,6 +19,11 @@ if (hp <= 0 && state != BOSS_STATE.DEATH) {
     timer = 0;
     state = BOSS_STATE.DEATH;
     target_plant = noone;  // 清除攻击目标
+	with obj_battle{
+		if boss_count <= 1 && current_wave >= total_wave - 1{
+			timer_pause = true
+		}
+	}
 }
 
 switch state{
@@ -32,12 +37,13 @@ switch state{
 		}
 		if timer >= wait_time{
 			timer = 0
-			var i = irandom_range(1,100)
-			if i <= 50{
+			if skill_count == 0{
 				state = BOSS_STATE.SKILL1
+				skill_count++
 			}
 			else{
 				state = BOSS_STATE.SKILL2
+				skill_count = 0
 			}
 		}
 		break

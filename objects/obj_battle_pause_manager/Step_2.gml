@@ -10,8 +10,13 @@ if (keyboard_check_pressed(vk_space)) {
             // 取消暂停
 			if global.game_over{
 				if settlement || obj_game_over.sprite_index == spr_lose || global.level_file.version == "1.0.0"{
+					if global.map_id == "tower_cake" || global.map_id == "delicious_town"{
+						global.map_id = "delicious_island"
+						global.map_name = "美味岛"
+					}
 					room_goto(room_map)
 					global.menu_screen = true
+					obj_world_map_button.world_map = 0
 				}
 				if global.level_file.version != "1.0.0"{
 					if obj_game_over.sprite_index == spr_win && !settlement{

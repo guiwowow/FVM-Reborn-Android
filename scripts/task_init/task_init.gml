@@ -495,7 +495,7 @@ function task_init(){
 				"requirements":[
 					{
 						"type":"level_complete",
-						"target_level":"mustard_room_daytime",
+						"target_level":"mustard_cottage_daytime",
 						"desc":"通关一次芥末小屋（日）",
 						"require":1,
 					}
@@ -723,8 +723,8 @@ function task_init(){
 					},
 					{
 						"type":"flame_left",
-						"desc":"关卡结算时，剩余5000以上的火苗",
-						"require":5000,
+						"desc":"关卡结算时，剩余3500以上的火苗",
+						"require":3500,
 					},
 				],
 				"rewards":[
@@ -762,8 +762,8 @@ function task_init(){
 					},
 					{
 						"type":"flame_left",
-						"desc":"关卡结算时，剩余6000以上的火苗",
-						"require":6000,
+						"desc":"关卡结算时，剩余5000以上的火苗",
+						"require":5000,
 					},
 				],
 				"rewards":[
@@ -855,8 +855,8 @@ function task_init(){
 					},
 					{
 						"type":"card_loss",
-						"desc":"不得损失超过35张卡片",
-						"require":35,
+						"desc":"不得损失超过45张卡片",
+						"require":45,
 					},
 				],
 				"rewards":[
@@ -904,8 +904,8 @@ function task_init(){
 					},
 					{
 						"type":"card_loss",
-						"desc":"不得损失超过30张卡片",
-						"require":30,
+						"desc":"不得损失超过60张卡片",
+						"require":60,
 					},
 				],
 				"rewards":[
@@ -953,7 +953,7 @@ function task_init(){
 					},
 					{
 						"type":"card_type_limit",
-						"desc":"不能携带任何炸弹类卡片（包括冰桶炸弹）",
+						"desc":"不能携带任何一次性的伤害类卡片",
 						"limit_card_type":"bomb",
 						"require":1,
 					},
@@ -998,7 +998,7 @@ function task_init(){
 					},
 					{
 						"type":"card_type_limit",
-						"desc":"不能携带任何炸弹类卡片（包括冰桶炸弹）",
+						"desc":"不能携带任何一次性的伤害类卡片",
 						"limit_card_type":"bomb",
 						"require":1,
 					},
@@ -1043,7 +1043,7 @@ function task_init(){
 					},
 					{
 						"type":"card_type_limit",
-						"desc":"不能携带任何炸弹类卡片（包括冰桶炸弹）",
+						"desc":"不能携带任何一次性的伤害类卡片",
 						"limit_card_type":"bomb",
 						"require":1,
 					},
