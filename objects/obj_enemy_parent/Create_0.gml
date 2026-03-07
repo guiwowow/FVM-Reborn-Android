@@ -35,6 +35,7 @@ stun_sprite = spr_mouse_stun
 mouse_id = ""
 giant_type = false
 target_type = "normal"
+is_boss = false
 
 // =======猫驱赶相关=======
 is_scare = false

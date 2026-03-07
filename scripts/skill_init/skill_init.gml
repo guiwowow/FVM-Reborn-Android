@@ -40,4 +40,5 @@ function skill_init(){
 	register_card_skill("ventilation_fan","cycle",[25*60,35*60,45*60,55*60,65*60,75*60,85*60,95*60,105*60])
 	register_card_skill("chocolate_pult","cycle",[3*60,2.9*60,2.8*60,2.7*60,2.6*60,2.4*60,2.2*60,2*60,1.8*60])
 	register_card_skill("chocolate_cannon","cooldown",[50*60,47*60,44*60,41*60,38*60,35*60,32*60,29*60,26*60])
+	register_card_skill("firework_dragon","flame_produce",[25,27,29,31,34,37,40,44,48])
 }

@@ -18,7 +18,7 @@ if config_key == "difficulty"{
 			break
 		case 3:
 			draw_text(x,y,"星际级")
-			tooltip_text = "在浮空级的基础上，所有敌人血量翻倍。\n祝你好运！"
+			tooltip_text = "在浮空级的基础上，所有敌人血量增加20%，出怪间隔减半。\n祝你好运！"
 			break
 	}
 	

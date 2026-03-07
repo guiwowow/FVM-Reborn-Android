@@ -48,6 +48,11 @@ for(var i = 0;i < global.level_file.total_waves;i ++){
 		if array_get_index(boss_type_list,global.level_file.waves[i].boss) == -1{
 			array_push(boss_type_list,global.level_file.waves[i].boss)
 		}
+		if is_real(global.level_file.version){
+			if array_get_index(boss_type_list,global.level_file.waves[i].boss2) == -1 && global.level_file.waves[i].boss2 != ""{
+				array_push(boss_type_list,global.level_file.waves[i].boss2)
+			}
+		}
 	}
 	var subwave = global.level_file.waves[i].subwaves
 	for(var j = 0 ; j <array_length(subwave);j++){

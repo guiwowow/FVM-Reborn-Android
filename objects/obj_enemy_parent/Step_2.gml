@@ -11,12 +11,30 @@ if not hp_modified{
 		shield_max_hp *= 0.8
 	}
 	if global.difficulty >= 3{
-		maxhp *= 2
-		hp *= 2
-		helmet_hp *= 2
-		helmet_max_hp *= 2
-		shield_hp *= 2
-		shield_max_hp *= 2
+		if global.map_id != "tower_cake"{
+			maxhp *= 1.2
+			hp *= 1.2
+			helmet_hp *= 1.2
+			helmet_max_hp *= 1.2
+			shield_hp *= 1.2
+			shield_max_hp *= 1.2
+		}
+		else{
+			maxhp *= 1.0
+			hp *= 1.0
+			helmet_hp *= 1.0
+			helmet_max_hp *= 1.0
+			shield_hp *= 1.0
+			shield_max_hp *= 1.0
+		}
+	}
+	if is_real(global.level_file.version) && !is_boss{
+		maxhp *= global.level_file.hp_modify
+		hp *= global.level_file.hp_modify
+		helmet_hp *= global.level_file.hp_modify
+		helmet_max_hp *= global.level_file.hp_modify
+		shield_hp *= global.level_file.hp_modify
+		shield_max_hp *= global.level_file.hp_modify
 	}
 	
 	hp_modified = true

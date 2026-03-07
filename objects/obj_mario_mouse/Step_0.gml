@@ -12,6 +12,11 @@ if (hp <= 0 && state != BOSS_STATE.DEATH) {
     timer = 0;
     state = BOSS_STATE.DEATH;
     target_plant = noone;  // 清除攻击目标
+	with obj_battle{
+		if boss_count <= 1 && current_wave >= total_wave - 1{
+			timer_pause = true
+		}
+	}
 }
 
 switch state{
@@ -58,7 +63,6 @@ switch state{
 		else{
 			image_index = floor(timer/5) mod 8 + 8
 		}
-		var pipeline = noone
 		if timer == 3*60{
 			var cave_pos = get_world_position_from_grid(8,grid_row)
 			var erase_col = 8

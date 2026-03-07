@@ -1,6 +1,6 @@
 for(var i = 0; i < array_length(scared_enemy);i++){
 	with scared_enemy[i]{
-		if scare_timer <=0{
+		if scare_timer <=0 && can_hit(other.target_type,target_type){
 			scare_timer = 30
 			left_move_flashs = 30
 			if grid_row == 0 {

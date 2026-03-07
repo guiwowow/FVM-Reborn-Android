@@ -31,11 +31,12 @@ global.player_sprite = noone;
 load_file(global.save_slot)
 //reset_file(global.save_slot)
 
+//unlock_card("firework_dragon",12,2,7)
 //unlock_weapon("double_water_gun")
 //unlock_weapon("ice_spoon_crossbow")
-//unlock_card("chocolate_pult",12,2,7)
-//unlock_card("chocolate_cannon",12,2,7)
-{//测试版设置初始存档
+//unlock_card("chocolate_pult",6,0,5)
+//unlock_card("chocolate_cannon",6,0,5)
+//{//测试版设置初始存档
 //	unlock_card("toast_bread",6,0,5)
 //	unlock_card("small_fire",6,0,5)
 //	unlock_card("xiao_long_bao",6,0,5)
@@ -68,19 +69,19 @@ load_file(global.save_slot)
 //	unlock_card("double_water_pipe",6,0,5)
 //	unlock_card("melon_shield",6,0,5)
 //	//unlock_card("ice_egg_boiler_pult",6,0,5)
-//	unlock_card("coffee_grounds",9,0,7)
-//	unlock_card("hamburger",12,0,7)
+//	unlock_card("coffee_grounds",6,0,5)
+//	unlock_card("hamburger",6,0,5)
 //	unlock_card("steel_wool",6,0,5)
-//	unlock_card("wooden_cork",16,0,8)
+//	unlock_card("wooden_cork",6,0,5)
 //	unlock_card("sausage",6,0,5)
 //	unlock_card("oil_lamp",6,0,5)
 //	unlock_card("ventilation_fan",6,0,5)
 //	global.save_data.player.gold = 20000000
-//	global.save_data.player.level = 15
+//	global.save_data.player.level = 21
 //	global.save_data.unlocked_items.max_card_level = 6
-//	global.save_data.unlocked_items.max_skill_level = 5
+//	global.save_data.unlocked_items.max_skill_level = 7
 //	global.save_data.unlocked_items.max_gem_level = 5
-//	global.save_data.unlocked_items.max_slot = 12
+//	global.save_data.unlocked_items.max_slot = 21
 //	global.save_data.unlocked_items.shovel = "copper"
 
 //	unlock_weapon("star_gun")
@@ -122,14 +123,15 @@ load_file(global.save_slot)
 //	set_material_amount("less_crystal",2000)
 //	set_material_amount("middle_crystal",5000)
 //	set_material_amount("advanced_crystal",10000)
-}
+//}
 global.player_name = global.save_data.player.name
 global.total_time = global.save_data.player.total_time
+//global.save_data.unlocked_items.elite_unlocked = true
 
 //debug相关
 if global.debug{
-	global.save_data.player.gold = 9999999999
-	global.save_data.player.level = 80
+//	global.save_data.player.gold = 9999999999
+//	global.save_data.player.level = 80
 //	global.save_data.unlocked_items.max_card_level = 16
 //	global.save_data.unlocked_items.max_skill_level = 8
 //	global.save_data.unlocked_items.max_gem_level = 15

@@ -12,6 +12,11 @@ if (hp <= 0 && state != BOSS_STATE.DEATH) {
     timer = 0;
     state = BOSS_STATE.DEATH;
     target_plant = noone;  // 清除攻击目标
+	with obj_battle{
+		if boss_count <= 1 && current_wave >= total_wave - 1{
+			timer_pause = true
+		}
+	}
 }
 
 switch state{

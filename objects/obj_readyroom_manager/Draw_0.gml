@@ -383,3 +383,8 @@ for(var i = deck_first_slot_index; i < deck_first_slot_index+11;i++){
 	}
 	
 }
+draw_set_color(c_white);
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+draw_set_font(font_yuan)
+draw_text(1820,1080,"按ESC退出")

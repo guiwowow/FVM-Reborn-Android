@@ -22,7 +22,7 @@ for(var i = 0; i < array_length(scared_enemy) ; i++){
 	array_delete(scared_enemy,0,1)
 }
 with(obj_enemy_parent){
-	if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (other.grid_col + 1) && hp > 0){
+	if (grid_row == other.grid_row && grid_col >= other.grid_col && grid_col <= (other.grid_col + 1) && hp > 0 && can_target_on(other.target_type,target_type)){
 		array_push(other.scared_enemy,id)
 		has_enemy = true
 	}

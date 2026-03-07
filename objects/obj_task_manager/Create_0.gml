@@ -5,7 +5,7 @@ not_equip_weapon = false
 not_use_designated_card = false
 
 card_group = {
-	"bomb":["coke_bomb","kettle_bomb","flour_sack","steel_wool","mouse_clip","wine_bottle_bomb","ice_bucket_bomb","chocolate_cannon"]
+	"bomb":["coke_bomb","kettle_bomb","flour_sack","steel_wool","mouse_clip","wine_bottle_bomb"]
 }
 
 function reset_task_state(){
