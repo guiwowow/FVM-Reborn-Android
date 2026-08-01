@@ -602,7 +602,6 @@
   },
   "name":"FVM-reborn",
   "resources":[
-    {"id":{"name":"WindowsNative","path":"extensions/WindowsNative/WindowsNative.yy",},},
     {"id":{"name":"font_hei","path":"fonts/font_hei/font_hei.yy",},},
     {"id":{"name":"font_number","path":"fonts/font_number/font_number.yy",},},
     {"id":{"name":"font_pixel","path":"fonts/font_pixel/font_pixel.yy",},},
@@ -985,6 +984,7 @@
     {"id":{"name":"obj_shop_page_btn","path":"objects/obj_shop_page_btn/obj_shop_page_btn.yy",},},
     {"id":{"name":"obj_shop_select_btn","path":"objects/obj_shop_select_btn/obj_shop_select_btn.yy",},},
     {"id":{"name":"obj_shovel_slot","path":"objects/obj_shovel_slot/obj_shovel_slot.yy",},},
+    {"id":{"name":"obj_touch_control","path":"objects/obj_touch_control/obj_touch_control.yy",},},
     {"id":{"name":"obj_shovel","path":"objects/obj_shovel/obj_shovel.yy",},},
     {"id":{"name":"obj_shy_landlady_mouse","path":"objects/obj_shy_landlady_mouse/obj_shy_landlady_mouse.yy",},},
     {"id":{"name":"obj_skateboard_mouse","path":"objects/obj_skateboard_mouse/obj_skateboard_mouse.yy",},},

@@ -9,7 +9,11 @@ if (mouse_check_button_pressed(mb_left)) {
     my = mouse_y;
     
     if (point_in_rectangle(mx, my, x, y, x+150, y+150)) {
-        select_shovel();
+        if (is_selected) {
+            deselect_shovel();
+        } else {
+            select_shovel();
+        }
 		audio_play_sound(snd_shovel,0,0)
     }
 }

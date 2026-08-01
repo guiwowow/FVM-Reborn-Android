@@ -54,8 +54,15 @@ global.laboratory_manager.init()
 global.gui_stack = new GuiStack()
 global.native_util = new NativeUtil()
 
+// 触屏适配控制器（持久，跨房间常驻；双指取消/虚拟按键）
+if (!instance_exists(obj_touch_control)) {
+    instance_create_depth(0, 0, -100000, obj_touch_control)
+}
+
 init_native_log()
-move_files()
+if (os_type == os_windows) {
+    move_files()
+}
 
 // 初始化全局键位映射
 global.keybind_map = ds_map_create();

@@ -117,10 +117,14 @@ function create_widgets() {
             return gui_state.current_stage_id == ""
         }))
         .set_on_click(method({}, function() {
-            var _target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\laboratory")
-            var _error_code = native_open_folder(_target)
-            if (_error_code != 0) {
-                global.native_util.show_error(_error_code, "打开实验室文件夹失败")
+            if (os_type == os_windows) {
+                var _target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\laboratory")
+                var _error_code = native_open_folder(_target)
+                if (_error_code != 0) {
+                    global.native_util.show_error(_error_code, "打开实验室文件夹失败")
+                }
+            } else {
+                show_message_async("该功能仅支持 Windows 端")
             }
         }))
 }
