@@ -74,9 +74,16 @@ function after_texture_load() {
             return;
         }
     }
-    // 启动预热：shader 编译 + 字体字形（避免游戏内首次使用资源卡顿）
-    prewarm_types = ["shader", "shader", "shader", "shader", "font", "font", "font", "font", "font", "font", "font"]
-    prewarm_res = [__shd_scribble, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    // 启动预热：shader 驱动编译缓存 + 字体字形（避免游戏内首次使用资源卡顿）
+    // 首次启动（无 prewarm_done.ini 标记）→ 全量预热（全部 12 个 shader，驱动编译缓存一次性建立）
+    // 之后启动 → 基础预热（4 个常用 shader + 7 字体，进程级必需项）
+    if (!file_exists("prewarm_done.ini")) {
+        prewarm_types = ["shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","font","font","font","font","font","font","font"]
+        prewarm_res = [__shd_scribble, __shd_scribble_bake_effect_4dir, __shd_scribble_bake_effect_8dir, __shd_scribble_bake_effect_8dir_2px, __shd_scribble_bake_effect_no_outline, __shd_scribble_bake_outline_4dir, __shd_scribble_bake_outline_8dir, __shd_scribble_bake_outline_8dir_2px, __shd_scribble_bake_shadow, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    } else {
+        prewarm_types = ["shader", "shader", "shader", "shader", "font", "font", "font", "font", "font", "font", "font"]
+        prewarm_res = [__shd_scribble, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    }
     prewarm_total = array_length(prewarm_res)
     prewarm_idx = 0
     prewarm_active = true
@@ -102,6 +109,12 @@ function prewarm_step() {
     if (!prewarm_active) return;
     if (prewarm_idx >= prewarm_total) {
         prewarm_active = false;
+        // 预热完成：写标记（首次全量预热完成后，下次启动走基础预热）
+        if (!file_exists("prewarm_done.ini")) {
+            var _f = file_text_open_write("prewarm_done.ini")
+            file_text_write_string(_f, "1")
+            file_text_close(_f)
+        }
         return;
     }
     var _surf = surface_create(2, 2)
