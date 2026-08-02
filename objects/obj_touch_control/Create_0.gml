@@ -51,3 +51,6 @@ function toggle_shovel() {
 
 // 帧耗时监控（安卓卡顿定位用）
 _prev_frame_time = 0;
+
+// 锁帧状态
+_last_frame_time = 0;

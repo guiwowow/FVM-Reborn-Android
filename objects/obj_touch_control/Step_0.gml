@@ -5,6 +5,21 @@
 
 prev_touch_count = 0;
 
+// 安卓锁帧 60：高刷屏下 game_set_speed 失效，用 current_time 忙等补偿（锁逻辑帧防加速）
+// 注意：不能用 sleep（YYC 安卓运行时非方法，会报 not a method）
+if (os_type != os_windows) {
+    if (fps > 62) {
+        var _target_ms = 1000 / 60;
+        var _frame_dur = current_time - _last_frame_time;
+        if (_frame_dur > 0 && _frame_dur < _target_ms - 1) {
+            var _wait_ms = _target_ms - _frame_dur;
+            var _wait_start = current_time;
+            while (current_time - _wait_start < _wait_ms) {}
+        }
+    }
+    _last_frame_time = current_time;
+}
+
 // 帧耗时监控（安卓卡顿定位）：帧耗时 >150ms 时记录上下文到 lag_log.txt
 if (os_type != os_windows) {
     var _now = current_time;
