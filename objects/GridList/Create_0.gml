@@ -10,6 +10,9 @@ self.state = {
     viewport_width: 0,
     viewport_height: 0,
     wheel_step: 10,
+    second_touch_y_prev: 0,
+    second_touch_active: false,
+    two_finger_scale: 1.5,
     padding_left: 0,
     padding_top: 0,
     padding_bottom: 0,
@@ -208,12 +211,45 @@ function apply_wheel() {
     clamp_scroll_bounds()
 }
 
+/// @description 安卓双指滑动替代滚轮（第二根手指在列表区域内上下滑动）
+function apply_two_finger_scroll() {
+    if (os_type == os_windows) {
+        return
+    }
+    var _mx = device_mouse_x(1)
+    var _my = device_mouse_y(1)
+    // 第二指必须在列表视口内
+    if (!point_in_rectangle(
+        _mx, _my,
+        self.state.viewport_left, self.state.viewport_top,
+        self.state.viewport_left + self.state.viewport_width, self.state.viewport_top + self.state.viewport_height
+    )) {
+        self.state.second_touch_active = false
+        return
+    }
+    var _second_down = device_mouse_check_button(1, mb_left)
+    if (_second_down) {
+        if (self.state.second_touch_active) {
+            var _dy = _my - self.state.second_touch_y_prev
+            if (_dy != 0) {
+                self.state.scroll_target_y -= _dy * self.state.two_finger_scale
+                clamp_scroll_bounds()
+            }
+        }
+        self.state.second_touch_y_prev = _my
+        self.state.second_touch_active = true
+    } else {
+        self.state.second_touch_active = false
+    }
+}
+
 /// @description Begin Step — layout + scroll before child Step
 function on_begin_step() {
     if (!self.state.should_correspond()) {
         exit
     }
     apply_wheel()
+    apply_two_finger_scroll()
     smooth_scroll_y()
     layout_items()
 }
