@@ -80,11 +80,11 @@
   },
   "swatchColours":null,
   "swfPrecision":2.525,
-  "textureGroupId":{
-    "name":"UI",
+  "textureGroupId":{"name":"UI",
     "path":"texturegroups/UI",
   },
   "type":0,
   "VTile":false,
   "width":951,
 }
+

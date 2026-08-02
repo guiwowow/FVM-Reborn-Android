@@ -1,28 +1,21 @@
-// Step 事件：检测双指取消 与 触屏按钮点击
+// Step 事件：安卓触屏适配
+// 注意：YYC 模式下 device_* 触摸函数编译失败，暂不使用；基础点击由 mouse 模拟处理
+// 返回键：GameMaker 2026 安卓返回键未映射 vk_escape，用"屏幕右上角点击 = ESC"替代
+// 空格：暂停/结算时点击屏幕 = 空格（已在 obj_battle_pause_manager 处理）
 
-// 双指点击 = 取消当前选中
-var _count = device_get_touch_count();
-if (_count >= 2 && prev_touch_count < 2) {
-    if (in_battle_hud() && !global.is_paused) {
-        cancel_current_selection();
+prev_touch_count = 0;
+
+if (os_type != os_windows) {
+    // 返回键 = ESC（若设备映射了 vk_escape 则直接生效）
+    if (keyboard_check_pressed(vk_escape)) {
+        show_notice("返回键=ESC", 60);
     }
-}
-prev_touch_count = _count;
-
-// 触屏按钮点击检测（使用 GUI 坐标，仅移动端显示）
-if (os_type != os_windows && in_battle_hud() && !global.is_paused) {
-    var _tx = device_mouse_x_to_gui(0);
-    var _ty = device_mouse_y_to_gui(0);
-    if (device_mouse_check_button_pressed(0, mb_left)) {
-        // 取消按钮
-        if (point_in_rectangle(_tx, _ty, cancel_btn.x, cancel_btn.y,
-                cancel_btn.x + cancel_btn.w, cancel_btn.y + cancel_btn.h)) {
-            cancel_current_selection();
-        }
-        // 铲子切换按钮
-        else if (point_in_rectangle(_tx, _ty, shovel_btn.x, shovel_btn.y,
-                shovel_btn.x + shovel_btn.w, shovel_btn.y + shovel_btn.h)) {
-            toggle_shovel();
+    // 屏幕右上角区域点击 = ESC（安卓替代返回键）
+    if (mouse_check_button_pressed(mb_left)) {
+        if (mouse_x > room_width - 50 && mouse_y < 150) {
+            keyboard_key_press(vk_escape);
+            keyboard_key_release(vk_escape);
+            show_notice("ESC", 60);
         }
     }
 }

@@ -58,6 +58,13 @@ if !global.preloaded{
 }
 
 function after_texture_load() {
+    // 安卓/移动端跳过 scribble 中文字体烘焙（CPU 极重且可能触发阻塞弹窗），文字回退用普通字体渲染
+    if (os_type == os_android) {
+        if !global.preloaded{
+            global.preloaded = true;
+        }
+        return;
+    }
     scribble_font_set_default("font_hei")
     scribble_font_bake_outline_4dir("font_hei", "font_hei_outline_4dir_black", c_dkgray, false)
 	if !global.preloaded{
@@ -138,4 +145,5 @@ function on_draw() {
 	draw_set_colour(c_yellow)
 	draw_text(_x1+self.total_progress_bar_width/2, _y1 - 80, "本游戏为免费开源游戏，任何付费获取方式均为诈骗\n游戏作者B站名称：Spring曙光");
 }
+
 

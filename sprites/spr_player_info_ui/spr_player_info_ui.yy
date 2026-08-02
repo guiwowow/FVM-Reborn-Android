@@ -63,8 +63,8 @@
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
-    "seqHeight":98,
-    "seqWidth":232,
+    "seqHeight":98.0,
+    "seqWidth":232.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,
@@ -82,11 +82,11 @@
   },
   "swatchColours":null,
   "swfPrecision":0.5,
-  "textureGroupId":{
-    "name":"UI",
+  "textureGroupId":{"name":"UI",
     "path":"texturegroups/UI",
   },
   "type":0,
   "VTile":false,
   "width":232,
 }
+

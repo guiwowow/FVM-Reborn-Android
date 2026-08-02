@@ -47,12 +47,14 @@ global.level_name = "曲奇岛"
 global.level_data = {}
 global.debug = 0
 global.laboretory_room = false
+
 Music_Init()
 
 global.laboratory_manager = new LaboratoryManager()
 global.laboratory_manager.init()
 global.gui_stack = new GuiStack()
 global.native_util = new NativeUtil()
+global.file_dialog_pending = ""
 
 // 触屏适配控制器（持久，跨房间常驻；双指取消/虚拟按键）
 if (!instance_exists(obj_touch_control)) {
@@ -156,3 +158,4 @@ global.music_volume_before_mute = global.music_volume > 0 ? global.music_volume 
 global.sound_volume_before_mute = global.sound_volume > 0 ? global.sound_volume : 0.7;
 
 show_debug_message(working_directory)
+

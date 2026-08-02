@@ -1,16 +1,35 @@
 // Draw GUI 事件：绘制触屏虚拟按钮
-// 仅在有战斗 HUD（卡槽/铲子槽）时显示
+// YYC 下 draw_roundrect 等绘制函数存在运行兼容问题，安卓端暂时不绘制虚拟按钮
+// （虚拟按键功能已随 Step 一并禁用，后续如需启用需换兼容实现）
+if (os_type != os_windows) {
+	// 安卓：绘制可见 ESC 按钮（右上角，配合 Step_0 检测区域；本对象 depth 已被提到最顶层）
+	draw_set_alpha(0.75);
+	draw_set_color(c_black);
+	draw_roundrect(room_width - 50, 0, room_width + 100, 150, false);
+	draw_set_alpha(1);
+	draw_set_color(c_red);
+	draw_roundrect(room_width - 42, 8, room_width + 92, 142, true);
+	draw_set_color(c_white);
+	draw_set_font(font_yuan);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(room_width + 25, 75, "ESC");
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	exit;
+}
 
+// 仅在有战斗 HUD（卡槽/铲子槽）时显示
 if (os_type == os_windows || !in_battle_hud() || global.is_paused) exit;
 
 // ---- 取消按钮（右上角）----
 var _c = cancel_btn;
 draw_set_alpha(0.7);
 draw_set_color(c_black);
-draw_rectangle_rounded(_c.x, _c.y, _c.x + _c.w, _c.y + _c.h, 14, 14, true);
+draw_roundrect(_c.x, _c.y, _c.x + _c.w, _c.y + _c.h, false);
 draw_set_alpha(1);
 draw_set_color(c_red);
-draw_rectangle_rounded(_c.x + 3, _c.y + 3, _c.x + _c.w - 3, _c.y + _c.h - 3, 12, 12, true);
+draw_roundrect(_c.x + 3, _c.y + 3, _c.x + _c.w - 3, _c.y + _c.h - 3, true);
 // X 图标
 draw_set_color(c_white);
 draw_set_line_width(5);
@@ -27,14 +46,14 @@ if (instance_exists(_shovel_slot)) {
 }
 draw_set_alpha(0.7);
 draw_set_color(c_black);
-draw_rectangle_rounded(_s.x, _s.y, _s.x + _s.w, _s.y + _s.h, 14, 14, true);
+draw_roundrect(_s.x, _s.y, _s.x + _s.w, _s.y + _s.h, false);
 draw_set_alpha(1);
 if (_shovel_selected) {
     draw_set_color(c_lime);
 } else {
     draw_set_color(c_olive);
 }
-draw_rectangle_rounded(_s.x + 3, _s.y + 3, _s.x + _s.w - 3, _s.y + _s.h - 3, 12, 12, true);
+draw_roundrect(_s.x + 3, _s.y + 3, _s.x + _s.w - 3, _s.y + _s.h - 3, true);
 // 铲子图标（简化：铲头 + 铲柄）
 var _cx = _s.x + _s.w * 0.5;
 var _cy = _s.y + _s.h * 0.5;
@@ -49,3 +68,5 @@ draw_line(_cx + 28, _cy - 26, _cx + 22, _cy - 6);
 draw_line(_cx + 22, _cy - 6, _cx + 4, _cy - 12);
 draw_line(_cx + 4, _cy - 12, _cx + 10, _cy - 32);
 draw_set_line_width(1);
+
+

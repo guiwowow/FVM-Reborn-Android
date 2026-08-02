@@ -1,5 +1,10 @@
 // obj_battle_pause_manager - Step Event
-if (keyboard_check_pressed(vk_space)) {	
+// 安卓适配：暂停中/结算时点击屏幕 = 空格（继续）；返回键 = ESC（GameMaker 安卓返回键映射 vk_escape）
+var _space = keyboard_check_pressed(vk_space);
+if (os_type != os_windows && (global.is_paused || global.game_over || obj_battle.battle_time == 1)) {
+    if (mouse_check_button_pressed(mb_left)) _space = true;
+}
+if (_space) {	
     //if global.selected_slot == noone {
         if (!global.is_paused) {
             // 空格暂停：只暂停不显示菜单
