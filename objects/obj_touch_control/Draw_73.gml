@@ -5,15 +5,15 @@ if (os_type != os_windows) {
 	// 安卓：绘制可见 ESC 按钮（左下角，配合 Step_0 检测区域；本对象 depth 已被提到最顶层）
 	draw_set_alpha(0.75);
 	draw_set_color(c_black);
-	draw_roundrect(0, room_height - 150, 150, room_height, false);
+	draw_roundrect(-20, room_height - 130, 130, room_height + 20, false);
 	draw_set_alpha(1);
 	draw_set_color(c_red);
-	draw_roundrect(8, room_height - 142, 142, room_height - 8, true);
+	draw_roundrect(-12, room_height - 122, 122, room_height + 12, true);
 	draw_set_color(c_white);
 	draw_set_font(font_yuan);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text(75, room_height - 75, "ESC");
+	draw_text(55, room_height - 55, "ESC");
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 
