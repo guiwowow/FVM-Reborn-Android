@@ -1,5 +1,15 @@
 // obj_battle_pause_manager - Step Event
 // 安卓适配：暂停中/结算时点击屏幕 = 空格（继续）；返回键 = ESC（GameMaker 安卓返回键映射 vk_escape）
+// 安卓：切后台自动暂停（回前台保持暂停菜单，玩家点继续恢复）
+if (os_type != os_windows) {
+    if (os_is_paused() && !global.is_paused) {
+        global.is_paused = true;
+        global.show_menu = true;
+        if (!instance_exists(obj_pause_menu)) {
+            instance_create_depth(room_width / 2, room_height / 2, depth, obj_pause_menu);
+        }
+    }
+}
 var _space = keyboard_check_pressed(vk_space);
 if (os_type != os_windows && (global.is_paused || global.game_over || obj_battle.battle_time == 1)) {
     if (mouse_check_button_pressed(mb_left)) _space = true;

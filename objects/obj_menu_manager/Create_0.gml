@@ -36,6 +36,7 @@ global.laboretory_room = false
 
 
 self.texture_to_load = [
+	"Default",
 	"UI",
 	"cards",
 	"enemy_delicious",
