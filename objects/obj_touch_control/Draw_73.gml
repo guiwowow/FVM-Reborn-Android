@@ -25,12 +25,10 @@ if (os_type != os_windows) {
 		draw_set_alpha(1);
 		draw_set_color(c_red);
 		draw_roundrect(8, 8, 142, 142, true);
-		// 双竖线图标（暂停）
+		// 双竖线图标（暂停，用填充矩形避免 draw_set_line_width 兼容问题）
 		draw_set_color(c_white);
-		draw_set_line_width(12);
-		draw_line(52, 45, 52, 105);
-		draw_line(98, 45, 98, 105);
-		draw_set_line_width(1);
+		draw_rectangle(46, 45, 58, 105, false);
+		draw_rectangle(92, 45, 104, 105, false);
 	}
 	exit;
 }
