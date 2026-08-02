@@ -62,7 +62,7 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
 		
         select_slot()
         // 安卓点选防误触：选中后锁帧，防止同一次按下的 pressed 立即触发放置
-        select_lock_frames = 5;
+        select_lock_frames = 2;
         
         // 创建放置预览对象
         if (selected_preview == noone) {
