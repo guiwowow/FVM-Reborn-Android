@@ -3,6 +3,11 @@ if global.is_paused{
 	exit
 }
 
+// 点选防误触锁递减
+if (select_lock_frames > 0) {
+	select_lock_frames--;
+}
+
 if card_id != "magic_chicken"{
 	current_cost = cost
 	if ds_map_find_value(global.plus_card_map,card_id) != undefined{
@@ -56,6 +61,8 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
     if (point_in_rectangle(mx, my, x-50, y-70, x+50, y+70)) {
 		
         select_slot()
+        // 安卓点选防误触：选中后锁帧，防止同一次按下的 pressed 立即触发放置
+        select_lock_frames = 5;
         
         // 创建放置预览对象
         if (selected_preview == noone) {
@@ -121,8 +128,14 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 左键尝试放置植物
+    // 左键尝试放置植物（安卓点选优化：按下标记 pending，下一帧用最新鼠标位置执行放置）
     if (mouse_check_button_pressed(mb_left)) {
+        if (select_lock_frames <= 0) {
+            place_pending = true;
+        }
+    }
+    if (place_pending) {
+        place_pending = false;
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape

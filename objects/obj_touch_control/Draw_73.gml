@@ -16,6 +16,22 @@ if (os_type != os_windows) {
 	draw_text(room_width - 50, 75, "ESC");
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+
+	// 安卓：绘制可见暂停按钮（左上角，战斗专属；点击 = 空格暂停）
+	if (instance_exists(obj_battle)) {
+		draw_set_alpha(0.75);
+		draw_set_color(c_black);
+		draw_roundrect(0, 0, 150, 150, false);
+		draw_set_alpha(1);
+		draw_set_color(c_red);
+		draw_roundrect(8, 8, 142, 142, true);
+		// 双竖线图标（暂停）
+		draw_set_color(c_white);
+		draw_set_line_width(12);
+		draw_line(52, 45, 52, 105);
+		draw_line(98, 45, 98, 105);
+		draw_set_line_width(1);
+	}
 	exit;
 }
 

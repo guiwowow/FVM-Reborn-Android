@@ -195,3 +195,7 @@ function try_place_once(){
             global.selected_slot = noone;
 		}
 }
+
+// 安卓触控优化：点选放置防误触锁 + 放置延迟帧
+select_lock_frames = 0;
+place_pending = false;
