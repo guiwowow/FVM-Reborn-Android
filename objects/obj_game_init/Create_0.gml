@@ -56,6 +56,9 @@ global.gui_stack = new GuiStack()
 global.native_util = new NativeUtil()
 global.file_dialog_pending = ""
 
+// 锁帧 60（安卓高刷屏下 game_set_speed 可能失效，配合 obj_touch_control 的 sleep 补偿）
+game_set_speed(60, gamespeed_fps)
+
 // 触屏适配控制器（持久，跨房间常驻；双指取消/虚拟按键）
 if (!instance_exists(obj_touch_control)) {
     instance_create_depth(0, 0, -100000, obj_touch_control)

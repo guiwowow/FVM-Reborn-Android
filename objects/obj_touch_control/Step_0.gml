@@ -5,6 +5,17 @@
 
 prev_touch_count = 0;
 
+// 安卓锁帧 60（高刷屏下 game_set_speed 可能失效，sleep 补偿；obj_game_init 已设 game_set_speed(60)）
+if (os_type != os_windows) {
+    if (fps > 62) {
+        var _target_ms = 1000 / 60;
+        var _actual_ms = 1000 / fps;
+        if (_actual_ms < _target_ms) {
+            sleep(_target_ms - _actual_ms);
+        }
+    }
+}
+
 if (os_type != os_windows) {
     // 屏幕左上角区域点击 = 空格暂停（战斗专属，配合 Draw 的暂停按钮）
     if (instance_exists(obj_battle) && mouse_check_button_pressed(mb_left)) {
