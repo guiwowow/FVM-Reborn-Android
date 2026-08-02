@@ -55,6 +55,12 @@ self.texture_loaded = 0
 global.preloaded = variable_global_exists("preloaded") ? global.preloaded : false
 self.display_progress = 0
 
+// 预热（shader 编译 + 字体字形生成，分帧执行；shader 编译是进程级的，每次启动都要预热）
+prewarm_active = false
+prewarm_idx = 0
+prewarm_total = 0
+prewarm_list = []
+
 if !global.preloaded{
 	instance_create_depth(-800,-800,0,obj_update_checker_btn)
 }
@@ -66,6 +72,23 @@ function after_texture_load() {
             return;
         }
     }
+    // 启动预热：shader 编译 + 字体字形（避免游戏内首次使用资源卡顿）
+    prewarm_list = [
+        {type: "shader", res: __shd_scribble},
+        {type: "shader", res: ClipRRectShader},
+        {type: "shader", res: hit_effect},
+        {type: "shader", res: hit_effect_2},
+        {type: "font", res: font_hei},
+        {type: "font", res: font_number},
+        {type: "font", res: font_pixel},
+        {type: "font", res: font_song},
+        {type: "font", res: font_song2},
+        {type: "font", res: font_yuan},
+        {type: "font", res: scribble_fallback_font}
+    ]
+    prewarm_total = array_length(prewarm_list)
+    prewarm_idx = 0
+    prewarm_active = true
     // 安卓/移动端跳过 scribble 中文字体烘焙（CPU 极重且可能触发阻塞弹窗），文字回退用普通字体渲染
     if (os_type == os_android) {
         if !global.preloaded{
@@ -81,6 +104,31 @@ function after_texture_load() {
 		}
 		global.preloaded = true;
 	}
+}
+
+/// @description 分帧预热：离屏绘制触发 shader 编译与字体字形生成
+function prewarm_step() {
+    if (!prewarm_active) return;
+    if (prewarm_idx >= prewarm_total) {
+        prewarm_active = false;
+        return;
+    }
+    var _item = prewarm_list[prewarm_idx]
+    var _surf = surface_create(2, 2)
+    if (_surf != -1) {
+        surface_set_target(_surf)
+        if (_item.type == "shader") {
+            shader_set(_item.res)
+            draw_rectangle(0, 0, 2, 2, false)
+            shader_reset()
+        } else {
+            draw_set_font(_item.res)
+            draw_text(0, 0, "预热")
+        }
+        surface_reset_target()
+        surface_free(_surf)
+    }
+    prewarm_idx++
 }
 
 function pre_load_texture() {
@@ -155,6 +203,9 @@ function on_draw() {
 	}
 	else if (os_type != os_windows && (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound))){
 		_text = "音频加载中…"
+	}
+	else if (prewarm_active){
+		_text = "预热中 " + string(prewarm_idx) + "/" + string(prewarm_total)
 	}
     draw_text(_x1, _y1 - 30, _text);
 	draw_set_valign(fa_middle)

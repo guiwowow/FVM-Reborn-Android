@@ -52,3 +52,4 @@ if keyboard_check_pressed(vk_escape){
 }
 
 pre_load_texture()
+prewarm_step()
