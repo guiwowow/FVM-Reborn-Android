@@ -23,7 +23,7 @@ if (os_type != os_windows) {
     _prev_frame_time = _now;
     if (_elapsed > 150 && _now > 1000) {
         var _lg = file_text_open_append("lag_log.txt");
-        file_text_write_string(_lg, "[LAG] elapsed=" + string(_elapsed) + "ms fps=" + string(fps) + " mem=" + string(memory_get_usage() / 1048576) + "MB objs=" + string(instance_count) + " room=" + room_get_name(room) + " enemies=" + string(instance_number(obj_enemy_parent)) + "\n");
+        file_text_write_string(_lg, "[LAG] elapsed=" + string(_elapsed) + "ms fps=" + string(fps) + " objs=" + string(instance_count) + " room=" + room_get_name(room) + " enemies=" + string(instance_number(obj_enemy_parent)) + "\n");
         file_text_close(_lg);
     }
 }
