@@ -1,9 +1,4 @@
 audio_play_sound(snd_button,0,0)
-{
-	var _fh = file_text_open_append(working_directory + "debug_save.log");
-	file_text_write_string(_fh, "Mouse4 click, btn_type=" + btn_type + "\n");
-	file_text_close(_fh);
-}
 if btn_type == "cancel"{
 	instance_destroy(obj_edit_menu)
 	obj_player_info_ui.menu_type = 0
@@ -37,22 +32,19 @@ else if btn_type == "export_save_backup" {
 			show_message_async("存档已导出")
 		}
 	} else {
-		// 安卓：备份到游戏内 backups 目录（带时间戳，可存多份）
+		// 安卓：导出 = 存档复制到剪贴板（可粘贴到备忘录/微信保存）+ 游戏内备份兜底
 		var _save_path = "saves/save" + string(global.save_slot) + ".json";
 		if (!file_exists(_save_path)) {
 			show_message_async("暂无存档可导出")
 		} else {
+			clipboard_set_text(json_stringify(global.save_data));
 			if (!directory_exists("backups")) {
 				directory_create("backups")
 			}
 			var _d = date_current_datetime();
 			var _stamp = string(date_get_year(_d)) + string(date_get_month(_d)) + string(date_get_day(_d)) + "_" + string(date_get_hour(_d)) + string(date_get_minute(_d)) + string(date_get_second(_d));
-			var _bak = "backups/save" + string(global.save_slot) + "_" + _stamp + ".json";
-			if (file_copy(_save_path, _bak)) {
-				show_message_async("存档已备份（游戏内可恢复）")
-			} else {
-				show_message_async("备份失败")
-			}
+			file_copy(_save_path, "backups/save" + string(global.save_slot) + "_" + _stamp + ".json");
+			show_message_async("存档已复制到剪贴板，请粘贴保存（如发送到微信/备忘录），游戏内也已备份一份")
 		}
 	}
 }
@@ -68,24 +60,27 @@ else if btn_type == "import_save_backup" {
 			show_message_async("导入存档成功")
 		}
 	} else {
-		// 安卓：从 backups 目录恢复最新一份备份
-		var _best_name = "";
-		var _f = file_find_first("backups/save*.json", 0);
-		while (_f != "") {
-			if (string_upper(_f) > string_upper(_best_name)) {
-				_best_name = _f;
-			}
-			_f = file_find_next();
-		}
-		file_find_close();
-		if (_best_name == "") {
-			show_message_async("暂无备份可导入")
+		// 安卓：导入 = 读取剪贴板存档内容（先复制存档文本再导入）
+		var _txt = clipboard_get_text();
+		if (_txt == "") {
+			show_message_async("剪贴板为空，请先复制要导入的存档内容（可先用导出功能）")
 		} else {
-			if (file_copy("backups/" + _best_name, "saves/save" + string(global.save_slot) + ".json")) {
-				load_file(global.save_slot)
-				show_message_async("已导入备份：" + _best_name)
+			var _ok = false;
+			try {
+				var _data = json_parse(_txt);
+				if (is_struct(_data) && !is_undefined(_data[$ "version"])) {
+					global.save_data = _data;
+					save_file(global.save_slot);
+					load_file(global.save_slot);
+					_ok = true;
+				}
+			} catch(e) {
+				_ok = false;
+			}
+			if (_ok) {
+				show_message_async("存档导入成功")
 			} else {
-				show_message_async("导入失败")
+				show_message_async("剪贴板内容不是有效的存档")
 			}
 		}
 	}

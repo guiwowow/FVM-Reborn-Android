@@ -6,16 +6,11 @@
 prev_touch_count = 0;
 
 if (os_type != os_windows) {
-    // 返回键 = ESC（若设备映射了 vk_escape 则直接生效）
-    if (keyboard_check_pressed(vk_escape)) {
-        show_notice("返回键=ESC", 60);
-    }
     // 屏幕右上角区域点击 = ESC（安卓替代返回键）
     if (mouse_check_button_pressed(mb_left)) {
-        if (mouse_x > room_width - 50 && mouse_y < 150) {
+        if (mouse_x > room_width - 125 && mouse_y < 150) {
             keyboard_key_press(vk_escape);
             keyboard_key_release(vk_escape);
-            show_notice("ESC", 60);
         }
     }
 }
