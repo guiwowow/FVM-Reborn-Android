@@ -60,6 +60,12 @@ if !global.preloaded{
 }
 
 function after_texture_load() {
+    // 安卓/移动端：等待音频组异步加载完成（防首次播放音频卡顿），未就绪下一帧重试
+    if (os_type != os_windows) {
+        if (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound)) {
+            return;
+        }
+    }
     // 安卓/移动端跳过 scribble 中文字体烘焙（CPU 极重且可能触发阻塞弹窗），文字回退用普通字体渲染
     if (os_type == os_android) {
         if !global.preloaded{
@@ -92,6 +98,12 @@ function pre_load_texture() {
                 after_texture_load();
             }
         }
+        return;
+    }
+
+    // 贴图全部预取完成但未就绪（等待音频加载）：每帧重试
+    if (self.texture_loaded >= self.texture_count) {
+        after_texture_load();
         return;
     }
 
@@ -140,6 +152,9 @@ function on_draw() {
 	var _text = "加载完成！"
 	if self.texture_loaded <= array_length(self.texture_to_load)-1{
 		_text = "加载中 " + string(self.texture_loaded) + "/" + string(self.texture_count) + " " + self.texture_to_load[clamp(self.texture_loaded,0,array_length(self.texture_to_load)-1)];
+	}
+	else if (os_type != os_windows && (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound))){
+		_text = "音频加载中…"
 	}
     draw_text(_x1, _y1 - 30, _text);
 	draw_set_valign(fa_middle)
