@@ -45,3 +45,7 @@ y_offset = 0;
 mx = 0
 my = 0
 depth = -1200
+
+// 安卓触控：铲子拖动使用状态
+shovel_lock_frames = 0;
+shovel_pending = false;

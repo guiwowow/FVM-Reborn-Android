@@ -2,6 +2,10 @@
 if global.is_paused{
 	exit
 }
+// 安卓点选防误触锁递减
+if (shovel_lock_frames > 0) {
+	shovel_lock_frames--;
+}
 var slot_key = global.keybind_map[? "铲子"];
 // 检测鼠标点击
 if (mouse_check_button_pressed(mb_left)) {
@@ -13,6 +17,8 @@ if (mouse_check_button_pressed(mb_left)) {
             deselect_shovel();
         } else {
             select_shovel();
+            // 安卓防误触：选中后锁帧，防止同一次按下的 pressed 立即触发铲除
+            shovel_lock_frames = 2;
         }
 		audio_play_sound(snd_shovel,0,0)
     }
@@ -31,7 +37,12 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-if ((is_selected && mouse_check_button_pressed(mb_left)) or (is_selected && global.quick_placement && hotkey_pressed)) {
+// 安卓触控优化：按下标记 pending（下一帧用最新鼠标位置执行），松手（拖动到植物松手）也触发；锁帧内忽略
+if ((is_selected && mouse_check_button_pressed(mb_left) && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
+    shovel_pending = true;
+}
+if (shovel_pending) {
+    shovel_pending = false;
     var found_plat = noone;
     var platform_shift_x = 0;
     var platform_shift_y = 0;
