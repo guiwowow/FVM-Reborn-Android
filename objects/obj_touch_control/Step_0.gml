@@ -16,6 +16,18 @@ if (os_type != os_windows) {
     }
 }
 
+// 帧耗时监控（安卓卡顿定位）：帧耗时 >150ms 时记录上下文到 lag_log.txt
+if (os_type != os_windows) {
+    var _now = current_time;
+    var _elapsed = _now - _prev_frame_time;
+    _prev_frame_time = _now;
+    if (_elapsed > 150 && _now > 1000) {
+        var _lg = file_text_open_append("lag_log.txt");
+        file_text_write_string(_lg, "[LAG] elapsed=" + string(_elapsed) + "ms fps=" + string(fps) + " mem=" + string(memory_get_usage() / 1048576) + "MB objs=" + string(instance_count) + " room=" + room_get_name(room) + " enemies=" + string(instance_number(obj_enemy_parent)) + "\n");
+        file_text_close(_lg);
+    }
+}
+
 if (os_type != os_windows) {
     // 屏幕左上角区域点击 = 空格暂停（战斗专属，配合 Draw 的暂停按钮）
     if (instance_exists(obj_battle) && mouse_check_button_pressed(mb_left)) {

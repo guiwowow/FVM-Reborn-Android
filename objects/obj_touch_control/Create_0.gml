@@ -48,3 +48,6 @@ function toggle_shovel() {
         select_shovel();
     }
 }
+
+// 帧耗时监控（安卓卡顿定位用）
+_prev_frame_time = 0;
