@@ -65,3 +65,6 @@ for(var i = 0;i < global.level_file.total_waves;i ++){
 		}
 	}
 }
+// 安卓双指滑动状态
+second_touch_y_prev = 0;
+second_touch_active = false;
