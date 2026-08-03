@@ -37,12 +37,8 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-// 安卓触控优化：按下标记 pending（下一帧用最新鼠标位置执行），松手（拖动到植物松手）也触发；锁帧内忽略
+// 立即执行：点铲子选中后立刻点植物直接铲除；拖动到植物松手也触发
 if ((is_selected && mouse_check_button_pressed(mb_left) && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
-    shovel_pending = true;
-}
-if (shovel_pending) {
-    shovel_pending = false;
     var found_plat = noone;
     var platform_shift_x = 0;
     var platform_shift_y = 0;

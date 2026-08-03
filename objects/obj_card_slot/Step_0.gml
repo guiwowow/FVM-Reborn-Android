@@ -128,18 +128,8 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 左键尝试放置植物（安卓触控：按下标记 pending 下一帧用最新鼠标位置执行 = 点选放置）
-    if (mouse_check_button_pressed(mb_left)) {
-        if (select_lock_frames <= 0) {
-            place_pending = true;
-        }
-    }
-    // 松手放置（拖动流程：点卡片按下选中 → 拖动 → 松手即放置；点卡片原地松手时位置在卡片区，can_plant=false 兜底）
-    if (mouse_check_button_released(mb_left)) {
-        place_pending = true;
-    }
-    if (place_pending) {
-        place_pending = false;
+    // 左键放置（立即执行：点卡片后立刻点地格直接放置；松手也触发=拖动松手放置）
+    if ((mouse_check_button_pressed(mb_left) && select_lock_frames <= 0) or mouse_check_button_released(mb_left)) {
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape
