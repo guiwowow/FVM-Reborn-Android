@@ -16,7 +16,9 @@
   "exportToGame":true,
   "extensionVersion":"0.0.1",
   "files":[
-    {"$GMExtensionFile":"v2","%Name":"SysMem.java","options":[{"$GMExtensionOption":"v1","className":"SysMem","isTest":false,"name":"SysMem","overwrite":false,"resourceType":"GMExtensionOption","resourceVersion":"1.0","subtype":"android",}],"path":"AndroidSource/SysMem.java","resourceType":"GMExtensionFile","resourceVersion":"2.0",},
+    {"$GMExtensionFile":"","%Name":"SysMem.java","options":[
+        {"$GMExtensionOption":"","className":"SysMem","isTest":false,"name":"SysMem","overwrite":false,"resourceType":"GMExtensionOption","resourceVersion":"1.0","subtype":"android",},
+      ],"path":"AndroidSource/SysMem.java","resourceType":"GMExtensionFile","resourceVersion":"2.0",},
   ],
   "gradleinject":null,
   "hasConvertedCodeInjection":false,
