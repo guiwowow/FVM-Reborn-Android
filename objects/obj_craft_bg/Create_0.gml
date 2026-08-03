@@ -30,3 +30,6 @@ current_uprade_target_id = ""
 spices_use_order = ["natural_spices","secret_spices","royal_spices"]
 clover_use_order = ["clover_1","clover_2","clover_3","clover_4"]
 crystal_use_order = ["less_crystal","middle_crystal","advanced_crystal"]
+// 安卓双指滑动状态
+second_touch_y_prev = 0;
+second_touch_active = false;
