@@ -602,6 +602,7 @@
   },
   "name":"FVM-reborn",
   "resources":[
+    {"id":{"name":"SysMem","path":"extensions/SysMem/SysMem.yy",},},
     {"id":{"name":"font_hei","path":"fonts/font_hei/font_hei.yy",},},
     {"id":{"name":"font_number","path":"fonts/font_number/font_number.yy",},},
     {"id":{"name":"font_pixel","path":"fonts/font_pixel/font_pixel.yy",},},
@@ -2799,7 +2800,6 @@
     {"id":{"name":"spr_zombie_with_wallnut_drop","path":"sprites/spr_zombie_with_wallnut_drop/spr_zombie_with_wallnut_drop.yy",},},
     {"id":{"name":"spr_zombie_with_wallnut_shield","path":"sprites/spr_zombie_with_wallnut_shield/spr_zombie_with_wallnut_shield.yy",},},
     {"id":{"name":"spr_zombie_with_wallnut","path":"sprites/spr_zombie_with_wallnut/spr_zombie_with_wallnut.yy",},},
-    {"id":{"name":"SysMem","path":"extensions/SysMem/SysMem.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
@@ -2826,8 +2826,5 @@
     {"$GMTextureGroup":"","%Name":"enemy_tower","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"enemy_tower","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"enemy_floating","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"enemy_floating","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
     {"$GMTextureGroup":"","%Name":"pack_undersea_vortex","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"pack_undersea_vortex","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-  ],
-  "Extensions":[
-    {"$GMExtension":"v2","%Name":"SysMem","files":[{"$GMExtensionFile":"v2","%Name":"SysMem.java","options":[{"$GMExtensionOption":"v1","className":"SysMem","isTest":false,"name":"SysMem","overwrite":false,"resourceType":"GMExtensionOption","resourceVersion":"1.0","subtype":"android",}],"path":"AndroidSource/SysMem.java","resourceType":"GMExtensionFile","resourceVersion":"2.0",}],"folders":[],"name":"SysMem","options":[],"resourceType":"GMExtension","resourceVersion":"2.0",},
   ],
 }

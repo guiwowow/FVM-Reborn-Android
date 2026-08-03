@@ -44,15 +44,17 @@ if (ds_exists(_oinfo, ds_type_map)){
 	ds_map_destroy(_oinfo)
 }
 global.total_mem_mb = 0
+global.soc_model = ""
 if (os_type == os_android) {
 	global.total_mem_mb = SysMem_getTotalMemMB()
+	global.soc_model = SysMem_getSoc()
 }
 global.is_low_mem = (global.total_mem_mb > 0 && global.total_mem_mb < 8192)
 if (!global.is_low_mem) {
 	global.is_low_mem = gpu_is_low_tier(global.gpu_renderer)
 }
 // [临时探针-发布前删] 显示分档依据供天玑玩家验证
-global.os_info_str = "GPU=" + global.gpu_renderer + " 内存=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
+global.os_info_str = "SOC=" + global.soc_model + " GPU=" + global.gpu_renderer + " RAM=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
 
 // 低端 GPU 判定（对应低端处理器档位；清单完善中）
 function gpu_is_low_tier(_renderer){
