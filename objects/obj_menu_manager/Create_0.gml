@@ -39,10 +39,15 @@ self.texture_to_load = [
 	"Default",
 	"UI",
 	"cards",
+	"enemy_delicious",
+	"enemy_volcanic",
 	"bullet",
 	"effects",
 	"player",
-	"maps"
+	"maps",
+	"enemy_tower",
+	"enemy_floating",
+	"pack_undersea_vortex"
 ]
 
 self.texture_count = array_length(self.texture_to_load)
