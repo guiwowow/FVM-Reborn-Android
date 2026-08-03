@@ -40,8 +40,8 @@
   "optionsFile":"options.json",
   "packageId":"",
   "parent":{
-    "name":"Extensions",
-    "path":"folders/Extensions.yy",
+    "name":"FVM-reborn",
+    "path":"FVM-reborn.yyp",
   },
   "productId":"",
   "resourceType":"GMExtension",
