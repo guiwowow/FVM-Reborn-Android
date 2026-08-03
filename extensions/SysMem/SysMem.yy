@@ -15,11 +15,7 @@
   "description":"",
   "exportToGame":true,
   "extensionVersion":"0.0.1",
-  "files":[
-    {"$GMExtensionFile":"","%Name":"SysMem.java","options":[
-        {"$GMExtensionOption":"","className":"SysMem","isTest":false,"name":"SysMem","overwrite":false,"resourceType":"GMExtensionOption","resourceVersion":"1.0","subtype":"android",},
-      ],"path":"AndroidSource/SysMem.java","resourceType":"GMExtensionFile","resourceVersion":"2.0",},
-  ],
+  "files":[],
   "gradleinject":null,
   "hasConvertedCodeInjection":false,
   "helpfile":"",
