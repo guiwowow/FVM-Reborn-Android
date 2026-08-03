@@ -57,8 +57,7 @@ global.native_util = new NativeUtil()
 global.file_dialog_pending = ""
 
 // 锁帧 60（安卓高刷屏下 game_set_speed 可能失效，配合 obj_touch_control 的 sleep 补偿）
-// [临时-帧率测试] 解除锁帧，看 ASTC 后性能上限
-game_set_speed(240, gamespeed_fps)
+game_set_speed(60, gamespeed_fps)
 
 // 触屏适配控制器（持久，跨房间常驻；双指取消/虚拟按键）
 if (!instance_exists(obj_touch_control)) {

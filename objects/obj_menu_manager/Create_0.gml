@@ -32,47 +32,7 @@ timer = 0
 
 global.laboretory_room = false
 
-// 设备档次检测：
-// 1. 内存 < 8GB → 一律低配（内存是硬指标，<8G 的手机处理器不会太强）
-// 2. 内存 ≥ 8GB → 用 GPU 档次判定（运行时拿不到 CPU 型号，GL_RENDERER 可推断处理器档次）
-var _oinfo = os_get_info()
-global.gpu_vendor = ""
-global.gpu_renderer = ""
-if (ds_exists(_oinfo, ds_type_map)){
-	global.gpu_vendor = string(ds_map_find_value(_oinfo, "GL_VENDOR"))
-	global.gpu_renderer = string(ds_map_find_value(_oinfo, "GL_RENDERER"))
-	ds_map_destroy(_oinfo)
-}
-// 内存检测：尝试读 /proc/meminfo（安卓沙箱可能允许）；失败则用 GPU 档次近似判定
-global.total_mem_mb = 0
-if (os_type == os_android) {
-	var _f = file_text_open_read("/proc/meminfo")
-	if (_f >= 0) {
-		var _s = file_text_read_string(_f)
-		file_text_close(_f)
-		var _pos = string_pos("MemTotal:", _s)
-		if (_pos > 0) {
-			var _rest = string_copy(_s, _pos + 10, 32)
-			var _sp = string_pos(" ", _rest)
-			if (_sp > 0) global.total_mem_mb = real(string_copy(_rest, 1, _sp - 1)) / 1024
-		}
-	}
-}
-global.is_low_mem = (global.total_mem_mb > 0 && global.total_mem_mb < 8192)
-if (global.total_mem_mb <= 0) {
-	global.is_low_mem = gpu_is_low_tier(global.gpu_renderer)
-}
-// [临时探针-发布前删] 显示分档依据供天玑玩家验证
-global.os_info_str = "GPU=" + global.gpu_renderer + " RAM=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
-
-// 低端 GPU 判定（对应低端处理器档位）
-function gpu_is_low_tier(_renderer){
-	// 天玑低端 Mali（Helio G 系列）与骁龙低端 Adreno（6xx 早期）
-	if (string_pos("Mali-G31", _renderer) > 0 || string_pos("Mali-G52", _renderer) > 0 || string_pos("Mali-G57", _renderer) > 0) return true
-	if (string_pos("Adreno 610", _renderer) > 0 || string_pos("Adreno 612", _renderer) > 0 || string_pos("Adreno 619", _renderer) > 0 || string_pos("Adreno 620", _renderer) > 0) return true
-	return false
-}
-
+// [ASTC 定稿] GPU 纹理压缩后显存占用降至约 1/9，低端机也能扛 12 组全预取，删除高低配分档
 self.texture_to_load = [
 	"Default",
 	"UI",
@@ -87,18 +47,6 @@ self.texture_to_load = [
 	"enemy_floating",
 	"pack_undersea_vortex"
 ]
-
-// 低配（Mali/天玑/小内存）：只预取核心组（Default 为必含基础组），其余按需加载 → 启动内存峰值砍半，换取启动稳定
-if (global.is_low_mem){
-	self.texture_to_load = [
-		"Default",
-		"UI",
-		"cards",
-		"bullet",
-		"player",
-		"effects"
-	]
-}
 
 self.texture_count = array_length(self.texture_to_load)
 self.texture_loaded = 0
@@ -120,21 +68,15 @@ if !global.preloaded{
 
 function after_texture_load() {
     // 安卓/移动端：等待音频组异步加载完成（防首次播放音频卡顿），未就绪下一帧重试
-    // 低配机不等待（优先启动稳定，接受首次播放音乐轻微延迟）
-    if (os_type != os_windows && !global.is_low_mem) {
+    if (os_type != os_windows) {
         if (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound)) {
             return;
         }
     }
     // 启动预热：shader 驱动编译缓存 + 字体字形（避免游戏内首次使用资源卡顿）
-    // 高配：全部 12 shader + 7 字体（游戏内零卡顿）；低配：只字体字形（Mali 编译 shader 慢且耗内存，跳过换启动稳定）
-    if (global.is_low_mem) {
-        prewarm_types = ["font","font","font","font","font","font","font"]
-        prewarm_res = [font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
-    } else {
-        prewarm_types = ["shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","font","font","font","font","font","font","font"]
-        prewarm_res = [__shd_scribble, __shd_scribble_bake_effect_4dir, __shd_scribble_bake_effect_8dir, __shd_scribble_bake_effect_8dir_2px, __shd_scribble_bake_effect_no_outline, __shd_scribble_bake_outline_4dir, __shd_scribble_bake_outline_8dir, __shd_scribble_bake_outline_8dir_2px, __shd_scribble_bake_shadow, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
-    }
+    // 全部 12 shader + 7 字体（游戏内零卡顿）
+    prewarm_types = ["shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","font","font","font","font","font","font","font"]
+    prewarm_res = [__shd_scribble, __shd_scribble_bake_effect_4dir, __shd_scribble_bake_effect_8dir, __shd_scribble_bake_effect_8dir_2px, __shd_scribble_bake_effect_no_outline, __shd_scribble_bake_outline_4dir, __shd_scribble_bake_outline_8dir, __shd_scribble_bake_outline_8dir_2px, __shd_scribble_bake_shadow, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
     prewarm_total = array_length(prewarm_res)
     prewarm_idx = 0
     prewarm_active = true
@@ -270,12 +212,6 @@ function on_draw() {
 	draw_set_halign(fa_center)
 	draw_set_colour(c_yellow)
 	draw_text(_x1+self.total_progress_bar_width/2, _y1 - 80, "本游戏为免费开源游戏，任何付费获取方式均为诈骗\n游戏作者B站名称：Spring曙光");
-	// [临时探针-发布前删] 显示 os_get_info 设备信息，供天玑玩家/开发确认分档数据
-	draw_set_colour(c_red)
-	draw_set_font(font_pixel)
-	var _os_show = string_copy(global.os_info_str, 1, 160)
-	draw_text(_x1+self.total_progress_bar_width/2, _y1 + 60, _os_show)
-	draw_set_font(font_yuan)
 }
 
 
