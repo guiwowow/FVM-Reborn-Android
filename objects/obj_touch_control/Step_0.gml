@@ -20,8 +20,8 @@ if (os_type != os_windows) {
     _last_frame_time = current_time;
 }
 
-// 帧耗时监控（安卓卡顿定位）：帧耗时 >150ms 时记录上下文到 lag_log.txt
-if (os_type != os_windows) {
+// 帧耗时监控（调试用，发布前移除）
+if (false) {
     var _now = current_time;
     var _elapsed = _now - _prev_frame_time;
     _prev_frame_time = _now;

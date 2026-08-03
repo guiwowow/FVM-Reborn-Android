@@ -133,10 +133,6 @@ if (is_selected) {
     _prev_mx = mouse_x;
     _prev_my = mouse_y;
     if ((_dist > 200 && select_lock_frames <= 0) or mouse_check_button_released(mb_left)) {
-        // 调试：记录点击状态（定位秒选秒放问题）
-        var _lg = file_text_open_append("place_log.txt");
-        file_text_write_string(_lg, "[PLACE] dist=" + string(_dist) + " rel=" + string(mouse_check_button_released(mb_left)) + " mx=" + string(mouse_x) + " my=" + string(mouse_y) + "\n");
-        file_text_close(_lg);
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape

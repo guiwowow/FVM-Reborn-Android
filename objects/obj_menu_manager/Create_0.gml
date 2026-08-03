@@ -72,16 +72,7 @@ function after_texture_load() {
     // 安卓/移动端：等待音频组异步加载完成（防首次播放音频卡顿），未就绪下一帧重试
     if (os_type != os_windows) {
         if (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound)) {
-            if (audio_wait_start == 0) {
-                audio_wait_start = current_time;
-            }
             return;
-        }
-        if (audio_wait_start != 0) {
-            var _tl = file_text_open_append("lag_log.txt");
-            file_text_write_string(_tl, "[AUDIO] waited " + string(current_time - audio_wait_start) + "ms\n");
-            file_text_close(_tl);
-            audio_wait_start = 0;
         }
     }
     // 启动预热：shader 驱动编译缓存 + 字体字形（避免游戏内首次使用资源卡顿）
@@ -157,13 +148,7 @@ function pre_load_texture() {
     }
 
     if (self.texture_loaded < self.texture_count) {
-        // 记录每组预取耗时（加载优化定位用）
-        var _t0 = current_time;
         texture_prefetch(self.texture_to_load[self.texture_loaded]);
-        var _t1 = current_time;
-        var _tl = file_text_open_append("lag_log.txt");
-        file_text_write_string(_tl, "[PREFETCH] " + self.texture_to_load[self.texture_loaded] + " took " + string(_t1 - _t0) + "ms\n");
-        file_text_close(_tl);
         self.texture_loaded += 1;
         self.animating = true;
     }
