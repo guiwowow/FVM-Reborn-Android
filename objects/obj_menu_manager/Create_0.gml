@@ -35,12 +35,15 @@ global.laboretory_room = false
 // [临时探针-发布前删] 枚举 os_get_info 键值，收集 Android 设备信息，确定内存分档方案
 global.os_info_str = "os_get_info: N/A"
 var _oinfo = os_get_info()
-if (_oinfo != undefined){
+if (ds_exists(_oinfo, ds_type_map)){
 	var _keys = ""
+	var _size = ds_map_size(_oinfo)
 	var _k = ds_map_find_first(_oinfo)
-	while (_k != 0){
-		_keys += _k + "=" + string(ds_map_find_value(_oinfo, _k)) + " | "
+	var _guard = 0
+	while (_guard < _size){
+		_keys += string(_k) + "=" + string(ds_map_find_value(_oinfo, _k)) + " | "
 		_k = ds_map_find_next(_oinfo, _k)
+		_guard++
 	}
 	global.os_info_str = _keys
 	var _f = file_text_open_write(working_directory + "osinfo.txt")
