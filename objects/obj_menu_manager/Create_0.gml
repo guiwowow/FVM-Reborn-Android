@@ -32,8 +32,22 @@ timer = 0
 
 global.laboretory_room = false
 
-
-
+// [临时探针-发布前删] 枚举 os_get_info 键值，收集 Android 设备信息，确定内存分档方案
+global.os_info_str = "os_get_info: N/A"
+var _oinfo = os_get_info()
+if (_oinfo != undefined){
+	var _keys = ""
+	var _k = ds_map_find_first(_oinfo)
+	while (_k != 0){
+		_keys += _k + "=" + string(ds_map_find_value(_oinfo, _k)) + " | "
+		_k = ds_map_find_next(_oinfo, _k)
+	}
+	global.os_info_str = _keys
+	var _f = file_text_open_write(working_directory + "osinfo.txt")
+	file_text_write_string(_f, _keys)
+	file_text_close(_f)
+	clipboard_set_text("OSINFO: " + _keys)
+}
 
 self.texture_to_load = [
 	"Default",
@@ -214,6 +228,12 @@ function on_draw() {
 	draw_set_halign(fa_center)
 	draw_set_colour(c_yellow)
 	draw_text(_x1+self.total_progress_bar_width/2, _y1 - 80, "本游戏为免费开源游戏，任何付费获取方式均为诈骗\n游戏作者B站名称：Spring曙光");
+	// [临时探针-发布前删] 显示 os_get_info 设备信息，供天玑玩家/开发确认分档数据
+	draw_set_colour(c_red)
+	draw_set_font(font_pixel)
+	var _os_show = string_copy(global.os_info_str, 1, 160)
+	draw_text(_x1+self.total_progress_bar_width/2, _y1 + 60, _os_show)
+	draw_set_font(font_yuan)
 }
 
 
