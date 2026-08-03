@@ -62,6 +62,7 @@ prewarm_idx = 0
 prewarm_total = 0
 prewarm_types = []
 prewarm_res = []
+audio_wait_start = 0
 
 if !global.preloaded{
 	instance_create_depth(-800,-800,0,obj_update_checker_btn)
