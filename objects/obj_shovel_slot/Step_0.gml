@@ -37,11 +37,11 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-// 第一指"新按下"（上升沿，捕获快速连点）或松手（拖动到精确地格松手）
-var _down0 = device_mouse_check_button(0, mb_left);
-var _new_press = (_down0 && !_prev_down0);
-_prev_down0 = _down0;
-if ((is_selected && _new_press && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
+// mouse 位置大跳变（>200px=新触摸：点铲子后点植物）或松手（拖动到精确位置）
+var _dist = point_distance(mouse_x, mouse_y, _prev_mx, _prev_my);
+_prev_mx = mouse_x;
+_prev_my = mouse_y;
+if ((is_selected && _dist > 200 && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
     var found_plat = noone;
     var platform_shift_x = 0;
     var platform_shift_y = 0;

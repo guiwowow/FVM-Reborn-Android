@@ -201,3 +201,7 @@ select_lock_frames = 0;
 place_pending = false;
 // 第一指触摸状态（上升沿检测用）
 _prev_down0 = false;
+
+// 鼠标位置跳变检测用
+_prev_mx = -10000;
+_prev_my = -10000;
