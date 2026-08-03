@@ -315,11 +315,12 @@ else if button_select == 1{
         }
     }
 	//绘制正在强化的宝石
-	if current_uprade_target_id != ""{
+	var _wdata = get_gem_info(current_uprade_target_id)
+	if current_uprade_target_id != "" && is_struct(_wdata){
 		var weapon_x = x - 305
         var weapon_y = y + 110
 		var weapon_id = current_uprade_target_id
-		var weapon_data = get_gem_info(weapon_id)
+		var weapon_data = _wdata
                 
         // 绘制宝石图标
         draw_sprite_ext(weapon_data.icon, 0, weapon_x, weapon_y, 1.7, 1.7, 0, c_white, 1);
