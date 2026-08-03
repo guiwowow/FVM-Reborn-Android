@@ -62,8 +62,6 @@ global.is_low_mem = (global.total_mem_mb > 0 && global.total_mem_mb < 8192)
 if (global.total_mem_mb <= 0) {
 	global.is_low_mem = gpu_is_low_tier(global.gpu_renderer)
 }
-// [临时-低配体验测试] 强制走低配路径，体验后删此行
-global.is_low_mem = true
 // [临时探针-发布前删] 显示分档依据供天玑玩家验证
 global.os_info_str = "GPU=" + global.gpu_renderer + " RAM=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
 
