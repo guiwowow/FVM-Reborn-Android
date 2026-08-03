@@ -32,25 +32,17 @@ timer = 0
 
 global.laboretory_room = false
 
-// [临时探针-发布前删] 枚举 os_get_info 键值，收集 Android 设备信息，确定内存分档方案
-global.os_info_str = "os_get_info: N/A"
+// 设备档次检测：os_get_info 的 GL_VENDOR 区分 GPU 品牌
+// 高通 Adreno = 高配（12 组全预取，游戏内零卡顿）；Mali(天玑)/其他 = 保守（核心组预取，启动稳定）
 var _oinfo = os_get_info()
+global.gpu_vendor = ""
 if (ds_exists(_oinfo, ds_type_map)){
-	var _keys = ""
-	var _size = ds_map_size(_oinfo)
-	var _k = ds_map_find_first(_oinfo)
-	var _guard = 0
-	while (_guard < _size){
-		_keys += string(_k) + "=" + string(ds_map_find_value(_oinfo, _k)) + " | "
-		_k = ds_map_find_next(_oinfo, _k)
-		_guard++
-	}
-	global.os_info_str = _keys
-	var _f = file_text_open_write(working_directory + "osinfo.txt")
-	file_text_write_string(_f, _keys)
-	file_text_close(_f)
-	clipboard_set_text("OSINFO: " + _keys)
+	global.gpu_vendor = string(ds_map_find_value(_oinfo, "GL_VENDOR"))
+	ds_map_destroy(_oinfo)
 }
+global.is_low_mem = (string_find(global.gpu_vendor, "Qualcomm") < 1)
+// [临时探针-发布前删] 显示 GPU 品牌供天玑玩家验证分档
+global.os_info_str = "GPU=" + global.gpu_vendor + " 低配模式=" + string(global.is_low_mem)
 
 self.texture_to_load = [
 	"Default",
@@ -66,6 +58,18 @@ self.texture_to_load = [
 	"enemy_floating",
 	"pack_undersea_vortex"
 ]
+
+// 低配（Mali/天玑/小内存）：只预取核心组（Default 为必含基础组），其余按需加载 → 启动内存峰值砍半，换取启动稳定
+if (global.is_low_mem){
+	self.texture_to_load = [
+		"Default",
+		"UI",
+		"cards",
+		"bullet",
+		"player",
+		"effects"
+	]
+}
 
 self.texture_count = array_length(self.texture_to_load)
 self.texture_loaded = 0
@@ -87,15 +91,21 @@ if !global.preloaded{
 
 function after_texture_load() {
     // 安卓/移动端：等待音频组异步加载完成（防首次播放音频卡顿），未就绪下一帧重试
-    if (os_type != os_windows) {
+    // 低配机不等待（优先启动稳定，接受首次播放音乐轻微延迟）
+    if (os_type != os_windows && !global.is_low_mem) {
         if (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound)) {
             return;
         }
     }
     // 启动预热：shader 驱动编译缓存 + 字体字形（避免游戏内首次使用资源卡顿）
-    // 方案B（每次全量）：每次启动都预热全部 12 个 shader（低端机加载更久，但游戏内零卡顿）
-    prewarm_types = ["shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","font","font","font","font","font","font","font"]
-    prewarm_res = [__shd_scribble, __shd_scribble_bake_effect_4dir, __shd_scribble_bake_effect_8dir, __shd_scribble_bake_effect_8dir_2px, __shd_scribble_bake_effect_no_outline, __shd_scribble_bake_outline_4dir, __shd_scribble_bake_outline_8dir, __shd_scribble_bake_outline_8dir_2px, __shd_scribble_bake_shadow, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    // 高配：全部 12 shader + 7 字体（游戏内零卡顿）；低配：只字体字形（Mali 编译 shader 慢且耗内存，跳过换启动稳定）
+    if (global.is_low_mem) {
+        prewarm_types = ["font","font","font","font","font","font","font"]
+        prewarm_res = [font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    } else {
+        prewarm_types = ["shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","shader","font","font","font","font","font","font","font"]
+        prewarm_res = [__shd_scribble, __shd_scribble_bake_effect_4dir, __shd_scribble_bake_effect_8dir, __shd_scribble_bake_effect_8dir_2px, __shd_scribble_bake_effect_no_outline, __shd_scribble_bake_outline_4dir, __shd_scribble_bake_outline_8dir, __shd_scribble_bake_outline_8dir_2px, __shd_scribble_bake_shadow, ClipRRectShader, hit_effect, hit_effect_2, font_hei, font_number, font_pixel, font_song, font_song2, font_yuan, scribble_fallback_font]
+    }
     prewarm_total = array_length(prewarm_res)
     prewarm_idx = 0
     prewarm_active = true
