@@ -65,12 +65,11 @@ if (global.total_mem_mb <= 0) {
 // [临时探针-发布前删] 显示分档依据供天玑玩家验证
 global.os_info_str = "GPU=" + global.gpu_renderer + " RAM=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
 
-// 低端 GPU 判定（对应低端处理器档位；清单完善中）
+// 低端 GPU 判定（对应低端处理器档位）
 function gpu_is_low_tier(_renderer){
-	var _r = _renderer
 	// 天玑低端 Mali（Helio G 系列）与骁龙低端 Adreno（6xx 早期）
-	if (string_find(_r, "Mali-G31") > 0 || string_find(_r, "Mali-G52") > 0 || string_find(_r, "Mali-G57") > 0) return true
-	if (string_find(_r, "Adreno 610") > 0 || string_find(_r, "Adreno 612") > 0 || string_find(_r, "Adreno 619") > 0 || string_find(_r, "Adreno 620") > 0) return true
+	if (string_pos("Mali-G31", _renderer) > 0 || string_pos("Mali-G52", _renderer) > 0 || string_pos("Mali-G57", _renderer) > 0) return true
+	if (string_pos("Adreno 610", _renderer) > 0 || string_pos("Adreno 612", _renderer) > 0 || string_pos("Adreno 619", _renderer) > 0 || string_pos("Adreno 620", _renderer) > 0) return true
 	return false
 }
 
