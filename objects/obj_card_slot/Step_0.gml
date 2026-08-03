@@ -128,11 +128,11 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 左键放置（立即执行：点卡片后立刻点地格直接放置；松手也触发=拖动松手放置）
-    if ((mouse_check_button_pressed(mb_left) && select_lock_frames <= 0) or mouse_check_button_released(mb_left)) {
+    // 左键放置：改用第一指按住状态检测（GameMaker安卓快速连点第二次pressed不触发；按下即放，拖动按住即放）
+    if ((device_mouse_check_button(0, mb_left) && select_lock_frames <= 0) or mouse_check_button_released(mb_left)) {
         // 调试：记录点击状态（定位秒选秒放问题）
         var _lg = file_text_open_append("place_log.txt");
-        file_text_write_string(_lg, "[PLACE] press=" + string(mouse_check_button_pressed(mb_left)) + " rel=" + string(mouse_check_button_released(mb_left)) + " mx=" + string(mouse_x) + " my=" + string(mouse_y) + " lock=" + string(select_lock_frames) + "\n");
+        file_text_write_string(_lg, "[PLACE] down0=" + string(device_mouse_check_button(0, mb_left)) + " rel=" + string(mouse_check_button_released(mb_left)) + " mx=" + string(mouse_x) + " my=" + string(mouse_y) + " lock=" + string(select_lock_frames) + "\n");
         file_text_close(_lg);
         // 检查是否在可种植区域
 		

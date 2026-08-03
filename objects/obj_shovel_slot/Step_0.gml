@@ -37,8 +37,8 @@ if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) 
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
-// 立即执行：点铲子选中后立刻点植物直接铲除；拖动到植物松手也触发
-if ((is_selected && mouse_check_button_pressed(mb_left) && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
+// 第一指按住检测（快速连点第二次pressed不触发，改按住状态；按下即用，拖动按住即用）
+if ((is_selected && device_mouse_check_button(0, mb_left) && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
     var found_plat = noone;
     var platform_shift_x = 0;
     var platform_shift_y = 0;
