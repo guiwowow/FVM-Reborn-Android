@@ -32,17 +32,36 @@ timer = 0
 
 global.laboretory_room = false
 
-// 设备档次检测：os_get_info 的 GL_VENDOR 区分 GPU 品牌
-// 高通 Adreno = 高配（12 组全预取，游戏内零卡顿）；Mali(天玑)/其他 = 保守（核心组预取，启动稳定）
+// 设备档次检测：
+// 1. 内存 < 8GB → 一律低配（内存是硬指标，<8G 的手机处理器不会太强）
+// 2. 内存 ≥ 8GB → 用 GPU 档次判定（运行时拿不到 CPU 型号，GL_RENDERER 可推断处理器档次）
 var _oinfo = os_get_info()
 global.gpu_vendor = ""
+global.gpu_renderer = ""
 if (ds_exists(_oinfo, ds_type_map)){
 	global.gpu_vendor = string(ds_map_find_value(_oinfo, "GL_VENDOR"))
+	global.gpu_renderer = string(ds_map_find_value(_oinfo, "GL_RENDERER"))
 	ds_map_destroy(_oinfo)
 }
-global.is_low_mem = (string_find(global.gpu_vendor, "Qualcomm") < 1)
-// [临时探针-发布前删] 显示 GPU 品牌供天玑玩家验证分档
-global.os_info_str = "GPU=" + global.gpu_vendor + " 低配模式=" + string(global.is_low_mem)
+global.total_mem_mb = 0
+if (os_type == os_android) {
+	global.total_mem_mb = SysMem_getTotalMemMB()
+}
+global.is_low_mem = (global.total_mem_mb > 0 && global.total_mem_mb < 8192)
+if (!global.is_low_mem) {
+	global.is_low_mem = gpu_is_low_tier(global.gpu_renderer)
+}
+// [临时探针-发布前删] 显示分档依据供天玑玩家验证
+global.os_info_str = "GPU=" + global.gpu_renderer + " 内存=" + string(round(global.total_mem_mb)) + "MB 低配=" + string(global.is_low_mem)
+
+// 低端 GPU 判定（对应低端处理器档位；清单完善中）
+function gpu_is_low_tier(_renderer){
+	var _r = _renderer
+	// 天玑低端 Mali（Helio G 系列）与骁龙低端 Adreno（6xx 早期）
+	if (string_find(_r, "Mali-G31") > 0 || string_find(_r, "Mali-G52") > 0 || string_find(_r, "Mali-G57") > 0) return true
+	if (string_find(_r, "Adreno 610") > 0 || string_find(_r, "Adreno 612") > 0 || string_find(_r, "Adreno 619") > 0 || string_find(_r, "Adreno 620") > 0) return true
+	return false
+}
 
 self.texture_to_load = [
 	"Default",
