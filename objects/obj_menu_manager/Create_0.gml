@@ -205,8 +205,11 @@ function on_draw() {
     draw_set_color(c_white);
     draw_set_font(font_yuan);
 	var _text = "加载完成！"
+	var _pct = 0
 	if self.texture_loaded <= array_length(self.texture_to_load)-1{
-		_text = "加载中 " + string(self.texture_loaded) + "/" + string(self.texture_count) + " " + self.texture_to_load[clamp(self.texture_loaded,0,array_length(self.texture_to_load)-1)];
+		var _group_name = self.texture_to_load[clamp(self.texture_loaded,0,array_length(self.texture_to_load)-1)]
+		_text = "加载资源 " + string(self.texture_loaded) + "/" + string(self.texture_count) + " — 当前：" + _group_name
+		_pct = round((self.texture_loaded / self.texture_count) * 100)
 	}
 	else if (os_type != os_windows && (!audio_group_is_loaded(music) || !audio_group_is_loaded(sound))){
 		_text = "音频加载中…"
@@ -215,6 +218,13 @@ function on_draw() {
 		_text = "预热中 " + string(prewarm_idx) + "/" + string(prewarm_total)
 	}
     draw_text(_x1, _y1 - 30, _text);
+	// 进度条内显示百分比
+	draw_set_halign(fa_center)
+	draw_set_valign(fa_middle)
+	draw_set_color(c_white)
+	if (self.texture_loaded <= array_length(self.texture_to_load)-1) {
+		draw_text(_x1 + self.total_progress_bar_width / 2, _y1 + _bar_h / 2, string(_pct) + "%")
+	}
 	draw_set_valign(fa_middle)
 	draw_set_halign(fa_center)
 	draw_set_colour(c_yellow)
