@@ -61,8 +61,8 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
     if (point_in_rectangle(mx, my, x-50, y-70, x+50, y+70)) {
 		
         select_slot()
-        // 安卓点选防误触：选中后锁帧，防止同一次按下的 pressed 立即触发放置
-        select_lock_frames = 2;
+        // 选择即放置（无误差间隔：点卡片后立刻点地格即可放置；同帧按下由位置检测兜底）
+        select_lock_frames = 0;
         
         // 创建放置预览对象
         if (selected_preview == noone) {
