@@ -18,7 +18,7 @@ if (mouse_check_button_pressed(mb_left)) {
         } else {
             select_shovel();
             // 安卓防误触：选中后锁帧，防止同一次按下的 pressed 立即触发铲除
-            shovel_lock_frames = 2;
+            shovel_lock_frames = 0;
         }
 		audio_play_sound(snd_shovel,0,0)
     }
