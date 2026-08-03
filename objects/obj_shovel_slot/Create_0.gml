@@ -49,3 +49,6 @@ depth = -1200
 // 安卓触控：铲子拖动使用状态
 shovel_lock_frames = 0;
 shovel_pending = false;
+
+// 第一指触摸状态（上升沿检测用）
+_prev_down0 = false;

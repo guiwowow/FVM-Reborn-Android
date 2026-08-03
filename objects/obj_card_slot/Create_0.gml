@@ -199,3 +199,5 @@ function try_place_once(){
 // 安卓触控优化：点选放置防误触锁 + 放置延迟帧
 select_lock_frames = 0;
 place_pending = false;
+// 第一指触摸状态（上升沿检测用）
+_prev_down0 = false;
