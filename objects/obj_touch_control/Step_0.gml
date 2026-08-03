@@ -7,7 +7,8 @@ prev_touch_count = 0;
 
 // 安卓锁帧 60：高刷屏下 game_set_speed 失效，用 current_time 忙等补偿（锁逻辑帧防加速）
 // 注意：不能用 sleep（YYC 安卓运行时非方法，会报 not a method）
-if (os_type != os_windows) {
+// [临时-帧率测试] 解除忙等锁帧
+if (false) {
     if (fps > 62) {
         var _target_ms = 1000 / 60;
         var _frame_dur = current_time - _last_frame_time;
