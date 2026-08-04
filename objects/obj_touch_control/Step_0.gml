@@ -5,17 +5,12 @@
 
 prev_touch_count = 0;
 
-// 安卓锁帧 60：高刷屏下 game_set_speed 失效，用 current_time 忙等补偿（锁逻辑帧防加速）
-// 注意：不能用 sleep（YYC 安卓运行时非方法，会报 not a method）
+// 安卓锁帧：按当前 game_speed 忙等校正（高刷屏 game_set_speed 失效，用帧长忙等）
+// 无条件每帧忙等（去掉 fps>62 条件，避免 60/120 振荡）；shift 加速 120 → 目标 8.3ms 保留 2 倍速
 if (os_type != os_windows) {
-    if (fps > 62) {
-        var _target_ms = 1000 / 60;
-        var _frame_dur = current_time - _last_frame_time;
-        if (_frame_dur > 0 && _frame_dur < _target_ms - 1) {
-            var _wait_ms = _target_ms - _frame_dur;
-            var _wait_start = current_time;
-            while (current_time - _wait_start < _wait_ms) {}
-        }
+    var _target_fps = game_get_speed(gamespeed_fps);
+    if (_target_fps > 0) {
+        while (current_time - _last_frame_time < 1000 / _target_fps) {}
     }
     _last_frame_time = current_time;
 }
