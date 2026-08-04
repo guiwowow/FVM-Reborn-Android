@@ -5,12 +5,13 @@
 
 prev_touch_count = 0;
 
-// 安卓锁帧：按当前 game_speed 忙等校正（高刷屏 game_set_speed 失效，用帧长忙等）
-// 无条件每帧忙等（去掉 fps>62 条件，避免 60/120 振荡）；shift 加速 120 → 目标 8.3ms 保留 2 倍速
+// 安卓锁帧：无条件按 game_speed 忙等压帧（高刷屏 game_set_speed 失效）
+// 必须锁：逻辑帧率 = 速度基准（1x=60、2x=120），165Hz 屏不压会 2.75 倍速
+// -0.5ms 补偿忙等轮询过冲，使实际帧率更接近目标（120Hz 屏 2x 从 110 → ~120）
 if (os_type != os_windows) {
     var _target_fps = game_get_speed(gamespeed_fps);
     if (_target_fps > 0) {
-        while (current_time - _last_frame_time < 1000 / _target_fps) {}
+        while (current_time - _last_frame_time < 1000 / _target_fps - 0.5) {}
     }
     _last_frame_time = current_time;
 }
