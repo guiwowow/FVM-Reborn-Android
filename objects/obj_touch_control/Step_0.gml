@@ -42,4 +42,15 @@ if (os_type != os_windows) {
             keyboard_key_release(vk_escape);
         }
     }
+    // 屏幕左下 ESC 上方区域点击 = 加速切换（替代 shift，1x/2x）
+    if (mouse_check_button_pressed(mb_left)) {
+        if (mouse_x < 130 && mouse_y > room_height - 260 && mouse_y < room_height - 130) {
+            var _battle = instance_find(obj_battle, 0);
+            if (instance_exists(_battle)) {
+                _battle.speed_up = !_battle.speed_up;
+                if (_battle.speed_up) game_set_speed(120, gamespeed_fps);
+                else game_set_speed(60, gamespeed_fps);
+            }
+        }
+    }
 }

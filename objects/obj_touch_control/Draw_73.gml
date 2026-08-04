@@ -30,6 +30,25 @@ if (os_type != os_windows) {
 		draw_rectangle(46, 45, 58, 105, false);
 		draw_rectangle(92, 45, 104, 105, false);
 	}
+
+	// 安卓：绘制加速切换按钮（左下 ESC 上方；战斗专属，点击 1x/2x 替代 shift）
+	if (instance_exists(obj_battle)) {
+		var _battle = instance_find(obj_battle, 0);
+		var _sped = _battle.speed_up;
+		draw_set_alpha(0.75);
+		draw_set_color(c_black);
+		draw_roundrect(-20, room_height - 260, 130, room_height - 130, false);
+		draw_set_alpha(1);
+		if (_sped) draw_set_color(c_lime); else draw_set_color(c_olive);
+		draw_roundrect(-12, room_height - 252, 122, room_height - 138, true);
+		draw_set_color(c_white);
+		draw_set_font(font_yuan);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(55, room_height - 195, _sped ? "2x 加速" : "1x 加速");
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+	}
 	exit;
 }
 
