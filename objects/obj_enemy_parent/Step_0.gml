@@ -1,10 +1,18 @@
+// 选卡缓时：逻辑与动画均 12 倍慢（动画驱动的攻击同步减速）
+if (global.slowmo_active) {
+    if (global.game_frame != 0) {
+        image_speed = 0;
+        exit;
+    }
+    image_speed = 1;
+} else if (image_speed != 1) {
+    image_speed = 1;
+}
 // 修改后的僵尸Step事件
 if global.is_paused{
 	exit
 }
 
-// 选卡缓时：每 12 帧才推进一次逻辑（保持 60fps 渲染，敌人 12 倍慢）
-if (global.slowmo_active && global.game_frame != 0) exit;
 
 // 保持网格位置更新
 var zombie_grid = get_grid_position_from_world(x, y);
