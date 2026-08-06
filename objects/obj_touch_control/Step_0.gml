@@ -54,4 +54,31 @@ if (os_type != os_windows) {
             }
         }
     }
+    // 屏幕左下加速按钮上方区域点击 = 选卡缓时开关（战斗专属）
+    if (mouse_check_button_pressed(mb_left)) {
+        if (mouse_x < 130 && mouse_y > room_height - 390 && mouse_y < room_height - 260) {
+            global.cardslow_enabled = !global.cardslow_enabled;
+        }
+    }
+}
+
+// 选卡缓时：选中卡片时游戏速度降到当前倍率/12，放置/取消后恢复
+// 锁帧忙等按 game_get_speed 动态压帧，game_set_speed 后自动跟随
+if (instance_exists(obj_battle)) {
+    var _card_selected = false;
+    with (obj_card_slot) {
+        if (is_selected) _card_selected = true;
+    }
+    var _battle = instance_find(obj_battle, 0);
+    var _base = _battle.speed_up ? 120 : 60;
+    var _want = _base;
+    if (global.cardslow_enabled && !global.is_paused && _card_selected) {
+        _want = _base / 12; // 1x=5fps、2x=10fps（慢动作选卡）
+    }
+    if (game_get_speed(gamespeed_fps) != _want) {
+        game_set_speed(_want, gamespeed_fps);
+    }
+} else if (game_get_speed(gamespeed_fps) < 60) {
+    // 兜底：退出战斗后若残留缓时速度，恢复 60
+    game_set_speed(60, gamespeed_fps);
 }
