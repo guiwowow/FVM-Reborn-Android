@@ -1,3 +1,5 @@
+// 选卡缓时：每 12 帧推进一次（布局 60fps 渲染，逻辑 12 倍慢）
+if (global.slowmo_active && global.game_frame != 0) exit;
 // Inherit the parent event
 if (grid_col < 0 || grid_col >= global.grid_cols || grid_row < 0 || grid_row >= global.grid_rows) {
 	if hp > maxhp - helmet_hp{

@@ -1,3 +1,5 @@
+// 选卡缓时：每 12 帧推进一次（布局 60fps 渲染，逻辑 12 倍慢）
+if (global.slowmo_active && global.game_frame != 0) exit;
 // Inherit the parent event
 if skipped or hp <= 0{
 	sprite_index = spr_skateboard_mouse
