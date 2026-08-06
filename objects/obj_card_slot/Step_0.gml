@@ -23,7 +23,10 @@ if global.debug{
 	cooldown_timer = cooldown
 }
 if cooldown_timer < cooldown{
-	cooldown_timer ++
+	// 选卡缓时：冷却也 12 倍慢（与战斗节奏一致）
+	if (!(global.slowmo_active && global.game_frame != 0)) {
+		cooldown_timer ++
+	}
 
 
     // 冷却中状态

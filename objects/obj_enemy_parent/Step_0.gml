@@ -3,6 +3,9 @@ if global.is_paused{
 	exit
 }
 
+// 选卡缓时：每 12 帧才推进一次逻辑（保持 60fps 渲染，敌人 12 倍慢）
+if (global.slowmo_active && global.game_frame != 0) exit;
+
 // 保持网格位置更新
 var zombie_grid = get_grid_position_from_world(x, y);
 grid_col = zombie_grid.col;

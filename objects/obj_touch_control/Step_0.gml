@@ -62,23 +62,15 @@ if (os_type != os_windows) {
     }
 }
 
-// 选卡缓时：选中卡片时游戏速度降到当前倍率/12，放置/取消后恢复
-// 锁帧忙等按 game_get_speed 动态压帧，game_set_speed 后自动跟随
+// 选卡缓时：选中卡片时战斗逻辑 12 倍减速（保持 60fps 渲染，逻辑对象每 12 帧推进）
+// 帧号每帧 +1（本对象 depth 最大，Step 最先执行，其他对象读到的都是本帧值）
+global.game_frame = (global.game_frame + 1) mod 12;
 if (instance_exists(obj_battle)) {
     var _card_selected = false;
     with (obj_card_slot) {
         if (is_selected) _card_selected = true;
     }
-    var _battle = instance_find(obj_battle, 0);
-    var _base = _battle.speed_up ? 120 : 60;
-    var _want = _base;
-    if (global.cardslow_enabled && !global.is_paused && _card_selected) {
-        _want = _base / 12; // 1x=5fps、2x=10fps（慢动作选卡）
-    }
-    if (game_get_speed(gamespeed_fps) != _want) {
-        game_set_speed(_want, gamespeed_fps);
-    }
-} else if (game_get_speed(gamespeed_fps) < 60) {
-    // 兜底：退出战斗后若残留缓时速度，恢复 60
-    game_set_speed(60, gamespeed_fps);
+    global.slowmo_active = global.cardslow_enabled && !global.is_paused && _card_selected;
+} else {
+    global.slowmo_active = false;
 }
