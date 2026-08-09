@@ -19,10 +19,13 @@ var _col = clamp(round((grid_pos.x - global.grid_offset_x) / global.grid_cell_si
 var _row = clamp(round((grid_pos.y - global.grid_offset_y) / global.grid_cell_size_y - 0.5), 0, global.grid_rows - 1);
 var _gx = global.grid_offset_x + _col * global.grid_cell_size_x;
 var _gy = global.grid_offset_y + _row * global.grid_cell_size_y;
+// 引导线跟随预览的平台位移（移动地格对齐，否则十字线与预览精灵错位）
+var _line_x = _gx + platform_shift_x;
+var _line_y = _gy + platform_shift_y;
 draw_set_alpha(0.3);
 draw_set_color(c_white);
-draw_rectangle(global.grid_offset_x, _gy, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _gy + global.grid_cell_size_y, false);
-draw_rectangle(_gx, global.grid_offset_y, _gx + global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+draw_rectangle(global.grid_offset_x, _line_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _line_y + global.grid_cell_size_y, false);
+draw_rectangle(_line_x, global.grid_offset_y, _line_x + global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
 draw_set_alpha(1);
 
 if (is_valid) {
