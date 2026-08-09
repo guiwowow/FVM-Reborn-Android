@@ -20,6 +20,7 @@ if (preview_sprite >= 0) {
     _vis_cx = draw_pos_x + (sprite_get_width(preview_sprite) * 0.5 - sprite_get_xoffset(preview_sprite)) * 1.8;
     _vis_cy = draw_pos_y + (sprite_get_height(preview_sprite) * 0.5 - sprite_get_yoffset(preview_sprite)) * 1.8;
 }
+_vis_cy += 50;  // [调试] 红点下移 50px 标定（定位后调整/移除）
 var _half_x = global.grid_cell_size_x * 0.5;
 var _half_y = global.grid_cell_size_y * 0.5;
 draw_set_alpha(0.3);
