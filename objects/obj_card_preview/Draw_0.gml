@@ -31,11 +31,6 @@ draw_set_color(c_red); draw_circle(draw_pos_x, draw_pos_y, 7, false);
 draw_set_color(c_aqua); draw_circle(grid_pos.x, grid_pos.y, 5, false);
 // 黄框：grid_offset 网格区域边框
 draw_set_color(c_yellow); draw_rectangle(global.grid_offset_x, global.grid_offset_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, true);
-// 绿点：预览精灵视觉中心估算（sprite origin 反推）
-var _spr_top = sprite_get_ymin(preview_sprite) * 1.8;
-var _spr_bot = sprite_get_ymax(preview_sprite) * 1.8;
-var _vis_cy = draw_pos_y + (_spr_top + _spr_bot) * 0.5;
-draw_set_color(c_lime); draw_circle(draw_pos_x, _vis_cy, 4, false);
 // ===== 调试标记结束 =====
 
 if (is_valid) {
