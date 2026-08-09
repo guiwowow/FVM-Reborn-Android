@@ -131,11 +131,11 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 放置：① mouse 位置大跳变（>200px = 新触摸：点卡片后点地格，位置从卡片跳到地格）② 松手（拖动到精确地格）
+    // 放置：松手放置（点击地格后松手 / 拖动到地格松手）；按下不立即放，可按住微调位置
     var _dist = point_distance(mouse_x, mouse_y, _prev_mx, _prev_my);
     _prev_mx = mouse_x;
     _prev_my = mouse_y;
-    if ((_dist > 200 && select_lock_frames <= 0) or mouse_check_button_released(mb_left)) {
+    if (mouse_check_button_released(mb_left)) {
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape
