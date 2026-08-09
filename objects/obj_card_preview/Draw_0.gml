@@ -27,21 +27,23 @@ draw_rectangle(global.grid_offset_x, _gy + platform_shift_y, global.grid_offset_
 draw_rectangle(_gx + platform_shift_x, global.grid_offset_y, _gx + global.grid_cell_size_x + platform_shift_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
 draw_set_alpha(1);
 
-// ===== 调试标记 v3（定位后删除）=====
-// 红方块：预览锚点 draw_pos
-draw_set_color(c_black); draw_rectangle(draw_pos_x - 9, draw_pos_y - 9, draw_pos_x + 9, draw_pos_y + 9, false);
-draw_set_color(c_red); draw_rectangle(draw_pos_x - 7, draw_pos_y - 7, draw_pos_x + 7, draw_pos_y + 7, false);
-// 青方块：逻辑格中心 grid_pos
-draw_set_color(c_aqua); draw_rectangle(grid_pos.x - 6, grid_pos.y - 6, grid_pos.x + 6, grid_pos.y + 6, false);
-// 黄框：grid_offset 网格区域边框 + 上边/左边 10px 刻度（数刻度读偏差）
-draw_set_color(c_yellow); draw_rectangle(global.grid_offset_x, global.grid_offset_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, true);
-// 刻度：黄框上边外侧 0~100px（每 10px 一段），左边外侧同理
-var _i;
-for (_i = 0; _i <= 100; _i += 10) {
-    draw_rectangle(global.grid_offset_x + _i - 1, global.grid_offset_y - 8, global.grid_offset_x + _i + 1, global.grid_offset_y, false);
-    draw_rectangle(global.grid_offset_x - 8, global.grid_offset_y + _i - 1, global.grid_offset_x, global.grid_offset_y + _i + 1, false);
-}
-// ===== 调试标记结束 =====
+// ===== 偏移探测线（一次定位 grid_offset 偏差，定位后删除）=====
+// 黄框顶边下方 +k*cell 处画彩线：红=-1格 橙=0格(黄框顶) 黄=+1格 绿=+2格 蓝=+3格
+var _oy0 = global.grid_offset_y;
+draw_set_alpha(1);
+draw_set_color(c_red);   draw_rectangle(global.grid_offset_x, _oy0 - 1 * global.grid_cell_size_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _oy0 - 1 * global.grid_cell_size_y + 4, false);
+draw_set_color(c_orange);draw_rectangle(global.grid_offset_x, _oy0 + 0 * global.grid_cell_size_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _oy0 + 0 * global.grid_cell_size_y + 4, false);
+draw_set_color(c_yellow);draw_rectangle(global.grid_offset_x, _oy0 + 1 * global.grid_cell_size_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _oy0 + 1 * global.grid_cell_size_y + 4, false);
+draw_set_color(c_lime);  draw_rectangle(global.grid_offset_x, _oy0 + 2 * global.grid_cell_size_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _oy0 + 2 * global.grid_cell_size_y + 4, false);
+draw_set_color(c_blue);  draw_rectangle(global.grid_offset_x, _oy0 + 3 * global.grid_cell_size_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _oy0 + 3 * global.grid_cell_size_y + 4, false);
+// 黄框左边右侧 +k*cell 处画竖线：红=-1列 橙=0 黄=+1 绿=+2 蓝=+3
+var _ox0 = global.grid_offset_x;
+draw_set_color(c_red);   draw_rectangle(_ox0 - 1 * global.grid_cell_size_x, global.grid_offset_y, _ox0 - 1 * global.grid_cell_size_x + 4, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+draw_set_color(c_orange);draw_rectangle(_ox0 + 0 * global.grid_cell_size_x, global.grid_offset_y, _ox0 + 0 * global.grid_cell_size_x + 4, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+draw_set_color(c_yellow);draw_rectangle(_ox0 + 1 * global.grid_cell_size_x, global.grid_offset_y, _ox0 + 1 * global.grid_cell_size_x + 4, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+draw_set_color(c_lime);  draw_rectangle(_ox0 + 2 * global.grid_cell_size_x, global.grid_offset_y, _ox0 + 2 * global.grid_cell_size_x + 4, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+draw_set_color(c_blue);  draw_rectangle(_ox0 + 3 * global.grid_cell_size_x, global.grid_offset_y, _ox0 + 3 * global.grid_cell_size_x + 4, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+// ===== 偏移探测线结束 =====
 
 if (is_valid) {
     draw_sprite_ext(preview_sprite, 0, draw_pos_x, draw_pos_y, 1.8, 1.8, 0, c_white, 0.5);
