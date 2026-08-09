@@ -29,13 +29,6 @@ if (false) {
 }
 
 if (os_type != os_windows) {
-    // 屏幕左上角区域点击 = 空格暂停（战斗专属，配合 Draw 的暂停按钮）
-    if (instance_exists(obj_battle) && mouse_check_button_pressed(mb_left)) {
-        if (mouse_x < 150 && mouse_y < 150) {
-            keyboard_key_press(vk_space);
-            keyboard_key_release(vk_space);
-        }
-    }
     // 屏幕左下角区域点击 = ESC（安卓替代返回键，配合 Draw 的 ESC 按钮）
     if (mouse_check_button_pressed(mb_left)) {
         if (mouse_x < 130 && mouse_y > room_height - 130) {

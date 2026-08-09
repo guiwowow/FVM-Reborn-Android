@@ -14,9 +14,9 @@ var draw_pos_x = grid_pos.x + platform_shift_x;
 var draw_pos_y = grid_pos.y + platform_shift_y;
 
 // PVZ 式放置引导：鼠标所在行/列半透明白色高亮（默认开启）
-var _gp = get_grid_position_from_world(draw_pos_x, draw_pos_y);
-var _col = clamp(_gp.col, 0, global.grid_cols - 1);
-var _row = clamp(_gp.row, 0, global.grid_rows - 1);
+// 行列从预览实际贴的格子中心反推（与 get_nearest_grid_position 同公式 round(rel/cell-0.5)），保证与预览零偏移
+var _col = clamp(round((grid_pos.x - global.grid_offset_x) / global.grid_cell_size_x - 0.5), 0, global.grid_cols - 1);
+var _row = clamp(round((grid_pos.y - global.grid_offset_y) / global.grid_cell_size_y - 0.5), 0, global.grid_rows - 1);
 var _gx = global.grid_offset_x + _col * global.grid_cell_size_x;
 var _gy = global.grid_offset_y + _row * global.grid_cell_size_y;
 draw_set_alpha(0.3);
