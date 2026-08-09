@@ -24,6 +24,20 @@ draw_rectangle(global.grid_offset_x, draw_pos_y - _half_y, global.grid_offset_x 
 draw_rectangle(draw_pos_x - _half_x, global.grid_offset_y, draw_pos_x + _half_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
 draw_set_alpha(1);
 
+// ===== 调试标记（定位十字线偏移用，定位后删除）=====
+// 红点：预览锚点 draw_pos（行高亮中线）
+draw_set_color(c_red); draw_circle(draw_pos_x, draw_pos_y, 7, false);
+// 青点：逻辑格中心 grid_pos
+draw_set_color(c_aqua); draw_circle(grid_pos.x, grid_pos.y, 5, false);
+// 黄框：grid_offset 网格区域边框
+draw_set_color(c_yellow); draw_rectangle(global.grid_offset_x, global.grid_offset_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, true);
+// 绿点：预览精灵视觉中心估算（sprite origin 反推）
+var _spr_top = sprite_get_ymin(preview_sprite) * 1.8;
+var _spr_bot = sprite_get_ymax(preview_sprite) * 1.8;
+var _vis_cy = draw_pos_y + (_spr_top + _spr_bot) * 0.5;
+draw_set_color(c_lime); draw_circle(draw_pos_x, _vis_cy, 4, false);
+// ===== 调试标记结束 =====
+
 if (is_valid) {
     draw_sprite_ext(preview_sprite, 0, draw_pos_x, draw_pos_y, 1.8, 1.8, 0, c_white, 0.5);
 } else {
