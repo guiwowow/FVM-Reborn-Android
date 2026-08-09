@@ -24,11 +24,12 @@ draw_rectangle(global.grid_offset_x, draw_pos_y - _half_y, global.grid_offset_x 
 draw_rectangle(draw_pos_x - _half_x, global.grid_offset_y, draw_pos_x + _half_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
 draw_set_alpha(1);
 
-// ===== 调试标记（定位十字线偏移用，定位后删除）=====
-// 红点：预览锚点 draw_pos（行高亮中线）
-draw_set_color(c_red); draw_circle(draw_pos_x, draw_pos_y, 7, false);
-// 青点：逻辑格中心 grid_pos
-draw_set_color(c_aqua); draw_circle(grid_pos.x, grid_pos.y, 5, false);
+// ===== 调试标记 v2（draw_rectangle 方块，定位后删除）=====
+// 红方块：预览锚点 draw_pos（行高亮中线）
+draw_set_color(c_black); draw_rectangle(draw_pos_x - 9, draw_pos_y - 9, draw_pos_x + 9, draw_pos_y + 9, false);
+draw_set_color(c_red); draw_rectangle(draw_pos_x - 7, draw_pos_y - 7, draw_pos_x + 7, draw_pos_y + 7, false);
+// 青方块：逻辑格中心 grid_pos
+draw_set_color(c_aqua); draw_rectangle(grid_pos.x - 6, grid_pos.y - 6, grid_pos.x + 6, grid_pos.y + 6, false);
 // 黄框：grid_offset 网格区域边框
 draw_set_color(c_yellow); draw_rectangle(global.grid_offset_x, global.grid_offset_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, true);
 // ===== 调试标记结束 =====
