@@ -13,15 +13,18 @@ var grid_pos = get_nearest_grid_position(logical_base_x, logical_base_y); // 获
 var draw_pos_x = grid_pos.x + platform_shift_x;
 var draw_pos_y = grid_pos.y + platform_shift_y;
 
-// PVZ 式放置引导：十字线以预览锚点 draw_pos 为基准（±半格）
-var _half_x = global.grid_cell_size_x * 0.5;
-var _half_y = global.grid_cell_size_y * 0.5;
+// PVZ 式放置引导：十字线 = 手指所在格（与 obj_card_slot 放置判定同源 get_grid_position_from_world(mouse_x, mouse_y)）
+var _gp = get_grid_position_from_world(mouse_x, mouse_y);
+var _row = clamp(_gp.row, 0, global.grid_rows - 1);
+var _col = clamp(_gp.col, 0, global.grid_cols - 1);
+var _gx = global.grid_offset_x + _col * global.grid_cell_size_x;
+var _gy = global.grid_offset_y + _row * global.grid_cell_size_y;
 draw_set_alpha(0.3);
 draw_set_color(c_white);
-// 行高亮：整行宽度，Y = 预览中心上下半格
-draw_rectangle(global.grid_offset_x, draw_pos_y - _half_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, draw_pos_y + _half_y, false);
-// 列高亮：整列高度，X = 预览中心左右半格
-draw_rectangle(draw_pos_x - _half_x, global.grid_offset_y, draw_pos_x + _half_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
+// 行高亮：手指所在整行（含 platform_shift 视觉跟随）
+draw_rectangle(global.grid_offset_x, _gy + platform_shift_y, global.grid_offset_x + global.grid_cols * global.grid_cell_size_x, _gy + global.grid_cell_size_y + platform_shift_y, false);
+// 列高亮：手指所在整列
+draw_rectangle(_gx + platform_shift_x, global.grid_offset_y, _gx + global.grid_cell_size_x + platform_shift_x, global.grid_offset_y + global.grid_rows * global.grid_cell_size_y, false);
 draw_set_alpha(1);
 
 // ===== 调试标记 v3（定位后删除）=====
