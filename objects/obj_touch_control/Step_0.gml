@@ -67,3 +67,18 @@ if (instance_exists(obj_battle)) {
 } else {
     global.slowmo_active = false;
 }
+
+// 切后台遮罩：os_is_paused true → 显示；回前台等帧推进恢复（纹理重载完成）→ 30 帧后隐藏
+if (os_type != os_windows) {
+    if (os_is_paused() && !overlay_active) {
+        overlay_active = true;
+        _advance = 0;
+        _last_advance = current_time;
+    } else if (!os_is_paused() && overlay_active) {
+        if (current_time > _last_advance) {
+            _last_advance = current_time;
+            _advance++;
+            if (_advance > 30) overlay_active = false;
+        }
+    }
+}
