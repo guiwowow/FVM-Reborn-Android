@@ -67,3 +67,15 @@ if (instance_exists(obj_battle)) {
 } else {
     global.slowmo_active = false;
 }
+
+// [取证] 切后台重载时长测量（定位后删除）：后台最后帧记时间，恢复第一帧记时间差
+if (os_type != os_windows) {
+    if (os_is_paused()) {
+        _bg_t = current_time;
+    } else if (_bg_t >= 0) {
+        var _lg = file_text_open_append("resume_log.txt");
+        file_text_write_string(_lg, "bg=" + string(_bg_t) + " resume=" + string(current_time) + " diff=" + string(current_time - _bg_t) + "\n");
+        file_text_close(_lg);
+        _bg_t = -1;
+    }
+}
