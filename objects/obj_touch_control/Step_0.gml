@@ -77,5 +77,9 @@ if (os_type != os_windows) {
         file_text_write_string(_lg, "bg=" + string(_bg_t) + " resume=" + string(current_time) + " diff=" + string(current_time - _bg_t) + "\n");
         file_text_close(_lg);
         _bg_t = -1;
+        // 开始 Draw 间隔取证（300 帧）
+        _draw_t0 = current_time;
+        _draw_frames = 0;
+        _draw_probe = true;
     }
 }
