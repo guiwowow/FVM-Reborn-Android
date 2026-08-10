@@ -1,18 +1,6 @@
 // Draw GUI 事件：绘制触屏虚拟按钮
 // YYC 下 draw_roundrect 等绘制函数存在运行兼容问题，安卓端暂时不绘制虚拟按钮
 // （虚拟按键功能已随 Step 一并禁用，后续如需启用需换兼容实现）
-
-// [取证] 恢复后 Draw 300 帧耗时（定位重载量，定位后删除）
-if (os_type != os_windows && _draw_probe) {
-	_draw_frames++;
-	if (_draw_frames == 300) {
-		var _lg = file_text_open_append("resume_log.txt");
-		file_text_write_string(_lg, "draw300=" + string(current_time - _draw_t0) + "ms\n");
-		file_text_close(_lg);
-		_draw_probe = false;
-	}
-}
-
 if (os_type != os_windows) {
 	// 安卓：绘制可见 ESC 按钮（左下角，配合 Step_0 检测区域；本对象 depth 已被提到最顶层）
 	draw_set_alpha(0.75);

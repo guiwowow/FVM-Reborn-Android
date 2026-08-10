@@ -58,6 +58,3 @@ _last_frame_time = 0;
 // 选卡缓时：全局帧号 + 缓时激活标志（保持 60fps 渲染，逻辑对象每 12 帧推进一次）
 global.game_frame = 0;
 global.slowmo_active = false;
-
-// [取证] 后台重载测量
-_bg_t = -1;
