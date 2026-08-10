@@ -52,21 +52,6 @@ if (os_type != os_windows) {
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 	}
-
-	// 切后台遮罩（全屏半透明黑 + 请稍候，纹理重载期间掩盖画面冻结）
-	if (overlay_active) {
-		draw_set_alpha(0.75);
-		draw_set_color(c_black);
-		draw_rectangle(0, 0, room_width, room_height, false);
-		draw_set_alpha(1);
-		draw_set_color(c_white);
-		draw_set_font(font_yuan);
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_middle);
-		draw_text(room_width / 2, room_height / 2, "请稍候…");
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-	}
 	exit;
 }
 
