@@ -37,6 +37,43 @@ function move_files () {
     }
 }
 
+/// @description 非 Windows 平台：把 datafiles/laboratory 内置关卡复制进可写沙盒
+/// （安卓 working_directory 只读，实验室列表扫描相对目录 laboratory/，必须落到沙盒）
+function install_bundled_lab_stages () {
+    var _base = string_replace_all(working_directory, "\\", "/")
+    if (string_char_at(_base, string_length(_base)) != "/") {
+        _base += "/"
+    }
+    var _src = _base + "laboratory"
+    if (!directory_exists("laboratory")) {
+        directory_create("laboratory")
+    }
+    var _copied = 0
+    if (directory_exists(_src)) {
+        var _item = file_find_first(_src + "/*.json", fa_archive | fa_readonly)
+        while (_item != "") {
+            if (file_copy(_src + "/" + _item, "laboratory/" + _item)) {
+                _copied++
+            } else {
+                show_debug_message("内置关卡复制失败: " + _item)
+            }
+            _item = file_find_next()
+        }
+        file_find_close()
+    }
+    if (_copied == 0) {
+        // 资产目录不可枚举时的兜底：显式复制已知内置关卡（新增内置关卡需同步此名单）
+        var _known = ["baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json"]
+        for (var i = 0; i < array_length(_known); i++) {
+            if (file_exists(_src + "/" + _known[i])) {
+                file_copy(_src + "/" + _known[i], "laboratory/" + _known[i])
+                _copied++
+            }
+        }
+    }
+    show_debug_message("内置实验室关卡已复制: " + string(_copied) + " 个")
+}
+
 global.level = 1
 global.menu_screen = true
 global.map_name = "美味岛"
@@ -68,6 +105,8 @@ if (!instance_exists(obj_touch_control)) {
 init_native_log()
 if (os_type == os_windows) {
     move_files()
+} else {
+    install_bundled_lab_stages()
 }
 
 // 初始化全局键位映射

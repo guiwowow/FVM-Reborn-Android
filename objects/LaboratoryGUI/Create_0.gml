@@ -124,7 +124,7 @@ function create_widgets() {
                     global.native_util.show_error(_error_code, "打开实验室文件夹失败")
                 }
             } else {
-                show_message_async("该功能仅支持 Windows 端")
+                show_message_async("已内置若干关卡，自定义导入仅支持 Windows 端")
             }
         }))
 }
