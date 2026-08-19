@@ -155,7 +155,7 @@ function on_draw() {
 
         scribble(self.state.custom_stage.name)
             .align(fa_left, fa_center)
-            .starting_format("font_hei_outline_4dir_black")
+            .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
             .draw(self.state.left + 30, self.state.top + 36)
         scribble(self.state.custom_stage.author)
             .align(fa_left, fa_center)

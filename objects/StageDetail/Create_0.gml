@@ -124,7 +124,7 @@ function on_draw() {
         scribble(self.state.custom_stage.name, "stage_detail_name")
             .align(fa_center, fa_center)
             .scale(1.2)
-            .starting_format("font_hei_outline_4dir_black")
+            .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
             .draw(self.state.left + (self.state.width / 2),  self.state.top + 114)
 
         scribble(self.state.custom_stage.id)

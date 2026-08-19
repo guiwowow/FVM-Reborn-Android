@@ -82,6 +82,8 @@ function after_texture_load() {
     prewarm_active = true
     // 安卓/移动端跳过 scribble 中文字体烘焙（CPU 极重且可能触发阻塞弹窗），文字回退用普通字体渲染
     if (os_type == os_android) {
+        // 只注册默认字体（轻量，不烘焙）：保证安卓上所有不带 starting_format 的 Scribble 文本回退到 font_hei
+        scribble_font_set_default("font_hei")
         if !global.preloaded{
             global.preloaded = true;
         }
