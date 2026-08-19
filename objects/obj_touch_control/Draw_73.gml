@@ -17,6 +17,20 @@ if (os_type != os_windows) {
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 
+	// 安卓：绘制可见暂停按钮（左上角，战斗专属；点击 = 空格暂停）
+	if (instance_exists(obj_battle)) {
+		draw_set_alpha(0.4);
+		draw_set_color(c_black);
+		draw_roundrect(0, 0, 150, 150, false);
+		draw_set_color(c_red);
+		draw_roundrect(8, 8, 142, 142, true);
+		// 双竖线图标（暂停，用填充矩形避免 draw_set_line_width 兼容问题）
+		draw_set_color(c_white);
+		draw_rectangle(46, 45, 58, 105, false);
+		draw_rectangle(92, 45, 104, 105, false);
+		draw_set_alpha(1);
+	}
+
 	// 安卓：绘制加速切换按钮（左下 ESC 上方；战斗专属，点击 1x/2x 替代 shift）
 	if (instance_exists(obj_battle)) {
 		var _battle = instance_find(obj_battle, 0);

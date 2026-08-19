@@ -20,16 +20,17 @@ level_button_list = []
 
 map_surface = -1
 
-var page_btn1 = instance_create_depth(x-695,y+495,depth-1,obj_tower_cake_page_btn)
+// 切页按钮布局：中心距统一 80px（按钮约 56px 宽，互不重叠）
+var page_btn1 = instance_create_depth(x-680,y+495,depth-1,obj_tower_cake_page_btn)
 page_btn1.sprite_index = spr_tower_cake_page_btn
 page_btn1.btn_type = "prev"
-var page_btn2 = instance_create_depth(x-605,y+495,depth-1,obj_tower_cake_page_btn)
+var page_btn2 = instance_create_depth(x-600,y+495,depth-1,obj_tower_cake_page_btn)
 page_btn2.sprite_index = spr_tower_cake_page_btn
 page_btn2.btn_type = "next"
-var page_btn3 = instance_create_depth(x-750,y+495,depth-1,obj_tower_cake_page_btn)
+var page_btn3 = instance_create_depth(x-760,y+495,depth-1,obj_tower_cake_page_btn)
 page_btn3.sprite_index = spr_tower_cake_page_set_btn
 page_btn3.btn_type = "min"
-var page_btn4 = instance_create_depth(x-550,y+495,depth-1,obj_tower_cake_page_btn)
+var page_btn4 = instance_create_depth(x-520,y+495,depth-1,obj_tower_cake_page_btn)
 page_btn4.sprite_index = spr_tower_cake_page_set_btn
 page_btn4.btn_type = "max"
 

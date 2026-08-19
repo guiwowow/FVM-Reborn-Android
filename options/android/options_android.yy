@@ -1,6 +1,11 @@
 {
   "$GMAndroidOptions":"v1",
   "%Name":"Android",
+  "ConfigValues":{
+    "ASTC":{
+      "option_android_version":"2.2.2",
+    },
+  },
   "name":"Android",
   "option_android_application_tag_inject":"android:largeHeap=\"true\"",
   "option_android_arch_arm64":true,

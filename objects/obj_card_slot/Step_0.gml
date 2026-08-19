@@ -62,21 +62,33 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
     my = mouse_y;
     
     if (point_in_rectangle(mx, my, x-50, y-70, x+50, y+70)) {
-		
-        select_slot()
-        // 选择即放置（无误差间隔：点卡片后立刻点地格即可放置；同帧按下由位置检测兜底）
-        select_lock_frames = 0;
-        
-        // 创建放置预览对象
-        if (selected_preview == noone) {
-            selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
-            selected_preview.preview_sprite = card_spr; // 设置预览精灵
-			if place_preview != undefined{
-				selected_preview.preview_sprite = place_preview
+		// 体验优化：点击放置时，再点一次同一张卡 = 取消选中
+		if (is_selected) {
+			is_selected = false;
+			_drag_left_slot = false;
+			if (selected_preview != noone && instance_exists(selected_preview)) {
+				instance_destroy(selected_preview);
 			}
-            selected_preview.parent_slot = id; // 设置父卡槽
-			selected_preview.card_id = card_id
-        }
+			selected_preview = noone;
+			global.selected_slot = noone;
+		}
+		else{
+			select_slot()
+			_drag_left_slot = false;
+			// 选择即放置（无误差间隔：点卡片后立刻点地格即可放置；同帧按下由位置检测兜底）
+			select_lock_frames = 0;
+
+			// 创建放置预览对象
+			if (selected_preview == noone) {
+				selected_preview = instance_create_depth(mouse_x, mouse_y, depth-2, obj_card_preview);
+				selected_preview.preview_sprite = card_spr; // 设置预览精灵
+				if place_preview != undefined{
+					selected_preview.preview_sprite = place_preview
+				}
+				selected_preview.parent_slot = id; // 设置父卡槽
+				selected_preview.card_id = card_id
+			}
+		}
     }
 }
 
@@ -119,6 +131,28 @@ if (is_selected) {
     if (selected_preview != noone && instance_exists(selected_preview)) {
         selected_preview.x = mouse_x;
         selected_preview.y = mouse_y;
+    }
+
+    // 体验优化：拖动放置时，若卡片拖出卡槽后拖回任意卡槽位置 = 取消选中
+    var _on_any_slot = false;
+    with (obj_card_slot) {
+        if (point_in_rectangle(mouse_x, mouse_y, x-50, y-70, x+50, y+70)) {
+            _on_any_slot = true;
+            break;
+        }
+    }
+    if (!_on_any_slot) {
+        // 鼠标已离开所有卡槽，标记已拖出
+        _drag_left_slot = true;
+    } else if (_drag_left_slot) {
+        // 拖出后又回到任意卡槽区域：取消选中
+        _drag_left_slot = false;
+        is_selected = false;
+        if (selected_preview != noone && instance_exists(selected_preview)) {
+            instance_destroy(selected_preview);
+        }
+        selected_preview = noone;
+        global.selected_slot = noone;
     }
     
     // 右键取消选择

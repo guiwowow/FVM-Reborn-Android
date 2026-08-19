@@ -22,6 +22,7 @@ cooling_alpha = 0         // 冷却覆盖层透明度
 
 selected_preview = noone;  // 当前选中的预览对象
 preview_alpha = 0.5;      // 放置预览的透明度
+_drag_left_slot = false;   // 拖动放置：是否已拖出卡槽（拖出再拖回=取消选中）
 
 image_xscale = 0.33
 image_yscale = 0.33

@@ -126,7 +126,7 @@ if button_select == 0{
             
     }
 	//绘制正在强化的卡片
-	if current_uprade_target_id != ""{
+	if current_uprade_target_id != "" && is_struct(get_card_info_simple(current_uprade_target_id)){
 		var card_data = get_card_info_simple(current_uprade_target_id)
 		var card_id = card_data.id
 		var card_slot_data = deck_get_card_data(current_uprade_target_id,card_data.shape)
