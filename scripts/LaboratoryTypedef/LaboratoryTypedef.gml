@@ -140,10 +140,48 @@ function laboratory_path_is_relative(_path) {
 /// @param {String} _path_prefix
 /// @returns {String}
 function laboratory_resolve_datafile_path(_path, _path_prefix) {
-    if (!string_ends_with(_path_prefix, "/") && !string_ends_with(_path_prefix, "\\")) {
-        _path_prefix = _path_prefix + "/"
+    // 取 _path_prefix（json 文件路径）的目录部分，拼上资源相对路径，
+    // 再规范化（消掉 ./ ../ 空段），保证返回的路径可被 file_exists/sprite_add/audio_create_stream 直接使用
+    // （安卓上 sprite_add 不识别含 ".." 的路径，v4 平铺根级后 json 与资源同目录，规范化后无多余段）
+    var _dir = filename_dir(_path_prefix)
+    var _joined = _dir
+    if (string_length(_joined) > 0 && !string_ends_with(_joined, "/") && !string_ends_with(_joined, "\\")) {
+        _joined += "/"
     }
-    return _path_prefix + "../" + _path
+    _joined += string_replace_all(_path, "\\", "/")
+    // 手工按 "/" 分段
+    var _parts = []
+    var _cur = ""
+    var _len = string_length(_joined)
+    for (var i = 1; i <= _len; i++) {
+        var _c = string_char_at(_joined, i)
+        if (_c == "/") {
+            array_push(_parts, _cur)
+            _cur = ""
+        } else {
+            _cur += _c
+        }
+    }
+    array_push(_parts, _cur)
+    // 规范化：跳过空段与 "."，".." 弹栈
+    var _stack = []
+    for (var i = 0; i < array_length(_parts); i++) {
+        var _p = _parts[i]
+        if (_p == "" || _p == ".") continue
+        if (_p == "..") {
+            if (array_length(_stack) > 0) {
+                array_pop(_stack)
+            }
+            continue
+        }
+        array_push(_stack, _p)
+    }
+    var _out = ""
+    for (var i = 0; i < array_length(_stack); i++) {
+        if (i > 0) _out += "/"
+        _out += _stack[i]
+    }
+    return _out
 }
 
 /// @param {String} _path

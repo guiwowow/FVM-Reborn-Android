@@ -192,6 +192,7 @@ function FileUtil() constructor {
         }
         var _loaded = sprite_add(_path, 1, false, false, 0, 0)
         if (_loaded == -1) {
+            show_debug_message("内置关卡 sprite 加载失败: " + _path)
             return new Result().fail(ErrorCode.LOAD_RESOURCE_FAILED, "Failed to load sprite: " + _path)
         }
         return new Result().success(_loaded)
