@@ -29,6 +29,13 @@ if (false) {
 }
 
 if (os_type != os_windows) {
+    // 屏幕左上角区域点击 = 空格暂停（战斗专属，配合 Draw 的暂停按钮）
+    if (instance_exists(obj_battle) && mouse_check_button_pressed(mb_left)) {
+        if (mouse_x < 150 && mouse_y < 150) {
+            keyboard_key_press(vk_space);
+            keyboard_key_release(vk_space);
+        }
+    }
     // 屏幕左下角区域点击 = ESC（安卓替代返回键，配合 Draw 的 ESC 按钮）
     if (mouse_check_button_pressed(mb_left)) {
         if (mouse_x < 130 && mouse_y > room_height - 130) {
@@ -55,15 +62,18 @@ if (os_type != os_windows) {
     }
 }
 
-// 选卡缓时：选中卡片时战斗逻辑 12 倍减速（保持 60fps 渲染，逻辑对象每 12 帧推进）
+// 选卡缓时：选中卡片或铲子时战斗逻辑 12 倍减速（保持 60fps 渲染，逻辑对象每 12 帧推进）
 // 帧号每帧 +1（本对象 depth 最大，Step 最先执行，其他对象读到的都是本帧值）
 global.game_frame = (global.game_frame + 1) mod 12;
 if (instance_exists(obj_battle)) {
-    var _card_selected = false;
+    var _slow_selected = false;
     with (obj_card_slot) {
-        if (is_selected) _card_selected = true;
+        if (is_selected) _slow_selected = true;
     }
-    global.slowmo_active = global.cardslow_enabled && !global.is_paused && _card_selected;
+    with (obj_shovel_slot) {
+        if (is_selected) _slow_selected = true;
+    }
+    global.slowmo_active = global.cardslow_enabled && !global.is_paused && _slow_selected;
 } else {
     global.slowmo_active = false;
 }

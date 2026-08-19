@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"map_grid_calibration",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"map_grid_calibration",
+  "parent":{
+    "name":"assistant",
+    "path":"folders/脚本/assistant.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
