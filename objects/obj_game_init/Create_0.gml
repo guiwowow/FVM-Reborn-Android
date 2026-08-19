@@ -45,33 +45,22 @@ function install_bundled_lab_stages () {
         _base += "/"
     }
     var _src = _base + "laboratory"
-    if (!directory_exists("laboratory")) {
-        directory_create("laboratory")
+    if (!directory_exists(_src)) {
+        show_debug_message("内置实验室目录不存在: " + _src)
+        return
     }
-    var _copied = 0
-    if (directory_exists(_src)) {
-        var _item = file_find_first(_src + "/*.json", fa_archive | fa_readonly)
-        while (_item != "") {
-            if (file_copy(_src + "/" + _item, "laboratory/" + _item)) {
-                _copied++
-            } else {
-                show_debug_message("内置关卡复制失败: " + _item)
-            }
-            _item = file_find_next()
-        }
-        file_find_close()
-    }
-    if (_copied == 0) {
-        // 资产目录不可枚举时的兜底：显式复制已知内置关卡（新增内置关卡需同步此名单）
-        var _known = ["baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json"]
+    // 整树递归覆盖复制（含子目录与关卡自带的 png/ogg 资源）
+    var _ok = native_copy_folder(_src, "laboratory")
+    if (_ok != 0) {
+        // 资产目录不可枚举时的兜底：显式复制已知根级内置关卡（新增内置关卡需同步此名单）
+        var _known = ["baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json", "三界花园.json", "arctic_bay_turbulence_warrior.json", "勇士金刚.json"]
         for (var i = 0; i < array_length(_known); i++) {
             if (file_exists(_src + "/" + _known[i])) {
                 file_copy(_src + "/" + _known[i], "laboratory/" + _known[i])
-                _copied++
             }
         }
     }
-    show_debug_message("内置实验室关卡已复制: " + string(_copied) + " 个")
+    show_debug_message("内置实验室关卡安装完成: " + string(_ok))
 }
 
 global.level = 1
