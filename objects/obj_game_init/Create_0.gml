@@ -45,22 +45,61 @@ function install_bundled_lab_stages () {
         _base += "/"
     }
     var _src = _base + "laboratory"
-    if (!directory_exists(_src)) {
-        show_debug_message("内置实验室目录不存在: " + _src)
-        return
+    if (!directory_exists("laboratory")) {
+        directory_create("laboratory")
     }
-    // 整树递归覆盖复制（含子目录与关卡自带的 png/ogg 资源）
-    var _ok = native_copy_folder(_src, "laboratory")
-    if (_ok != 0) {
-        // 资产目录不可枚举时的兜底：显式复制已知根级内置关卡（新增内置关卡需同步此名单）
-        var _known = ["baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json", "三界花园.json", "arctic_bay_turbulence_warrior.json", "勇士金刚.json"]
-        for (var i = 0; i < array_length(_known); i++) {
-            if (file_exists(_src + "/" + _known[i])) {
-                file_copy(_src + "/" + _known[i], "laboratory/" + _known[i])
+    // 策略1：整树递归覆盖复制（依赖资产目录枚举；安卓 APK assets 目录可能不可枚举）
+    var _tree_ok = native_copy_folder(_src, "laboratory")
+    // 策略2：显式逐文件复制（不依赖枚举）：先 working_directory 直连路径，再相对路径 buffer 兜底
+    var _known = [
+        "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
+        "三界花园.json", "arctic_bay_turbulence_warrior.json", "勇士金刚.json",
+        "water and fire 2nd hard/water and fire 2nd hard.json",
+        "water and fire 2nd hard/water and fire 2nd.png",
+        "water and fire 2nd hard/cross-server night.ogg",
+        "water and fire 2nd hard/cross-server night boss.ogg"
+    ]
+    var _copied = 0
+    for (var i = 0; i < array_length(_known); i++) {
+        var _rel = _known[i]
+        var _dst = "laboratory/" + _rel
+        if (file_exists(_dst)) {
+            continue
+        }
+        var _ok = false
+        if (file_exists(_src + "/" + _rel)) {
+            _ok = file_copy(_src + "/" + _rel, _dst)
+        }
+        if (!_ok && file_exists(_rel)) {
+            // 相对路径命中资产（安卓读 included files 走虚拟文件系统）→ buffer 读资产、写沙盒
+            var _dir = filename_dir(_dst)
+            if (_dir != "" && !directory_exists(_dir)) {
+                directory_create(_dir)
+            }
+            var _buf = buffer_load(_rel)
+            if (buffer_exists(_buf)) {
+                buffer_save(_buf, _dst)
+                buffer_delete(_buf)
+                _ok = file_exists(_dst)
             }
         }
+        if (_ok) {
+            _copied++
+        } else {
+            show_debug_message("内置关卡安装失败: " + _rel)
+        }
     }
-    show_debug_message("内置实验室关卡安装完成: " + string(_ok))
+    // 诊断：统计沙盒根目录 json 数量
+    var _count = 0
+    if (directory_exists("laboratory")) {
+        var _it = file_find_first("laboratory/*.json", fa_archive | fa_readonly)
+        while (_it != "") {
+            _count++
+            _it = file_find_next()
+        }
+        file_find_close()
+    }
+    show_debug_message("内置实验室安装: tree=" + string(_tree_ok) + " 逐文件=" + string(_copied) + " 沙盒json=" + string(_count))
 }
 
 global.level = 1
