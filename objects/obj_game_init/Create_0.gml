@@ -70,9 +70,10 @@ function install_bundled_lab_stages () {
         _base += "/"
     }
     var _src = _base + "laboratory"
-    var _marker = "laboratory/.installed_v3"
+    var _marker = "laboratory/.installed_v4"
     // 清理旧版残留：历史版本用中文/空格文件名（安卓沙盒 UTF 处理不稳 → 乱码且 file_exists 失配）。
-    // 本布局 v3 全 ASCII：首次安装时按旧真名逐删 + 递归删树内文件，再复制新副本。
+    // 本布局 v4 全 ASCII 且水关资源平铺到 laboratory 根级（v3 子目录在安卓 file_find 递归/复制失配，
+    // 报 File not found: laboratory/water_and_fire_2nd_hard.json）。首次安装时递归清空树再复制新副本。
     if (!file_exists(_marker)) {
         if (directory_exists("laboratory")) {
             lab_delete_recursive_files("laboratory")
@@ -82,7 +83,11 @@ function install_bundled_lab_stages () {
                 "water and fire 2nd hard/water and fire 2nd.png",
                 "water and fire 2nd hard/cross-server night.ogg",
                 "water and fire 2nd hard/cross-server night boss.ogg",
-                "water_and_fire_2nd_hard.json"
+                "water_and_fire_2nd_hard.json",
+                "water_and_fire_2nd_hard/water_and_fire_2nd_hard.json",
+                "water_and_fire_2nd_hard/water_and_fire_2nd.png",
+                "water_and_fire_2nd_hard/cross_server_night.ogg",
+                "water_and_fire_2nd_hard/cross_server_night_boss.ogg"
             ]
             for (var i = 0; i < array_length(_old); i++) {
                 file_delete("laboratory/" + _old[i])
@@ -90,7 +95,7 @@ function install_bundled_lab_stages () {
         }
         directory_create("laboratory")
         var _f = file_text_open_write(_marker)
-        file_text_write_string(_f, "v3")
+        file_text_write_string(_f, "v4")
         file_text_close(_f)
     }
     // 策略1：整树递归覆盖复制（依赖资产目录枚举；安卓 APK assets 目录可能不可枚举）
@@ -100,10 +105,10 @@ function install_bundled_lab_stages () {
     var _known = [
         "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
         "sanjiehuayuan.json", "arctic_bay_turbulence_warrior.json", "yongshijingang.json",
-        "water_and_fire_2nd_hard/water_and_fire_2nd_hard.json",
-        "water_and_fire_2nd_hard/water_and_fire_2nd.png",
-        "water_and_fire_2nd_hard/cross_server_night.ogg",
-        "water_and_fire_2nd_hard/cross_server_night_boss.ogg"
+        "water_and_fire_2nd_hard.json",
+        "water_and_fire_2nd.png",
+        "cross_server_night.ogg",
+        "cross_server_night_boss.ogg"
     ]
     var _copied = 0
     for (var i = 0; i < array_length(_known); i++) {
