@@ -39,33 +39,76 @@ function move_files () {
 
 /// @description 非 Windows 平台：把 datafiles/laboratory 内置关卡复制进可写沙盒
 /// （安卓 working_directory 只读，实验室列表扫描相对目录 laboratory/，必须落到沙盒）
+function lab_delete_recursive_files(_path) {
+    if (!directory_exists(_path)) return
+    var _item = file_find_first(_path + "/*", fa_directory | fa_archive | fa_readonly)
+    var _dirs = []
+    var _files = []
+    while (_item != "") {
+        if (_item != "." && _item != "..") {
+            var _full = _path + "/" + _item
+            if (directory_exists(_full)) {
+                array_push(_dirs, _full)
+            } else {
+                array_push(_files, _full)
+            }
+        }
+        _item = file_find_next()
+    }
+    file_find_close()
+    for (var i = 0; i < array_length(_files); i++) {
+        file_delete(_files[i])
+    }
+    for (var i = 0; i < array_length(_dirs); i++) {
+        lab_delete_recursive_files(_dirs[i])
+    }
+}
+
 function install_bundled_lab_stages () {
     var _base = string_replace_all(working_directory, "\\", "/")
     if (string_char_at(_base, string_length(_base)) != "/") {
         _base += "/"
     }
     var _src = _base + "laboratory"
-    if (!directory_exists("laboratory")) {
+    var _marker = "laboratory/.installed_v3"
+    // 清理旧版残留：历史版本用中文/空格文件名（安卓沙盒 UTF 处理不稳 → 乱码且 file_exists 失配）。
+    // 本布局 v3 全 ASCII：首次安装时按旧真名逐删 + 递归删树内文件，再复制新副本。
+    if (!file_exists(_marker)) {
+        if (directory_exists("laboratory")) {
+            lab_delete_recursive_files("laboratory")
+            var _old = [
+                "三界花园.json", "勇士金刚.json",
+                "water and fire 2nd hard/water and fire 2nd hard.json",
+                "water and fire 2nd hard/water and fire 2nd.png",
+                "water and fire 2nd hard/cross-server night.ogg",
+                "water and fire 2nd hard/cross-server night boss.ogg",
+                "water_and_fire_2nd_hard.json"
+            ]
+            for (var i = 0; i < array_length(_old); i++) {
+                file_delete("laboratory/" + _old[i])
+            }
+        }
         directory_create("laboratory")
+        var _f = file_text_open_write(_marker)
+        file_text_write_string(_f, "v3")
+        file_text_close(_f)
     }
     // 策略1：整树递归覆盖复制（依赖资产目录枚举；安卓 APK assets 目录可能不可枚举）
     var _tree_ok = native_copy_folder(_src, "laboratory")
-    // 策略2：显式逐文件复制（不依赖枚举）：先 working_directory 直连路径，再相对路径 buffer 兜底
+    // 策略2：显式逐文件复制（不依赖枚举）：先 working_directory 直连路径，再相对路径 buffer 兜底；
+    // 不做 file_exists 跳过——每次启动覆盖，确保沙盒内容与 APK 一致
     var _known = [
         "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
-        "三界花园.json", "arctic_bay_turbulence_warrior.json", "勇士金刚.json",
-        "water and fire 2nd hard/water and fire 2nd hard.json",
-        "water and fire 2nd hard/water and fire 2nd.png",
-        "water and fire 2nd hard/cross-server night.ogg",
-        "water and fire 2nd hard/cross-server night boss.ogg"
+        "sanjiehuayuan.json", "arctic_bay_turbulence_warrior.json", "yongshijingang.json",
+        "water_and_fire_2nd_hard/water_and_fire_2nd_hard.json",
+        "water_and_fire_2nd_hard/water_and_fire_2nd.png",
+        "water_and_fire_2nd_hard/cross_server_night.ogg",
+        "water_and_fire_2nd_hard/cross_server_night_boss.ogg"
     ]
     var _copied = 0
     for (var i = 0; i < array_length(_known); i++) {
         var _rel = _known[i]
         var _dst = "laboratory/" + _rel
-        if (file_exists(_dst)) {
-            continue
-        }
         var _ok = false
         if (file_exists(_src + "/" + _rel)) {
             _ok = file_copy(_src + "/" + _rel, _dst)

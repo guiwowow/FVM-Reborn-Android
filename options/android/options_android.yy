@@ -3,7 +3,7 @@
   "%Name":"Android",
   "ConfigValues":{
     "ASTC":{
-      "option_android_version":"2.2.2",
+      "option_android_version":"2.3.0",
     },
   },
   "name":"Android",
