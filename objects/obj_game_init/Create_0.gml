@@ -136,10 +136,20 @@ function install_bundled_lab_stages () {
     for (var i = 0; i < array_length(_known); i++) {
         var _rel = _known[i]
         var _dst = "laboratory/" + _rel
-        // 已有非空文件 → 跳过，绝不覆盖。首发安装后 working_directory/laboratory/<rel> 命中沙盒本体，
-        // 若每次启动都 file_copy/_src→_dst，等于自拷贝，会把全部 json 清成 0 字节（第二次打开全 Empty 4100）。
-        // dst 缺失或 0 字节时走下方 buffer 从资产重建（顺带自愈上版被清零的残留文件）。
-        if (file_exists(_dst) && file_size(_dst) > 0) {
+        // 已有且非空 → 跳过，绝不覆盖。**不能用 file_size(_dst)**：该名在本 VM 是内置实例变量，
+        // 当函数读会崩 "Variable obj_game_init.file_size(...) not set before reading it"。
+        // 改用 file_text_eof 判空：文件不存在/打不开/打开即 EOF（空）→ 需要重建。
+        var _need_copy = !file_exists(_dst)
+        if (!_need_copy) {
+            var _t = file_text_open_read(_dst)
+            if (_t < 0) {
+                _need_copy = true
+            } else {
+                _need_copy = file_text_eof(_t)
+                file_text_close(_t)
+            }
+        }
+        if (!_need_copy) {
             continue
         }
         var _ok = false
