@@ -43,3 +43,18 @@ draw_set_font(font_yuan)
 draw_text(0,0,"FPS:"+string(fps))
 draw_text(0,25,"加速:"+(speed_up ? "开" : "关") + "（shift）")
 draw_text(0,50,"暂停（空格）\n菜单（ESC）")
+
+// 【调试】右上角“召唤BOSS”按钮（仅 global.debug 构建显示；Step_0 里处理点按）
+if (global.debug) {
+    draw_set_color(c_black);
+    draw_set_alpha(0.6);
+    draw_rectangle(room_width - 220, 15, room_width - 30, 80, false);
+    draw_set_alpha(1);
+    draw_set_color(c_yellow);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_font(font_yuan);
+    draw_text(room_width - 125, 47, "召唤BOSS");
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+}
