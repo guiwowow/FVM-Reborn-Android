@@ -220,40 +220,4 @@ if global.debug{
 			current_subwave = 0
 		}
 	}
-	// 【调试】触屏点右上【召唤BOSS】→ 直接生成本关 BOSS（复刻下方 boss_wave 生成逻辑）
-	if (mouse_check_button_pressed(mb_left) && point_in_rectangle(mouse_x, mouse_y, room_width - 220, 15, room_width - 30, 80)) {
-		var _bi = -1;
-		for (var i = 0; i < total_wave; i++) {
-			if (global.level_file.waves[i].boss_wave) { _bi = i; }
-		}
-		if (_bi >= 0) {
-			current_wave = _bi;
-			current_subwave = 0;
-			level_stage = "boss";
-			var _bd = global.level_file.waves[_bi];
-			var _row = irandom_range(0, global.grid_rows - 1);
-			var _pos = get_world_position_from_grid(10, _row);
-			var _binst = instance_create_depth(_pos.x - 80, _pos.y + 30, -200, global.enemy_map[? _bd.boss]._obj);
-			boss_count ++;
-			if (is_real(global.level_file.version)) {
-				_binst.hp *= _bd.boss_1_hp_modify;
-				_binst.maxhp *= _bd.boss_1_hp_modify;
-				if (_bd.boss2 != "") {
-					var _row2 = irandom_range(0, global.grid_rows - 1);
-					var _pos2 = get_world_position_from_grid(10, _row2);
-					var _binst2 = instance_create_depth(_pos2.x - 80, _pos2.y + 30, -200, global.enemy_map[? _bd.boss2]._obj);
-					_binst2.hp *= _bd.boss_2_hp_modify;
-					_binst2.maxhp *= _bd.boss_2_hp_modify;
-					boss_count ++;
-				}
-			}
-			with obj_battle_music_controller {
-				new_battle_music = global.level_data.boss_music;
-				event_user(0);
-			}
-			show_notice("调试：已召唤本关 BOSS", 60);
-		} else {
-			show_notice("调试：本关没有 BOSS 波", 60);
-		}
-	}
 }
