@@ -103,12 +103,29 @@ function install_bundled_lab_stages () {
     // 策略2：显式逐文件复制（不依赖枚举）：先 working_directory 直连路径，再相对路径 buffer 兜底；
     // 不做 file_exists 跳过——每次启动覆盖，确保沙盒内容与 APK 一致
     var _known = [
+        // 既有 8 关
         "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
         "sanjiehuayuan.json", "arctic_bay_turbulence_warrior.json", "yongshijingang.json",
         "water_and_fire_2nd_hard.json",
-        "water_and_fire_2nd.png",
-        "cross_server_night.ogg",
-        "cross_server_night_boss.ogg"
+        // 既有资源（cross_server_night*.ogg 被新增 11 关内容复用）
+        "water_and_fire_2nd.png", "cross_server_night.ogg", "cross_server_night_boss.ogg",
+        // 24 个新增关卡 json（v5 批量：每文件夹一关）
+        "bar_secret_area.json", "bar_secret_area_hard.json", "cooperation_starts.json",
+        "hot_hell_1st.json", "hot_hell_1st_hard.json", "hot_hell_2nd.json", "hot_hell_2nd_hard.json",
+        "nightmare_sky_1st.json", "nightmare_sky_1st_hard.json", "nightmare_sky_2nd.json", "nightmare_sky_2nd_hard.json",
+        "sweet_island.json", "sweet_island_hard.json",
+        "voodoo_research_labortory_1st.json", "voodoo_research_labortory_1st_hard.json",
+        "voodoo_research_labortory_2nd.json", "voodoo_research_labortory_2nd_hard.json",
+        "wait_for_windfalls.json", "wait_for_windfalls_hard.json", "wait_for_windfalls_2.json", "wait_for_windfalls_2_hard.json",
+        "water_and_fire_1st.json", "water_and_fire_1st_hard.json", "water_and_fire_2nd.json",
+        // 新增资源（内容去重：同内容多关共享一份 flat 文件）
+        "bar_secret_area.png", "cooperation_1.ogg", "cooperation_2.ogg", "cooperation_3.png", "cooperation_4.ogg",
+        "cross_server_daytime.ogg", "cross_server_daytime_boss.ogg",
+        "hot_hell.png", "nightmare_sky_1st.png", "nightmare_sky_2nd.png",
+        "sweet_island.png", "voodoo_research_labortory_1st.png", "voodoo_research_labortory_2nd.png",
+        "wait_for_windfalls.png", "wait_for_windfalls_2.png",
+        "wait_for_windfalls_boss.ogg", "wait_for_windfalls_daytime.ogg", "wait_for_windfalls_night.ogg",
+        "water_and_fire_1st.png", "water_and_fire_2nd_normal.png"
     ]
     var _copied = 0
     for (var i = 0; i < array_length(_known); i++) {
