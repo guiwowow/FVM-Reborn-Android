@@ -8,6 +8,8 @@ package_button_select = 1
 is_submenu_opened = false
 gem_start_line = 0
 y_offset = 0
+second_touch_active = false
+second_touch_y_prev = 0
 package_surface = -1
 //创建背包栏位选择按钮
 var btn1 = instance_create_depth(x-300,y-455,depth-1,obj_packageselect_btn)
