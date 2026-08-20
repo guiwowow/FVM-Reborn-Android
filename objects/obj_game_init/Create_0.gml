@@ -70,7 +70,7 @@ function install_bundled_lab_stages () {
         _base += "/"
     }
     var _src = _base + "laboratory"
-    var _marker = "laboratory/.installed_v4"
+    var _marker = "laboratory/.installed_v5"
     // 清理旧版残留：历史版本用中文/空格文件名（安卓沙盒 UTF 处理不稳 → 乱码且 file_exists 失配）。
     // 本布局 v4 全 ASCII 且水关资源平铺到 laboratory 根级（v3 子目录在安卓 file_find 递归/复制失配，
     // 报 File not found: laboratory/water_and_fire_2nd_hard.json）。首次安装时递归清空树再复制新副本。
@@ -95,7 +95,7 @@ function install_bundled_lab_stages () {
         }
         directory_create("laboratory")
         var _f = file_text_open_write(_marker)
-        file_text_write_string(_f, "v4")
+        file_text_write_string(_f, "v5")
         file_text_close(_f)
     }
     // 策略1：整树递归覆盖复制（依赖资产目录枚举；安卓 APK assets 目录可能不可枚举）
@@ -154,6 +154,26 @@ function install_bundled_lab_stages () {
             show_debug_message("内置关卡安装失败: " + _rel)
         }
     }
+    // 白名单清理：删掉沙盒根级不在 _known 里的 json（防旧版本残留/半截文件被扫描到导致读取报错）
+    var _delete_count = 0
+    if (directory_exists("laboratory")) {
+        var _it2 = file_find_first("laboratory/*.json", fa_archive | fa_readonly)
+        while (_it2 != "") {
+            var _in_known = false
+            for (var i = 0; i < array_length(_known); i++) {
+                if (_known[i] == _it2) {
+                    _in_known = true
+                    break
+                }
+            }
+            if (!_in_known) {
+                file_delete("laboratory/" + _it2)
+                _delete_count++
+            }
+            _it2 = file_find_next()
+        }
+        file_find_close()
+    }
     // 诊断：统计沙盒根目录 json 数量
     var _count = 0
     if (directory_exists("laboratory")) {
@@ -164,7 +184,7 @@ function install_bundled_lab_stages () {
         }
         file_find_close()
     }
-    show_debug_message("内置实验室安装: tree=" + string(_tree_ok) + " 逐文件=" + string(_copied) + " 沙盒json=" + string(_count))
+    show_debug_message("内置实验室安装: tree=" + string(_tree_ok) + " 逐文件=" + string(_copied) + " 沙盒json=" + string(_count) + " 清理=" + string(_delete_count))
 }
 
 global.level = 1

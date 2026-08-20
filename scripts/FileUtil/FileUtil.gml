@@ -126,13 +126,19 @@ function FileUtil() constructor {
         if (!file_exists(_path)) {
             return new Result().fail(ErrorCode.NO_SUCH_FILE, "File not found: " + _path)
         }
-        var _buffer = buffer_load(_path);
-        if (!buffer_exists(_buffer)) {
-            return new Result().fail(ErrorCode.NO_SUCH_FILE, "Could not load file into buffer: " + _path)
+        // 用文本读整文件（区别于 buffer_read(buffer_string)）：不会因坏/空文件读到缓冲区外报错；
+        // 剥离 \x00 尾字节（历史关卡文件尾部有 NUL 解析坑）
+        var _file = file_text_open_read(_path);
+        if (_file < 0) {
+            return new Result().fail(ErrorCode.NO_SUCH_FILE, "Could not open file for reading: " + _path)
         }
-        var _raw_json = buffer_read(_buffer, buffer_string);
-        buffer_delete(_buffer);
+        var _raw_json = file_text_read_string(_file, true);
+        file_text_close(_file);
+        _raw_json = string_replace_all(_raw_json, chr(0), "");
         try {
+            if (string_length(_raw_json) == 0) {
+                return new Result().fail(ErrorCode.JSON_PARSE_FAILED, "Empty json file: " + _path);
+            }
             var _json = json_parse(_raw_json);
             if (!is_struct(_json) && !is_array(_json)) {
                 return new Result().fail(ErrorCode.JSON_PARSE_FAILED, "Failed to parse json, root must be struct or array: " + _path);
