@@ -6,7 +6,7 @@ if (current_time - last_card_click_time < 150) {
 last_card_click_time = current_time
 
 if hover_card_index != -1 && !is_submenu_open{
-	if ds_list_size(global.selected_deck) < global.save_data.unlocked_items.max_slot{
+	if deck_slot_first_empty() != -1{
 		// 去重：卡已在卡组内则忽略（Draw_0 已选中卡片会置灰，但同一帧内的重复事件在置灰前还会再 add）
 		var card_id = global.player_deck[| hover_card_index*2];
 		var _dup = false
@@ -23,8 +23,10 @@ if hover_card_index != -1 && !is_submenu_open{
 	}
 }
 if hover_slot_index != -1 && !is_submenu_open{
-	audio_play_sound(snd_button,0,0)
-	ds_list_delete(global.selected_deck,hover_slot_index)
+	if !deck_slot_is_empty(hover_slot_index){
+		audio_play_sound(snd_button,0,0)
+		remove_from_deck(hover_slot_index)
+	}
 }
 if(mouse_x > 785 && mouse_x < 1546 && mouse_y > 762 && mouse_y < 980) && !is_submenu_open{
 	audio_play_sound(snd_button,0,0)

@@ -72,3 +72,7 @@ sprites.info.json
 .vs/
 x64/
 *.user
+
+# 安卓构建副本本地保留：IDE 临时备份 + 校准工具（有意不纳入版本库）
+FVM-reborn.yyp.bak
+tools/
