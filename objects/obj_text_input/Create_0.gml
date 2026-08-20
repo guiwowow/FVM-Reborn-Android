@@ -16,3 +16,6 @@ placeholder_color = c_gray;
 border_color = c_black;
 border_active_color = c_blue;
 border_width = 2;
+
+// get_string_async 的对话框请求 id（移动端呼出软键盘；Async - Dialog 事件按此过滤）
+dialog_id = -1;
