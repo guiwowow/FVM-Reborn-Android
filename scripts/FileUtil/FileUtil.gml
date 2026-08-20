@@ -132,7 +132,12 @@ function FileUtil() constructor {
         if (_file < 0) {
             return new Result().fail(ErrorCode.NO_SUCH_FILE, "Could not open file for reading: " + _path)
         }
-        var _raw_json = file_text_read_string(_file, true);
+        // 逐行读整文件；file_text_read_string 只收 1 参（fileid），与 scripts/load_file/load_file.gml 同习惯写法
+        var _raw_json = "";
+        while (!file_text_eof(_file)) {
+            _raw_json += file_text_read_string(_file);
+            file_text_readln(_file);
+        }
         file_text_close(_file);
         _raw_json = string_replace_all(_raw_json, chr(0), "");
         try {
