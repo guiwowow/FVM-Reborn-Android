@@ -98,10 +98,15 @@ function install_bundled_lab_stages () {
         file_text_write_string(_f, "v5")
         file_text_close(_f)
     }
-    // 策略1：整树递归覆盖复制（依赖资产目录枚举；安卓 APK assets 目录可能不可枚举）
-    var _tree_ok = native_copy_folder(_src, "laboratory")
-    // 策略2：显式逐文件复制（不依赖枚举）：先 working_directory 直连路径，再相对路径 buffer 兜底；
-    // 不做 file_exists 跳过——每次启动覆盖，确保沙盒内容与 APK 一致
+    // 策略1：整树递归复制（依赖资产目录枚举；安卓 APK assets 可能不可枚举）——仅首装尝试，
+    // 后续启动跳过：working_directory/laboratory 此时就是沙盒本体，整树自拷会递归/自毁
+    var _tree_ok = false
+    if (!file_exists(_marker)) {
+        _tree_ok = native_copy_folder(_src, "laboratory")
+    }
+    // 策略2：显式逐文件复制（不依赖枚举）：src 直连路径 + 相对路径 buffer 兜底。
+    // 已有非空 dst 一律跳过（下文循环内注释：working_directory 源会命中沙盒本体，自拷贝清零是
+    // “第二次打开全 Empty 4100”的根因）；仅 dst 缺失/0 字节时从资产重建。
     var _known = [
         // 既有 8 关
         "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
@@ -131,6 +136,12 @@ function install_bundled_lab_stages () {
     for (var i = 0; i < array_length(_known); i++) {
         var _rel = _known[i]
         var _dst = "laboratory/" + _rel
+        // 已有非空文件 → 跳过，绝不覆盖。首发安装后 working_directory/laboratory/<rel> 命中沙盒本体，
+        // 若每次启动都 file_copy/_src→_dst，等于自拷贝，会把全部 json 清成 0 字节（第二次打开全 Empty 4100）。
+        // dst 缺失或 0 字节时走下方 buffer 从资产重建（顺带自愈上版被清零的残留文件）。
+        if (file_exists(_dst) && file_size(_dst) > 0) {
+            continue
+        }
         var _ok = false
         if (file_exists(_src + "/" + _rel)) {
             _ok = file_copy(_src + "/" + _rel, _dst)
