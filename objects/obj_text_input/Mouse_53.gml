@@ -7,12 +7,14 @@ if (point_in_rectangle(mouse_x, mouse_y, x, y, x + width, y + height)) {
     // 结果在 Async - Dialog 事件（Other_63.gml）里接收后写回 text。
     // 只在用户实际点击输入框时触发；不响应 obj_edit_menu Create 里的自动 active=true
     // （避免打开改名菜单就立刻弹对话框）。PC 保持原内联键盘输入不变。
-    if (os_type != os_windows) {
+    if (os_type != os_windows && dialog_id == -1) {
+        // dialog_id != -1 说明上一个对话框还没返回，不重复弹
         var _prompt = placeholder;
         if (_prompt == "") {
             _prompt = "请输入";
         }
         dialog_id = get_string_async(_prompt, text);
+        show_debug_message("已申请输入对话框: dialog_id=" + string(dialog_id) + " 原text=" + text);
         // 同步版 get_string 在安卓已弃用（弹出"Please use get_string_async instead"）。
         // 对话框返回前 active 保持 true（输入框呈聚焦态），返回后置 false。
     }
