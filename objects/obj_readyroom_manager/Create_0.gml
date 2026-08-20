@@ -18,6 +18,7 @@ ds_list_clear(global.selected_deck);
 select_card_index = ds_list_create()
 hover_card_index = -1
 hover_slot_index = -1
+last_card_click_time = 0   // 鼠标事件去重/防抖（安卓一次点按可能重复触发）
 slot_rows = 11
 slot_cols = 10
 slot_surface = -1
