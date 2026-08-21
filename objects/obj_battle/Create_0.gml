@@ -26,16 +26,6 @@ global.grid_offset_x = 695
 global.grid_cell_size_x = 107
 global.grid_cell_size_y = 116
 global.grid_offset_y = 228
-// Phase A：战斗网格统一到校准视觉网格（校准表优先，缺失回退上方逻辑网格）
-// 触控标定实测（曲奇岛 96 点）：校准格心-逻辑格心 y≈-36.15±0.87、x≈col*1.0-1.8，
-// 塔比玩家看到的格子偏下约 36px → 用 get_painted_grid 覆盖让放置/敌人/子弹与视觉对齐
-var _calib_grid = get_painted_grid(global.level_data.level_sprite, 0);
-if (_calib_grid != undefined) {
-    global.grid_offset_x = _calib_grid.ox;
-    global.grid_offset_y = _calib_grid.oy;
-    global.grid_cell_size_x = _calib_grid.cw;
-    global.grid_cell_size_y = _calib_grid.ch;
-}
 global.grid_cols = global.level_file.map_cols
 global.grid_rows = global.level_file.map_rows
 
