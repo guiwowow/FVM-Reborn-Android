@@ -33,7 +33,8 @@ if keyboard_check_pressed(slot_key){
 		deselect_shovel();
 	}
 }
-if ((mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_escape)) && is_selected) {
+// 右键取消（安卓长按/双击模拟右键 → 战斗内禁用，只留 ESC；PC 保留右键）
+if (((os_type == os_windows && mouse_check_button_pressed(mb_right)) or keyboard_check_pressed(vk_escape)) && is_selected) {
     deselect_shovel();
 }
 // 在铲子槽对象 (obj_shovel_slot) 的鼠标点击处理中添加:
