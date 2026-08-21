@@ -243,6 +243,15 @@ if (is_selected) {
                 logical_row = grid_pos_visual.row;
             }
         }
+// 触控宽容：逻辑网格原点(约228)比校准贴图网格(约192)下沉约36px，玩家按可见棋盘顶行点按
+        // 松手会落在 row=-1 → 放置失败，必须再点一次。若落点不在平台/非禁止位、逻辑行=-1、
+        // 且落在校准网格第0行的可见范围内，则吸附到第0行（只赦免"可见顶行"，点卡片 row=-2 不受影响）
+        if (found_plat == noone && !direct_in_platform && logical_row == -1 && logical_col >= 0 && logical_col < global.grid_cols) {
+            var _pg_forgive = get_painted_grid(global.level_data.level_sprite, 0);
+            if (_pg_forgive != undefined && mouse_y >= _pg_forgive.oy && mouse_y < _pg_forgive.oy + _pg_forgive.ch) {
+                logical_row = 0;
+            }
+        }
         
         var logical_world = get_world_position_from_grid(logical_col, logical_row);
 
