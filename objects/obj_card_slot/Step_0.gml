@@ -7,6 +7,10 @@ if global.is_paused{
 if (select_lock_frames > 0) {
 	select_lock_frames--;
 }
+// 选卡后短窗口递减（快速第二下点按不触发同卡取消）
+if (select_recent_frames > 0) {
+	select_recent_frames--;
+}
 
 if card_id != "magic_chicken"{
 	current_cost = cost
@@ -63,17 +67,22 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
     
     if (point_in_rectangle(mx, my, x-50, y-70, x+50, y+70)) {
 		// 体验优化：点击放置时，再点一次同一张卡 = 取消选中
+		// 防误判：刚选中几帧内的第二次点按（快速选卡后秒点地格，第二下坐标可能仍滞后在卡上）不取消，
+		// 让玩家可以立即继续点地格放置；稍后再点同卡仍可正常取消
 		if (is_selected) {
-			is_selected = false;
-			_drag_left_slot = false;
-			if (selected_preview != noone && instance_exists(selected_preview)) {
-				instance_destroy(selected_preview);
+			if (select_recent_frames <= 0) {
+				is_selected = false;
+				_drag_left_slot = false;
+				if (selected_preview != noone && instance_exists(selected_preview)) {
+					instance_destroy(selected_preview);
+				}
+				selected_preview = noone;
+				global.selected_slot = noone;
 			}
-			selected_preview = noone;
-			global.selected_slot = noone;
 		}
 		else{
 			select_slot()
+			select_recent_frames = 3;
 			_drag_left_slot = false;
 			// 选择即放置（无误差间隔：点卡片后立刻点地格即可放置；同帧按下由位置检测兜底）
 			select_lock_frames = 0;

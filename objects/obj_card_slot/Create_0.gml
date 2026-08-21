@@ -186,20 +186,14 @@ function try_place_once(){
             selected_preview = noone;
             global.selected_slot = noone;
         }
-		else if global.quick_placement{
-			// 取消选择
-            is_selected = false;
-            if (selected_preview != noone && instance_exists(selected_preview)) {
-                instance_destroy(selected_preview);
-            }
-            selected_preview = noone;
-            global.selected_slot = noone;
-		}
-}
+        // 放置失败：保留选中状态，玩家可继续点其他格子（需求：失败不取消当前卡片）
+	}
 
 // 安卓触控优化：点选放置防误触锁 + 放置延迟帧
 select_lock_frames = 0;
 place_pending = false;
+// 选中后短窗口：快速选卡后第二下点按（坐标可能仍滞后在卡上）不触发"再点同卡取消"
+select_recent_frames = 0;
 // 第一指触摸状态（上升沿检测用）
 _prev_down0 = false;
 
