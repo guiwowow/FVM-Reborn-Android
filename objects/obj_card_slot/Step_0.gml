@@ -165,37 +165,11 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 体验（安卓）：点地格=按下即放，不再等松手；从卡槽拖出的拖动放置仍走下方松手逻辑
-    if (os_type != os_windows && mouse_check_button_pressed(mb_left)) {
-        place_pending = false;
-        var _press_on_slot = false;
-        with (obj_card_slot) {
-            if (point_in_rectangle(mouse_x, mouse_y, x - 50, y - 70, x + 50, y + 70)) {
-                _press_on_slot = true;
-                break;
-            }
-        }
-        if (!_press_on_slot) {
-            var _before_flame = global.flame;
-            // 按下即放实验：失败时不允许 quick_placement 分支取消选中（避免秒点被"取消"卡住）
-            var _qp_save = global.quick_placement;
-            global.quick_placement = false;
-            try_place_once();
-            global.quick_placement = _qp_save;
-            // 只有真正扣费放置成功才置位，避免松手去重吞掉后续放置
-            if (global.flame < _before_flame) { place_pending = true; }
-        }
-    }
-
-    // 放置：松手放置（PC/拖动路径）；安卓快点点按已在上面按下即放
+    // 放置：松手放置（点击地格后松手 / 拖动到地格松手）；按下不立即放，可按住微调位置
     var _dist = point_distance(mouse_x, mouse_y, _prev_mx, _prev_my);
     _prev_mx = mouse_x;
     _prev_my = mouse_y;
     if (mouse_check_button_released(mb_left)) {
-        if (place_pending) {
-            // 按下已成功放置（快点点按），松手不再重复放
-            place_pending = false;
-        } else {
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape
@@ -335,7 +309,6 @@ if (is_selected) {
             selected_preview = noone;
             global.selected_slot = noone;
         }
-        } // else：松手放置路径结束
     }
 }
 
