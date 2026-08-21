@@ -166,8 +166,8 @@ if (is_selected) {
         global.selected_slot = noone;
     }
     
-    // 右键取消选择
-    if (mouse_check_button_pressed(mb_right)) or (keyboard_check_pressed(vk_escape)) {
+    // 右键取消选择（安卓长按会被模拟成右键 → 秒放时误取消；安卓只保留 ESC/同卡/拖回取消）
+    if ((os_type == os_windows && mouse_check_button_pressed(mb_right)) or (keyboard_check_pressed(vk_escape))) {
         if (global.debug) { show_debug_message("卡槽取消: 右键/ESC"); }
         is_selected = false;
         if (selected_preview != noone && instance_exists(selected_preview)) {
