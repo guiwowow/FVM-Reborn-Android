@@ -322,8 +322,8 @@ if (is_selected) {
             global.selected_slot = noone;
         }
         if (global.debug) {
-            if (is_selected) { show_debug_message("放置结果: FAIL(卡片保留)"); }
-            else { show_debug_message("放置结果: OK(卡片已放→消失正常)"); }
+            if (is_selected) { show_debug_message("放置结果: FAIL(卡片保留) room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
+            else { show_debug_message("放置结果: OK(卡片已放→消失正常) room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
         }
     }
 }
