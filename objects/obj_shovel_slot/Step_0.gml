@@ -42,7 +42,7 @@ if (((os_type == os_windows && mouse_check_button_pressed(mb_right)) or keyboard
 var _dist = point_distance(mouse_x, mouse_y, _prev_mx, _prev_my);
 _prev_mx = mouse_x;
 _prev_my = mouse_y;
-if ((is_selected && _dist > 200 && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left))) {
+if ((is_selected && _dist > 200 && shovel_lock_frames <= 0) or (is_selected && global.quick_placement && hotkey_pressed) or (is_selected && mouse_check_button_released(mb_left)) or (is_selected && os_type != os_windows && mouse_check_button_released(mb_right))) {
     var found_plat = noone;
     var platform_shift_x = 0;
     var platform_shift_y = 0;

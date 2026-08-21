@@ -181,7 +181,11 @@ if (is_selected) {
     var _dist = point_distance(mouse_x, mouse_y, _prev_mx, _prev_my);
     _prev_mx = mouse_x;
     _prev_my = mouse_y;
-    if (mouse_check_button_released(mb_left)) {
+    var _release_left = mouse_check_button_released(mb_left);
+        // 安卓快速双击会把第二次点按模拟成 mb_right（左键按下+松手都被引擎吞掉）：
+        // 这里把右键松手也当作放置触发（右键按下仍不取消——长按卡片取消保持禁用）
+        var _release_emu = (os_type != os_windows && mouse_check_button_released(mb_right));
+        if (_release_left || _release_emu) {
         // 检查是否在可种植区域
 		
         var card_shape = get_card_info_simple(card_id).shape
@@ -331,8 +335,9 @@ if (is_selected) {
             global.selected_slot = noone;
         }
         if (global.debug) {
-            if (is_selected) { show_debug_message("放置结果: FAIL(卡片保留) room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
-            else { show_debug_message("放置结果: OK(卡片已放→消失正常) room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
+            var _release_btn = _release_left ? "左" : "右(双击模拟)";
+            if (is_selected) { show_debug_message("放置结果: FAIL(卡片保留) btn=" + _release_btn + " room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
+            else { show_debug_message("放置结果: OK(卡片已放→消失正常) btn=" + _release_btn + " room(" + string(mouse_x) + "," + string(mouse_y) + ") cell(" + string(logical_col) + "," + string(logical_row) + ")"); }
         }
     }
 }
