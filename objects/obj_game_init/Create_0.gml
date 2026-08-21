@@ -112,6 +112,8 @@ function install_bundled_lab_stages () {
         "baiguiyexing.json", "shendianjihui.json", "tower-7-2_hard.json", "tower-9-2_hard.json",
         "sanjiehuayuan.json", "arctic_bay_turbulence_warrior.json", "yongshijingang.json",
         "water_and_fire_2nd_hard.json",
+        // 上游 08-21 新增 3 关（塔楼 hard lab，自包含，复用既有地图精灵）
+        "tower-32-2_hard.json", "tower-35-2_hard.json", "tower-35-2_hard_a.json",
         // 既有资源（cross_server_night*.ogg 被新增 11 关内容复用）
         "water_and_fire_2nd.png", "cross_server_night.ogg", "cross_server_night_boss.ogg",
         // 24 个新增关卡 json（v5 批量：每文件夹一关）
@@ -218,7 +220,7 @@ global.level_name = "曲奇岛"
 global.level_data = {}
 global.debug = 0
 global.laboretory_room = false
-global.game_version = "2.3.0"
+global.game_version = "2.3.1"
 global.tower_level_click = false
 Music_Init()
 
