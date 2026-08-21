@@ -71,6 +71,7 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
 		// 让玩家可以立即继续点地格放置；稍后再点同卡仍可正常取消
 		if (is_selected) {
 			if (select_recent_frames <= 0) {
+				if (global.debug) { show_debug_message("卡槽取消: 同卡点击 窗口=" + string(select_recent_frames)); }
 				is_selected = false;
 				_drag_left_slot = false;
 				if (selected_preview != noone && instance_exists(selected_preview)) {
@@ -82,7 +83,7 @@ if (is_ready && mouse_check_button_pressed(mb_left)) {
 		}
 		else{
 			select_slot()
-			select_recent_frames = 3;
+			select_recent_frames = 10;
 			_drag_left_slot = false;
 			// 选择即放置（无误差间隔：点卡片后立刻点地格即可放置；同帧按下由位置检测兜底）
 			select_lock_frames = 0;
@@ -155,6 +156,7 @@ if (is_selected) {
         _drag_left_slot = true;
     } else if (_drag_left_slot) {
         // 拖出后又回到任意卡槽区域：取消选中
+        if (global.debug) { show_debug_message("卡槽取消: 拖回卡槽"); }
         _drag_left_slot = false;
         is_selected = false;
         if (selected_preview != noone && instance_exists(selected_preview)) {
@@ -166,6 +168,7 @@ if (is_selected) {
     
     // 右键取消选择
     if (mouse_check_button_pressed(mb_right)) or (keyboard_check_pressed(vk_escape)) {
+        if (global.debug) { show_debug_message("卡槽取消: 右键/ESC"); }
         is_selected = false;
         if (selected_preview != noone && instance_exists(selected_preview)) {
             instance_destroy(selected_preview);
@@ -317,6 +320,10 @@ if (is_selected) {
             }
             selected_preview = noone;
             global.selected_slot = noone;
+        }
+        if (global.debug) {
+            if (is_selected) { show_debug_message("放置结果: FAIL(卡片保留)"); }
+            else { show_debug_message("放置结果: OK(卡片已放→消失正常)"); }
         }
     }
 }
