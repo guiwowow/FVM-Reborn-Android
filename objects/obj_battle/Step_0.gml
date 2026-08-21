@@ -220,4 +220,23 @@ if global.debug{
 			current_subwave = 0
 		}
 	}
+	// 【调试】触控标定：按下时 logcat 输出触点与两种网格中心的偏差
+	if (mouse_check_button_pressed(mb_left)) {
+		var _gp = get_grid_position_from_world(mouse_x, mouse_y);
+		var _pg = get_painted_grid(global.level_data.level_sprite, map_spr_index);
+		var _vx = _gp.x;
+		var _vy = _gp.y;
+		if (_pg != undefined) {
+			_vx = _pg.ox + _gp.col * _pg.cw + _pg.cw / 2;
+			_vy = _pg.oy + _gp.row * _pg.ch + _pg.ch / 2;
+		}
+		show_debug_message("触控标定 spr=" + string(global.level_data.level_sprite) + " fr=" + string(map_spr_index) + " "
+			+ "room(" + string(mouse_x) + "," + string(mouse_y) + ")"
+			+ " gui(" + string(device_mouse_x_to_gui(0)) + "," + string(device_mouse_y_to_gui(0)) + ")"
+			+ " dev(" + string(device_mouse_x(0)) + "," + string(device_mouse_y(0)) + ")"
+			+ " win(" + string(window_get_width()) + "x" + string(window_get_height()) + ")"
+			+ " cell(" + string(_gp.col) + "," + string(_gp.row) + ")"
+			+ " Dplace(" + string(mouse_x - _gp.x) + "," + string(mouse_y - _gp.y) + ")"
+			+ " Dvisual(" + string(mouse_x - _vx) + "," + string(mouse_y - _vy) + ")");
+	}
 }
