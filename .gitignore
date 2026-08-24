@@ -76,3 +76,6 @@ x64/
 # 安卓构建副本本地保留：IDE 临时备份 + 校准工具（有意不纳入版本库）
 FVM-reborn.yyp.bak
 tools/
+# 构建笔记（内部用，不公开）
+ANDROID_BUILD_NOTES.md
+
