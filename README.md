@@ -1,78 +1,90 @@
-# 美食大战老鼠：重生
+美食大战老鼠：重生 · Android
 
-《美食大战老鼠：重生》是一款基于 GameMaker 引擎重新编写的《美食大战老鼠》同人游戏，旨在回归塔防初衷，优化不合理的游戏体验。
+FVM-Reborn-Android 是《美食大战老鼠：重生》的 Android 移植项目，基于 "FVM-Reborn" (https://github.com/Spring-SG/FVM-Reborn) 开发。
+
+项目使用 GameMaker 构建，并针对 Android 平台进行了适配、性能优化、原生功能支持以及资源/纹理优化。
+
+«本项目为社区维护的开源同人项目，与原游戏及其开发商无官方关联。»
+
+✨ 项目特点
+
+- 📱 Android 移植 — 为 Android 设备提供原生可运行版本
+- ⚙️ GameMaker — 基于 GameMaker 项目进行持续开发
+- 🚀 性能优化 — 针对移动设备进行运行性能和资源占用优化
+- 🧩 原生扩展 — 包含 Android Native Support 等平台相关组件
+- 🖼️ 纹理优化 — 提供针对移动平台的纹理处理与压缩支持
+- 🔧 持续维护 — 持续修复 Android 兼容性、构建和运行时问题
+
+📱 Android 支持
+
+Android 版本是本仓库的主要开发方向。
+
+目前项目包含 Android 平台相关代码及原生扩展，例如：
+
+- "FvmNativeSupport"
+- "extensions/TextureEncode"
+- Android 平台构建与运行支持
+
+项目会持续针对不同 Android 设备和系统版本进行兼容性测试与优化。
+
+🛠️ 开发与构建
+
+环境
+
+- GameMaker
+- Android SDK
+- Android NDK
+- JDK
+
+具体版本要求会根据当前项目版本和 GameMaker Runtime 更新。
+
+获取源码
+
+git clone https://github.com/guiwowow/FVM-Reborn-Android.git
+
+使用 GameMaker 打开：
+
+FVM-reborn.yyp
+
+然后根据目标平台配置 GameMaker 的 Android 开发环境并进行构建。
+
+🌿 分支
+
+分支| 用途
+"main"| 稳定版本
+"develop"| 日常开发与功能迭代
+
+🤝 贡献
+
+欢迎提交 Issue、Pull Request 和改进建议。
+
+如果你希望参与开发：
+
+1. Fork 本仓库
+2. 创建功能分支
+3. 提交修改
+4. 创建 Pull Request
+
+📄 开源协议
+
+本项目基于 GNU General Public License v3.0 (GPL-3.0) 开源。
+
+详见 "LICENSE" (LICENSE)。
+
+⚠️ 免责声明
+
+本项目为非官方同人作品，仅用于学习、研究和交流。
+
+项目中的相关原作名称、美术资源及其他知识产权归其合法权利人所有。本项目与原作开发商不存在官方合作或授权关系。
+
+请支持正版游戏。
 
 ---
 
-## 📋 目录
+📊 Project Status
 
-- [软件简介](#软件简介)
-- [安装与运行](#安装与运行)
-- [构建方式](#构建方式)
-- [分支说明](#分支说明)
-- [贡献指南](#贡献指南)
-- [问题反馈](#问题反馈)
-- [权限声明](#权限声明)
-- [免责声明](#免责声明)
+FVM-Reborn-Android is actively maintained.
 
----
+The repository contains 400+ commits covering Android platform support, native extensions, performance optimization, texture processing, build infrastructure, bug fixes, and ongoing compatibility work.
 
-## 软件简介
-
-《美食大战老鼠：重生》是使用 GameMaker 引擎重新编写的美食大战老鼠同人游戏，旨在回归塔防初衷，优化不合理的游戏体验。
-
-## 分支说明
-
-本仓库包含以下主要分支：
-
-- **master(gitee)/main(github)**：稳定版分支，用于发布经过测试的稳定版本。建议通过此分支开发修改版。
-- **develop**：开发版分支，用于进行日常开发和功能迭代。
-
-## 权限声明
-
-本软件基于 **GNU General Public License v3.0 (GPL 3.0)** 许可证开源。
-
-您可以自由地：
-- **复制** — 复制和分发本软件
-- **修改** — 对本软件进行修改
-- **再分发** — 分发修改后的版本
-
-但必须遵守以下条款：
-- **提供源代码** — 分发时必须同时提供完整的源代码
-- **保留版权声明** — 必须保留原始版权声明
-- **标注修改内容** — 必须明确标注对原作的修改
-- **相同许可证** — 修改后的作品必须同样以 GPL 3.0 许可证发布
-
-详细条款请参阅 [GPL 3.0 许可证全文](https://www.gnu.org/licenses/gpl-3.0.html)。
-
-## 免责声明
-
-本软件为同人作品，所有美术资源版权归属于欢乐互娱公司。本作品仅用于学习和交流目的，严禁任何形式的商业使用。如果您用于商业用途，由此产生的一切后果请自行承担。
-
-## 安装与运行
-
-本软件仅支持Windows平台，在release中下载并解压压缩包后，运行可执行文件即可开始游戏。游玩过程中请不要修改资源文件夹中的任何文件，否则造成的游戏崩溃等问题后果自负。
-
-## 构建方式
-
-如果使用YYC构建方式，请按照以下方式构建：
-- 在 **GameMaker Studio2** 中打开此项目
-- 下载 **Visual Studio** ，并安装MSVC v142生成工具
-- 在GMS2中设置VS路径
-- 点击构建-创建可执行文件即可
-
-如果使用VM构建方式，则无需额外操作，直接构建即可
-
-## 贡献指南
-
-欢迎通过 fork 提交您的贡献！如果您希望参与开发，请遵循以下步骤：
-1. Fork 本仓库；
-2. 在 main 分支基础上创建您的功能分支；
-3. 提交更改并发起 Pull Request。
-
-## 问题反馈
-
-如果您在使用过程中遇到问题，或有改进建议，欢迎通过 Issues 页面提交反馈。
-
----
-**注意**：本项目为爱好者作品，与官方无关。请支持官方正版游戏。
+If you find the project useful, consider giving it a ⭐ or opening an Issue to report problems and suggest improvements.
