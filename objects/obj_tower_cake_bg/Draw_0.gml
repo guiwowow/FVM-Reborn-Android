@@ -5,7 +5,7 @@ draw_set_valign(fa_middle)
 draw_set_colour(c_white)
 draw_set_font(font_yuan)
 //绘制一些静态元素
-draw_text(x-650,y-415,"关卡列表")
+draw_text(x-650,y-370,"关卡列表")
 draw_set_font(font_number)
 draw_text(x-650,y-435,string(current_page)+"/"+string(total_page))
 draw_set_font(font_yuan)
