@@ -44,7 +44,12 @@ else if btn_type == "export_save_backup" {
 			var _d = date_current_datetime();
 			var _stamp = string(date_get_year(_d)) + string(date_get_month(_d)) + string(date_get_day(_d)) + "_" + string(date_get_hour(_d)) + string(date_get_minute(_d)) + string(date_get_second(_d));
 			file_copy(_save_path, "backups/save" + string(global.save_slot) + "_" + _stamp + ".json");
-			show_message_async("存档已复制到剪贴板，请粘贴保存（如发送到微信/备忘录），游戏内也已备份一份")
+			// FVM: 写分享请求（Java 桥读取后生成含内容的 txt 到下载目录并拉起系统分享面板，
+			// 绕开微信/QQ 文本框字符数限制；剪贴板内容保持不变作为兜底）
+			var _sf = file_text_open_write("share_request.txt");
+			file_text_write_string(_sf, json_stringify(global.save_data));
+			file_text_close(_sf);
+			show_message_async("存档已复制到剪贴板，正在拉起系统分享…（txt 文件同时生成在下载目录）")
 		}
 	}
 }
