@@ -2,14 +2,17 @@
   "$GMSprite":"v2",
   "%Name":"spr_transform_gem_icon",
   "bboxMode":0,
-  "bbox_bottom":86,
+  "bbox_bottom":88,
   "bbox_left":0,
-  "bbox_right":86,
+  "bbox_right":88,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
   "ConfigValues":{
     "BC7":{
+      "textureGroupId":"{ \"name\":\"player\", \"path\":\"texturegroups/player\" }",
+    },
+    "ASTC":{
       "textureGroupId":"{ \"name\":\"player\", \"path\":\"texturegroups/player\" }",
     },
   },

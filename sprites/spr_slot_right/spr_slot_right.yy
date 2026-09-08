@@ -4,10 +4,15 @@
   "bboxMode":0,
   "bbox_bottom":0,
   "bbox_left":0,
-  "bbox_right":30,
+  "bbox_right":15,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
+  "ConfigValues":{
+    "ASTC":{
+      "textureGroupId":"{ \"name\":\"UI\", \"path\":\"texturegroups/UI\" }",
+    },
+  },
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
