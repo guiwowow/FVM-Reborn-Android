@@ -6,7 +6,7 @@ draw_set_alpha(1);
 draw_self()
 
 // 绘制背包格子背景
-draw_sprite_ext(spr_package_bg_2,0,530,room_height/2,1.8,1.8,0,c_white,1)
+draw_sprite_ext(spr_package_bg_2, 0, 530, room_height/2, 0.9, 0.9, 0, c_white, 1)
 
 // 绘制玩家金币数量
 draw_set_font(font_number); 
