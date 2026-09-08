@@ -12,9 +12,6 @@
     "BC7":{
       "textureGroupId":"{ \"name\":\"UI\", \"path\":\"texturegroups/UI\" }",
     },
-    "ASTC":{
-      "textureGroupId":"{ \"name\":\"UI\", \"path\":\"texturegroups/UI\" }",
-    },
   },
   "DynamicTexturePage":false,
   "edgeFiltering":false,

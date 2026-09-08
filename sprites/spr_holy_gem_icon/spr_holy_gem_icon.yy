@@ -2,17 +2,14 @@
   "$GMSprite":"v2",
   "%Name":"spr_holy_gem_icon",
   "bboxMode":0,
-  "bbox_bottom":81,
+  "bbox_bottom":78,
   "bbox_left":0,
-  "bbox_right":81,
+  "bbox_right":78,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
   "ConfigValues":{
     "BC7":{
-      "textureGroupId":"{ \"name\":\"player\", \"path\":\"texturegroups/player\" }",
-    },
-    "ASTC":{
       "textureGroupId":"{ \"name\":\"player\", \"path\":\"texturegroups/player\" }",
     },
   },
