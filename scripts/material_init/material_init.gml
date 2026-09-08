@@ -50,7 +50,7 @@ function material_init(){
 										"icon":8,
 										"pos_x":2,
 										"pos_y":2})
-}
+
 	register_material("copper_cookbook_fragment",{"name":"铜食谱碎片",
 										"description":"铜食谱碎片：解锁上等佳肴槽位所需材料",
 										"icon":10,
@@ -66,3 +66,4 @@ function material_init(){
 										"icon":12,
 										"pos_x":2,
 										"pos_y":3})
+}
