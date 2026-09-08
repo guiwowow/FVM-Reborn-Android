@@ -22,6 +22,7 @@ task_init()
 map_object_init()
 attire_init()
 //battle_event_init()
+cookbook_init()
 randomise()
 
 // 全局植物注册表
