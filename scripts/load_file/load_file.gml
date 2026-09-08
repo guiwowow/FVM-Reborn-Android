@@ -53,7 +53,7 @@ function load_file(file_slot) {
 			if global.save_data.version == 1.7{
 				global.save_data.equipped_cookbook = [[],[],[]]
 				global.save_data.version = 1.8
-			}			}
+			}
 		}
         return true;
     } catch(e) {
