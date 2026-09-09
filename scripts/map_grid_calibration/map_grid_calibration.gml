@@ -7,7 +7,9 @@ function get_painted_grid(spr, frame_index) {
     if (_tbl == undefined) {
         _tbl = ds_map_create();
         ds_map_add(_tbl, "spr_abyss:0", [696.6, 200.5, 107.3, 112.9]);
+        ds_map_add(_tbl, "spr_abyss_warrior:0", [696.5, 199.5, 107.5, 114.5]);
         ds_map_add(_tbl, "spr_arctic_bay_turbulence:0", [703.5, 195.0, 107.5, 118.0]);
+        ds_map_add(_tbl, "spr_base_ruins:0", [683.0, 195.5, 107.5, 116.5]);
         ds_map_add(_tbl, "spr_bayleaf_airport_daytime:0", [695.5, 173.0, 111.5, 108.0]);
         ds_map_add(_tbl, "spr_bayleaf_airport_night:0", [695.5, 173.0, 111.5, 108.5]);
         ds_map_add(_tbl, "spr_champagne_island_land:0", [696.1, 187.3, 107.4, 119.4]);
@@ -20,6 +22,10 @@ function get_painted_grid(spr, frame_index) {
         ds_map_add(_tbl, "spr_cheese_castle:1", [687.6, 192.2, 108.1, 116.8]);
         ds_map_add(_tbl, "spr_cheese_castle:2", [687.6, 192.3, 108.0, 116.7]);
         ds_map_add(_tbl, "spr_cheese_castle:3", [687.6, 192.2, 108.0, 116.8]);
+        ds_map_add(_tbl, "spr_cheese_castle_warrior:0", [687.0, 183.0, 108.0, 118.0]);
+        ds_map_add(_tbl, "spr_cheese_castle_warrior:1", [687.0, 190.0, 108.0, 116.5]);
+        ds_map_add(_tbl, "spr_cheese_castle_warrior:2", [687.0, 190.0, 108.0, 116.5]);
+        ds_map_add(_tbl, "spr_cheese_castle_warrior:3", [687.0, 190.0, 108.0, 116.5]);
         ds_map_add(_tbl, "spr_cocoa_island_daytime:0", [680.6, 187.3, 107.7, 118.0]);
         ds_map_add(_tbl, "spr_cocoa_island_night:0", [696.5, 198.5, 107.5, 115.5]);
         ds_map_add(_tbl, "spr_cookie_island:0", [692.7, 191.7, 108.0, 115.5]);
@@ -35,11 +41,13 @@ function get_painted_grid(spr, frame_index) {
         ds_map_add(_tbl, "spr_fennel_raft_night:0", [695.0, 223.5, 102.5, 106.5]);
         ds_map_add(_tbl, "spr_jam_tribe_daytime:0", [685.5, 201.5, 108.0, 117.0]);
         ds_map_add(_tbl, "spr_jam_tribe_night:0", [685.5, 202.0, 108.0, 117.0]);
+        ds_map_add(_tbl, "spr_jungle_ruins:0", [687.0, 200.0, 109.5, 117.0]);
         ds_map_add(_tbl, "spr_laurel_sky_daytime:0", [696.0, 200.0, 111.0, 113.5]);
         ds_map_add(_tbl, "spr_laurel_sky_night:0", [697.0, 200.0, 107.5, 113.5]);
         ds_map_add(_tbl, "spr_lilac_rainbow_daytime:0", [695.0, 197.0, 108.0, 124.0]);
         ds_map_add(_tbl, "spr_lilac_rainbow_night:0", [695.0, 199.5, 108.0, 123.5]);
         ds_map_add(_tbl, "spr_macchiato_port:0", [694.0, 194.7, 107.6, 116.8]);
+        ds_map_add(_tbl, "spr_macchiato_port_warrior:0", [693.0, 194.5, 108.0, 116.5]);
         ds_map_add(_tbl, "spr_marinade_garden:0", [696.0, 238.5, 107.0, 104.5]);
         ds_map_add(_tbl, "spr_matcha_manor_daytime:0", [698.0, 201.0, 107.5, 114.5]);
         ds_map_add(_tbl, "spr_matcha_manor_night:0", [693.0, 205.0, 107.0, 113.5]);
@@ -59,16 +67,31 @@ function get_painted_grid(spr, frame_index) {
         ds_map_add(_tbl, "spr_sea_anemone_current_daytime:0", [687.0, 196.5, 108.0, 114.5]);
         ds_map_add(_tbl, "spr_sea_anemone_current_night:0", [687.0, 194.5, 108.0, 115.0]);
         ds_map_add(_tbl, "spr_snowcap_volcano:0", [687.0, 189.5, 108.0, 115.5]);
+        ds_map_add(_tbl, "spr_snowcap_volcano_warrior:0", [687.0, 189.5, 108.0, 115.5]);
         ds_map_add(_tbl, "spr_spice_airship:0", [685.5, 197.5, 110.0, 116.0]);
         ds_map_add(_tbl, "spr_spices_central_isle:0", [664.0, 198.0, 112.5, 115.0]);
         ds_map_add(_tbl, "spr_temple:0", [693.0, 199.1, 108.7, 115.1]);
+        ds_map_add(_tbl, "spr_temple_warrior:0", [696.5, 194.5, 107.5, 115.5]);
         ds_map_add(_tbl, "spr_tempura_vortex:0", [688.5, 196.0, 109.0, 115.5]);
         ds_map_add(_tbl, "spr_tuna_current:0", [690.0, 196.7, 108.9, 115.8]);
+        ds_map_add(_tbl, "spr_waterfall_ruins:0", [687.0, 191.0, 108.0, 116.0]);
     }
     var _key = sprite_get_name(spr) + ":" + string(frame_index);
     var _e = _tbl[? _key];
     if (is_array(_e)) {
         return { ox: _e[0], oy: _e[1], cw: _e[2], ch: _e[3] };
+    }
+    // 未校准：登记一次，调试模式下由 obj_battle/Draw_0 红字提示。
+    // 新增地图忘记跑 gen_calibration.py 时，这里会静默回退逻辑网格（约偏 30~45px），肉眼很难发现——必须报出来。
+    if (!variable_global_exists("painted_grid_missing")) {
+        global.painted_grid_missing = [];
+    }
+    var _seen = false;
+    for (var _i = 0; _i < array_length(global.painted_grid_missing); _i++) {
+        if (global.painted_grid_missing[_i] == _key) { _seen = true; break; }
+    }
+    if (!_seen) {
+        array_push(global.painted_grid_missing, _key);
     }
     return undefined;
 }

@@ -43,3 +43,15 @@ draw_set_font(font_yuan)
 draw_text(0,0,"FPS:"+string(fps))
 draw_text(0,25,"加速:"+(speed_up ? "开" : "关") + "（shift）")
 draw_text(0,50,"暂停（空格）\n菜单（ESC）")
+
+// 十字线校准缺失提示（仅调试模式）：新增地图忘了生成校准值 → 十字线静默回退逻辑网格（偏 30~45px）
+if (global.debug && variable_global_exists("painted_grid_missing") && array_length(global.painted_grid_missing) > 0) {
+    var _miss = "";
+    for (var _i = 0; _i < array_length(global.painted_grid_missing); _i++) {
+        _miss += global.painted_grid_missing[_i] + "  ";
+    }
+    draw_set_color(c_red);
+    // 纯 ASCII：font_yuan 只保证覆盖 32..127，⚠(U+26A0) 等符号不在字形表内会显示成方块
+    draw_text(0, 90, "! GRID CALIB MISSING (run pvz/gen_calibration.py --write): " + _miss);
+    draw_set_color(c_white);
+}
