@@ -44,7 +44,8 @@ if target_enemy != noone && instance_exists(target_enemy) && target_enemy.hp > 0
         instance_create_depth(x,y,depth,obj_saladpult_bullet_effect)
         instance_destroy()
     }
-}if !atk_modified{
+}
+if !atk_modified{
 	with obj_card_parent{
 		if plant_id == "fruit_tart"{
 			if grid_row == other.row && ((shape <= 1 && x >= other.x) || shape >= 2){
