@@ -67,6 +67,8 @@ function try_place_once(){
         var platform_shift_y = 0;
         var logical_col = -1;
         var logical_row = -1;
+        var grid_pos_visual = get_grid_position_from_world(mouse_x, mouse_y);
+        var direct_in_platform = false;
         
         with (obj_platform) {
             var is_axis_x = (variable_instance_exists(id, "move_axis") && move_axis == "x");
@@ -91,22 +93,23 @@ function try_place_once(){
                 break;
             }
             
-            var grid_pos_dir = get_grid_position_from_world(mouse_x, mouse_y);
-            if (grid_pos_dir.col >= p_start_c && grid_pos_dir.col < p_start_c + width &&
-                grid_pos_dir.row >= p_start_r && grid_pos_dir.row < p_start_r + length) {
-                found_plat = id;
-                logical_col = grid_pos_adj.col;
-                logical_row = grid_pos_adj.row;
-                platform_shift_x = shift_x;
-                platform_shift_y = shift_y;
-                break;
+            // 记录鼠标视觉格子是否落在某平台逻辑范围内（用于检测移动方向外一格）
+            if (!direct_in_platform &&
+                grid_pos_visual.col >= p_start_c && grid_pos_visual.col < p_start_c + width &&
+                grid_pos_visual.row >= p_start_r && grid_pos_visual.row < p_start_r + length) {
+                direct_in_platform = true;
             }
         }
         
         if (found_plat == noone) {
-            var grid_pos_direct = get_grid_position_from_world(mouse_x, mouse_y);
-            logical_col = grid_pos_direct.col;
-            logical_row = grid_pos_direct.row;
+            if (direct_in_platform) {
+                // 鼠标视觉在平台外但格子属于平台逻辑范围（平台移动方向外一格），禁止放置
+                logical_col = -1;
+                logical_row = -1;
+            } else {
+                logical_col = grid_pos_visual.col;
+                logical_row = grid_pos_visual.row;
+            }
         }
         
         var logical_world = get_world_position_from_grid(logical_col, logical_row);

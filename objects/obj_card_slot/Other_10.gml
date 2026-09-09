@@ -14,6 +14,7 @@ if (plant_data != undefined) {
     if (upgrade_data != undefined) {
         cost = upgrade_data[? "cost"];
         cooldown = upgrade_data[? "cooldown"];
+    }
 	//检查食谱
 	var cookbook_list = global.save_data.equipped_cookbook
 	for(var i = 0 ; i < array_length(cookbook_list) ; i++){
@@ -34,8 +35,6 @@ if (plant_data != undefined) {
 			}
 		}
 	}
-	
-    }
 	
 }
 info_got = true

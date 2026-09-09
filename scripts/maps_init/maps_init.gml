@@ -1152,6 +1152,22 @@ function maps_init(){
 					"pre_level_require":[]
 				},
 				{
+					"id":"cheese_castle_warrior",
+					"name":"琉璃沙堡",
+					"button_spr":spr_levelselect_button_volcanic,
+					"button_index":15,
+					"button_x":1130,
+					"button_y":755,
+					"level_file":"volcanic/cheese_castle_warrior.json",
+					"hard_level_file":"volcanic/cheese_castle_warrior_hard.json",
+					"level_sprite":spr_cheese_castle_warrior,
+					"pre_music":mus_volcanic_tower_pre,
+					"elite_music":mus_volcanic_tower_elite,
+					"boss_music":mus_volcanic_tower_boss,
+					"player_level_require":45,
+					"pre_level_require":[]
+				},
+				{
 					"id":"tower_cake",
 					"name":"魔塔蛋糕",
 					"button_spr":spr_levelselect_button,
@@ -1248,6 +1264,22 @@ function maps_init(){
 					"pre_level_require":[]
 				},
 				{
+					"id":"macchiato_port_warrior",
+					"name":"吉拉朵港",
+					"button_spr":spr_levelselect_button_volcanic,
+					"button_index":16,
+					"button_x":1037,
+					"button_y":330,
+					"level_file":"volcanic/macchiato_port_warrior.json",
+					"hard_level_file":"volcanic/macchiato_port_warrior_hard.json",
+					"level_sprite":spr_macchiato_port_warrior,
+					"pre_music":mus_volcanic_tower_pre,
+					"elite_music":mus_volcanic_tower_elite,
+					"boss_music":mus_volcanic_tower_boss,
+					"player_level_require":50,
+					"pre_level_require":[]
+				},
+				{
 					"id":"cotton_candy_sky_daytime",
 					"name":"棉花糖天空（日）",
 					"button_spr":spr_levelselect_button_volcanic,
@@ -1325,38 +1357,6 @@ function maps_init(){
 					"elite_music":mus_volcanic_island_crown_elite,
 					"boss_music":mus_volcanic_island_daytime_boss,
 					"player_level_require":35,
-					"pre_level_require":[]
-				},
-				{
-					"id":"cheese_castle_warrior",
-					"name":"琉璃沙堡",
-					"button_spr":spr_levelselect_button_volcanic,
-					"button_index":15,
-					"button_x":1130,
-					"button_y":755,
-					"level_file":"volcanic/cheese_castle_warrior.json",
-					"hard_level_file":"volcanic/cheese_castle_warrior_hard.json",
-					"level_sprite":spr_cheese_castle_warrior,
-					"pre_music":mus_volcanic_tower_pre,
-					"elite_music":mus_volcanic_tower_elite,
-					"boss_music":mus_volcanic_tower_boss,
-					"player_level_require":45,
-					"pre_level_require":[]
-				},
-				{
-					"id":"macchiato_port_warrior",
-					"name":"吉拉朵港",
-					"button_spr":spr_levelselect_button_volcanic,
-					"button_index":16,
-					"button_x":1037,
-					"button_y":330,
-					"level_file":"volcanic/macchiato_port_warrior.json",
-					"hard_level_file":"volcanic/macchiato_port_warrior_hard.json",
-					"level_sprite":spr_macchiato_port_warrior,
-					"pre_music":mus_volcanic_tower_pre,
-					"elite_music":mus_volcanic_tower_elite,
-					"boss_music":mus_volcanic_tower_boss,
-					"player_level_require":50,
 					"pre_level_require":[]
 				},
 				{

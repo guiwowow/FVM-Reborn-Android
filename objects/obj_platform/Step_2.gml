@@ -337,6 +337,10 @@ with (obj_card_parent) {
     if (variable_instance_exists(id, "plant_type")) {
         var _type = plant_type
         if (object_index == obj_cotton_candy) _type = "lilypad"
+		if (object_index == obj_soda_bubble){
+			if(card_equipped_attire_id(plant_id) != "bubble_maltose")_type = "coffee"
+			else _type = "lilypad"
+		}
         depth = calculate_plant_depth(grid_col, grid_row, _type)
     }
 }
@@ -346,4 +350,14 @@ with (obj_melon_shield_inner) {
         depth = parent_plant.depth + 2
     }
 }
+
+
+with (obj_stars) {
+    if (instance_exists(parent_card)) {
+        depth = parent_card.depth -1
+    }
+}
+
+
+
 }
