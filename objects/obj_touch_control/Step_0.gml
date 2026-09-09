@@ -60,6 +60,12 @@ if (os_type != os_windows) {
             global.cardslow_enabled = !global.cardslow_enabled;
         }
     }
+    // 屏幕左下 缓时按钮上方区域点击 = 调试：一键召唤本关 BOSS（仅 global.debug 模式 + 战斗内）
+    if (global.debug && instance_exists(obj_battle) && mouse_check_button_pressed(mb_left)) {
+        if (mouse_x < 130 && mouse_y > room_height - 520 && mouse_y < room_height - 390) {
+            debug_summon_level_boss();
+        }
+    }
 }
 
 // 选卡缓时：选中卡片或铲子时战斗逻辑 12 倍减速（保持 60fps 渲染，逻辑对象每 12 帧推进）

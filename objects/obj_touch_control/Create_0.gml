@@ -58,3 +58,67 @@ _last_frame_time = 0;
 // 选卡缓时：全局帧号 + 缓时激活标志（保持 60fps 渲染，逻辑对象每 12 帧推进一次）
 global.game_frame = 0;
 global.slowmo_active = false;
+
+// ============================================================
+// 调试模式（global.debug = 1）专用：一键召唤本关 BOSS
+//   BOSS 数据来源 = global.level_file.waves[*] 中 boss_wave = true 的波次（boss / boss2）
+//   每按一次轮换到下一个 BOSS 波次；计数器挂在 obj_battle 实例上 → 每场战斗自动归零
+//   生成位置/HP 修正与 obj_battle/Step_0 的正常 BOSS 波次逻辑完全一致
+// ============================================================
+/// @description 调试：召唤本关 BOSS（多 BOSS 波次轮换）
+function debug_summon_level_boss() {
+    var _battle = instance_find(obj_battle, 0);
+    if (!instance_exists(_battle)) {
+        show_notice("仅战斗中可用", 60);
+        return;
+    }
+    var _lv = global.level_file;
+    if (!is_struct(_lv) || !variable_struct_exists(_lv, "waves")) {
+        show_notice("无关卡波次数据", 60);
+        return;
+    }
+    var _waves = _lv.waves;
+
+    // 收集所有 BOSS 波次：[boss1, hp_mod1, boss2, hp_mod2]
+    var _entries = [];
+    for (var i = 0; i < array_length(_waves); i++) {
+        var _w = _waves[i];
+        if (!is_struct(_w) || !variable_struct_exists(_w, "boss_wave") || !_w.boss_wave) continue;
+        var _b1 = variable_struct_exists(_w, "boss") ? _w.boss : "";
+        if (!is_string(_b1)) _b1 = "";
+        var _b2 = variable_struct_exists(_w, "boss2") ? _w.boss2 : "";
+        if (!is_string(_b2)) _b2 = "";
+        var _m1 = (variable_struct_exists(_w, "boss_1_hp_modify") && is_real(_w.boss_1_hp_modify)) ? _w.boss_1_hp_modify : 1.0;
+        var _m2 = (variable_struct_exists(_w, "boss_2_hp_modify") && is_real(_w.boss_2_hp_modify)) ? _w.boss_2_hp_modify : 1.0;
+        if (_b1 != "" || _b2 != "") array_push(_entries, [_b1, _m1, _b2, _m2]);
+    }
+    if (array_length(_entries) == 0) {
+        show_notice("本关没有 BOSS", 60);
+        return;
+    }
+
+    // 轮换选择
+    if (!variable_instance_exists(_battle, "debug_boss_idx")) _battle.debug_boss_idx = 0;
+    if (_battle.debug_boss_idx >= array_length(_entries)) _battle.debug_boss_idx = 0;
+    var _e = _entries[_battle.debug_boss_idx];
+    _battle.debug_boss_idx = (_battle.debug_boss_idx + 1) mod array_length(_entries);
+
+    // 生成（boss1 / boss2 各一次）
+    var _spawned = "";
+    for (var j = 0; j < 2; j++) {
+        var _bid = _e[j * 2];
+        var _mod = _e[j * 2 + 1];
+        if (!is_string(_bid) || _bid == "" || !ds_map_exists(global.enemy_map, _bid)) continue;
+        var _row = irandom_range(0, global.grid_rows - 1);
+        var _pos = get_world_position_from_grid(10, _row);
+        var _inst = instance_create_depth(_pos.x - 80, _pos.y + 30, -200, global.enemy_map[? _bid]._obj);
+        if (is_real(_mod) && _mod > 0) {
+            _inst.hp *= _mod;
+            _inst.maxhp *= _mod;
+        }
+        _battle.boss_count++;
+        _spawned += string(ds_map_exists(global.boss_list, _bid) ? global.boss_list[? _bid].name : _bid) + " ";
+    }
+    if (_spawned == "") show_notice("召唤失败（enemy_map 缺少该 BOSS）", 60);
+    else show_notice("召唤 BOSS：" + _spawned, 90);
+}

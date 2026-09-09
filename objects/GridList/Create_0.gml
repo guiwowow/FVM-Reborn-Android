@@ -212,6 +212,7 @@ function apply_wheel() {
 }
 
 /// @description 安卓双指滑动替代滚轮（第二根手指在列表区域内上下滑动）
+/// 方向约定：手指向上 = 界面向下（与背包 obj_package_bg / 合成屋 obj_craft_bg / 选卡 obj_readyroom_manager 一致）
 function apply_two_finger_scroll() {
     if (os_type == os_windows) {
         return
@@ -232,7 +233,7 @@ function apply_two_finger_scroll() {
         if (self.state.second_touch_active) {
             var _dy = _my - self.state.second_touch_y_prev
             if (_dy != 0) {
-                self.state.scroll_target_y -= _dy * self.state.two_finger_scale
+                self.state.scroll_target_y += _dy * self.state.two_finger_scale
                 clamp_scroll_bounds()
             }
         }

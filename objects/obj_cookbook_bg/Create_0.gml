@@ -7,6 +7,11 @@ button_select = -1
 target_cookbook_index = -1
 y_offset = 0
 
+// 安卓双指滑动（见 Step_0）：状态变量
+second_touch_active = false
+second_touch_y_prev = 0
+two_finger_accum = 0
+
 current_cookbook_list = []
 
 instance_create_depth(x+710,y-410,depth-1,obj_closecookbook_btn)
