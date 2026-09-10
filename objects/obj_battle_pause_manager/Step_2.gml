@@ -10,7 +10,8 @@ if (os_type != os_windows) {
         }
     }
 }
-var _space = keyboard_check_pressed(vk_space);
+// 上游 PR#71：PC 结算界面左键 = 继续（安卓走下面 os_type 分支的点击判定）
+var _space = keyboard_check_pressed(vk_space) || (mouse_check_button_pressed(mb_left) && global.game_over);
 if (os_type != os_windows && (global.is_paused || global.game_over || obj_battle.battle_time == 1)) {
     if (mouse_check_button_pressed(mb_left)) _space = true;
 }

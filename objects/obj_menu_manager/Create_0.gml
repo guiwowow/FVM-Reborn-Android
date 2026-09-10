@@ -97,6 +97,8 @@ function after_texture_load() {
 		}
 		global.preloaded = true;
 	}
+	obj_player_info_ui.menu_type = 0
+	obj_world_map_button.world_map = 0
 }
 
 /// @description 分帧预热：离屏绘制触发 shader 编译与字体字形生成
@@ -125,7 +127,10 @@ function prewarm_step() {
 
 function pre_load_texture() {
     if (global.preloaded) return;
-
+	
+	obj_player_info_ui.menu_type = 4
+	obj_world_map_button.world_map = 2
+	
     if (self.animating) {
         var _target = self.texture_loaded;
         self.display_progress = lerp(self.display_progress, _target, 0.1);
