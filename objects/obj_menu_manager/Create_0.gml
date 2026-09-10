@@ -87,6 +87,12 @@ function after_texture_load() {
         if !global.preloaded{
             global.preloaded = true;
         }
+        // 上游 PR#71 在 pre_load_texture() 开头置 menu_type = 4 / world_map = 2（加载期隐藏主菜单 UI），
+        // 复位却写在 after_texture_load() 末尾 —— 而安卓在上面的 return 就退出了，复位永远执行不到。
+        // 后果：加载完成后 menu_type 永久停在 4，主菜单所有按钮首行判定 menu_type == 0 全部失败，
+        // 表现为首次进游戏触控完全不生效（切桌面再回游戏一次才恢复）。此处补上复位。
+        obj_player_info_ui.menu_type = 0
+        obj_world_map_button.world_map = 0
         return;
     }
     scribble_font_set_default("font_hei")
