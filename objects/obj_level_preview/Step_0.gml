@@ -17,6 +17,7 @@ if array_length(mouse_preview_inst) == 0{
 		array_push(mouse_preview_inst,inst)
 	}
 }
-if keyboard_check_pressed(vk_escape) || mouse_check_button_pressed(mb_right){
+// 安卓适配：不加右键返回（关卡预览由选卡界面 obj_readyroom_manager/Mouse_53.gml 创建，双击会误关）
+if keyboard_check_pressed(vk_escape){
 	instance_destroy()
 }

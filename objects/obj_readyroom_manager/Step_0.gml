@@ -5,7 +5,8 @@
         // 从头开始播放新实例
         audio_play_sound(readyroom_music, 0, 0);
     }
-if keyboard_check_pressed(vk_escape) || mouse_check_button_pressed(mb_right){
+// 安卓适配：不加右键返回（安卓双击会被引擎合成为 mb_right，选卡界面双击查看卡片会误退）；返回键映射 vk_escape
+if keyboard_check_pressed(vk_escape){
 	if instance_exists(obj_quit_confirm){
 		instance_destroy(obj_quit_confirm)
 	}
