@@ -79,3 +79,13 @@ tools/
 # 构建笔记（内部用，不公开）
 ANDROID_BUILD_NOTES.md
 
+
+# ===== 内部文档：禁止入库/推送（2026-09-11 加）=====
+ANDROID_BUILD_NOTES*.md
+HANDOFF*.md
+RESUME_CARD*.md
+PC_发布工作流*.md
+FVM_PC_状态*.md
+UI超分接手文档*.md
+*整理前备份*.md
+*接手文档*.md
