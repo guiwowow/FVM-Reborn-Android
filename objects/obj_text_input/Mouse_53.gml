@@ -21,3 +21,5 @@ if (point_in_rectangle(mouse_x, mouse_y, x, y, x + width, y + height)) {
 } else {
     active = false;
 }
+// 上游 v7.3 把输入法的放开/恢复从本文件挪到 obj_file_manager 的 Step 统一处理；
+// 安卓分支按既有策略「IME 整块不并入」，故本文件只负责弹软键盘对话框，不涉及 IME。

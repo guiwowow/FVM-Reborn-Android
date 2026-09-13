@@ -13,6 +13,19 @@ function NativeUtil() constructor {
         return self.transfer_path_to_windows(_user_profile + _path)
     }
 
+    /// @param {String} _rel GML 沙盒相对路径
+    /// @returns {String} native 可用的绝对路径
+    static to_native_absolute = function(_rel) {
+        _rel = string_replace_all(string(_rel), "/", "\\")
+        while (string_starts_with(_rel, "\\")) {
+            _rel = string_delete(_rel, 1, 1)
+        }
+        if (string_pos(":", _rel) > 0) {
+            return self.transfer_path_to_windows(_rel)
+        }
+        return self.get_path_in_local_appdata("\\FVM_Reborn\\" + _rel)
+    }
+
     /// @param {String} _path 
     /// @returns {String}
     static transfer_path_to_windows = function(_path) {
@@ -143,6 +156,20 @@ function native_restore_backup(_saves_dir, _backup_dir) {
 /// @returns {Real} 0 表示成功
 function native_set_native_log_file_path(_path) {
     return 0
+}
+
+/// @function native_unzip_map_file
+/// @param {String} _zip_path 压缩文件完整路径
+/// @param {String} _parent_folder_full_path 解压目标父文件夹完整路径
+/// @returns {Real} 错误码（0 成功，非 0 失败）
+/// @description 安卓降级实现。
+/// 上游的「内部集成关卡下载」用 WindowsNative 扩展的 7zip 解压地图包（externalName: UnzipMapFile）；
+/// 该扩展不在本工程 .yyp 内（安卓侧原本就由本文件用纯 GML 替代所有 native_* 函数），
+/// 而纯 GML 无法实现 DEFLATE 解压，故此处返回失败码。
+/// 调用方 objects/OnlineMapGUI/Create_0.gml:197-203 收到非 0 会提示"解压地图失败"并把状态置为"解压失败"，
+/// 不会出现"未定义函数"错误。若日后要在安卓支持该功能，应改为「关卡包随 APK 内置」而非在线解压。
+function native_unzip_map_file(_zip_path, _parent_folder_full_path) {
+    return -1
 }
 
 /// @description 拼接路径（统一为 / 分隔）

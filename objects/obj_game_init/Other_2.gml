@@ -90,7 +90,7 @@ load_file(global.save_slot)
 //	unlock_card("triple_long_bao",13,0,8)
 //	unlock_card("triple_ice_long_bao",13,0,8)
 //	unlock_card("whisky_bomb",13,2,8)
-//	unlock_card("oden_pot",13,1,8)
+//	unlock_card("oden_pot",13,2,8)
 //	unlock_card("cotton_candy",13,2,8)
 //	unlock_card("dragon_fruit",13,2,8)
 //	unlock_card("durian",13,2,8)
@@ -111,6 +111,10 @@ load_file(global.save_slot)
 //	unlock_card("curry_lobster_cannon",13,2,8)
 //	unlock_card("soda_bubble",13,1,8)
 //	unlock_card("horseshoe_crab_bread",13,1,8)
+//	unlock_card("sugar_ball_pult",13,2,8)
+//	unlock_card("pizza_oven",13,2,8)
+//	unlock_card("rabbit_lantern",13,2,8)
+//	unlock_card("delicacy_firework",13,2,8)
 	
 //	global.save_data.player.gold = 99000000
 //	global.save_data.player.level = 60
@@ -155,6 +159,9 @@ load_file(global.save_slot)
 //	set_material_amount("royal_spices",999999999)
 //	set_material_amount("clover_4",999999999)
 //	set_material_amount("advanced_crystal",999999999)
+//	set_material_amount("copper_cookbook_fragment",2)
+//	set_material_amount("silver_cookbook_fragment",2)
+//	set_material_amount("gold_cookbook_fragment",2)
 //	global.save_data.unlocked_items.elite_unlocked = true
 	
 //}
