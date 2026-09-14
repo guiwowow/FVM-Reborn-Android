@@ -193,7 +193,7 @@ function create_widgets() {
             if (_online_visible) {
                 close_fn()
             } else {
-                show_message_async("已内置若干关卡，暂不支持自定义导入")
+                show_message_async("本地关卡已取消内置，请点【在线】从服务器下载关卡")
             }
         }))
 
