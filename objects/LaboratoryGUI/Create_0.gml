@@ -187,19 +187,13 @@ function create_widgets() {
             return gui_state.current_stage_id == ""
         }))
         .set_on_click(method({gui_state: self.state, close_fn: close_online_gui}, function() {
-            // 合并取舍：保留上游的「在线关卡面板开着则先关掉」逻辑，
-            // 同时保留安卓的 os_type 守卫（安卓没有可打开的本地实验室文件夹）。
+            // 在线关卡面板开着则先关掉；否则提示（Windows 端「打开本地实验室文件夹」分支已按
+            // mobile-only 移除 —— 本工程只出安卓包）
             var _online_visible = !is_undefined(gui_state.online_gui) && instance_exists(gui_state.online_gui)
             if (_online_visible) {
                 close_fn()
-            } else if (os_type == os_windows) {
-                var _target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\laboratory")
-                var _error_code = native_open_folder(_target)
-                if (_error_code != 0) {
-                    global.native_util.show_error(_error_code, "打开实验室文件夹失败")
-                }
             } else {
-                show_message_async("已内置若干关卡，自定义导入仅支持 Windows 端")
+                show_message_async("已内置若干关卡，暂不支持自定义导入")
             }
         }))
 

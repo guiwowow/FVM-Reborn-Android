@@ -51,9 +51,7 @@ function NativeUtil() constructor {
 /// @param {String} _path 要打开的文件夹路径
 /// @returns {Real} 0 表示成功
 function native_open_folder(_path) {
-    if (os_type == os_windows) {
-        os_execute("explorer.exe", "\"" + _path + "\"")
-    }
+    // mobile-only：Windows 端 os_execute 分支已按审计移除；本函数在移动端为空操作
     return 0
 }
 
@@ -246,10 +244,6 @@ function _native_util_delete_folder_recursive(_path) {
         _item = file_find_next()
     }
     file_find_close()
-    if (_ok && directory_exists(_p) && os_type == os_windows) {
-        var _short = string_copy(_p, 1, string_length(_p) - 1)
-        directory_destroy(_short)
-    }
     return _ok
 }
 

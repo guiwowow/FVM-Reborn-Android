@@ -12,26 +12,12 @@ else if btn_type == "save"{
 	obj_player_info_ui.menu_type = 0
 }
 else if btn_type == "open_save_folder"{
-	if (os_type == os_windows) {
-		var _target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\saves")
-		var ret = native_open_folder(_target)
-		if (ret != 0) {
-			global.native_util.show_error(ret, "打开存档文件夹失败")
-		}
-	} else {
-		show_message_async("安卓端请使用【导出存档】备份到可访问位置（点确定测试Dialog回调）")
-	}
+	// mobile-only：Windows 端「打开存档文件夹」（native_open_folder）分支已按审计移除
+	show_message_async("安卓端请使用【导出存档】备份到可访问位置（点确定测试Dialog回调）")
 }
 else if btn_type == "export_save_backup" {
-	if (os_type == os_windows) {
-		var _saves_target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\saves")
-		var ret = native_start_backup(_saves_target)
-		if (ret != 0 && ret != -3) {
-			global.native_util.show_error(ret, "导出存档备份失败")
-		} else {
-			show_message_async("存档已导出")
-		}
-	} else {
+	// mobile-only：Windows 端 native_start_backup 分支已按审计移除，只保留安卓导出实现
+	{
 		// 安卓：导出 = 存档复制到剪贴板（可粘贴到备忘录/微信保存）+ 游戏内备份兜底
 		var _save_path = "saves/save" + string(global.save_slot) + ".json";
 		if (!file_exists(_save_path)) {
@@ -54,17 +40,8 @@ else if btn_type == "export_save_backup" {
 	}
 }
 else if btn_type == "import_save_backup" {
-	if (os_type == os_windows) {
-		var _saves_target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\saves")
-		var _backup_target = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\backups")
-		var ret = native_restore_backup(_saves_target, _backup_target)
-		if (ret != 0 && ret != -3) {
-			global.native_util.show_error(ret, "导入存档备份失败")
-		} else {
-			load_file(global.save_slot)
-			show_message_async("导入存档成功")
-		}
-	} else {
+	// mobile-only：Windows 端 native_restore_backup 分支已按审计移除，只保留安卓导入实现
+	{
 		// 安卓：导入 = 读取剪贴板存档内容（先复制存档文本再导入）
 		var _txt = clipboard_get_text();
 		if (_txt == "") {

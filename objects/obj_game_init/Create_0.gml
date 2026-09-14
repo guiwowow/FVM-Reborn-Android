@@ -7,36 +7,6 @@ function init_native_log() {
 
 }
 
-function move_files () {
-    var _local_folder = global.native_util.get_path_in_local_appdata("\\FVM_Reborn")
-    var _saves_old = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\美食大战老鼠_重生\\saves")
-    var _saves_new = global.native_util.get_path_in_local_appdata("\\FVM_Reborn\\saves")
-    var _save_folder_new_exists = native_folder_exists(_saves_new)
-    var _save_folder_old_exists = native_folder_exists(_saves_old)
-    if ((_save_folder_new_exists == 0) && (_save_folder_old_exists == 1)) {
-        var _copy_result = native_copy_folder(_saves_old, _local_folder)
-        if (_copy_result == 0) {
-            show_message_async("存档已自动迁移到[" + _saves_new + "]")
-        } else {
-            global.native_util.show_error(_copy_result, "存档迁移失败")
-        }
-    }
-
-    var _local_laboratory = global.native_util.transfer_path_to_windows(working_directory + "laboratory")
-    var _local_laboratory_exists = native_folder_exists(_local_laboratory)
-    if (_local_laboratory_exists == 1) {
-        var _lab_copy_result = native_copy_folder(_local_laboratory, _local_folder)
-        if (_lab_copy_result != 0) {
-            global.native_util.show_error(_lab_copy_result, "实验室目录迁移失败")
-        } else {
-            var _lab_delete_result = native_delete_folder(_local_laboratory)
-            if (_lab_delete_result != 0) {
-                global.native_util.show_error(_lab_delete_result, "旧实验室目录删除失败")
-            }
-        }
-    }
-}
-
 /// @description 非 Windows 平台：把 datafiles/laboratory 内置关卡复制进可写沙盒
 /// （安卓 working_directory 只读，实验室列表扫描相对目录 laboratory/，必须落到沙盒）
 function lab_delete_recursive_files(_path) {
@@ -240,11 +210,9 @@ if (!instance_exists(obj_touch_control)) {
 }
 
 init_native_log()
-if (os_type == os_windows) {
-    move_files()
-} else {
-    install_bundled_lab_stages()
-}
+// mobile-only：Windows 端 move_files()（存档/实验室目录迁移）分支已按审计移除，
+// 安卓走 install_bundled_lab_stages() 把内置关卡复制进沙盒
+install_bundled_lab_stages()
 
 // 初始化全局键位映射
 global.keybind_map = ds_map_create();
