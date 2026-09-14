@@ -157,17 +157,57 @@ function native_set_native_log_file_path(_path) {
 }
 
 /// @function native_unzip_map_file
-/// @param {String} _zip_path 压缩文件完整路径
-/// @param {String} _parent_folder_full_path 解压目标父文件夹完整路径
-/// @returns {Real} 错误码（0 成功，非 0 失败）
-/// @description 安卓降级实现。
-/// 上游的「内部集成关卡下载」用 WindowsNative 扩展的 7zip 解压地图包（externalName: UnzipMapFile）；
-/// 该扩展不在本工程 .yyp 内（安卓侧原本就由本文件用纯 GML 替代所有 native_* 函数），
-/// 而纯 GML 无法实现 DEFLATE 解压，故此处返回失败码。
-/// 调用方 objects/OnlineMapGUI/Create_0.gml:197-203 收到非 0 会提示"解压地图失败"并把状态置为"解压失败"，
-/// 不会出现"未定义函数"错误。若日后要在安卓支持该功能，应改为「关卡包随 APK 内置」而非在线解压。
+/// @param {String} _zip_path 压缩文件（沙盒相对路径）
+/// @param {String} _parent_folder_full_path 解压目标目录（沙盒相对路径）
+/// @returns {Real} 错误码（0 成功，非 0 失败 —— 保持调用方「0 = 成功」的约定）
+/// @description 用 runtime **内置** zip_unzip 实现（无需任何原生扩展）。
+/// 已核实：安卓 runner libyoyo.so 内含 zip_unzip / zip_unzip_async 符号，GameMaker 2023.6+ 起
+/// ZIP 读写为跨平台内置函数，签名 zip_unzip(zip_file, target_directory)，返回**解压出的文件数**（≤0 失败）。
+/// 注意：手册明示该函数是同步的、可能卡帧；大地图若卡顿可改用 zip_unzip_async + Async Save/Load 事件。
 function native_unzip_map_file(_zip_path, _parent_folder_full_path) {
-    return -1
+    var _zip = string_replace_all(string(_zip_path), "\\", "/")
+    var _dest = string_replace_all(string(_parent_folder_full_path), "\\", "/")
+    if (!variable_global_exists("unzip_diag")) {
+        global.unzip_diag = ""
+    }
+    global.unzip_diag += " | zip=" + _zip + " dest=" + _dest
+    if (_dest == "") {
+        global.unzip_diag += " | 目标目录为空";
+        return -1
+    }
+    if (!directory_exists(_dest)) {
+        if (!directory_create(_dest)) {
+            global.unzip_diag += " | 创建目标目录失败";
+            return -1
+        }
+    }
+    if (!file_exists(_zip)) {
+        global.unzip_diag += " | 压缩包不存在（下载失败？）";
+        return -1
+    }
+    // 内置 zip_unzip 只认标准 zip；.rar/.7z 是上游服务器实际存在的格式（78 个地图里 2 个是 .rar）。
+    // 注意：GML filename_ext() 返回**带前导点**的扩展名（".zip"/".rar"），必须先去点再比较 ——
+    // 早期写成 `_ext != "zip"` 导致**所有** .zip 包都被误判为不支持。
+    var _ext = string_lower(string_replace_all(filename_ext(_zip), ".", ""))
+    if (_ext == "rar" or _ext == "7z") {
+        global.unzip_diag += " | 包格式 ." + _ext + " 安卓内置解压不支持（仅标准 zip）";
+        return -2
+    }
+    // 依次尝试几种路径写法：相对 / 相对带尾斜杠 / 绝对（防不同 runtime 对 target_directory 形式要求不一）
+    var _abs = string_replace_all(working_directory, "\\", "/")
+    if (string_char_at(_abs, string_length(_abs)) != "/") {
+        _abs += "/"
+    }
+    var _cands = [_dest, _dest + "/", _abs + _dest + "/"]
+    var _count = -1
+    for (var i = 0; i < array_length(_cands); i++) {
+        _count = zip_unzip(_zip, _cands[i])
+        global.unzip_diag += " | try" + string(i) + "=" + string(_count)
+        if (_count > 0) {
+            break
+        }
+    }
+    return (_count > 0) ? 0 : -1
 }
 
 /// @description 拼接路径（统一为 / 分隔）

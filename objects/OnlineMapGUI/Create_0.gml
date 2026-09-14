@@ -189,6 +189,8 @@ function start_download(_item) {
     var _dest = self.state.manager.get_zip_cache_path(_item.id, _ext)
     self.state.busy = true
     self.state.status_text = "正在下载 " + _item.title + "…"
+    // 身份诊断：把这一条的身份与路径写进 unzip_diag，后续 native/解压各步会继续追加
+    global.unzip_diag = "「" + string(_item.title) + "」 id=" + string(_item.id) + " map_file=" + string(_item.map_file) + " ext=" + string(_ext) + " cache=" + string(_dest)
     var _id = http_get_file(_url, _dest)
     track_request(_id, {kind: "zip", item_id: _item.id, dest: _dest})
 }
@@ -197,12 +199,22 @@ function finish_download(_item, _dest) {
     var _code = self.state.manager.unzip_to_title(_dest, _item.title)
     self.state.busy = false
     if (_code != 0) {
-        global.native_util.show_error(_code, "解压地图失败")
         self.state.status_text = "解压失败"
+        if (_code == -2) {
+            // 上游服务器上确实有 2/78 个地图是 .rar（Windows 侧用 7-Zip 才能解），
+            // 安卓内置只有标准 zip 解压 → 提示作者重新上传 zip 版
+            show_message_async("「" + string(_item.title) + "」的地图包是 .rar，安卓端不支持（仅标准 zip）。\n请让作者重新上传 .zip 版本。")
+        } else if (_code == -3) {
+            // 全站 78 包里只有 2 个是这种（文件名 GBK、非 UTF-8）：星渊岛 / 魔塔蛋糕50层
+            show_message_async("「" + string(_item.title) + "」的压缩包文件名不是 UTF-8 编码（旧版打包工具），\n安卓无法解压。请让作者用新版 7-Zip 重新打包上传。")
+        } else {
+            show_message_async("解压地图失败，请重试；若持续失败请让作者重新打包上传。\n（错误码 " + string(_code) + "）")
+        }
         return
     }
+    var _json_count = self.state.manager.count_stage_jsons(_item.title)
     apply_downloaded_flag(_item)
-    self.state.status_text = "已下载 " + _item.title
+    self.state.status_text = "已下载 " + _item.title + "（" + string(_json_count) + " 个关卡文件）"
     request_json(kMapApiBase + "/api/map-download/" + _item.id, "POST", {kind: "download_count", item_id: _item.id})
 }
 
