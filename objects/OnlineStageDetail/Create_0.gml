@@ -124,7 +124,7 @@ function on_draw() {
     scribble(_item.title, "online_stage_detail_name")
         .align(fa_center, fa_center)
         .scale(1.2)
-        .starting_format("font_hei_outline_4dir_black")
+        .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
         .draw(self.state.left + (self.state.width / 2), self.state.top + 114)
 
     scribble(_item.id)
@@ -157,7 +157,7 @@ function on_draw() {
     draw_roundrect(_ar.x1, _ar.y1, _ar.x2, _ar.y2, false)
     scribble(_label)
         .align(fa_center, fa_middle)
-        .starting_format("font_hei_outline_4dir_black")
+        .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
         .draw((_ar.x1 + _ar.x2) * 0.5, (_ar.y1 + _ar.y2) * 0.5)
 }
 

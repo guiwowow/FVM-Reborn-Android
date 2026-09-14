@@ -403,9 +403,10 @@ function on_step() {
 }
 
 function on_draw() {
+    // 安卓不烘焙 scribble 格式 → 回退 font_hei（同 StageDetail/StageItem 写法）
     scribble(self.state.status_text)
         .align(fa_left, fa_middle)
-        .starting_format("font_hei_outline_4dir_black")
+        .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
         .draw(820, 128)
 }
 

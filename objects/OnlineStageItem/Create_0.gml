@@ -182,7 +182,7 @@ function on_draw() {
 
     scribble(self.state.item.title)
         .align(fa_left, fa_center)
-        .starting_format("font_hei_outline_4dir_black")
+        .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
         .draw(self.state.left + 30, self.state.top + 36)
     scribble(self.state.item.author)
         .align(fa_left, fa_center)
@@ -203,7 +203,7 @@ function on_draw() {
     draw_roundrect(_ar.x1, _ar.y1, _ar.x2, _ar.y2, false)
     scribble(_label)
         .align(fa_center, fa_middle)
-        .starting_format("font_hei_outline_4dir_black")
+        .starting_format(os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black")
         .draw((_ar.x1 + _ar.x2) * 0.5, (_ar.y1 + _ar.y2) * 0.5)
 }
 

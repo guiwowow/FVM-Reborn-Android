@@ -126,7 +126,10 @@ if button_select == 0{
             
     }
 	//绘制正在强化的卡片
-	if current_uprade_target_id != ""{
+	// 安卓修（上游同 bug）：current_uprade_target_id 由「卡片列表」与「宝石列表」共用，
+	// 此处必须按页签(button_select) + 实际类型双重判定。否则选了宝石时本块照样跑，
+	// get_card_info_simple 返回 false，下一行 card_data.id 直接崩。
+	if button_select == 0 && current_uprade_target_id != "" && get_card_info_simple(current_uprade_target_id) != false{
 		var card_data = get_card_info_simple(current_uprade_target_id)
 		var card_id = card_data.id
 		var card_slot_data = deck_get_card_data(current_uprade_target_id,card_data.shape)
@@ -315,7 +318,9 @@ else if button_select == 1{
         }
     }
 	//绘制正在强化的宝石
-	if current_uprade_target_id != ""{
+	// 安卓修（上游同 bug）：同上。选了卡片时本块照样跑，get_gem_info(卡片id) 返回 undefined，
+	// 下面 weapon_data.icon 崩 —— 就是玩家实测报的 gml_Object_obj_craft_bg_Draw_0 (line 325)。
+	if button_select == 1 && current_uprade_target_id != "" && get_gem_info(current_uprade_target_id) != undefined{
 		var weapon_x = x - 305
         var weapon_y = y + 110
 		var weapon_id = current_uprade_target_id

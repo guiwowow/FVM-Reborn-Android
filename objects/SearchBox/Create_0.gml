@@ -49,10 +49,6 @@ function get_text() {
     return self.state.text
 }
 
-function set_text(_text) {
-    self.state.text = string(_text)
-    return self
-}
 
 function emit_change() {
     if (!is_undefined(self.state.on_change)) {
@@ -157,7 +153,10 @@ function on_draw() {
     draw_roundrect(_s.left, _s.top, _s.left + _s.width, _s.top + _s.height, true)
 
     var _label = _s.text
-    var _color_name = "font_hei_outline_4dir_black"
+    // 安卓：不烘焙 scribble 格式（obj_menu_manager/Create_0.gml:84-97 在安卓提前 return，
+    // 唯一创建 font_hei_outline_4dir_black 的 scribble_font_bake_outline_4dir(:99) 永远执行不到），
+    // 故安卓回退到真实字体资源 font_hei；与 StageDetail/StageItem 的既有写法一致。
+    var _color_name = os_type == os_android ? "font_hei" : "font_hei_outline_4dir_black"
     if (_label == "") {
         scribble(_s.placeholder)
             .align(fa_left, fa_middle)
