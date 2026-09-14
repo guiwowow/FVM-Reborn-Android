@@ -6,9 +6,6 @@ function register_battle_event(battle_event_id,battle_event_data){
 	ds_map_add(global.battle_event_pool,battle_event_id,battle_event_data)
 }
 
-function get_battle_event_data(battle_event_id){
-	return ds_map_find_value(global.battle_event_pool,battle_event_id)
-}
 
 function battle_event_init(){
 	battle_event_registry_init()

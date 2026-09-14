@@ -38,23 +38,6 @@ function unlock_attire(attire_id){
 	}
 }
 
-///@function get_attire_state(attire_id)
-///@description 判断时装装备状态。如果未解锁则返回-1。
-///@param {string}attire_id 时装id
-///@return {string}
-function get_attire_state(attire_id){
-	//未解锁则返回-1
-	if !is_attire_unlocked(attire_id){
-		return -1
-	}
-	//在时装数组中寻找对应时装并返回状态
-	var attire_list = global.save_data.attires
-	for(var i = 0 ; i < array_length(attire_list) ; i++){
-		if attire_list[i].attire_id == attire_id{
-			return attire_list[i].state
-		}
-	}
-}
 
 ///@function edit_attire_state(attire_id,new_state)
 ///@description 修改时装装备状态

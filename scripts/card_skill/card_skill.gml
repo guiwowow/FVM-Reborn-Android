@@ -61,20 +61,6 @@ function get_card_skill_data(card_id, shape, skill_level) {
 }
 
 // 获取卡片最高技能等级
-function get_max_skill_level(card_id, shape) {
-    if (!ds_map_exists(global.skill_registry, card_id)) {
-        return 0;
-    }
-    
-    var card_skills = global.skill_registry[? card_id];
-    var shape_str = string(shape);
-    
-    if (!ds_map_exists(card_skills, shape_str)) {
-        return 0;
-    }
-    
-    return ds_list_size(card_skills[? shape_str]);
-}
 
 // 获取带有技能效果的植物数据
 function get_plant_data_with_skill(plant_id, shape, upgrade_level, skill_level) {
@@ -106,45 +92,4 @@ function get_plant_data_with_skill(plant_id, shape, upgrade_level, skill_level) 
 }
 
 // 创建技能数据
-function create_skill_data(skill_level, override_properties) {
-    var skill_data = ds_map_create();
-    skill_data[? "skill_level"] = skill_level;
-    
-    // 复制所有覆盖属性
-    var keys = array_keys(override_properties);
-    for (var i = 0; i < array_length(keys); i++) {
-        var key = keys[i];
-        skill_data[? key] = override_properties[key];
-    }
-    
-    return skill_data;
-}
 // 在游戏中使用技能数据
-function create_plant_with_skill(plant_id, shape, upgrade_level, skill_level, x, y) {
-    var plant_data = get_plant_data_with_skill(plant_id, shape, upgrade_level, skill_level);
-    if (plant_data == undefined) {
-        // 回退到无技能数据
-        plant_data = get_plant_upgrade(plant_id, shape, upgrade_level);
-        if (plant_data == undefined) {
-            return undefined;
-        }
-    }
-    
-    var plant = instance_create(x, y, obj_plant_base);
-    plant.hp = plant_data[? "hp"];
-    plant.cost = plant_data[? "cost"];
-    plant.atk = plant_data[? "atk"];
-    plant.range = plant_data[? "range"];
-    plant.cooldown = plant_data[? "cooldown"];
-    plant.cycle = plant_data[? "cycle"];
-    plant.shape = shape;
-    plant.level = upgrade_level;
-    plant.skill_level = skill_level;
-    
-    // 设置自定义属性
-    if (ds_map_exists(plant_data, "flame_produce")) {
-        plant.flame_produce = plant_data[? "flame_produce"];
-    }
-    
-    return plant;
-}

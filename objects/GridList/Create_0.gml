@@ -45,16 +45,7 @@ function set_viewport(_left, _top, _width, _height) {
     return self
 }
 
-function set_wheel_step(_pixels) {
-    self.state.wheel_step = _pixels
-    return self
-}
 
-/// @param {real} _k
-function set_scroll_lerp(_k) {
-    self.state.scroll_lerp = clamp(_k, 0.01, 1)
-    return self
-}
 
 function _require_item_api(_inst, _index) {
     if (!variable_instance_exists(_inst, "get_height")) {
@@ -245,15 +236,6 @@ function get_scrollbar_metrics() {
     }
 }
 
-function is_mouse_over_scrollbar() {
-    if (!scrollbar_needed()) {
-        return false
-    }
-    var _m = get_scrollbar_metrics()
-    var _mx = device_mouse_x(0)
-    var _my = device_mouse_y(0)
-    return point_in_rectangle(_mx, _my, _m.track_x, _m.track_y, _m.track_x + _m.track_w, _m.track_y + _m.track_h)
-}
 
 function apply_scrollbar_input() {
     if (!scrollbar_needed()) {

@@ -141,13 +141,6 @@ function create_train_body_pos(amount,dir,body_x,body_y,body_move_time){
 	}
 }
 
-///@desc 移除指定位置的车厢
-function remove_train_body(index){
-	if instance_exists(train_body_list[index]){
-		instance_destroy(train_body_list[index])
-		array_delete(train_body_list,index,1)
-	}
-}
 
 ///@desc 移除所有车厢
 function clear_train_body(){

@@ -114,26 +114,8 @@ function set_frames(_idle = 0, _hover = 0, _press = 0) {
     return self
 }
 
-/// @param {Real} _frame 
-/// @returns {Asset.GMObject.Button} 
-function set_frame_idle(_frame) {
-    self.state.frame_idle = _frame
-    return self
-}
 
-/// @param {Real} _frame 
-/// @returns {Asset.GMObject.Button} 
-function set_frame_hover(_frame) {
-    self.state.frame_hover = _frame
-    return self
-}
 
-/// @param {Real} _frame 
-/// @returns {Asset.GMObject.Button} 
-function set_frame_press(_frame) {
-    self.state.frame_press = _frame
-    return self
-}
 
 /// @returns {Asset.GMObject.Button} 
 function set_auto_draw(_auto_draw) {
