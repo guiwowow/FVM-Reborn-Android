@@ -13,7 +13,7 @@ else if btn_type == "save"{
 }
 else if btn_type == "open_save_folder"{
 	// mobile-only：Windows 端「打开存档文件夹」（native_open_folder）分支已按审计移除
-	show_message_async("安卓端请使用【导出存档】备份到可访问位置（点确定测试Dialog回调）")
+	show_notice("安卓端请用 [导出存档] 备份到可访问位置", 150)
 }
 else if btn_type == "export_save_backup" {
 	// mobile-only：Windows 端 native_start_backup 分支已按审计移除，只保留安卓导出实现
@@ -21,7 +21,7 @@ else if btn_type == "export_save_backup" {
 		// 安卓：导出 = 存档复制到剪贴板（可粘贴到备忘录/微信保存）+ 游戏内备份兜底
 		var _save_path = "saves/save" + string(global.save_slot) + ".json";
 		if (!file_exists(_save_path)) {
-			show_message_async("暂无存档可导出")
+			show_notice("暂无存档可导出", 120)
 		} else {
 			clipboard_set_text(json_stringify(global.save_data));
 			if (!directory_exists("backups")) {
@@ -45,7 +45,7 @@ else if btn_type == "import_save_backup" {
 		// 安卓：导入 = 读取剪贴板存档内容（先复制存档文本再导入）
 		var _txt = clipboard_get_text();
 		if (_txt == "") {
-			show_message_async("剪贴板为空，请先复制要导入的存档内容（可先用导出功能）")
+			show_notice("剪贴板为空，请先复制要导入的存档内容", 150)
 		} else {
 			var _ok = false;
 			try {
@@ -60,9 +60,9 @@ else if btn_type == "import_save_backup" {
 				_ok = false;
 			}
 			if (_ok) {
-				show_message_async("存档导入成功")
+				show_notice("存档导入成功", 120)
 			} else {
-				show_message_async("剪贴板内容不是有效的存档")
+				show_notice("剪贴板内容不是有效的存档", 150)
 			}
 		}
 	}

@@ -35,7 +35,7 @@ function NativeUtil() constructor {
     /// @param {Real} _code 
     /// @param {String} _msg 
     static show_error = function(_code, _msg) {
-        show_message_async(_msg + "code: " + string(_code))
+        show_error_dialog(string(_msg), "错误码：" + string(_code))
     }
 
 }

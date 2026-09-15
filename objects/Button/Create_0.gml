@@ -148,6 +148,7 @@ function on_step() {
     var _s = self.state
     
     if (!_s.should_correspond()) exit
+    if (is_error_dialog_open()) exit      // 报错弹窗打开时屏蔽底层所有按钮的交互
     if (!sprite_exists(_s.sprite)) exit
 
     var _mx = device_mouse_x(0)

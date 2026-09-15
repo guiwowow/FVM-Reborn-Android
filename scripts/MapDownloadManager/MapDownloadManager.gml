@@ -143,6 +143,299 @@ function MapDownloadManager() constructor {
         return _bad
     }
 
+    /// @description 从 buffer 的一段字节里**按 UTF-8 解码**成 GML 字符串。
+    /// 用途：把 zip 里的原始条目名还原成"json 文本里出现的那种字符串"，供 patch_stage_json 替换引用。
+    /// （不能直接用 chr(字节) 累加：高位字节被 chr() 当成码点会重新编码，与 json 里的 UTF-8 字节对不上）
+    /// @param {Real} _buf
+    /// @param {Real} _off
+    /// @param {Real} _len
+    /// @returns {String}
+    static utf8_name_from_buffer = function(_buf, _off, _len) {
+        var _s = ""
+        var i = 0
+        while (i < _len) {
+            var _b = buffer_peek(_buf, _off + i, buffer_u8)
+            if (_b < 0x80) {
+                _s += chr(_b)
+                i += 1
+            } else if (_b >= 0xC2 and _b <= 0xDF and (i + 1) < _len) {
+                _s += chr(((_b & 0x1F) << 6) | (buffer_peek(_buf, _off + i + 1, buffer_u8) & 0x3F))
+                i += 2
+            } else if (_b >= 0xE0 and _b <= 0xEF and (i + 2) < _len) {
+                _s += chr(((_b & 0x0F) << 12)
+                    | ((buffer_peek(_buf, _off + i + 1, buffer_u8) & 0x3F) << 6)
+                    | (buffer_peek(_buf, _off + i + 2, buffer_u8) & 0x3F))
+                i += 3
+            } else if (_b >= 0xF0 and _b <= 0xF4 and (i + 3) < _len) {
+                var _cp = ((_b & 0x07) << 18)
+                    | ((buffer_peek(_buf, _off + i + 1, buffer_u8) & 0x3F) << 12)
+                    | ((buffer_peek(_buf, _off + i + 2, buffer_u8) & 0x3F) << 6)
+                    | (buffer_peek(_buf, _off + i + 3, buffer_u8) & 0x3F)
+                _s += chr(_cp)
+                i += 4
+            } else {
+                i += 1        // 非法序列（如 GBK 字节）：跳过，该名字本来也匹配不上 json 引用
+            }
+        }
+        return _s
+    }
+
+    /// @description 把 zip 的条目名**全部改写成 "<prefix>_file_N.ext"**（纯 ASCII、扁平、无目录）。
+    /// **压缩数据原样搬运**：不解压、不需要 inflate、不需要原生库。
+    ///
+    /// 动机：安卓沙盒对**非 ASCII 文件名**不稳（工程历史："中文/空格文件名 → 乱码且 file_exists 失配"）
+    /// → file_find/file_copy/sprite_add/audio_create_stream 全都会失配。
+    /// 实测全站 78 包：**40+ 个含非 ASCII 条目名**（作者"泽"的 44 张全部是"单条目 + 中文名 json"），
+    /// 这类包在安卓上下载后必然读不出来（表现为"下载成功但实验室列表里没有"）。
+    /// 一并解决 GBK（非 UTF-8）名：重写后不再依赖原名的编码。
+    ///
+    /// 结构处理：解析 EOCD → 逐中央目录条目 → 用 CD 里的 csize 从局部头数据区整段复制压缩流 →
+    /// 写新局部头（**清掉"数据描述符"标志位 0x08**，因为新头里直接写真实大小）→
+    /// 重写中央目录（偏移重算）→ 写 EOCD。目录条目与 extra/comment 一律丢弃（新名是扁平的）。
+    ///
+    /// @param {String} _src 源 zip（沙盒相对路径）
+    /// @param {String} _dst 输出 zip（沙盒相对路径）
+    /// @param {String} _prefix 新名前缀（用 ascii_dir_name(title)，保证跨地图不撞名）
+    /// @param {Array} _map 输出映射 [[原名, 新名], ...]（GML 数组按引用传）
+    /// @returns {Real} >0 = 重写的条目数；0 = 名字本来就全 ASCII（不必重写）；-1 = 不是标准 zip/结构异常（调用方回退旧逻辑）
+    static zip_rewrite_names_ascii = function(_src, _dst, _prefix, _map) {
+        var _in = buffer_load(_src)
+        if (_in < 0) {
+            return -1
+        }
+        var _size = buffer_get_size(_in)
+        if (_size < 22) {
+            buffer_delete(_in)
+            return -1
+        }
+        // 1) 反向找 EOCD（PK\x05\x06，最多回扫 64KB+22）
+        var _eocd = -1
+        var _lo = _size - 22 - 65535
+        if (_lo < 0) {
+            _lo = 0
+        }
+        for (var i = _size - 22; i >= _lo; i--) {
+            if (buffer_peek(_in, i, buffer_u8) == 0x50 and buffer_peek(_in, i + 1, buffer_u8) == 0x4B
+                and buffer_peek(_in, i + 2, buffer_u8) == 0x05 and buffer_peek(_in, i + 3, buffer_u8) == 0x06) {
+                _eocd = i
+                break
+            }
+        }
+        if (_eocd < 0) {
+            buffer_delete(_in)
+            return -1
+        }
+        var _count = buffer_peek(_in, _eocd + 10, buffer_u16)
+        var _cd_off = buffer_peek(_in, _eocd + 16, buffer_u32)
+        if (_cd_off + 46 > _size) {
+            buffer_delete(_in)
+            return -1
+        }
+        // 2) 预扫描：有非 ASCII 条目名才值得重写（全 ASCII 的包走旧逻辑更稳）
+        var _has_high = false
+        var _pos = _cd_off
+        for (var k = 0; k < _count; k++) {
+            if (buffer_peek(_in, _pos, buffer_u32) != 0x02014b50) {
+                break
+            }
+            var _nl0 = buffer_peek(_in, _pos + 28, buffer_u16)
+            var _el0 = buffer_peek(_in, _pos + 30, buffer_u16)
+            var _cl0 = buffer_peek(_in, _pos + 32, buffer_u16)
+            if (_nl0 > 4096 or (_pos + 46 + _nl0) > _size) {
+                break
+            }
+            for (var j = 0; j < _nl0; j++) {
+                if (buffer_peek(_in, _pos + 46 + j, buffer_u8) >= 0x80) {
+                    _has_high = true
+                    break
+                }
+            }
+            if (_has_high) {
+                break
+            }
+            _pos += 46 + _nl0 + _el0 + _cl0
+        }
+        if (!_has_high) {
+            buffer_delete(_in)
+            return 0
+        }
+        // 3) 逐条目重建（局部头 + 数据原样 + 记录新偏移）
+        var _out = buffer_create(65536, buffer_grow, 1)
+        var _names = []
+        var _flags = []
+        var _methods = []
+        var _times = []
+        var _dates = []
+        var _crcs = []
+        var _csizes = []
+        var _usizes = []
+        var _loffs = []
+        _pos = _cd_off
+        for (var k = 0; k < _count; k++) {
+            if (buffer_peek(_in, _pos, buffer_u32) != 0x02014b50) {
+                buffer_delete(_out)
+                buffer_delete(_in)
+                return -1
+            }
+            var _fl = buffer_peek(_in, _pos + 8, buffer_u16)
+            var _me = buffer_peek(_in, _pos + 10, buffer_u16)
+            var _tm = buffer_peek(_in, _pos + 12, buffer_u16)
+            var _dt = buffer_peek(_in, _pos + 14, buffer_u16)
+            var _crc = buffer_peek(_in, _pos + 16, buffer_u32)
+            var _cs = buffer_peek(_in, _pos + 20, buffer_u32)
+            var _us = buffer_peek(_in, _pos + 24, buffer_u32)
+            var _nl = buffer_peek(_in, _pos + 28, buffer_u16)
+            var _el = buffer_peek(_in, _pos + 30, buffer_u16)
+            var _cl = buffer_peek(_in, _pos + 32, buffer_u16)
+            var _loff = buffer_peek(_in, _pos + 42, buffer_u32)
+            if (_nl > 4096 or _el > 4096 or (_pos + 46 + _nl) > _size) {
+                buffer_delete(_out)
+                buffer_delete(_in)
+                return -1
+            }
+            var _name_off = _pos + 46
+            _pos += 46 + _nl + _el + _cl
+            // zip64 / 加密：不支持，交回旧逻辑
+            if (_cs == 4294967295 or _us == 4294967295 or _loff == 4294967295 or (_fl & 1) != 0) {
+                buffer_delete(_out)
+                buffer_delete(_in)
+                return -1
+            }
+            var _is_dir = (_nl > 0 and buffer_peek(_in, _name_off + _nl - 1, buffer_u8) == 0x2F)
+            if (_is_dir) {
+                continue
+            }
+            // json 里的资源引用是"相对 json 所在目录"的**纯文件名**（如 ".\/Bgm.ogg"），
+            // 所以映射里的旧名必须取 **basename**（去掉 zip 里的目录前缀），否则替换匹配不上 →
+            // 表现为 "Failed to load audio for .../x.json: laboratory/Bgm.ogg"（引用仍指向旧名）
+            var _slash = 0
+            for (var j = _nl - 1; j >= 0; j--) {
+                if (buffer_peek(_in, _name_off + j, buffer_u8) == 0x2F) {
+                    _slash = j + 1
+                    break
+                }
+            }
+            var _old = self.utf8_name_from_buffer(_in, _name_off + _slash, _nl - _slash)
+            // 扩展名：名字末尾的 '.' 之后是 1~5 个 ASCII 字母数字才采用
+            var _ext = ""
+            var _dot = -1
+            for (var j = _nl - 1; j >= 0; j--) {
+                if (buffer_peek(_in, _name_off + j, buffer_u8) == 0x2E) {
+                    _dot = j
+                    break
+                }
+            }
+            var _ext_ok = false
+            if (_dot >= 0 and (_nl - _dot - 1) >= 1 and (_nl - _dot - 1) <= 5) {
+                _ext_ok = true
+                for (var j = _dot + 1; j < _nl; j++) {
+                    var _ec = buffer_peek(_in, _name_off + j, buffer_u8)
+                    if (!((_ec >= 48 and _ec <= 57) or (_ec >= 65 and _ec <= 90) or (_ec >= 97 and _ec <= 122))) {
+                        _ext_ok = false
+                        break
+                    }
+                }
+            }
+            if (_ext_ok) {
+                for (var j = _dot + 1; j < _nl; j++) {
+                    _ext += chr(buffer_peek(_in, _name_off + j, buffer_u8))
+                }
+                _ext = string_lower(_ext)
+            }
+            var _new = _prefix + "_file_" + string(array_length(_names))
+            if (_ext != "") {
+                _new += "." + _ext
+            }
+            // 数据起点：局部头 + 30 + 局部名长 + 局部 extra 长
+            if (_loff + 30 > _size) {
+                buffer_delete(_out)
+                buffer_delete(_in)
+                return -1
+            }
+            var _lnl = buffer_peek(_in, _loff + 26, buffer_u16)
+            var _lel = buffer_peek(_in, _loff + 28, buffer_u16)
+            var _data_off = _loff + 30 + _lnl + _lel
+            if (_data_off + _cs > _size) {
+                buffer_delete(_out)
+                buffer_delete(_in)
+                return -1
+            }
+            var _local_off = buffer_tell(_out)
+            var _nlen_new = string_length(_new)
+            buffer_write(_out, buffer_u32, 0x04034b50)
+            buffer_write(_out, buffer_u16, 20)
+            buffer_write(_out, buffer_u16, _fl & ~8)
+            buffer_write(_out, buffer_u16, _me)
+            buffer_write(_out, buffer_u16, _tm)
+            buffer_write(_out, buffer_u16, _dt)
+            buffer_write(_out, buffer_u32, _crc)
+            buffer_write(_out, buffer_u32, _cs)
+            buffer_write(_out, buffer_u32, _us)
+            buffer_write(_out, buffer_u16, _nlen_new)
+            buffer_write(_out, buffer_u16, 0)
+            buffer_write(_out, buffer_text, _new)
+            buffer_copy(_in, _data_off, _cs, _out, _local_off + 30 + _nlen_new)
+            buffer_seek(_out, buffer_seek_end, 0)
+            array_push(_names, _new)
+            array_push(_flags, _fl & ~8)
+            array_push(_methods, _me)
+            array_push(_times, _tm)
+            array_push(_dates, _dt)
+            array_push(_crcs, _crc)
+            array_push(_csizes, _cs)
+            array_push(_usizes, _us)
+            array_push(_loffs, _local_off)
+            array_push(_map, [_old, _new])
+        }
+        if (array_length(_names) <= 0) {
+            buffer_delete(_out)
+            buffer_delete(_in)
+            return -1
+        }
+        // 4) 中央目录 + EOCD
+        var _cd_start = buffer_tell(_out)
+        var _n_total = array_length(_names)
+        for (var k = 0; k < _n_total; k++) {
+            var _nm = _names[k]
+            buffer_write(_out, buffer_u32, 0x02014b50)
+            buffer_write(_out, buffer_u16, 20)
+            buffer_write(_out, buffer_u16, 20)
+            buffer_write(_out, buffer_u16, _flags[k])
+            buffer_write(_out, buffer_u16, _methods[k])
+            buffer_write(_out, buffer_u16, _times[k])
+            buffer_write(_out, buffer_u16, _dates[k])
+            buffer_write(_out, buffer_u32, _crcs[k])
+            buffer_write(_out, buffer_u32, _csizes[k])
+            buffer_write(_out, buffer_u32, _usizes[k])
+            buffer_write(_out, buffer_u16, string_length(_nm))
+            buffer_write(_out, buffer_u16, 0)
+            buffer_write(_out, buffer_u16, 0)
+            buffer_write(_out, buffer_u16, 0)
+            buffer_write(_out, buffer_u16, 0)
+            buffer_write(_out, buffer_u32, 0)
+            buffer_write(_out, buffer_u32, _loffs[k])
+            buffer_write(_out, buffer_text, _nm)
+        }
+        var _cd_size = buffer_tell(_out) - _cd_start
+        buffer_write(_out, buffer_u32, 0x06054b50)
+        buffer_write(_out, buffer_u16, 0)
+        buffer_write(_out, buffer_u16, 0)
+        buffer_write(_out, buffer_u16, _n_total)
+        buffer_write(_out, buffer_u16, _n_total)
+        buffer_write(_out, buffer_u32, _cd_size)
+        buffer_write(_out, buffer_u32, _cd_start)
+        buffer_write(_out, buffer_u16, 0)
+        // 注意：本 runtime 的 buffer_save_ext 第 4 个参数**不是文件名**
+        // （实测报错 "buffer_save_ext argument 4 incorrect type (string) expecting a Number"），
+        // 所以改用 buffer_resize 把 buffer 裁到实际写入长度 + buffer_save 保存整个 buffer。
+        var _final = buffer_tell(_out);
+        buffer_resize(_out, _final);
+        buffer_save(_out, _dst)
+        buffer_delete(_out)
+        buffer_delete(_in)
+        return _n_total
+    }
+
     /// @param {String} _title
     /// @returns {Real} 该地图可用于列表扫描的关卡 json 数（0 = 未成功下载）
     /// 优先数**根级**（提升上去的那份，列表的扫描必然能看到），没有则回退数下载目录。
@@ -206,6 +499,10 @@ function MapDownloadManager() constructor {
             }
             file_text_write_string(_w, _txt)
             file_text_close(_w)
+            // 删掉下载目录里的原 json：否则实验室根级的**递归**扫描会同时看到"根级副本"与
+            // "download/<dir>/ 里那份"，同一张地图在列表里出现两次（资源仍留在下载目录，
+            // 根级 json 已把引用改写成 download/<dir>/xxx，所以删掉原 json 不影响加载）
+            file_delete(_jp)
             _promoted++
         }
         return _promoted
@@ -532,21 +829,59 @@ function MapDownloadManager() constructor {
     static unzip_to_title = function(_zip_path, _title) {
         var _zip = _zip_path          // 沙盒**相对**路径（zip_unzip 要相对路径，勿再 to_native_absolute）
         var _dest = self.get_download_folder(_title)
+        var _root = string_replace_all(self.laboratory_appdata(), "\\", "/")
+        var _prefix = self.ascii_dir_name(_title)
         show_debug_message("[OnlineMap] unzip " + _zip + " -> " + _dest)
-        global.unzip_diag += " | title=" + string(_title) + " dest=" + _dest
+        global.unzip_diag += " | title=" + string(_title)
         var _bad_name = self.zip_name_is_non_utf8(_zip)
-        global.unzip_diag += " | 名字非UTF8=" + string(_bad_name)
-        if (_bad_name) {
-            global.unzip_diag += " | 包内文件名为 GBK（非 UTF-8），安卓 zip_unzip 写盘会失败"
+        // ── 路径 A（首选）：把包内条目名重写成 "<prefix>_file_N.ext"（全 ASCII 扁平）后**直接解压到实验室根级**。
+        // 一次绕开三个坑：①安卓沙盒对非 ASCII 文件名失配（file_find/file_copy/sprite_add）；
+        // ②实验室列表递归扫描子目录失配；③"根级副本 + 下载目录副本"被加载两次。
+        var _map = []
+        var _ascii_zip = _zip + ".ascii.zip"
+        var _rewritten = -1
+        // 兜底：zip 结构千奇百怪（zip64/加密/截断），重写里任何越界或异常都不能让游戏崩
+        try {
+            _rewritten = self.zip_rewrite_names_ascii(_zip, _ascii_zip, _prefix, _map)
+        } catch (_e) {
+            global.unzip_diag += " | 重写异常: " + string(_e.message)
+            _rewritten = -1
+        }
+        global.unzip_diag += " | 名字非UTF8=" + string(_bad_name) + " 重写条目=" + string(_rewritten)
+        if (_rewritten > 0) {
+            var _code_a = native_unzip_map_file(_ascii_zip, _root)
+            if (file_exists(_ascii_zip)) {
+                file_delete(_ascii_zip)
+            }
+            var _jsons_a = []
+            var _it = file_find_first(_root + "/" + _prefix + "_file_*.json", fa_archive | fa_readonly)
+            while (_it != "") {
+                array_push(_jsons_a, _root + "/" + _it)
+                _it = file_find_next()
+            }
+            file_find_close()
+            for (var j = 0; j < array_length(_jsons_a); j++) {
+                self.patch_stage_json(_jsons_a[j], _map)
+            }
+            var _n_a = self.count_stage_jsons(_title)
+            global.unzip_diag += " | 路径A: 解压码=" + string(_code_a) + " json=" + string(_n_a)
+            if (_n_a > 0) {
+                show_debug_message("[OnlineMap] unzip_diag: " + string(global.unzip_diag))
+                return 0
+            }
+            global.unzip_diag += " | 路径A 未成功，回退路径B"
+        } else if (_bad_name) {
+            global.unzip_diag += " | 包内文件名为 GBK（非 UTF-8）且重写未生效，安卓 zip_unzip 写盘会失败"
             return -3
         }
+        // ── 路径 B（回退）：解压到 download/<dir>/ → 平铺改名 → 提升 json 到根级
         var _code = native_unzip_map_file(_zip, _dest)
         if (!directory_exists(_dest)) {
             global.unzip_diag += " | 解压后目标目录不存在";
             return (_code != 0) ? _code : -1
         }
         // 解压结果：平铺 + ASCII 改名（旧名→新名映射），随后改写 json 内引用
-        var _map = []
+        _map = []
         var _moved = self.ascii_flatten(_dest, _dest, _map)
         var _jsons = self.file_util.find_files_with_extension_recursively(_dest, ".json")
         for (var j = 0; j < array_length(_jsons); j++) {

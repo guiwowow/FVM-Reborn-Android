@@ -177,7 +177,7 @@ function handle_item_action(_item) {
 
 function start_download(_item) {
     if (_item.map_file == "") {
-        show_message_async("该地图没有可下载的文件")
+        show_error_dialog("无法下载", "该地图没有可下载的文件。")
         return
     }
     if (self.state.manager.is_downloaded(_item.title)) {
@@ -190,7 +190,7 @@ function start_download(_item) {
     self.state.busy = true
     self.state.status_text = "正在下载 " + _item.title + "…"
     // 身份诊断：把这一条的身份与路径写进 unzip_diag，后续 native/解压各步会继续追加
-    global.unzip_diag = "「" + string(_item.title) + "」 id=" + string(_item.id) + " map_file=" + string(_item.map_file) + " ext=" + string(_ext) + " cache=" + string(_dest)
+    global.unzip_diag = "title=" + string(_item.title) + " id=" + string(_item.id) + " map_file=" + string(_item.map_file) + " ext=" + string(_ext) + " cache=" + string(_dest)
     var _id = http_get_file(_url, _dest)
     track_request(_id, {kind: "zip", item_id: _item.id, dest: _dest})
 }
@@ -201,14 +201,15 @@ function finish_download(_item, _dest) {
     if (_code != 0) {
         self.state.status_text = "解压失败"
         if (_code == -2) {
-            // 上游服务器上确实有 2/78 个地图是 .rar（Windows 侧用 7-Zip 才能解），
-            // 安卓内置只有标准 zip 解压 → 提示作者重新上传 zip 版
-            show_message_async("「" + string(_item.title) + "」的地图包是 .rar，安卓端不支持（仅标准 zip）。\n请让作者重新上传 .zip 版本。")
+            // 上游服务器上确实有 2/78 个地图是 .rar（Windows 侧用 7-Zip 才能解）
+            show_error_dialog("不支持的压缩包", "地图包（" + string(_item.title) + "）是 .rar 格式，安卓端不支持（仅标准 zip）。\n请让作者重新上传 .zip 版本。")
         } else if (_code == -3) {
-            // 全站 78 包里只有 2 个是这种（文件名 GBK、非 UTF-8）：星渊岛 / 魔塔蛋糕50层
-            show_message_async("「" + string(_item.title) + "」的压缩包文件名不是 UTF-8 编码（旧版打包工具），\n安卓无法解压。请让作者用新版 7-Zip 重新打包上传。")
+            // 压缩包文件名不是 UTF-8（旧版打包工具）
+            show_error_dialog("压缩包格式过旧", "压缩包（" + string(_item.title) + "）的文件名不是 UTF-8 编码（旧版打包工具），安卓无法解压。\n请让作者用新版 7-Zip 重新打包上传。")
         } else {
-            show_message_async("解压地图失败，请重试；若持续失败请让作者重新打包上传。\n（错误码 " + string(_code) + "）")
+            // 失败详情写进正文：点【导出错误报告】即可复制完整链路诊断
+            // （try0/1/2 返回值 · 平铺改名数 · json 数 · 提升根级数）
+            show_error_dialog("地图下载失败", "解压（" + string(_item.title) + "）失败（错误码 " + string(_code) + "）。\n可点[导出错误报告]把详细信息发给开发者。\n\n" + string(global.unzip_diag))
         }
         return
     }

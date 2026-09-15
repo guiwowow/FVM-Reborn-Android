@@ -84,8 +84,7 @@ function refresh_custom_stages() {
     self.state.laboratory_manager.reset()
     var _result = self.state.laboratory_manager.load_all_stages()
     if (_result.is_failed()) {
-        show_message_async("加载某些关卡出现问题，日志已经复制到剪贴板中")
-        clipboard_set_text(_result.message)
+        show_error_dialog("加载关卡失败", "有部分关卡加载失败，它们不会出现在列表里。\n点[导出错误报告]可复制完整原因。\n\n" + string(_result.message))
     }
     self.state.stage_ids = self.state.laboratory_manager.get_stage_ids()
     apply_local_filter()
@@ -193,7 +192,7 @@ function create_widgets() {
             if (_online_visible) {
                 close_fn()
             } else {
-                show_message_async("本地关卡已取消内置，请点【在线】从服务器下载关卡")
+                show_error_dialog("提示", "本地关卡已取消内置，请点[在线]从服务器下载关卡。")
             }
         }))
 
