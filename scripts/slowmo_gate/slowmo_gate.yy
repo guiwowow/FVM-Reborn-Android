@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"slowmo_gate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"slowmo_gate",
+  "parent":{
+    "name":"assistant",
+    "path":"folders/脚本/assistant.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

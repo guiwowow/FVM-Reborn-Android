@@ -23,6 +23,9 @@ function in_battle_hud() {
     return instance_exists(obj_shovel_slot) || instance_exists(obj_card_slot)
 }
 
+// 选卡缓时门控 slowmo_gate() 已移入 script 资源 scripts/slowmo_gate/slowmo_gate.gml
+// （写在对象事件里会变成该实例的方法，其它对象调用会报 not set before reading it ✗）
+
 
 // 帧耗时监控（安卓卡顿定位用）
 _prev_frame_time = 0;
