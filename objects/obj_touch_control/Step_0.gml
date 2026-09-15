@@ -71,6 +71,17 @@ if (os_type != os_windows) {
 // 选卡缓时：选中卡片或铲子时战斗逻辑 12 倍减速（保持 60fps 渲染，逻辑对象每 12 帧推进）
 // 帧号每帧 +1（本对象 depth 最大，Step 最先执行，其他对象读到的都是本帧值）
 global.game_frame = (global.game_frame + 1) mod 12;
+
+// 双指手势冷却：第二指抬起后再屏蔽单指点击若干帧（防"松手瞬间误触"，见 two_finger_gesture_active）
+// 放这里是因为本对象每帧必跑 → 即使滚动调用点所在实例被销毁，冷却也会自然走完，不会永久屏蔽。
+if (!variable_global_exists("two_finger_cooldown")) {
+    global.two_finger_cooldown = 0;
+}
+if (device_mouse_check_button(1, mb_left)) {
+    global.two_finger_cooldown = SLOWMO_TWO_FINGER_COOLDOWN;
+} else if (global.two_finger_cooldown > 0) {
+    global.two_finger_cooldown -= 1;
+}
 if (instance_exists(obj_battle)) {
     var _slow_selected = false;
     with (obj_card_slot) {

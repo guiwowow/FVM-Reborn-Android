@@ -248,7 +248,7 @@ function apply_scrollbar_input() {
     var _over_track = point_in_rectangle(_mx, _my, _m.track_x, _m.track_y, _m.track_x + _m.track_w, _m.track_y + _m.track_h)
     var _over_thumb = point_in_rectangle(_mx, _my, _m.thumb_x, _m.thumb_y, _m.thumb_x + _m.thumb_w, _m.thumb_y + _m.thumb_h)
 
-    if (mouse_check_button_pressed(mb_left) && _over_track) {
+    if (mouse_check_button_pressed(mb_left) && _over_track && !two_finger_gesture_active()) {
         if (_over_thumb) {
             self.state.scrollbar_dragging = true
             self.state.scrollbar_drag_offset = _my - _m.thumb_y

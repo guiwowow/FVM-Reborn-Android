@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"two_finger_scroll",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"two_finger_scroll",
+  "parent":{
+    "name":"assistant",
+    "path":"folders/脚本/assistant.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -60,8 +60,8 @@ if (is_hovered) {
     hover_alpha = 0
 }
 
-// 检测鼠标点击（选中卡槽）
-if (is_ready && mouse_check_button_pressed(mb_left)) {
+// 检测鼠标点击（选中卡槽）；双指手势中屏蔽，防误触
+if (is_ready && mouse_check_button_pressed(mb_left) && !two_finger_gesture_active()) {
     mx = mouse_x;
     my = mouse_y;
     
